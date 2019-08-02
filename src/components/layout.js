@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import Header from './header'
 
-import './layout.css'
+import 'normalize.css'
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata()
