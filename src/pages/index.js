@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import usePosts from '../hooks/use-posts'
 import Layout from "../components/layout"
