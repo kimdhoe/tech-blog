@@ -2,7 +2,6 @@ import React from "react"
 
 import usePosts from '../hooks/use-posts'
 import Layout from "../components/layout"
-import Hero from '../components/hero'
 import PostPreview from "../components/post-preview"
 import Insta from '../components/insta'
 
@@ -11,7 +10,6 @@ const IndexPage = () => {
 
   return (
     <>
-      <Hero />
       <Layout>
         <h2>Read my blog</h2>
 

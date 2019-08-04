@@ -5,7 +5,9 @@ import Layout from "../components/layout"
 
 export default () => (
   <Layout>
-    <h2>About Me</h2>
-    <Link to="/">&larr; Home</Link>
+    <h2>About</h2>
+    <p>
+      This page is currently under construction.
+    </p>
   </Layout>
 )
