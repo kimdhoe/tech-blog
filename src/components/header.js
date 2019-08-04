@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 
@@ -14,7 +14,9 @@ const NAV_ITEMS = [
 const Header = ({ siteTitle }) => (
   <header css={styles.container}>
     <div css={styles.wrapper}>
-      <Link css={styles.title} to="/">{siteTitle}</Link>
+      <Link css={styles.title} to="/">
+        {siteTitle}
+      </Link>
       <Nav />
     </div>
   </header>

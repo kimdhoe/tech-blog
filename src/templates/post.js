@@ -20,15 +20,15 @@ export const query = graphql`
 
 const PostTemplate = ({ data: { mdx } }) => (
   <Layout>
-    <h1>
-      {mdx.frontmatter.title}
-    </h1>
-    <p css={css`font-size: 0.75rem;`}>
+    <h1>{mdx.frontmatter.title}</h1>
+    <p
+      css={css`
+        font-size: 0.75rem;
+      `}
+    >
       Posted by {mdx.frontmatter.author}
     </p>
-    <MDXRenderer>
-      {mdx.body}
-    </MDXRenderer>
+    <MDXRenderer>{mdx.body}</MDXRenderer>
     <ReadLink to="/">&larr; back to all posts</ReadLink>
   </Layout>
 )

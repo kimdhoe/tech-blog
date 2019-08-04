@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
 import usePosts from '../hooks/use-posts'
-import Layout from "../components/layout"
-import PostPreview from "../components/post-preview"
+import Layout from '../components/layout'
+import PostPreview from '../components/post-preview'
 import Insta from '../components/insta'
 
 const IndexPage = () => {

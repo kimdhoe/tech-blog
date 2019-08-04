@@ -51,14 +51,10 @@ const Hero = () => {
   `)
 
   return (
-    <ImageBackground tag="section" fluid={image.sharp.fluid} >
+    <ImageBackground tag="section" fluid={image.sharp.fluid}>
       <TextBox>
-        <h1>
-          I Just Made A Technical Blog
-        </h1>
-        <p>
-          Hello World!
-        </p>
+        <h1>I Just Made A Technical Blog</h1>
+        <p>Hello World!</p>
       </TextBox>
     </ImageBackground>
   )

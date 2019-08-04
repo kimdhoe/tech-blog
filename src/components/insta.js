@@ -27,7 +27,7 @@ const Insta = () => {
               box-shadow: 0;
               display: block;
               margin: 0.5rem;
-              max-width:  cacl(33% - 1rem);
+              max-width: cacl(33% - 1rem);
               width: 120px;
               transition: 200ms box-shadow linear;
 
@@ -36,7 +36,7 @@ const Insta = () => {
                 box-shadow: 0 2px 14px #22222244;
                 z-index: 10;
               }
-           `}
+            `}
           >
             <Image
               fluid={photo.fluid}

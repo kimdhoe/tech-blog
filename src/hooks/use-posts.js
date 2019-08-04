@@ -11,10 +11,7 @@ const usePosts = () => {
             author
             image {
               childImageSharp {
-                fluid(
-                  maxWidth: 100
-                  maxHeight: 100
-                ) {
+                fluid(maxWidth: 100, maxHeight: 100) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 const useLogo = () => {
   const data = useStaticQuery(graphql`
     query {
-      imageSharp(fluid: {originalName: { eq: "logo.png" }}) {
+      imageSharp(fluid: { originalName: { eq: "logo.png" } }) {
         fluid {
           ...GatsbyImageSharpFluid_withWebp
         }
