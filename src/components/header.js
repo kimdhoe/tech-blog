@@ -14,9 +14,11 @@ const NAV_ITEMS = [
 const Header = ({ siteTitle }) => (
   <header css={styles.container}>
     <div css={styles.wrapper}>
-      <Link css={styles.title} to="/">
-        {siteTitle}
-      </Link>
+      <h1 css={styles.title}>
+        <Link css={styles.titleLink} to="/">
+          {siteTitle}
+        </Link>
+      </h1>
       <Nav />
     </div>
   </header>
@@ -53,10 +55,13 @@ const styles = {
     justify-content: space-between;
   `,
   title: css`
-    font-family: 'Dank Mono', 'Helvatica Neue', 'Helvetica', 'Arial', serif;
-    font-style: italic;
+    margin: 0;
+    font-size: 1.35rem;
+  `,
+  titleLink: css`
+    font-weight: bold;
     text-decoration: none;
-    color: #444;
+    color: #222;
   `,
   nav: css`
     margin-top: 0;
@@ -73,7 +78,7 @@ const styles = {
   navListItemLink: css`
     font-family: 'Dank Mono';
     text-decoration: none;
-    color: #444;
+    color: #222;
 
     &.current-page {
       border-bottom: 2px solid #222;
