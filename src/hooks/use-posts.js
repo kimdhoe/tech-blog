@@ -7,8 +7,10 @@ const usePosts = () => {
         nodes {
           frontmatter {
             title
+            date(formatString: "MMMM D, YYYY")
             slug
             author
+            summary
             image {
               childImageSharp {
                 fluid(maxWidth: 100, maxHeight: 100) {
@@ -17,7 +19,6 @@ const usePosts = () => {
               }
             }
           }
-          excerpt
         }
       }
     }
@@ -26,9 +27,10 @@ const usePosts = () => {
   return data.allMdx.nodes.map(post => ({
     title: post.frontmatter.title,
     author: post.frontmatter.author,
+    summary: post.frontmatter.summary,
     slug: post.frontmatter.slug,
+    date: post.frontmatter.date,
     image: post.frontmatter.image,
-    excerpt: post.excerpt,
   }))
 }
 

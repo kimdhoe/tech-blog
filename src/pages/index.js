@@ -11,8 +11,6 @@ const IndexPage = () => {
   return (
     <>
       <Layout>
-        <h2>Read my blog</h2>
-
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />
         ))}

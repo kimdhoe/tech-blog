@@ -41,6 +41,7 @@ const styles = {
       box-sizing: inherit;
     }
     body {
+      font-size: 15px;
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans KR', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
