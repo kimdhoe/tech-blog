@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'DHK.party',
+    title: 'dhk.party',
     description: 'This is my tech blog.',
     author: 'Donghee Kim',
   },

@@ -41,15 +41,17 @@ const styles = {
       box-sizing: inherit;
     }
     body {
-      font-size: 15px;
+      font-size: 14px;
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans KR', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
+      background-color: #f9f8f4;
+      color: #052a4e;
     }
   `,
   main: css`
-    margin: 2rem auto 4rem;
+    margin: 3.5rem auto 4rem;
     max-width: 90vw;
     width: 550px;
   `,
