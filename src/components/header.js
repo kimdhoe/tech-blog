@@ -56,9 +56,11 @@ const styles = {
   `,
   title: css`
     margin: 0;
-    font-size: 1.35rem;
   `,
   titleLink: css`
+    font-size: 1.35rem;
+    font-family: 'Futura', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
+      'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif;
     font-weight: bold;
     text-decoration: none;
     color: #222;
@@ -84,7 +86,19 @@ const styles = {
     color: #222;
 
     &.current-page {
-      border-bottom: 2px solid #555;
+      position: relative;
+
+      ::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: -0.3rem;
+        transform: translateX(-50%);
+        border-radius: 2px;
+        width: 4px;
+        height: 4px;
+        background: #868e96;
+      }
     }
   `,
 }
