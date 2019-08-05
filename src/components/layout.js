@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet" />
       </Helmet>
       <Header siteTitle={title} />
       <main css={styles.main}>{children}</main>
@@ -41,8 +42,9 @@ const styles = {
     }
     body {
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
-        'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif, 'Apple Color Emoji',
-        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans KR', sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
     }
   `,
   main: css`

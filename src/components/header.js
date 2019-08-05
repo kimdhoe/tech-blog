@@ -4,10 +4,10 @@ import { Link } from 'gatsby'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/now', label: 'Now' },
   { to: '/dev', label: 'Dev' },
-  { to: '/archive', label: 'Archive' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/now', label: 'Now' },
+  { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -76,12 +76,15 @@ const styles = {
     margin: 0 0 0 1.5rem;
   `,
   navListItemLink: css`
-    font-family: 'Dank Mono';
+    margin-left: 0.04rem;
+    padding: 0.1rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.03rem;
     text-decoration: none;
     color: #222;
 
     &.current-page {
-      border-bottom: 2px solid #222;
+      border-bottom: 2px solid #555;
     }
   `,
 }

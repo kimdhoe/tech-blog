@@ -20,7 +20,7 @@ export const query = graphql`
 
 const PostTemplate = ({ data: { mdx } }) => (
   <Layout>
-    <h1>{mdx.frontmatter.title}</h1>
+    <h2>{mdx.frontmatter.title}</h2>
     <p
       css={css`
         font-size: 0.75rem;
@@ -28,9 +28,17 @@ const PostTemplate = ({ data: { mdx } }) => (
     >
       Posted by {mdx.frontmatter.author}
     </p>
-    <MDXRenderer>{mdx.body}</MDXRenderer>
+    <div css={styles.body}>
+      <MDXRenderer>{mdx.body}</MDXRenderer>
+    </div>
     <ReadLink to="/">&larr; back to all posts</ReadLink>
   </Layout>
 )
+
+const styles = {
+  body: css`
+    font-family: 'Georgia', 'Noto Sans KR', sans-serif;
+  `,
+}
 
 export default PostTemplate
