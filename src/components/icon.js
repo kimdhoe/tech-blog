@@ -3,7 +3,7 @@ import feather from 'feather-icons'
 import { css } from '@emotion/core'
 
 const Icon = ({ name, attrs }) => (
-  <div
+  <span
     css={styles.container}
     dangerouslySetInnerHTML={{ __html: feather.icons[name].toSvg(attrs) }}
   />

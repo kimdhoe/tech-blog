@@ -3,8 +3,6 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
-import useLogo from '../hooks/use-logo'
-
 const NAV_ITEMS = [
   { to: '/', label: 'Home' },
   { to: '/dev', label: 'Dev' },
@@ -14,15 +12,13 @@ const NAV_ITEMS = [
   { to: '/contact', label: 'Contact' },
 ]
 
-const Header = ({ siteTitle }) => {
-  const logo = useLogo()
-
+const Header = ({ siteTitle, logo }) => {
   return (
     <header css={styles.container}>
       <div css={styles.wrapper}>
         <Link css={styles.title} to="/">
           <div css={styles.logo}>
-            <Image fluid={logo.fluid} />
+            <Image css={styles.logoImg} fixed={logo.fixed} />
           </div>
           <h1 css={styles.titleText}>
             {siteTitle}
@@ -68,6 +64,7 @@ const styles = {
   logo: css`
     margin-right: 0.7rem;
     width: 43px;
+    height: 34px;
   `,
   logoImg: css`
     width: 100%;

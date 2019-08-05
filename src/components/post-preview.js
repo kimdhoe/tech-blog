@@ -7,7 +7,7 @@ import Icon from './icon';
 
 const PostPreview = ({ post }) => (
   <Container>
-    <Link css={styles.link} to={post.slug}>
+    <Link css={styles.link} to={'/' + post.slug}>
       <h3 css={styles.title}>
         <span css={styles.titleText}>
           {post.title}

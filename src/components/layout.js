@@ -4,12 +4,14 @@ import Helmet from 'react-helmet'
 import { Global, css } from '@emotion/core'
 
 import useSiteMetadata from '../hooks/use-sitemetadata'
+import useLogo from '../hooks/use-logo'
 import Header from './header'
 
 import 'normalize.css'
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata()
+  const logo = useLogo()
 
   return (
     <>
@@ -20,7 +22,7 @@ const Layout = ({ children }) => {
         <meta name="description" content={description} />
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet" />
       </Helmet>
-      <Header siteTitle={title} />
+      <Header siteTitle={title} logo={logo} />
       <main css={styles.main}>{children}</main>
     </>
   )
