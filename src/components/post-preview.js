@@ -33,7 +33,7 @@ const PostPreview = ({ post }) => (
 
 const Container = styled.article`
   display: block;
-  margin-bottom: 3.888rem;
+  margin-bottom: 5rem;
   color: #212529;
 `
 
@@ -104,7 +104,7 @@ const styles = {
   `,
   readIcon: css`
     margin: 0 0 0 0.2rem;
-    transform: translateX(-0.25rem);
+    transform: translateX(-0.35rem);
     transition: all 0.2s ease-out;
     opacity: 0;
 

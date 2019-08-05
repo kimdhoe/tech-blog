@@ -101,6 +101,7 @@ const styles = {
       left: 50%;
       top: 0rem;
       transform: translateX(-50%);
+      transition: all 0.12s ease-out;
       border-radius: 2px;
       width: 4px;
       height: 4px;
@@ -110,12 +111,14 @@ const styles = {
     :hover {
       ::before {
         background: #dee2e6;
+        transform: translate(-50%,-0.3rem);
       }
     }
 
     &.current-page {
       ::before {
         background: #868e96;
+        transform: translate(-50%,0);
       }
     }
   `,
