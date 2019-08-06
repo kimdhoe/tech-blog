@@ -60,7 +60,7 @@ const BackLink = styled(Link)`
   color: #868e96;
   transition: color 0.1s ease-out;
 
-  ${BackLink}:hover {
+  &:hover {
     color: #555;
   }
 `
