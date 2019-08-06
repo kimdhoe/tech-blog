@@ -6,11 +6,12 @@ import { Global, css } from '@emotion/core'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import useLogo from '../hooks/use-logo'
 import Header from './header'
+import Footer from './footer'
 
 import 'normalize.css'
 
 const Layout = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title, description, author } = useSiteMetadata()
   const logo = useLogo()
 
   return (
@@ -22,8 +23,11 @@ const Layout = ({ children }) => {
         <meta name="description" content={description} />
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet" />
       </Helmet>
-      <Header siteTitle={title} logo={logo} />
-      <main css={styles.main}>{children}</main>
+      <div css={styles.wrapper}>
+        <Header siteTitle={title} logo={logo} />
+        <main css={styles.main}>{children}</main>
+        <Footer author={author} />
+      </div>
     </>
   )
 }
@@ -52,7 +56,13 @@ const styles = {
       color: #052a4e;
     }
   `,
+  wrapper: css`
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  `,
   main: css`
+    flex: 1;
     margin: 3.5rem auto 4rem;
     max-width: 90vw;
     width: 700px;
