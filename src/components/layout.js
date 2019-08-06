@@ -40,6 +40,7 @@ const styles = {
   global: css`
     html {
       box-sizing: border-box;
+      font-size: 15px;
     }
     *,
     *:before,
@@ -48,8 +49,8 @@ const styles = {
     }
     body {
       font-size: 14px;
-      font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
-        'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans KR', sans-serif,
+      font-family: -apple-system, 'BlinkMacSystemFont', 'Noto Sans KR', 'Segoe UI', 'Roboto',
+        'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
       background-color: #f9f8f4;
@@ -63,9 +64,9 @@ const styles = {
   `,
   main: css`
     flex: 1;
-    margin: 3.5rem auto 4rem;
-    max-width: 90vw;
-    width: 700px;
+    margin: 3.5rem auto 9rem;
+    max-width: 630px;
+    width: 90vw;
   `,
 }
 
