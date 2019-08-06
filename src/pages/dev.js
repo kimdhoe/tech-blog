@@ -13,9 +13,9 @@ export default () => (
 
     <figure css={styles.epigraph}>
       <blockquote css={styles.epigraphQuote}>
-        The best way to do it is to do it
+        Wait. Compiling...
       </blockquote>
-      <figcaption css={styles.epigraphAuthor}>Amelia Earhart</figcaption>
+      <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
     </figure>
 
     <div css={styles.entries}>
@@ -58,11 +58,12 @@ const styles = {
     margin: 8rem 0 7rem;
     display: flex;
     align-items: center;
-    color: #495057;
+    color: #555;
   `,
   epigraphQuote: css`
     margin: 0;
-    letter-spacing: 0.04rem;
+    letter-spacing: 0.08rem;
+    font-size: 0.889rem;
     text-transform: uppercase;
   `,
   epigraphAuthor: css`
