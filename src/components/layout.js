@@ -53,7 +53,7 @@ const styles = {
         'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
-      background-color: #f9f8f4;
+      background-color: #f9f8f2;
       color: #052a4e;
     }
   `,

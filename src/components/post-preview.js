@@ -23,7 +23,7 @@ const PostPreview = ({ post }) => (
             Read this post
           </span>
           <span css={styles.readIcon}>
-            <Icon name="arrow-right" attrs={{ width: 16, color: '#222' }} />
+            <Icon name="arrow-right" attrs={{ width: 14, color: '#333' }} />
           </span>
         </p>
       </div>
@@ -32,6 +32,7 @@ const PostPreview = ({ post }) => (
 )
 
 const Container = styled.article`
+  position: relative;
   display: block;
   margin-bottom: 5rem;
   color: #212529;
@@ -44,31 +45,29 @@ const styles = {
     color: #212529;
   `,
   title: css`
+    display: inline-block;
     margin: 0 0 1.424rem 0;
+    padding-top: 1.424rem;
+    border-top: 1px solid #495057;
     font-size: 1.424rem;
     text-decoration: none;
   `,
   titleText: css`
     padding-bottom: 0.4rem;
     line-height: 1.65;
-    background: linear-gradient(to right, #fd8283 0%, #fd8283);
-    background-repeat: no-repeat;
-    background-size: 0 0.2rem;
-    background-position: 0 100%;
-    transition: background-size 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
-
-    ${Container}:hover & {
-      background-size: 100% 0.2rem;
-    }
   `,
   summary: css`
-    margin: 0 0 1.424rem 0;
-    line-height: 1.7;
+    margin: 0 0 1.266rem 0;
+    line-height: 1.9;
   `,
   summaryText: css`
     padding: 0.5rem 0 0.75rem 0;
-    background: white;
-    box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+    transition: all 0.2s ease-out;
+
+    ${Container}:hover & {
+      background: white;
+      box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+    }
   `,
   footer: css`
     display: flex;
@@ -90,27 +89,31 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+
+    ${Container}:hover & {
+      opacity: 1;
+    }
   `,
   readText: css`
-    padding-bottom: 0.3rem;
-    border-bottom: 3px solid #a7edffaa;
     letter-spacing: 0.01rem;
     font-size:0.79rem;
     font-family: Dank Mono;
+    transform: translateX(-0.25rem);
+    transition: all 0.2s ease-out;
 
     ${Container}:hover & {
-      border-color: #a7edff;
+      transform: translateX(0);
     }
   `,
   readIcon: css`
     margin: 0 0 0 0.2rem;
-    transform: translateX(-0.35rem);
-    transition: all 0.2s ease-out;
-    opacity: 0;
+    transform: translateX(-0.2rem);
+    transition: all 0.15s ease-out;
 
     ${Container}:hover & {
       transform: translateX(0);
-      opacity: 1;
     }
   `,
 }
