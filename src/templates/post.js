@@ -4,7 +4,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import ReadLink from '../components/read-link'
 import Icon from '../components/icon'
 
 export const query = graphql`
