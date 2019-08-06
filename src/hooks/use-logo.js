@@ -5,7 +5,7 @@ const useLogo = () => {
     query {
       imageSharp(fluid: { originalName: { eq: "logo.png" } }) {
         fixed(width: 43) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

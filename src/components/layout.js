@@ -55,7 +55,7 @@ const styles = {
   main: css`
     margin: 3.5rem auto 4rem;
     max-width: 90vw;
-    width: 550px;
+    width: 700px;
   `,
 }
 
