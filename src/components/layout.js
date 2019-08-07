@@ -16,15 +16,15 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Global styles={styles.global} />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="preload" href="/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2" as="font" type="font/woff2" crossOrigin crossorigin />
-        <link rel="preload" href="/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2" as="font" type="font/woff2" crossOrigin crossorigin />
-        <link rel="preload" href="/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2" as="font" type="font/woff2" crossOrigin crossorigin />
+        <link rel="preload" href="/fonts/noto-sans-kr-latin-400.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
+        <link rel="preload" href="/fonts/noto-sans-kr-latin-500.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
+        <link rel="preload" href="/fonts/noto-sans-kr-latin-700.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
       </Helmet>
+      <Global styles={styles.global} />
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
         <main css={styles.main}>{children}</main>
@@ -40,6 +40,45 @@ Layout.propTypes = {
 
 const styles = {
   global: css`
+    /* noto-sans-kr-400normal - latin */
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-display: swap;
+      font-weight: 400;
+      src:
+        local('Noto Sans KR Regular '),
+        local('Noto Sans KR-Regular'),
+        url('/fonts/noto-sans-kr-latin-400.woff2') format('woff2'),
+        url('/fonts/noto-sans-kr-latin-400.woff') format('woff');
+    }
+
+    /* noto-sans-kr-500normal - latin */
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-display: swap;
+      font-weight: 500;
+      src:
+        local('Noto Sans KR Medium '),
+        local('Noto Sans KR-Medium'),
+        url('/fonts/noto-sans-kr-latin-500.woff2') format('woff2'),
+        url('/fonts/noto-sans-kr-latin-500.woff') format('woff');
+    }
+
+    /* noto-sans-kr-700normal - latin */
+    @font-face {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-display: swap;
+      font-weight: 700;
+      src:
+        local('Noto Sans KR Bold '),
+        local('Noto Sans KR-Bold'),
+        url('/fonts/noto-sans-kr-latin-700.woff2') format('woff2'),
+        url('/fonts/noto-sans-kr-latin-700.woff') format('woff');
+    }
+
     html {
       box-sizing: border-box;
       font-size: 15px;
@@ -51,8 +90,8 @@ const styles = {
     }
     body {
       font-size: 14px;
-      font-family: 'Noto Sans KR', -apple-system, 'BlinkMacSystemFont',
-        'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif,
+      font-family: -apple-system, 'BlinkMacSystemFont',
+        'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
       background-color: #f9f8f2;
