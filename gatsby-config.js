@@ -34,6 +34,9 @@ module.exports = {
         defaultLayouts: `${__dirname}/src/components/layout.js`,
         gatsbyRemarkPlugins: [
           { resolve: 'gatsby-remark-images' },
+          {
+            resolve: 'gatsby-remark-prismjs',
+          },
         ],
         plugins: [
           { resolve: 'gatsby-remark-images' },

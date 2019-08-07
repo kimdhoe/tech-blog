@@ -44,9 +44,7 @@ const PostTemplate = ({ data: { mdx } }) => (
 
       {mdx.frontmatter.abstract && (
         <section css={styles.abstract}>
-          <p css={styles.abstractText}>
-            {mdx.frontmatter.abstract}
-          </p>
+          <p css={styles.abstractText}>{mdx.frontmatter.abstract}</p>
         </section>
       )}
 
@@ -83,14 +81,8 @@ const BackLink = styled(Link)`
 
 const Epigraph = ({ text, author }) => (
   <section css={styles.epigraph}>
-    <p css={styles.epigraphText}>
-      {text}
-    </p>
-    {author && (
-      <p css={styles.epigraphAuthor}>
-        {author}
-      </p>
-    )}
+    <p css={styles.epigraphText}>{text}</p>
+    {author && <p css={styles.epigraphAuthor}>{author}</p>}
   </section>
 )
 
