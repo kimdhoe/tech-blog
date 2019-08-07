@@ -108,7 +108,6 @@ const styles = {
     margin-top: 1.125rem;
     max-width: 550px;
     line-height: 1.8;
-    font-weight: 300;
     font-size: 1.266rem;
   `,
   deckText: css`
