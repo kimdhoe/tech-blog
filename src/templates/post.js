@@ -117,7 +117,7 @@ const styles = {
     box-shadow: 1rem 0 0 white, -1rem 0 0 white;
   `,
   abstract: css`
-    margin: 5.5rem 0 0 0;
+    margin: 6.5rem 0 0 0;
     display: flex;
     justify-content: flex-end;
   `,

@@ -20,7 +20,6 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="preconnect" href="/" crossOrigin="crossorigin" />
       </Helmet>
       <Global styles={styles.global} />
       <div css={styles.wrapper}>
@@ -38,32 +37,6 @@ Layout.propTypes = {
 
 const styles = {
   global: css`
-    /* noto-sans-kr-400normal - latin */
-    @font-face {
-      font-family: 'Noto Sans KR';
-      font-style: normal;
-      font-display: swap;
-      font-weight: 400;
-      src:
-        local('Noto Sans KR Regular '),
-        local('Noto Sans KR-Regular'),
-        url('/fonts/noto-sans-kr-latin-400.woff2') format('woff2'),
-        url('/fonts/noto-sans-kr-latin-400.woff') format('woff');
-    }
-
-    /* noto-sans-kr-700normal - latin */
-    @font-face {
-      font-family: 'Noto Sans KR';
-      font-style: normal;
-      font-display: swap;
-      font-weight: 700;
-      src:
-        local('Noto Sans KR Bold '),
-        local('Noto Sans KR-Bold'),
-        url('/fonts/noto-sans-kr-latin-700.woff2') format('woff2'),
-        url('/fonts/noto-sans-kr-latin-700.woff') format('woff');
-    }
-
     html {
       box-sizing: border-box;
       font-size: 15px;
@@ -75,8 +48,8 @@ const styles = {
     }
     body {
       font-size: 14px;
-      font-family: -apple-system, 'BlinkMacSystemFont',
-        'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
+      font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+        'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
       background-color: #f9f8f2;
