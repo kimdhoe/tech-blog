@@ -154,7 +154,7 @@ const styles = {
     margin: 7rem 0 0 0;
     line-height: 1.95;
     font-size: 0.9792rem;
-    font-family: -apple-system, 'BlinkMacSystemFont', 'Noto Sans KR', 'Segoe UI',
+    font-family: 'Noto Sans KR', -apple-system, 'BlinkMacSystemFont', 'Segoe UI',
       'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'Noto Sans', sans-serif;
 
     p,
