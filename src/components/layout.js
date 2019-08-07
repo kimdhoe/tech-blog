@@ -21,9 +21,9 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="preload" href="/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2" as="font" type="font/woff2"  />
-        <link rel="preload" href="/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2" as="font" type="font/woff2"  />
-        <link rel="preload" href="/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2" as="font" type="font/woff2"  />
+        <link rel="preload" href="/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2" as="font" type="font/woff2" crossOrigin />
+        <link rel="preload" href="/static/noto-sans-kr-latin-500-416698c2fc4b3951f8d63d3d2ae23900.woff2" as="font" type="font/woff2" crossOrigin />
+        <link rel="preload" href="/static/noto-sans-kr-latin-700-04e782e08729f3725ae5a9c95da0c8ba.woff2" as="font" type="font/woff2" crossOrigin />
       </Helmet>
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
