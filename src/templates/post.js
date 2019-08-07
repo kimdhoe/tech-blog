@@ -238,6 +238,10 @@ const styles = {
     small {
       font-size: 0.889rem;
     }
+
+    .gatsby-highlight {
+      padding: 0.1rem 0 0.7rem 0;
+    }
   `,
   footer: css`
     margin-top: 5rem;
