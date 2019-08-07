@@ -21,6 +21,7 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link rel="prelaod" href="/static/noto-sans-kr-latin-400-be09f2ced7ff9fa6eda5f0416e2fc840.woff2" as="font" type="font/woff2"  />
       </Helmet>
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
