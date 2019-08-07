@@ -20,9 +20,8 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="preconnect" href="/fonts/noto-sans-kr-latin-400.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
-        <link rel="preconnect" href="/fonts/noto-sans-kr-latin-500.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
-        <link rel="preconnect" href="/fonts/noto-sans-kr-latin-700.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
+        <link rel="preload" href="/fonts/noto-sans-kr-latin-400.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
+        <link rel="preload" href="/fonts/noto-sans-kr-latin-700.woff2" as="font" type="font/woff2" crossOrigin="crossorigin" />
       </Helmet>
       <Global styles={styles.global} />
       <div css={styles.wrapper}>
@@ -51,19 +50,6 @@ const styles = {
         local('Noto Sans KR-Regular'),
         url('/fonts/noto-sans-kr-latin-400.woff2') format('woff2'),
         url('/fonts/noto-sans-kr-latin-400.woff') format('woff');
-    }
-
-    /* noto-sans-kr-500normal - latin */
-    @font-face {
-      font-family: 'Noto Sans KR';
-      font-style: normal;
-      font-display: swap;
-      font-weight: 500;
-      src:
-        local('Noto Sans KR Medium '),
-        local('Noto Sans KR-Medium'),
-        url('/fonts/noto-sans-kr-latin-500.woff2') format('woff2'),
-        url('/fonts/noto-sans-kr-latin-500.woff') format('woff');
     }
 
     /* noto-sans-kr-700normal - latin */
