@@ -53,7 +53,7 @@ const styles = {
     margin: 0;
     line-height: 1.6;
     font-size: 1.266rem;
-    font-weight: 300;
+    font-weight: 400;
   `,
   subtitleLine: css`
     padding: 0.5rem 0 0.75rem 0;
