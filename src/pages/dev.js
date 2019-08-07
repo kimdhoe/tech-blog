@@ -6,15 +6,14 @@ export default () => (
     <h2 css={styles.title}>Dev Log</h2>
     <h3 css={styles.subtitle}>
       <span css={styles.subtitleLine}>
-        코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서<br />
+        코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서
+        <br />
         많은 시간을 썼거나 기억하고 싶은 것들에 대한 두서없는 기록.
       </span>
     </h3>
 
     <figure css={styles.epigraph}>
-      <blockquote css={styles.epigraphQuote}>
-        Wait. Compiling...
-      </blockquote>
+      <blockquote css={styles.epigraphQuote}>Wait. Compiling...</blockquote>
       <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
     </figure>
 
@@ -30,10 +29,17 @@ export default () => (
 
 const Entry = () => (
   <div css={styles.entry}>
-    <p css={styles.entryDate}><time datetime="2019-07-08">August 6</time></p>
+    <p css={styles.entryDate}>
+      <time datetime="2019-07-08">August 6</time>
+    </p>
     <h4 css={styles.entryTitle}>Compiled Successfully</h4>
     <p css={styles.entryBody}>This page is currently under construction.</p>
-    <p css={styles.entryBody}>Gatsby-built site flashes on page transitions. Gatsby-built site flashes on page transitions. Gatsby-built site flashes on page transitions. Gatsby-built site flashes on page transitions. Gatsby-built site flashes on page transitions. Gatsby-built site flashes on page transitions.</p>
+    <p css={styles.entryBody}>
+      Gatsby-built site flashes on page transitions. Gatsby-built site flashes
+      on page transitions. Gatsby-built site flashes on page transitions.
+      Gatsby-built site flashes on page transitions. Gatsby-built site flashes
+      on page transitions. Gatsby-built site flashes on page transitions.
+    </p>
   </div>
 )
 

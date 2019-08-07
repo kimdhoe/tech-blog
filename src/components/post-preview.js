@@ -3,15 +3,13 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import Icon from './icon';
+import Icon from './icon'
 
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={'/' + post.slug}>
       <h3 css={styles.title}>
-        <span css={styles.titleText}>
-          {post.title}
-        </span>
+        <span css={styles.titleText}>{post.title}</span>
       </h3>
       <p css={styles.summary}>
         <span css={styles.summaryText}>{post.summary}</span>
@@ -19,9 +17,7 @@ const PostPreview = ({ post }) => (
       <div css={styles.footer}>
         <p css={styles.date}>{post.date}</p>
         <p css={styles.read}>
-          <span css={styles.readText}>
-            Read this post
-          </span>
+          <span css={styles.readText}>Read this post</span>
           <span css={styles.readIcon}>
             <Icon name="arrow-right" attrs={{ width: 14, color: '#333' }} />
           </span>
@@ -82,7 +78,7 @@ const styles = {
     display: flex;
     padding-bottom: 0.5rem;
     letter-spacing: 0.02rem;
-    font-size:0.79rem;
+    font-size: 0.79rem;
   `,
   read: css`
     margin: 0;
@@ -98,7 +94,7 @@ const styles = {
   `,
   readText: css`
     letter-spacing: 0.01rem;
-    font-size:0.79rem;
+    font-size: 0.79rem;
     font-family: Dank Mono;
     transform: translateX(-0.25rem);
     transition: all 0.2s ease-out;

@@ -20,9 +20,7 @@ const Header = ({ siteTitle, logo }) => {
           <div css={styles.logo}>
             <Image css={styles.logoImg} fixed={logo.fixed} />
           </div>
-          <h1 css={styles.titleText}>
-            {siteTitle}
-          </h1>
+          <h1 css={styles.titleText}>{siteTitle}</h1>
         </Link>
         <nav css={styles.nav}>
           <ul css={styles.navList}>
@@ -36,11 +34,12 @@ const Header = ({ siteTitle, logo }) => {
   )
 }
 
-const NavListItem = ({ to, label }) => (<li css={styles.navListItem}>
-  <Link css={styles.navListItemLink} to={to} activeClassName="current-page">
-    {label}
-  </Link>
-</li>
+const NavListItem = ({ to, label }) => (
+  <li css={styles.navListItem}>
+    <Link css={styles.navListItemLink} to={to} activeClassName="current-page">
+      {label}
+    </Link>
+  </li>
 )
 
 const styles = {
@@ -111,14 +110,14 @@ const styles = {
     :hover {
       ::before {
         background: #dee2e6;
-        transform: translate(-50%,-0.3rem);
+        transform: translate(-50%, -0.3rem);
       }
     }
 
     &.current-page {
       ::before {
         background: #868e96;
-        transform: translate(-50%,0);
+        transform: translate(-50%, 0);
       }
     }
   `,

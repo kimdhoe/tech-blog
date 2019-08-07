@@ -44,9 +44,7 @@ const PostTemplate = ({ data: { mdx } }) => (
       </div>
 
       <footer css={styles.footer}>
-        <p css={styles.date}>
-          Posted {mdx.frontmatter.date}
-        </p>
+        <p css={styles.date}>Posted {mdx.frontmatter.date}</p>
       </footer>
     </article>
   </>
@@ -92,15 +90,19 @@ const styles = {
   summaryText: css`
     display: inline;
     padding: 0.5rem 0 0.75rem 0;
-    background: white; box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+    background: white;
+    box-shadow: 1rem 0 0 white, -1rem 0 0 white;
   `,
   body: css`
     margin: 8rem 0 0 0;
     line-height: 1.95;
     font-size: 0.9792rem;
-    font-family: -apple-system, 'BlinkMacSystemFont', 'Noto Sans KR', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'Noto Sans', sans-serif;
+    font-family: -apple-system, 'BlinkMacSystemFont', 'Noto Sans KR', 'Segoe UI',
+      'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'Noto Sans', sans-serif;
 
-    p, ul, ol {
+    p,
+    ul,
+    ol {
       margin-bottom: 1.602rem;
     }
 
@@ -118,7 +120,8 @@ const styles = {
         background-repeat: no-repeat;
         background-size: 100% 0.2rem;
         background-position: 0 88%;
-        transition: background-size 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+        transition: background-size 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)
+          0s;
 
         &:hover {
           background-size: 100% 88%;
@@ -144,7 +147,11 @@ const styles = {
       }
     }
 
-    h1, h2, h3, h4, h5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       margin: 2.75rem 0 1.602rem;
       line-height: 1.15;
     }
