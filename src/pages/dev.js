@@ -6,9 +6,7 @@ export default () => (
     <h2 css={styles.title}>Dev Log</h2>
     <h3 css={styles.subtitle}>
       <span css={styles.subtitleLine}>
-        코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서
-        <br />
-        많은 시간을 썼거나 기억하고 싶은 것들에 대한 두서없는 기록.
+        코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서 많은 시간을 썼거나 기억하고 싶은 것들에 대한 두서없는 기록.
       </span>
     </h3>
 
@@ -51,7 +49,9 @@ const styles = {
   `,
   subtitle: css`
     margin: 0;
-    line-height: 1.6;
+    max-width: 500px;
+    word-break: keep-all;
+    line-height: 1.7;
     font-size: 1.266rem;
     font-weight: 400;
   `,

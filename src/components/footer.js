@@ -51,7 +51,7 @@ const bounce = keyframes`
 
 const styles = {
   container: css`
-    padding: 0.702rem 0;
+    padding: 1rem 0;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;
   `,
