@@ -11,8 +11,8 @@ const PostPreview = ({ post }) => (
       <h3 css={styles.title}>
         <span css={styles.titleText}>{post.title}</span>
       </h3>
-      <p css={styles.summary}>
-        <span css={styles.summaryText}>{post.summary}</span>
+      <p css={styles.deck}>
+        <span css={styles.deckText}>{post.deck}</span>
       </p>
       <div css={styles.footer}>
         <p css={styles.date}>{post.date}</p>
@@ -52,11 +52,11 @@ const styles = {
     padding-bottom: 0.4rem;
     line-height: 1.65;
   `,
-  summary: css`
+  deck: css`
     margin: 0 0 1.266rem 0;
     line-height: 1.9;
   `,
-  summaryText: css`
+  deckText: css`
     padding: 0.5rem 0 0.75rem 0;
     transition: all 0.2s ease-out;
 

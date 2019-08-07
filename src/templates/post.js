@@ -12,9 +12,11 @@ export const query = graphql`
       frontmatter {
         title
         author
+        deck
+        abstract
+        epigraph
+        epigraphAuthor
         date(formatString: "MMMM D, YYYY")
-        date2: date(formatString: "YYYY년 M월 D일")
-        summary
       }
       body
     }
@@ -32,12 +34,28 @@ const PostTemplate = ({ data: { mdx } }) => (
 
     <article css={styles.article}>
       <header css={styles.header}>
-        <h2 css={styles.title}>{mdx.frontmatter.title}</h2>
+        <h2 css={styles.headline}>{mdx.frontmatter.title}</h2>
+        {mdx.frontmatter.deck && (
+          <section css={styles.deck}>
+            <span css={styles.deckText}>{mdx.frontmatter.deck}</span>
+          </section>
+        )}
       </header>
 
-      <section css={styles.summary}>
-        <span css={styles.summaryText}>{mdx.frontmatter.summary}</span>
-      </section>
+      {mdx.frontmatter.abstract && (
+        <section css={styles.abstract}>
+          <p css={styles.abstractText}>
+            {mdx.frontmatter.abstract}
+          </p>
+        </section>
+      )}
+
+      {mdx.frontmatter.epigraph && (
+        <Epigraph
+          text={mdx.frontmatter.epigraph}
+          author={mdx.frontmatter.epigraphAuthor}
+        />
+      )}
 
       <div css={styles.body}>
         <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -63,6 +81,19 @@ const BackLink = styled(Link)`
   }
 `
 
+const Epigraph = ({ text, author }) => (
+  <section css={styles.epigraph}>
+    <p css={styles.epigraphText}>
+      {text}
+    </p>
+    {author && (
+      <p css={styles.epigraphAuthor}>
+        {author}
+      </p>
+    )}
+  </section>
+)
+
 const styles = {
   backLinkArrow: css`
     margin-right: 0.3rem;
@@ -73,28 +104,62 @@ const styles = {
     border-bottom: 0.5px solid #adb5bd;
   `,
   header: css`
-    margin: 3.204rem 0 4rem 0;
+    margin: 3.204rem 0 0 0;
   `,
-  title: css`
+  headline: css`
     margin: 0;
     max-width: 450px;
     line-height: 1.6;
     font-size: 1.802rem;
   `,
-  summary: css`
-    max-width: 500px;
+  deck: css`
+    margin-top: 1.125rem;
+    max-width: 550px;
     line-height: 1.8;
     font-weight: 300;
-    font-size: 1.125rem;
+    font-size: 1.266rem;
   `,
-  summaryText: css`
+  deckText: css`
     display: inline;
     padding: 0.5rem 0 0.75rem 0;
     background: white;
     box-shadow: 1rem 0 0 white, -1rem 0 0 white;
   `,
+  abstract: css`
+    margin: 5.5rem 0 0 0;
+    display: flex;
+    justify-content: flex-end;
+  `,
+  abstractText: css`
+    max-width: 500px;
+    line-height: 1.7;
+    font-size: 0.889rem;
+  `,
+  epigraph: css`
+    margin: 5.5rem 0 0 0;
+    text-align: right;
+  `,
+  epigraphText: css`
+    margin: 0 0 1rem 0;
+    font-style: italic;
+  `,
+  epigraphAuthor: css`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 0.225rem 0 0;
+    font-size: 0.889rem;
+
+    ::before {
+      content: '';
+      margin-right: 0.44rem;
+      width: 30px;
+      height: 1px;
+      background: #555;
+    }
+  `,
   body: css`
-    margin: 8rem 0 0 0;
+    margin: 7rem 0 0 0;
     line-height: 1.95;
     font-size: 0.9792rem;
     font-family: -apple-system, 'BlinkMacSystemFont', 'Noto Sans KR', 'Segoe UI',
@@ -107,8 +172,9 @@ const styles = {
     }
 
     blockquote {
-      margin-left: 1.4rem;
-      font-size: 0.917rem;
+      margin-left: 1.5rem;
+      margin-right: 0;
+      font-size: 0.889rem;
     }
 
     a {
