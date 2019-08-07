@@ -28,6 +28,7 @@ const Footer = ({ author }) => {
 
 const TopButton = styled.button`
   outline: none;
+  padding: 0;
   border: none;
   background: none;
   cursor: pointer;
@@ -56,7 +57,7 @@ const styles = {
   `,
   wrapper: css`
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     max-width: 800px;
     display: flex;
     align-items: center;
