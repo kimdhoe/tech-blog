@@ -30,7 +30,7 @@ export default () => (
 const Entry = () => (
   <div css={styles.entry}>
     <p css={styles.entryDate}>
-      <time datetime="2019-07-08">August 6</time>
+      <time dateTime="2019-07-08">August 6</time>
     </p>
     <h4 css={styles.entryTitle}>Compiled Successfully</h4>
     <p css={styles.entryBody}>This page is currently under construction.</p>
