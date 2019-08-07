@@ -20,7 +20,7 @@ const Header = ({ siteTitle, logo }) => {
           <div css={styles.logo}>
             <Image css={styles.logoImg} fixed={logo.fixed} />
           </div>
-          <h1 css={styles.titleText}>{siteTitle}</h1>
+          <p css={styles.titleText}>{siteTitle}</p>
         </Link>
         <nav css={styles.nav}>
           <ul css={styles.navList}>
