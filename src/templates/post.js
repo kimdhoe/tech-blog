@@ -11,6 +11,7 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        slug
         author
         deck
         abstract
@@ -62,6 +63,24 @@ const PostTemplate = ({ data: { mdx } }) => (
       <footer css={styles.footer}>
         <p css={styles.date}>Posted {mdx.frontmatter.date}</p>
       </footer>
+
+      <form class="comment" method="POST" action="https://staticman-ocz6rtks1.now.sh/3/entry/kimdhoe-bot/staticman/master/comments" class="flex-container flex-column">
+        {/* <input type="hidden" name="options[redirect]" value="{{ .Permalink }}#comment-submitted" /> */}
+        <input type="hidden" name="options[slug]" value={mdx.frontmatter.slug} />
+        <div class="flex-container flex-row">
+          <input name="fields[name]" type="text" placeholder="Your name" class="flex-item" />
+          <input name="fields[email]" type="email" placeholder="Your email address" class="flex-item" />
+        </div>
+        <div class="flex-container flex-row">
+          <textarea name="fields[message]" placeholder="Your message. Feel free to use Markdown." rows="10" class="flex-item"></textarea>
+        </div>
+        <div class="flex-container flex-row">
+          <input type="submit" value="Submit" class="flex-item" />
+        </div>
+      </form>
+      <div id="comment-submitted">
+        Your comment has been submitted and is now pending moderation
+</div>
     </article>
   </>
 )
