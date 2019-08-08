@@ -31,14 +31,13 @@ const Container = styled.article`
   position: relative;
   display: block;
   margin-bottom: 5rem;
-  color: #212529;
 `
 
 const styles = {
   link: css`
     display: block;
     text-decoration: none;
-    color: #212529;
+    color: inherit;
   `,
   title: css`
     display: inline-block;
