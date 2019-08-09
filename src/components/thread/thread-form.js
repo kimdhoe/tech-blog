@@ -176,7 +176,7 @@ const messageEnters = keyframes`
 
 const styles = {
   container: css`
-    margin: 3rem 0 1rem;
+    margin: 2rem 0 1rem;
   `,
   field: css`
     margin: 0 0 0.3rem 0;
