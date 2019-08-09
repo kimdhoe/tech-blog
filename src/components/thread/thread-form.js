@@ -44,7 +44,12 @@ const CommentForm = ({ slug }) => {
         method: 'POST',
         url: `${staticmanEndpoint}/${staticmanVersion}/entry/github/${githubUsername}/${githubRepository}/${githubBranch}/comments`,
         data: {
-          fields: { ...inputs, slug },
+          fields: {
+            name: inputs.name.trim(),
+            email: inputs.email.trim(),
+            message: inputs.message.trim(),
+            slug,
+          },
           options: {
             slug,
           },
@@ -154,8 +159,8 @@ const Button = styled.button`
   cursor: pointer;
   transition: border-color 0.1s ease-out;
 
-  :hover {
-    border-color: #555;
+  :disabled {
+    cursor: default;
   }
 
   @media only screen and (max-width: 480px) {
@@ -179,7 +184,7 @@ const styles = {
     margin: 2rem 0 1rem;
   `,
   field: css`
-    margin: 0 0 0.3rem 0;
+    margin: 0 0 0.1rem 0;
   `,
   label: css`
     margin: 0 0 0.5rem 0;
@@ -257,6 +262,10 @@ const styles = {
 
     ${Button}:hover & {
       border-color: #555;
+    }
+
+    ${Button}:disabled & {
+      border-color: #ddd;
     }
   `,
   buttonTextPending: css`

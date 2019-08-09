@@ -35,7 +35,7 @@ const ThreadMessage = ({ name, email, message, date }) => {
   return (
     <div css={styles.threadMessage}>
       <div css={styles.avatar}>
-        <img css={styles.avatarImg} src={`https://avatars.dicebear.com/v2/jdenticon/${email}.svg?options[background][]=%23f9f8f2`} />
+        <img css={styles.avatarImg} src={`https://avatars.dicebear.com/v2/jdenticon/${email}.svg?options[background][]=%23f9f8f2&options[colorSaturation][]=0.3`} />
       </div>
       <div css={styles.messageBody}>
         <div css={styles.messageMeta}>
