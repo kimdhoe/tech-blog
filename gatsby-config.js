@@ -3,6 +3,11 @@ module.exports = {
     title: 'dhk.party',
     description: 'This is my tech blog.',
     author: 'Donghee Kim',
+    staticmanEndpoint: 'https://staticman.kimdhoebot.now.sh',
+    staticmanVersion: 'v3',
+    githubUsername: 'kimdhoe',
+    githubRepository: 'tech-blog',
+    githubBranch: 'master',
   },
   plugins: [
     'gatsby-plugin-layout',

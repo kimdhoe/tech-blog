@@ -7,7 +7,12 @@ const UseSiteMetadata = () => {
         siteMetadata {
           title
           description
-          author
+          author,
+          staticmanEndpoint,
+          staticmanVersion,
+          githubUsername,
+          githubRepository,
+          githubBranch,
         }
       }
     }

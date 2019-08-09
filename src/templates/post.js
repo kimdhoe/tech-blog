@@ -5,6 +5,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import Icon from '../components/icon'
+import Thread from '../components/thread'
 
 export const query = graphql`
   query($slug: String!) {
@@ -24,65 +25,83 @@ export const query = graphql`
   }
 `
 
-const PostTemplate = ({ data: { mdx } }) => (
+const PostTemplate = ({ data: { mdx: { frontmatter, body } } }) => (
   <>
-    <BackLink css={styles.backLink} to="/">
-      <span css={styles.backLinkArrow}>
-        <Icon name="arrow-left" attrs={{ width: 13 }} />
-      </span>
-      <span css={styles.backLinkText}>All Posts</span>
-    </BackLink>
-
-    <article css={styles.article}>
-      <header css={styles.header}>
-        <h2 css={styles.headline}>{mdx.frontmatter.title}</h2>
-        {mdx.frontmatter.deck && (
-          <section css={styles.deck}>
-            <span css={[styles.deckText, styles.mozHack]}>{mdx.frontmatter.deck}</span>
-          </section>
-        )}
-      </header>
-
-      {mdx.frontmatter.abstract && (
-        <section css={styles.abstract}>
-          <p css={styles.abstractText}>{mdx.frontmatter.abstract}</p>
-        </section>
-      )}
-
-      {mdx.frontmatter.epigraph && (
-        <Epigraph
-          text={mdx.frontmatter.epigraph}
-          author={mdx.frontmatter.epigraphAuthor}
-        />
-      )}
-
-      <div css={styles.body}>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </div>
-
-      <footer css={styles.footer}>
-        <p css={styles.date}>Posted {mdx.frontmatter.date}</p>
-      </footer>
-
-      <form class="comment" method="POST" action="https://staticman.kimdhoebot.now.sh/v3/entry/github/kimdhoe/tech-blog/master/comments" class="flex-container flex-column">
-        {/* <input type="hidden" name="options[redirect]" value="{{ .Permalink }}#comment-submitted" /> */}
-        <input type="hidden" name="options[slug]" value={mdx.frontmatter.slug} />
-        <div class="flex-container flex-row">
-          <input name="fields[name]" type="text" placeholder="Your name" class="flex-item" />
-          <input name="fields[email]" type="email" placeholder="Your email address" class="flex-item" />
-        </div>
-        <div class="flex-container flex-row">
-          <textarea name="fields[message]" placeholder="Your message. Feel free to use Markdown." rows="10" class="flex-item"></textarea>
-        </div>
-        <div class="flex-container flex-row">
-          <input type="submit" value="Submit" class="flex-item" />
-        </div>
-      </form>
-      <div id="comment-submitted">
-        Your comment has been submitted and is now pending moderation
-</div>
-    </article>
+    <BackToAllPosts />
+    <Article
+      headline={frontmatter.title}
+      deck={frontmatter.deck}
+      abstract={frontmatter.abstract}
+      epigraph={frontmatter.epigraph}
+      epigraphAuthor={frontmatter.epigraphAuthor}
+      date={frontmatter.date}
+      body={body}
+    />
+    <Thread slug={frontmatter.slug} />
   </>
+)
+
+const BackToAllPosts = () => (
+  <BackLink css={styles.backLink} to="/">
+    <span css={styles.backLinkArrow}>
+      <Icon name="arrow-left" attrs={{ width: 13 }} />
+    </span>
+    <span css={styles.backLinkText}>All Posts</span>
+  </BackLink>
+)
+
+const Article = ({ headline, deck, abstract, epigraph, epigraphAuthor, body, date }) => (
+  <article css={styles.article}>
+    <Header headline={headline} deck={deck} />
+
+    {abstract && (
+      <Abstract text={abstract} />
+    )}
+
+    {epigraph && (
+      <Epigraph text={epigraph} author={epigraphAuthor} />
+    )}
+
+    <Body body={body} />
+
+    <Footer date={date} />
+  </article>
+)
+
+const Header = ({ headline, deck }) => (
+  <header css={styles.header}>
+    <h2 css={styles.headline}>{headline}</h2>
+    {deck && (
+      <section css={styles.deck}>
+        <span css={[styles.deckText, styles.mozHack]}>{deck}</span>
+      </section>
+    )}
+  </header>
+)
+
+const Abstract = ({ text }) => (
+  <section css={styles.abstract}>
+    <p css={styles.abstractText}>{text}</p>
+  </section>
+)
+
+const Epigraph = ({ text, author }) => (
+  <section css={styles.epigraph}>
+    <p css={styles.epigraphText}>{text}</p>
+    {author && <p css={styles.epigraphAuthor}>{author}</p>}
+  </section>
+)
+
+const Body = ({ body }) => (
+  <div css={styles.body}>
+    <MDXRenderer>{body}</MDXRenderer>
+  </div>
+)
+
+const Footer = ({ date }) => (
+  <footer css={styles.footer}>
+    <p css={styles.date}>Posted {date}</p>
+  </footer>
 )
 
 const BackLink = styled(Link)`
@@ -97,14 +116,6 @@ const BackLink = styled(Link)`
     color: #555;
   }
 `
-
-const Epigraph = ({ text, author }) => (
-  <section css={styles.epigraph}>
-    <p css={styles.epigraphText}>{text}</p>
-    {author && <p css={styles.epigraphAuthor}>{author}</p>}
-  </section>
-)
-
 const styles = {
   backLinkArrow: css`
     margin-right: 0.3rem;
