@@ -64,7 +64,7 @@ const PostTemplate = ({ data: { mdx } }) => (
         <p css={styles.date}>Posted {mdx.frontmatter.date}</p>
       </footer>
 
-      <form class="comment" method="POST" action="https://staticman-ocz6rtks1.now.sh/3/entry/kimdhoe-bot/staticman/master/comments" class="flex-container flex-column">
+      <form class="comment" method="POST" action="https://staticman.kimdhoebot.now.sh/v3/entry/github/kimdhoe/tech-blog/master/comments" class="flex-container flex-column">
         {/* <input type="hidden" name="options[redirect]" value="{{ .Permalink }}#comment-submitted" /> */}
         <input type="hidden" name="options[slug]" value={mdx.frontmatter.slug} />
         <div class="flex-container flex-row">
