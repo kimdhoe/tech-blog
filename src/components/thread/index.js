@@ -6,8 +6,8 @@ import ThreadForm from './thread-form'
 const Thread = ({ slug, messages }) => (
   <div css={styles.container}>
     <Heading />
-    <ThreadMessages messages={messages} />
     <ThreadForm slug={slug} />
+    <ThreadMessages messages={messages} />
   </div>
 )
 
@@ -30,7 +30,7 @@ const ThreadMessages = ({ messages }) => messages.map(message => (
 const ThreadMessage = ({ name, email, message, date }) => {
   return (
     <div>
-      <img style={{ width: 35 }} src={`https://avatars.dicebear.com/v2/avataaars/${email}.svg`} />
+      <img style={{ width: 35 }} src={`https://avatars.dicebear.com/v2/jdenticon/${email}.svg?options[background][]=%23f9f8f2`} />
       <p>{name}</p>
       <p>{message}</p>
       <p>{date}</p>

@@ -22,7 +22,7 @@ export const query = graphql`
       }
       body
     }
-    allYaml(filter: { slug: { eq: $slug } }, sort: { fields: date }) {
+    allYaml(filter: { slug: { eq: $slug } }, sort: { fields: date, order: DESC }) {
       edges {
         node {
           id
