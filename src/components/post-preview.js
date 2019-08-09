@@ -11,9 +11,11 @@ const PostPreview = ({ post }) => (
       <h3 css={styles.title}>
         <span css={styles.titleText}>{post.title}</span>
       </h3>
-      <p css={styles.deck}>
-        <span css={styles.deckText}>{post.deck}</span>
-      </p>
+      {post.deck && (
+        <p css={styles.deck}>
+          <span css={[styles.deckText, styles.mozHack]}>{post.deck}</span>
+        </p>
+      )}
       <div css={styles.footer}>
         <p css={styles.date}>{post.date}</p>
         <p css={styles.read}>
@@ -55,6 +57,11 @@ const styles = {
     margin: 0 0 1.266rem 0;
     line-height: 1.9;
   `,
+  mozHack: {
+    '@-moz-document url-prefix()': {
+      display: 'block',
+    },
+  },
   deckText: css`
     padding: 0.5rem 0 0.75rem 0;
     transition: all 0.2s ease-out;
@@ -75,7 +82,6 @@ const styles = {
   `,
   date: css`
     display: flex;
-    padding-bottom: 0.5rem;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;
   `,

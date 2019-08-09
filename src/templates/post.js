@@ -38,7 +38,7 @@ const PostTemplate = ({ data: { mdx } }) => (
         <h2 css={styles.headline}>{mdx.frontmatter.title}</h2>
         {mdx.frontmatter.deck && (
           <section css={styles.deck}>
-            <span css={styles.deckText}>{mdx.frontmatter.deck}</span>
+            <span css={[styles.deckText, styles.mozHack]}>{mdx.frontmatter.deck}</span>
           </section>
         )}
       </header>
@@ -265,6 +265,11 @@ const styles = {
   date: css`
     font-size: 0.889rem;
   `,
+  mozHack: {
+    '@-moz-document url-prefix()': {
+      display: 'block',
+    },
+  },
 }
 
 export default PostTemplate
