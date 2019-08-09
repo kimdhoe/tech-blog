@@ -44,7 +44,7 @@ const CommentForm = ({ slug }) => {
         method: 'POST',
         url: `${staticmanEndpoint}/${staticmanVersion}/entry/github/${githubUsername}/${githubRepository}/${githubBranch}/comments`,
         data: {
-          fields: inputs,
+          fields: { ...inputs, slug },
           options: {
             slug,
           },
@@ -237,6 +237,7 @@ const styles = {
     font-size: 0.79rem;
   `,
   message: css`
+    line-height: 1.5;
     font-size: 0.889rem;
   `,
   messageText: css`

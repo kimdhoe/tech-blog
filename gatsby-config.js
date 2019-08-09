@@ -28,6 +28,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'comments',
+        path: `${__dirname}/data`
+      }
+    },
+    {
       resolve: 'gatsby-source-instagram',
       options: {
         username: 'gatsbyjs',
@@ -46,6 +53,12 @@ module.exports = {
         plugins: [
           { resolve: 'gatsby-remark-images' },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-yaml',
+      options: {
+        typeName: 'Yaml',
       },
     },
     'gatsby-transformer-sharp',

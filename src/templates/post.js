@@ -22,10 +22,22 @@ export const query = graphql`
       }
       body
     }
-  }
+    allYaml(filter: { slug: { eq: $slug } }, sort: { fields: date }) {
+      edges {
+        node {
+          id
+          name
+          email
+          message
+          slug
+          date(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
+   }
 `
 
-const PostTemplate = ({ data: { mdx: { frontmatter, body } } }) => (
+const PostTemplate = ({ data: { mdx: { frontmatter, body }, allYaml: { edges } } }) => (
   <>
     <BackToAllPosts />
     <Article
@@ -37,7 +49,10 @@ const PostTemplate = ({ data: { mdx: { frontmatter, body } } }) => (
       date={frontmatter.date}
       body={body}
     />
-    <Thread slug={frontmatter.slug} />
+    <Thread
+      slug={frontmatter.slug}
+      messages={edges.map(edge => edge.node)}
+    />
   </>
 )
 
