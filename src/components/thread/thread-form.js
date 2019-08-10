@@ -182,6 +182,10 @@ const messageEnters = keyframes`
 const styles = {
   container: css`
     margin: 2rem 0 1rem;
+
+    @media only screen and (max-width: 480px) {
+      margin-bottom: 2rem;
+    }
   `,
   field: css`
     margin: 0 0 0.1rem 0;

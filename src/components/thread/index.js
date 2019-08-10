@@ -42,7 +42,9 @@ const ThreadMessage = ({ name, email, message, date }) => {
           <p css={styles.messageAuthor}>{name}</p>
           <p css={styles.messageDate}>{date}</p>
         </div>
-        <p css={styles.messageText}>{message}</p>
+        {message.split(/\n\n+/).map((paragraph, i) => (
+          <p key={i} css={styles.messageText}>{paragraph}</p>
+        ))}
       </div>
     </div>
   )
@@ -67,8 +69,8 @@ const styles = {
     }
   `,
   avatar: css`
-    margin: 0.2rem 1rem 0 0;
-    border: 1px solid #e9ecef;
+    margin: 0.1rem 1rem 0 0;
+    border: 1px solid #dee2e6;
     width: 35px;
     height: 35px;
   `,
@@ -76,6 +78,7 @@ const styles = {
     width: 100%;
   `,
   messageBody: css`
+    flex:1;
     display: flex;
     flex-direction: column;
   `,
@@ -87,6 +90,7 @@ const styles = {
     margin: 0 1rem 0 0;
     letter-spacing: 0.01rem;
     font-size: 0.889rem;
+    font-weight: 700;
   `,
   messageDate: css`
     margin: 0;
@@ -95,6 +99,8 @@ const styles = {
   `,
   messageText: css`
     margin: 0.7rem 0 0 0;
+    line-height: 1.7;
+    white-space: pre-wrap;
   `,
 }
 
