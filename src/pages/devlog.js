@@ -14,7 +14,7 @@ export default () => {
         <span css={[styles.subtitleLine, styles.mozHack]}>
           코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서 많은 시간을 썼거나
           기억하고 싶은 것들에 대한 두서없는 기록.
-      </span>
+        </span>
       </h3>
 
       <figure css={styles.epigraph}>

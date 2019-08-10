@@ -7,7 +7,11 @@ const NotFoundPage = () => (
   <div css={styles.container}>
     <SEO title="404" />
     <h1 css={styles.heading1}>404 Not Found</h1>
-    <h2 css={styles.heading2}>Nothing<br />Here</h2>
+    <h2 css={styles.heading2}>
+      Nothing
+      <br />
+      Here
+    </h2>
   </div>
 )
 

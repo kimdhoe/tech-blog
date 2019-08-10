@@ -3,7 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 const useDevLogs = () => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { sourceInstanceName: { eq: "devlogs" }, extension: { eq: "mdx" } }, sort: { order: DESC, fields: childMdx___frontmatter___date }) {
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "devlogs" }
+          extension: { eq: "mdx" }
+        }
+        sort: { order: DESC, fields: childMdx___frontmatter___date }
+      ) {
         edges {
           node {
             childMdx {
