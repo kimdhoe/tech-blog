@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "alias": [
+    "www.dhk.party"
+  ],
   "build": {
     "env": {
       "AUTHOR": "@author",
