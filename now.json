@@ -1,7 +1,7 @@
 {
   "version": 2,
   "alias": [
-    "www.dhk.party"
+    "dhk.party"
   ],
   "build": {
     "env": {
@@ -17,13 +17,6 @@
     "use": "@now/static-build"
   },
   "routes": [
-    {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": {
-        "Location": "https://dhk.party/$1"
-      }
-    },
     {
       "src": "/(.*)",
       "dest": "/$1"
