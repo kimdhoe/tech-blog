@@ -9,19 +9,11 @@ const IndexPage = () => {
 
   return (
     <>
-      <h1 css={styles.heading}>Blog</h1>
-
       {posts.map(post => (
         <PostPreview key={post.slug} post={post} />
       ))}
     </>
   )
-}
-
-const styles = {
-  heading: css`
-    margin-bottom: 5rem;
-  `,
 }
 
 export default IndexPage

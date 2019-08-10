@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 const NAV_ITEMS = [
-  { to: '/', label: 'Home' },
+  { to: '/', label: 'Blog' },
   { to: '/devlog', label: 'Devlog' },
   { to: '/projects', label: 'Projects' },
   { to: '/now', label: 'Now' },
