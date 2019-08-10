@@ -1,5 +1,5 @@
 {
-  "alias": [ "dhk.party", "dhk" ],
+  "alias": [ "www.dhk.party", "dhk" ],
   "build": {
     "env": {
       "AUTHOR": "@author",
