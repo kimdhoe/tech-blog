@@ -62,6 +62,7 @@ const styles = {
     flex-direction: column;
   `,
   main: css`
+    position: relative;
     flex: 1;
     margin: 3.5rem auto 9rem;
     padding: 0 1.5rem;
