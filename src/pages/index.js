@@ -1,5 +1,4 @@
 import React from 'react'
-import { css } from '@emotion/core'
 
 import usePosts from '../hooks/use-posts'
 import PostPreview from '../components/post-preview'
