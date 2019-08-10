@@ -1,7 +1,13 @@
 {
   "build": {
     "env": {
-      "GA_TRACKING_ID": "@ga-tracking-id"
+      "AUTHOR": "@author",
+      "GA_TRACKING_ID": "@ga-tracking-id",
+      "STATICMAN_ENDPOINT": "@staticman-endpoint",
+      "STATICMAN_VERSION": "@staticman-version",
+      "GITHUB_USERNAME": "@github-username",
+      "GITHUB_REPOSITORY": "@github-repository",
+      "GITHUB_BRANCH": "@github-branch"
     }
   }
 }
