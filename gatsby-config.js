@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'dhk.party',
@@ -16,7 +20,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-gtag',
       options: {
-        trackingId: 'UA-145404117-1',
+        trackingId: process.env.GA_TRACKING_ID,
         head: true,
       },
     },
