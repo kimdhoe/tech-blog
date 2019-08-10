@@ -6,12 +6,12 @@ module.exports = {
   siteMetadata: {
     title: 'dhk.party',
     description: 'This is my tech blog.',
-    author: 'Donghee Kim',
-    staticmanEndpoint: 'https://staticman.kimdhoebot.now.sh',
-    staticmanVersion: 'v3',
-    githubUsername: 'kimdhoe',
-    githubRepository: 'tech-blog',
-    githubBranch: 'master',
+    author: process.env.AUTHOR,
+    staticmanEndpoint: process.env.STATICMAN_ENDPOINT,
+    staticmanVersion: process.env.STATICMAN_VERSION,
+    githubUsername: process.env.GITHUB_USERNAME,
+    githubRepository: process.env.GITHUB_REPOSITORY,
+    githubBranch: process.env.GITHUB_BRANCH,
   },
   plugins: [
     'gatsby-plugin-layout',
