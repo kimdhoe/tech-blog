@@ -14,6 +14,13 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {
+      resolve: 'gatsby-plugin-gtag',
+      options: {
+        trackingId: 'UA-145404117-1',
+        head: true,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
