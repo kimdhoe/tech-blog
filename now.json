@@ -8,6 +8,13 @@
       "GITHUB_USERNAME": "@github-username",
       "GITHUB_REPOSITORY": "@github-repository",
       "GITHUB_BRANCH": "@github-branch"
-    }
-  }
+    },
+    "src": "package.json",
+    "use": "@now/static-build"
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "status": 404, "dest": "/404" }
+  ]
 }
