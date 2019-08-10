@@ -1,5 +1,8 @@
 {
-  "alias": [ "www.dhk.party", "dhk" ],
+  "alias": [
+    "www.dhk.party",
+    "dhk"
+  ],
   "build": {
     "env": {
       "AUTHOR": "@author",
@@ -14,8 +17,20 @@
     "use": "@now/static-build"
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" },
-    { "handle": "filesystem" },
-    { "src": "/.*", "status": 404, "dest": "/404" }
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "https://dhk.party/$1"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "status": 404,
+      "dest": "/404"
+    }
   ]
 }
