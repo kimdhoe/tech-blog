@@ -41,6 +41,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'devlogs',
+        path: `${__dirname}/devlogs`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'comments',
         path: `${__dirname}/data`
       }

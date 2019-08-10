@@ -26,12 +26,13 @@ const ThreadMessages = ({ messages }) => (
         email={message.email}
         message={message.message}
         date={message.date}
+        dateFormatted={message.dateFormatted}
       />
     ))}
   </div>
 )
 
-const ThreadMessage = ({ name, email, message, date }) => {
+const ThreadMessage = ({ name, email, message, date, dateFormatted }) => {
   return (
     <div css={styles.threadMessage}>
       <div css={styles.avatar}>
@@ -40,7 +41,9 @@ const ThreadMessage = ({ name, email, message, date }) => {
       <div css={styles.messageBody}>
         <div css={styles.messageMeta}>
           <p css={styles.messageAuthor}>{name}</p>
-          <p css={styles.messageDate}>{date}</p>
+          <p css={styles.messageDate}>
+            <time dateTime={date}>{dateFormatted}</time>
+          </p>
         </div>
         {message.split(/\n\n+/).map((paragraph, i) => (
           <p key={i} css={styles.messageText}>{paragraph}</p>
@@ -101,6 +104,10 @@ const styles = {
     margin: 0.7rem 0 0 0;
     line-height: 1.7;
     white-space: pre-wrap;
+
+    :first-of-type {
+      margin-top: 0.3rem;
+    }
   `,
 }
 

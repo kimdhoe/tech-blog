@@ -1,44 +1,52 @@
 import React from 'react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 
-export default () => (
-  <>
-    <h2 css={styles.title}>Dev Log</h2>
-    <h3 css={styles.subtitle}>
-      <span css={[styles.subtitleLine, styles.mozHack]}>
-        코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서 많은 시간을 썼거나
-        기억하고 싶은 것들에 대한 두서없는 기록.
+import useDevLogs from '../hooks/use-devlogs'
+
+export default () => {
+  const devLogs = useDevLogs()
+
+  return (
+    <>
+      <h2 css={styles.title}>Devlog</h2>
+      <h3 css={styles.subtitle}>
+        <span css={[styles.subtitleLine, styles.mozHack]}>
+          코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서 많은 시간을 썼거나
+          기억하고 싶은 것들에 대한 두서없는 기록.
       </span>
-    </h3>
+      </h3>
 
-    <figure css={styles.epigraph}>
-      <blockquote css={styles.epigraphQuote}>Wait. Compiling...</blockquote>
-      <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
-    </figure>
+      <figure css={styles.epigraph}>
+        <blockquote css={styles.epigraphQuote}>Wait. Compiling...</blockquote>
+        <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
+      </figure>
 
-    <div css={styles.entries}>
-      <Entry />
-      <Entry />
-      <Entry />
-      <Entry />
-      <Entry />
-    </div>
-  </>
-)
+      <div css={styles.entries}>
+        {devLogs.map(devLog => (
+          <Entry
+            key={devLog.id}
+            slug={devLog.slug}
+            title={devLog.title}
+            date={devLog.date}
+            dateFormatted={devLog.dateFormatted}
+            body={devLog.body}
+          />
+        ))}
+      </div>
+    </>
+  )
+}
 
-const Entry = () => (
+const Entry = ({ slug, title, date, dateFormatted, body }) => (
   <div css={styles.entry}>
     <p css={styles.entryDate}>
-      <time dateTime="2019-07-08">August 6</time>
+      <time dateTime={date}>{dateFormatted}</time>
     </p>
-    <h4 css={styles.entryTitle}>Compiled Successfully</h4>
-    <p css={styles.entryBody}>This page is currently under construction.</p>
-    <p css={styles.entryBody}>
-      Gatsby-built site flashes on page transitions. Gatsby-built site flashes
-      on page transitions. Gatsby-built site flashes on page transitions.
-      Gatsby-built site flashes on page transitions. Gatsby-built site flashes
-      on page transitions. Gatsby-built site flashes on page transitions.
-    </p>
+    <h4 css={styles.entryTitle}>{title}</h4>
+    <div css={styles.entryBody}>
+      <MDXRenderer>{body}</MDXRenderer>
+    </div>
   </div>
 )
 
@@ -101,7 +109,7 @@ const styles = {
   `,
   entryBody: css`
     margin-top: 0;
-    line-height: 1.5;
+    line-height: 1.7;
   `,
   mozHack: {
     '@-moz-document url-prefix()': {

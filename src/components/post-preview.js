@@ -17,7 +17,9 @@ const PostPreview = ({ post }) => (
         </p>
       )}
       <div css={styles.footer}>
-        <p css={styles.date}>{post.date}</p>
+        <p css={styles.date}>
+          <time dateTime={post.date}>{post.dateFormatted}</time>
+        </p>
         <p css={styles.read}>
           <span css={styles.readText}>Read this post</span>
           <span css={styles.readIcon}>

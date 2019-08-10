@@ -18,7 +18,8 @@ export const query = graphql`
         abstract
         epigraph
         epigraphAuthor
-        date(formatString: "MMMM D, YYYY")
+        date
+        dateFormatted: date(formatString: "MMMM D, YYYY")
       }
       body
     }
@@ -33,7 +34,8 @@ export const query = graphql`
           email
           message
           slug
-          date(formatString: "MMMM D, YYYY")
+          date
+          dateFormatted: date(formatString: "MMMM D, YYYY")
         }
       }
     }
@@ -55,6 +57,7 @@ const PostTemplate = ({
       epigraph={frontmatter.epigraph}
       epigraphAuthor={frontmatter.epigraphAuthor}
       date={frontmatter.date}
+      dateFormatted={frontmatter.dateFormatted}
       body={body}
     />
     <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
@@ -78,6 +81,7 @@ const Article = ({
   epigraphAuthor,
   body,
   date,
+  dateFormatted,
 }) => (
   <article css={styles.article}>
     <Header headline={headline} deck={deck} />
@@ -88,7 +92,7 @@ const Article = ({
 
     <Body body={body} />
 
-    <Footer date={date} />
+    <Footer date={date} dateFormatted={dateFormatted} />
   </article>
 )
 
@@ -122,9 +126,11 @@ const Body = ({ body }) => (
   </div>
 )
 
-const Footer = ({ date }) => (
+const Footer = ({ date, dateFormatted }) => (
   <footer css={styles.footer}>
-    <p css={styles.date}>Posted {date}</p>
+    <p css={styles.date}>
+      <time dateTime={date}>Posted {dateFormatted}</time>
+    </p>
   </footer>
 )
 
