@@ -22,7 +22,10 @@ export const query = graphql`
       }
       body
     }
-    allYaml(filter: { slug: { eq: $slug } }, sort: { fields: date, order: DESC }) {
+    allYaml(
+      filter: { slug: { eq: $slug } }
+      sort: { fields: date, order: DESC }
+    ) {
       edges {
         node {
           id
@@ -34,10 +37,15 @@ export const query = graphql`
         }
       }
     }
-   }
+  }
 `
 
-const PostTemplate = ({ data: { mdx: { frontmatter, body }, allYaml: { edges } } }) => (
+const PostTemplate = ({
+  data: {
+    mdx: { frontmatter, body },
+    allYaml: { edges },
+  },
+}) => (
   <>
     <BackToAllPosts />
     <Article
@@ -49,10 +57,7 @@ const PostTemplate = ({ data: { mdx: { frontmatter, body }, allYaml: { edges } }
       date={frontmatter.date}
       body={body}
     />
-    <Thread
-      slug={frontmatter.slug}
-      messages={edges.map(edge => edge.node)}
-    />
+    <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
   </>
 )
 
@@ -65,17 +70,21 @@ const BackToAllPosts = () => (
   </BackLink>
 )
 
-const Article = ({ headline, deck, abstract, epigraph, epigraphAuthor, body, date }) => (
+const Article = ({
+  headline,
+  deck,
+  abstract,
+  epigraph,
+  epigraphAuthor,
+  body,
+  date,
+}) => (
   <article css={styles.article}>
     <Header headline={headline} deck={deck} />
 
-    {abstract && (
-      <Abstract text={abstract} />
-    )}
+    {abstract && <Abstract text={abstract} />}
 
-    {epigraph && (
-      <Epigraph text={epigraph} author={epigraphAuthor} />
-    )}
+    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
     <Body body={body} />
 

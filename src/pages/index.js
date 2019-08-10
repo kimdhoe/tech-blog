@@ -9,9 +9,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <h1 css={styles.heading}>
-        Blog
-      </h1>
+      <h1 css={styles.heading}>Blog</h1>
 
       {posts.map(post => (
         <PostPreview key={post.slug} post={post} />
