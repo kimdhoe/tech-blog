@@ -53,12 +53,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-instagram',
-      options: {
-        username: 'gatsbyjs',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: `${__dirname}/src/components/layout.js`,
