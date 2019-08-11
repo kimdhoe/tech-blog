@@ -29,7 +29,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
+          id: _id
           name
           email
           message
@@ -160,7 +160,7 @@ const styles = {
   `,
   headline: css`
     margin: 0;
-    max-width: 450px;
+    max-width: 500px;
     line-height: 1.6;
     font-size: 1.802rem;
   `,

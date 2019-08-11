@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import Refractor from 'react-refractor'
 
 import ThreadForm from './thread-form'
+import Icon from '../icon'
 
 const Thread = ({ slug, messages }) => (
   <div css={styles.container}>
@@ -24,6 +25,8 @@ const ThreadMessages = ({ messages }) => (
     {messages.map(message => (
       <ThreadMessage
         key={message.id}
+        id={message.id}
+        slug={message.slug}
         name={message.name}
         email={message.email}
         message={message.message}
@@ -34,17 +37,29 @@ const ThreadMessages = ({ messages }) => (
   </div>
 )
 
-const ThreadMessage = ({ name, email, message, date, dateFormatted }) => {
+const ThreadMessage = ({ id, slug, name, email, message, date, dateFormatted }) => {
   return (
     <div css={styles.threadMessage}>
       <div css={styles.avatar}>
-        <img css={styles.avatarImg} src={`https://avatars.dicebear.com/v2/jdenticon/${email}.svg?options[background][]=%23f9f8f2&options[colorSaturation][]=0.3`} alt={`avatar of ${name}`} />
+        <img
+          css={styles.avatarImg}
+          src={`https://avatars.dicebear.com/v2/jdenticon/${email}.svg?options[background][]=%23f9f8f2&options[colorSaturation][]=0.3`}
+          alt={`avatar of ${name}`}
+        />
       </div>
       <div css={styles.messageContent}>
         <div css={styles.messageMeta}>
           <p css={styles.messageAuthor}>{name}</p>
           <p css={styles.messageDate}>
             <time dateTime={date}>{dateFormatted}</time>
+          </p>
+          <p css={styles.messageFile}>
+            <a
+              css={styles.messageFileLink}
+              href={`https://github.com/kimdhoe/tech-blog/blob/master/data/comments/${slug}/${id}.yml`}
+            >
+              <Icon css={styles.messageFileIcon} name="github" attrs={{ width: 13 }} />
+            </a>
           </p>
         </div>
 
@@ -93,7 +108,8 @@ const styles = {
   `,
   messageMeta: css`
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
   `,
   messageAuthor: css`
     margin: 0 1rem 0 0;
@@ -102,14 +118,29 @@ const styles = {
     font-weight: 700;
   `,
   messageDate: css`
-    margin: 0;
+    margin: 0 1rem 0 0;
     font-size: 0.79rem;
     color: #999;
   `,
+  messageFile: css`
+    margin: 0;
+    padding: 0;
+  `,
+  messageFileLink: css`
+    padding: 0;
+    text-decoration: none;
+    font-size: 0.79rem;
+    color: #999;
+    transition: color 0.1s ease-out;
+
+    &:hover {
+      color: #444;
+    }
+  `,
   messageBody: css`
     margin: 0.35rem 0 0 0;
-    line-height: 1.6;
-    font-size: 1rem;
+    line-height: 1.7;
+    font-size: 0.9792rem;
 
     p,
     ul,
@@ -121,11 +152,22 @@ const styles = {
 
     pre {
       padding: 0.5rem 0.85rem;
-      border: 1px solid #e9ecef;
+      border: 1px solid #dee2e6;
+    }
+
+    code {
+      padding: 0 0.2rem;
+      border: 1px solid #dee2e6;
+      border-radius: 0.3rem;
+    }
+
+    pre code {
+      padding: 0;
+      border: none;
     }
 
     h1, h2, h3, h4, h5 {
-      margin: 0 0 1rem 0;
+      margin: 1rem 0 1rem 0;
       line-height: 1.3;
     }
 
@@ -141,16 +183,8 @@ const styles = {
 
     h5 { font-size: 1.067rem; }
 
-    small, .text_small { font-size: 0.937rem; }
-  // messageText: css`
-  //   margin: 0.7rem 0 0 0;
-  //   line-height: 1.7;
-  //   white-space: pre-wrap;
-
-  //   :first-of-type {
-  //     margin-top: 0.3rem;
-  //   }
-  // `,
+    small { font-size: 0.937rem; }
+  `,
 }
 
 export default Thread

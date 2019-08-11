@@ -39,7 +39,7 @@ const styles = {
   global: css`
     html {
       box-sizing: border-box;
-      font-size: 15px;
+      font-size: 16px;
     }
     *,
     *:before,
@@ -47,7 +47,7 @@ const styles = {
       box-sizing: inherit;
     }
     body {
-      font-size: 14px;
+      font-size: 16px;
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
