@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import ReactMarkdown from 'react-markdown'
 
 import ThreadForm from './thread-form'
 
@@ -45,9 +46,10 @@ const ThreadMessage = ({ name, email, message, date, dateFormatted }) => {
             <time dateTime={date}>{dateFormatted}</time>
           </p>
         </div>
-        {message.split(/\n\n+/).map((paragraph, i) => (
+        <ReactMarkdown source={message} />
+        {/* {message.split(/\n\n+/).map((paragraph, i) => (
           <p key={i} css={styles.messageText}>{paragraph}</p>
-        ))}
+        ))} */}
       </div>
     </div>
   )

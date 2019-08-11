@@ -1,6 +1,6 @@
 _id: 0f13da70-babf-11e9-ae67-315fcdb670e7
 name: aaa
 email: 27375f1db5127a57e8fa04e53e18bb53
-message: safasdf
+message: "# safasdf\n[asd](https://www.google.com)\n<script>alert(123)</script>\n ## hey\n\n ```js\nconsole.log(123);\n```\n"
 slug: second-post
 date: '2019-08-09T16:02:16.827Z'

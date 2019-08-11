@@ -34,6 +34,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-markdown": "^4.1.0",
     "typeface-noto-sans-kr": "0.0.63",
     "validator": "^11.1.0"
   },
