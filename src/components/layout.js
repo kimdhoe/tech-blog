@@ -67,6 +67,7 @@ const styles = {
     margin: 3.5rem auto 9rem;
     padding: 0 1.5rem;
     max-width: 650px;
+    width: 100%;
   `,
 }
 
