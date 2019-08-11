@@ -9,21 +9,23 @@ import Thread from '../components/thread'
 
 export const query = graphql`
   query($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        slug
-        author
-        deck
-        abstract
-        epigraph
-        epigraphAuthor
-        date
-        dateFormatted: date(formatString: "MMMM D, YYYY")
+    post: file(sourceInstanceName: { eq: "posts" }, childMdx: { frontmatter: { slug: { eq: $slug } } }) {
+      childMdx {
+        frontmatter {
+          title
+          slug
+          author
+          deck
+          abstract
+          epigraph
+          epigraphAuthor
+          date
+          dateFormatted: date(formatString: "MMMM D, YYYY")
+        }
+        body
       }
-      body
     }
-    allYaml(
+    comments: allYaml(
       filter: { slug: { eq: $slug } }
       sort: { fields: date, order: DESC }
     ) {
@@ -44,8 +46,8 @@ export const query = graphql`
 
 const PostTemplate = ({
   data: {
-    mdx: { frontmatter, body },
-    allYaml: { edges },
+    post: { childMdx: { frontmatter, body } },
+    comments: { edges },
   },
 }) => (
   <>
