@@ -18,7 +18,7 @@ const Header = ({ siteTitle, logo }) => {
       <div css={styles.wrapper}>
         <Link css={styles.title} to="/">
           <div css={styles.logo}>
-            <Image css={styles.logoImg} fixed={logo.fixed} />
+            <Image css={styles.logoImg} fluid={logo.fluid} />
           </div>
           <p css={styles.titleText}>{siteTitle}</p>
         </Link>

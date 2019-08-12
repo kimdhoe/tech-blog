@@ -4,8 +4,8 @@ const useLogo = () => {
   const data = useStaticQuery(graphql`
     query {
       imageSharp(fluid: { originalName: { eq: "logo.png" } }) {
-        fixed(width: 43) {
-          ...GatsbyImageSharpFixed_withWebp
+        fluid(maxWidth: 86) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
