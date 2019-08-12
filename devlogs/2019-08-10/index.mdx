@@ -1,10 +1,11 @@
 ---
-title: dhk.party 도메인, DNS, now
+title: Configure 404 page, domain(dhk.party) and DNS
 slug: 2019-08-10-blog-domain
 date: 2019-08-10T16:22+09:00
 author: Donghee Kim
 ---
 
-* zeit now 커스텀 404 에러 페이지: now.json의 `routes` 필드
-* 기존 GitHub 페이지에 연결되어 있던 dhk.party 도메인을 지금 블로그가 돌아가는 zeit now로.
-  * 루트 도메인 DNS alias 레코드 생성: _@ &rarr; www.dhk.party_
+Enabled custom 404 page on ZEIT Now via `routes` field in _now.json_ file.
+
+Connected dhk.party to this website and created DNS alias record so that
+root(_@_) domain directs to the subdomain(_www_).
