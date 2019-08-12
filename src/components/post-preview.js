@@ -102,7 +102,7 @@ const styles = {
   readText: css`
     letter-spacing: 0.01rem;
     font-size: 0.79rem;
-    font-family: Dank Mono;
+    font-family: Fira Code;
     transform: translateX(-0.25rem);
     transition: all 0.2s ease-out;
 

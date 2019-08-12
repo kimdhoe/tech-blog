@@ -1,6 +1,14 @@
+code,
+pre {
+  color: #393A34;
+  font-family: 'Fira Code', 'Consolas', 'Menlo', 'Monaco', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', 'Courier', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: Dank Mono, Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-family: 'Fira Code', 'Consolas', 'Menlo', 'Monaco', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', 'Courier', monospace;
   font-size: 1rem;
   line-height:1.375;
   direction:ltr;
@@ -64,7 +72,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"] {
     color: #393A34;
-    font-family: Dank Mono, "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  font-family: 'Fira Code', 'Consolas', 'Menlo', 'Monaco', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', 'Courier', monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;

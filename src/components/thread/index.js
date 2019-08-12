@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import ReactMarkdown from 'react-markdown'
-import Refractor from 'react-refractor'
+// import Refractor from 'react-refractor'
 
 import ThreadForm from './thread-form'
 import Icon from '../icon'
@@ -65,7 +65,7 @@ const ThreadMessage = ({ id, slug, name, email, message, date, dateFormatted }) 
 
         <ReactMarkdown
           css={styles.messageBody}
-          renderers={{ code: Refractor }}
+          // renderers={{ code: props => <Refractor {...props} language={props.language || 'javascript'} /> }}
           disallowedTypes={['link']}
           source={message}
         />
