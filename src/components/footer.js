@@ -8,6 +8,7 @@ const Footer = ({ author }) => {
     <footer css={styles.container}>
       <div css={styles.wrapper}>
         <TopButton
+          css={styles.top}
           onClick={() => {
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
@@ -62,6 +63,11 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  `,
+  top: css`
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
   `,
   arrow: css`
     padding-right: 0.2rem;

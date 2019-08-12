@@ -91,12 +91,17 @@ const styles = {
     margin: 0;
     padding: 0;
     display: flex;
+
+    @media only screen and (max-width: 600px) {
+      display: block;
+    }
   `,
   navListItem: css`
     margin: 0 0 0 1.5rem;
 
     @media only screen and (max-width: 600px) {
       margin: 0 1.5rem 0 0;
+      display: inline-block;
     }
   `,
   navListItemLink: css`
@@ -107,6 +112,10 @@ const styles = {
     letter-spacing: 0.03rem;
     text-decoration: none;
     color: #052a4e;
+
+    @media only screen and (max-width: 600px) {
+      display: block;
+    }
 
     ::before {
       content: '';
