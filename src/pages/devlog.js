@@ -12,7 +12,7 @@ export default () => {
       <h2 css={styles.title}>Devlog</h2>
       <h3 css={styles.subtitle}>
         <span css={[styles.subtitleLine, styles.mozHack]}>
-          코드를 읽고 쓰면서, 혹은 그와 관련된 활동을 하면서 두서없이 남기는 기록.
+          A developer keeps a log.
         </span>
       </h3>
 
