@@ -20,13 +20,6 @@ const usePosts = () => {
                 slug
                 author
                 deck
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 100, maxHeight: 100) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
               }
             }
           }

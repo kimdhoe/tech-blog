@@ -9,7 +9,10 @@ import Thread from '../components/thread'
 
 export const query = graphql`
   query($slug: String!) {
-    post: file(sourceInstanceName: { eq: "posts" }, childMdx: { frontmatter: { slug: { eq: $slug } } }) {
+    post: file(
+      sourceInstanceName: { eq: "posts" },
+      childMdx: { frontmatter: { slug: { eq: $slug } } }
+    ) {
       childMdx {
         frontmatter {
           title
