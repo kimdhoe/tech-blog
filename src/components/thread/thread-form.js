@@ -213,6 +213,7 @@ const styles = {
     width: 100%;
     line-height: 1.6;
     background: #e6e6e577;
+    -webkit-appearance: none;
     transition: border-color 0.1s ease;
 
     ::placeholder {
@@ -229,6 +230,7 @@ const styles = {
   textarea: css`
     max-width: 100%;
     width: 100%;
+    -webkit-appearance: none;
   `,
   footer: css`
     display: flex;
