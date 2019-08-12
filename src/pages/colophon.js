@@ -14,18 +14,18 @@ export default () => (
 
       <ul>
         <li>
-          This website is built with
-          {' '}<a href="https://www.gatsbyjs.org">Gatsby</a>, and hosted on
-          {' '}<a href="https://zeit.co/now">ZEIT now</a>.
+          This website is built with{' '}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>, and hosted on{' '}
+          <a href="https://zeit.co/now">ZEIT now</a>.
         </li>
         <li>
-          The commenting system is implemented with
-          {' '}<a href="https://staticman.net">Staticman</a>, whose instance is
-          {' '}self-hosted on <a href="https://zeit.co/now">ZEIT now</a>.
+          The commenting system is implemented with{' '}
+          <a href="https://staticman.net">Staticman</a>, whose instance is{' '}
+          self-hosted on <a href="https://zeit.co/now">ZEIT now</a>.
         </li>
         <li>
-          The whole source code, articles and comments are hosted on
-          {' '}<a href="https://github.com/kimdhoe/tech-blog">GitHub</a>.
+          The whole source code, articles and comments are hosted on{' '}
+          <a href="https://github.com/kimdhoe/tech-blog">GitHub</a>.
         </li>
       </ul>
 
@@ -33,10 +33,10 @@ export default () => (
 
       <ul>
         <li>
-          Made on a Mac with
-          {' '}<a href="">Visual Studio Code</a>,
-          {' '}<a href="https://www.iterm2.com">iTerm2</a>, and
-          {' '}<a href="https://www.google.com/chrome">Chrome</a>.
+          Made on a Mac with{' '}
+          <a href="https://code.visualstudio.com">Visual Studio Code</a>,{' '}
+          <a href="https://www.iterm2.com">iTerm2</a>, and{' '}
+          <a href="https://www.google.com/chrome">Chrome</a>.
         </li>
       </ul>
 
@@ -54,8 +54,8 @@ export default () => (
 
       <ul>
         <li>
-          The logo was drawn by me using
-          {' '}<a href="https://www.pixelmator.com">Pixelmator</a>.
+          The logo was drawn by me using{' '}
+          <a href="https://www.pixelmator.com">Pixelmator</a>.
         </li>
       </ul>
 
@@ -71,21 +71,18 @@ export default () => (
 
       <ul>
         <li>
-          This website is configured to use system typeface if possible, and
-          {' '}
+          This website is configured to use system typeface if possible, and{' '}
           <a href="https://fonts.google.com/specimen/Noto+Sans+KR">
             Noto Sans KR
-          </a>
-          {' '}in some other
-          {' '}cases.
+          </a>{' '}
+          in some other cases.
         </li>
         <li>
-          Used <a href="https://github.com/tonsky/FiraCode">Fira Code</a>
-          {' '}for monospaced texts.
+          Used <a href="https://github.com/tonsky/FiraCode">Fira Code</a> for
+          monospaced texts.
         </li>
       </ul>
     </div>
-
   </article>
 )
 
@@ -93,7 +90,7 @@ const styles = {
   heading: css`
     margin: 0 0 1rem 0;
     padding-top: 1rem;
-    font-size: 1.802rem;
+    font-size: 2.618rem;
   `,
   date: css`
     margin: 0 0 5rem 0;

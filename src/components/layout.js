@@ -38,12 +38,12 @@ Layout.propTypes = {
 const styles = {
   global: css`
     @font-face {
-    font-family: 'Fira Code';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Fira Code'),
-      url('/fonts/FiraCode-Regular.woff2') format('woff2'),
-      url('/fonts/FiraCode-Regular.woff') format('woff');
+      font-family: 'Fira Code';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Fira Code'),
+        url('/fonts/FiraCode-Regular.woff2') format('woff2'),
+        url('/fonts/FiraCode-Regular.woff') format('woff');
     }
     html {
       box-sizing: border-box;
