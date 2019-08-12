@@ -72,10 +72,10 @@ const styles = {
       font-size: 1rem;
       color: inherit;
 
-      background: linear-gradient(to top, #a7edff33 0%, #a7edff);
+      background: linear-gradient(to right, #fd828377 0%, #fd828377);
       background-repeat: no-repeat;
       background-size: 100% 0.2rem;
-      background-position: 0 85%;
+      background-position: 0 88%;
       transition: background-size 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
 
       &:hover {
