@@ -53,6 +53,11 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   `,
   title: css`
     display: flex;
@@ -76,6 +81,10 @@ const styles = {
   `,
   nav: css`
     margin-top: 0;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 1.5rem;
+    }
   `,
   navList: css`
     list-style: none;
@@ -85,6 +94,10 @@ const styles = {
   `,
   navListItem: css`
     margin: 0 0 0 1.5rem;
+
+    @media only screen and (max-width: 600px) {
+      margin: 0 1.5rem 0 0;
+    }
   `,
   navListItemLink: css`
     position: relative;
