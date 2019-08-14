@@ -49,6 +49,10 @@ const styles = {
     html {
       box-sizing: border-box;
       font-size: 16px;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 17px;
+      }
     }
     *,
     *:before,
@@ -62,7 +66,6 @@ const styles = {
       --textLink: #052a4e;
       --hr: hsla(0, 0%, 0%, 0.2);
 
-      font-size: 16px;
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
