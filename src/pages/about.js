@@ -20,47 +20,38 @@ export default () => (
       </section>
 
       <section>
-        <h3>Recent state</h3>
-        <p>
-          I have lived in <strong>Seoul, Korea</strong> since university. I am
-          currently residing in Songpa District with my lovely wife{' '}
-          <i>Summer</i>.
-        </p>
-      </section>
-
-      <section>
         <h3>Why this site exists</h3>
         <p>
-          I am, so to speak, a <em>self-taught</em> software engineer who
-          majored in social science university and have spend not so many years
-          in the industry. Having said that, I'm always hesitant to describe
-          myself as self-taught, since the community around the art of building
-          software has been supportive and I could get all the help I needed
-          along the way.
+          I am, so to speak, a <em>self-taught</em> software engineer. Having
+          said that, I'm always hesitant to describe myself as self-taught,
+          since the community around the art of building software has been
+          supportive and I could get all the help I needed along the way.
         </p>
 
         <p>
           It seems to me that everyone is learning and everyone is teaching.
           Everyone takes inputs from the community to produce outputs into the
           community. This website is one of my attempts to produce outputs and
-          contribute back to the community by sharing my
+          contribute back to the community by sharing my{' '}
           <strong>thoughts</strong>, my{' '} <strong>learnings</strong>, or
           just <strong>what I'm doing</strong>.
         </p>
       </section>
 
       <section>
-        <h3>History</h3>
+        <h3>About me</h3>
         <p>
-          I majored in public administration at university. I have been a
+          I have lived in <strong>Seoul, Korea</strong> for 15 years. I am
+          currently residing in Songpa District with my lovely wife{' '}
+          <i>Summer</i>.
+        </p>
+        <p>
+          I majored in public administration at Korea University. I had been a
           leather crafter for some time, during which I started to learn how to
           code to setup my own retail shop. Since then writing code has become
           my major means of craftsmanship.
         </p>
-      </section>
 
-      <section css={styles.me}>
-        <h3>About myself</h3>
         <p>
           I'm not really a party person, just in case you get the wrong
           impression from the domain name. When I'm not in front of computer, I
@@ -96,16 +87,10 @@ const styles = {
     line-height: 1.8;
 
     section {
-      padding: 0 0 0.9rem 0;
+      padding: 0 0 0.5rem 0;
     }
 
     h3 {
-      position: absolute !important;
-      height: 1px;
-      width: 1px;
-      overflow: hidden;
-      clip: rect(1px, 1px, 1px, 1px);
-      white-space: nowrap; /* added line */
     }
 
     p {
