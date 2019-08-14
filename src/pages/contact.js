@@ -5,7 +5,7 @@ export default () => (
   <div css={styles.container}>
     <h1 css={styles.heading}>Contact</h1>
     <h2 css={styles.subheading}>
-      <span>Drop me a line</span>
+      Drop me a line
     </h2>
 
     <div css={styles.body}>
@@ -16,7 +16,7 @@ export default () => (
         </span>
       </p>
       <p css={styles.message}>
-        I read and reply to all emails, so please contact me at{' '}
+        I'm happy to send you a <em>real</em> response, so please email at{' '}
         <a href="mailto:kimdhoe1@gmail.com">kimdhoe1@gmail.com</a> and{' '}
         <strong>say hi</strong>.
       </p>
@@ -32,6 +32,7 @@ const styles = {
     letter-spacing: 0.02rem;
     font-size: 0.889rem;
     font-weight: 400;
+    color: #fd8283;
   `,
   subheading: css`
     margin: 0;
@@ -63,6 +64,14 @@ const styles = {
       padding: 0.7rem 0 0.7rem 0;
       background: white;
       box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+    }
+
+    em {
+      letter-spacing: 0.02rem;
+      text-transform: lowercase;
+      font-variant: small-caps;
+      font-weight: 400;
+      font-style: normal;
     }
 
     a {
