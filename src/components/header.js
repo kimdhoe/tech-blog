@@ -77,7 +77,6 @@ const styles = {
     margin: 0;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #052a4e;
   `,
   nav: css`
     margin-top: 0;
@@ -111,7 +110,6 @@ const styles = {
     font-size: 0.8rem;
     letter-spacing: 0.03rem;
     text-decoration: none;
-    color: #052a4e;
 
     @media only screen and (max-width: 600px) {
       display: block;

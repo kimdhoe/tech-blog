@@ -23,7 +23,7 @@ const PostPreview = ({ post }) => (
         <p css={styles.read}>
           <span css={styles.readText}>Read this post</span>
           <span css={styles.readIcon}>
-            <Icon name="arrow-right" attrs={{ width: 14, color: '#333' }} />
+            <Icon name="arrow-right" attrs={{ width: 14 }} />
           </span>
         </p>
       </div>
@@ -41,7 +41,6 @@ const styles = {
   link: css`
     display: block;
     text-decoration: none;
-    color: inherit;
   `,
   title: css`
     display: inline-block;
@@ -69,8 +68,8 @@ const styles = {
     transition: all 0.2s ease-out;
 
     ${Container}:hover & {
-      background: white;
-      box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+      background: var(--well);
+      box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
     }
   `,
   footer: css`

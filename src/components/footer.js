@@ -72,11 +72,9 @@ const styles = {
   arrow: css`
     padding-right: 0.2rem;
     display: inline-block;
-    color: #495057;
 
     ${TopButton}:hover & {
       animation: ${bounce} 0.9s infinite;
-      color: #212529;
     }
   `,
   copyright: css`
@@ -84,7 +82,6 @@ const styles = {
   `,
   colophon: css`
     text-decoration: none;
-    color: inherit;
   `,
 }
 

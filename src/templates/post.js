@@ -235,7 +235,6 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: inherit;
 
       &[href] {
         background: linear-gradient(to right, #fd828377 0%, #fd828377);

@@ -45,6 +45,7 @@ const styles = {
         url('/fonts/FiraCode-Regular.woff2') format('woff2'),
         url('/fonts/FiraCode-Regular.woff') format('woff');
     }
+
     html {
       box-sizing: border-box;
       font-size: 16px;
@@ -55,13 +56,29 @@ const styles = {
       box-sizing: inherit;
     }
     body {
+      --bg: #f8f9f2;
+      --well: white;
+      --text: #052a4e;
+      --textLink: #052a4e;
+      --hr: hsla(0, 0%, 0%, 0.2);
+
       font-size: 16px;
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
-      background-color: #f9f8f2;
-      color: #052a4e;
+      transition: all 0.1s ease;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--textLink);
+    }
+
+    button {
+      color: var(--textLink);
     }
   `,
   wrapper: css`

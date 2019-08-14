@@ -65,8 +65,8 @@ const styles = {
   `,
   subtitleLine: css`
     padding: 0.5rem 0 0.75rem 0;
-    background: white;
-    box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+    background: var(--well);
+    box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
   `,
   epigraph: css`
     margin: 8rem 0 7rem;
@@ -125,7 +125,6 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: inherit;
 
       &[href] {
         background: linear-gradient(to right, #fd828377 0%, #fd828377);

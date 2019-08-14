@@ -32,8 +32,6 @@ const styles = {
     letter-spacing: 0.02rem;
     font-size: 0.889rem;
     font-weight: 400;
-    color: #fd8283;
-    /* color: #868e96; */
   `,
   subheading: css`
     margin: 0;
@@ -54,8 +52,8 @@ const styles = {
 
     span {
       padding: 0.7rem 0 0.7rem 0;
-      background: white;
-      box-shadow: 1rem 0 0 white, -1rem 0 0 white;
+      background: var(--well);
+      box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
     }
   `,
   message: css`
@@ -70,7 +68,6 @@ const styles = {
     a {
       letter-spacing: 0.04rem;
       font-size: 1rem;
-      color: inherit;
 
       background: linear-gradient(to right, #fd828377 0%, #fd828377);
       background-repeat: no-repeat;
