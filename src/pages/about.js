@@ -13,9 +13,10 @@ export default () => (
     <div css={styles.body}>
       <section css={styles.lede}>
         <span>
-          I am Joseph a web front-end developer.
+          I am Joseph a web front-end developer. 👋
           <br />
-          This website is a personal blog where I share my thoughts and life.
+          This website is a personal blog where I share my thoughts, my
+          learnings, or just what I'm doing.
         </span>
       </section>
 
@@ -27,31 +28,34 @@ export default () => (
           since the community around the art of building software has been
           supportive and I could get all the help I needed along the way.
         </p>
-
         <p>
           It seems to me that everyone is learning and everyone is teaching.
           Everyone takes inputs from the community to produce outputs into the
-          community. This website is one of my attempts to produce outputs and
-          contribute back to the community by sharing my{' '}
-          <strong>thoughts</strong>, my{' '} <strong>learnings</strong>, or
-          just <strong>what I'm doing</strong>.
+          community. Appreciating the culture of sharing expertise and knowledge
+          rather than hoarding, I started this website as a way of contributing
+          back to the community.
+        </p>
+
+        <p>
+          I opens up my <em>thoughts</em>, my{' '}
+          <em>findings</em>, or just <em>what I'm doing</em>, by simply
+          publishing them here, on the internet.
         </p>
       </section>
 
       <section>
         <h3>About me</h3>
         <p>
-          I have lived in <strong>Seoul, Korea</strong> for 15 years. I am
-          currently residing in Songpa District with my lovely wife{' '}
-          <i>Summer</i>.
-        </p>
-        <p>
           I majored in public administration at Korea University. I had been a
           leather crafter for some time, during which I started to learn how to
           code to setup my own retail shop. Since then writing code has become
           my major means of craftsmanship.
         </p>
-
+        <p>
+          I have lived in <strong>Seoul, Korea</strong> for 15 years. I am
+          currently residing in Songpa District with my lovely wife{' '}
+          <i>Summer</i>.
+        </p>
         <p>
           I'm not really a party person, just in case you get the wrong
           impression from the domain name. When I'm not in front of computer, I
@@ -86,11 +90,8 @@ const styles = {
     margin: 2.5rem 0 0 0;
     line-height: 1.8;
 
-    section {
-      padding: 0 0 0.5rem 0;
-    }
-
     h3 {
+      margin: 2.75rem 0 1.602rem;
     }
 
     p {
