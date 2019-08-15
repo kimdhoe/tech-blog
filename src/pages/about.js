@@ -15,8 +15,7 @@ export default () => (
         <span>
           I am Joseph a web front-end developer. 👋
           <br />
-          This website is a personal blog where I share my thoughts, my
-          learnings, or just what I'm doing.
+          This website is a personal blog where I share my thoughts and life.
         </span>
       </section>
 
@@ -37,7 +36,7 @@ export default () => (
         </p>
 
         <p>
-          I opens up my <em>thoughts</em>, my{' '}
+          I open up my <em>thoughts</em>, my{' '}
           <em>findings</em>, or just <em>what I'm doing</em>, by simply
           publishing them here, on the internet.
         </p>
@@ -60,7 +59,7 @@ export default () => (
           I'm not really a party person, just in case you get the wrong
           impression from the domain name. When I'm not in front of computer, I
           like to spend time with my wife or read a book in a quiet place. I
-          love <strong>coffee</strong> and I hardly drink liquor.
+          love <strong>coffee</strong> and I seldom drink liquor.
         </p>
       </section>
     </div>

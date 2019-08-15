@@ -16,12 +16,12 @@ export default () => (
         <li>
           This website is built with{' '}
           <a href="https://www.gatsbyjs.org">Gatsby</a>, and hosted on{' '}
-          <a href="https://zeit.co/now">ZEIT now</a>.
+          <a href="https://zeit.co/now">Zeit Now</a>.
         </li>
         <li>
           The commenting system is implemented with{' '}
           <a href="https://staticman.net">Staticman</a>, whose instance is{' '}
-          self-hosted on <a href="https://zeit.co/now">ZEIT now</a>.
+          self-hosted on <a href="https://zeit.co/now">Zeit Now</a>.
         </li>
         <li>
           The whole source code, articles and comments are hosted on{' '}
@@ -39,8 +39,6 @@ export default () => (
           <a href="https://www.google.com/chrome">Chrome</a>.
         </li>
       </ul>
-
-      <hr />
 
       <h2>Design</h2>
 
@@ -99,7 +97,6 @@ const styles = {
   `,
   body: css`
     line-height: 1.7;
-    font-size: 0.9792rem;
 
     p,
     ul,
@@ -170,7 +167,7 @@ const styles = {
     }
 
     h3 {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
   `,
 }
