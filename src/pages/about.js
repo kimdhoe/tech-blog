@@ -28,11 +28,11 @@ export default () => (
           supportive and I could get all the help I needed along the way.
         </p>
         <p>
-          It seems to me that everyone is learning and everyone is teaching.
-          Everyone takes inputs from the community to produce outputs into the
-          community. Appreciating the culture of sharing expertise and knowledge
-          rather than hoarding, I started this website as a way of contributing
-          back to the community.
+          Everybody in this community, it seems to me, is learning and teaching
+          at the same time. A developer, given an input from the community,
+          produces an output with added value. Appreciating the culture of
+          sharing expertise and knowledge rather than hoarding, I started this
+          website as a way of contributing back to the community.
         </p>
 
         <p>
@@ -51,15 +51,17 @@ export default () => (
           my major means of craftsmanship.
         </p>
         <p>
-          I have lived in <strong>Seoul, Korea</strong> for 15 years. I am
+          I have lived in <strong>Seoul, Korea</strong> since university. I am
           currently residing in Songpa District with my lovely wife{' '}
           <i>Summer</i>.
         </p>
+
         <p>
-          I'm not really a party person, just in case you get the wrong
-          impression from the domain name. When I'm not in front of computer, I
-          like to spend time with my wife or read a book in a quiet place. I
-          love <strong>coffee</strong> and I seldom drink liquor.
+          The top level part of the domain name, being cool, does not represent
+          much my personality. I'm not really a party person, just in case you
+          get the wrong impression. When I'm not in front of computer, I like to
+          spend time with my wife or read a book in a quiet place. I love{' '}
+          <strong>coffee</strong> and seldom drink liquor.
         </p>
       </section>
     </div>
