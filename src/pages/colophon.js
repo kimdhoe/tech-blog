@@ -16,12 +16,12 @@ export default () => (
         <li>
           This website is built with{' '}
           <a href="https://www.gatsbyjs.org">Gatsby</a>, and hosted on{' '}
-          <a href="https://zeit.co/now">Zeit Now</a>.
+          <a href="https://zeit.co/now">ZEIT Now</a>.
         </li>
         <li>
           The commenting system is implemented with{' '}
           <a href="https://staticman.net">Staticman</a>, whose instance is{' '}
-          self-hosted on <a href="https://zeit.co/now">Zeit Now</a>.
+          self-hosted on <a href="https://zeit.co/now">ZEIT Now</a>.
         </li>
         <li>
           The whole source code, articles and comments are hosted on{' '}
