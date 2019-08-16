@@ -25,12 +25,12 @@ export default () => (
           I am, so to speak, a <em>self-taught</em> software engineer. Having
           said that, I'm hesitant to describe myself as self-taught. The
           community around the art of building software is so supportive that
-          there always has been someone or something from which I can learn.
+          I have always been able to learn from something or someone.
         </p>
         <p>
-          Every member of this community, it seems to me, is learning and
-          teaching at the same time. A developer, given a community input,
-          produces an output to be a help. Appreciating the culture of
+          Every member of this community, it seems to me, is not only a learner
+          but also a teacher at the same time. A developer, given a community
+          input, produces an output to be a help. Appreciating the culture of
           sharing expertise and knowledge rather than hoarding, I started this
           website as a way of contributing back to the community.
         </p>
@@ -55,10 +55,10 @@ export default () => (
           <i>Summer</i>.
         </p>
         <p>
-          The top level part of the domain name, being cool, does not represent
-          much my personality. I'm not really a party person, just in case you
-          get the wrong impression. When I'm not in front of computer, I like to
-          spend time with my wife or read a book in a quiet place. I love{' '}
+          The top-level part of the domain name, although cool, hardly represent my
+          personality. I'm not really a party person, just in case you get the
+          wrong impression. When I'm away from the computer, I like to spend
+          time with my wife or read a book in a quiet place. I love{' '}
           <strong>coffee</strong> and seldom drink liquor.
         </p>
       </section>
@@ -116,7 +116,6 @@ const styles = {
       font-variant: small-caps;
       font-weight: 400;
       font-style: normal;
-      color: black;
     }
 
     i {
