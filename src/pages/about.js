@@ -28,11 +28,11 @@ export default () => (
           I have always been able to learn from something or someone.
         </p>
         <p>
-          Every member of this community, it seems to me, is not only a learner
-          but also a teacher at the same time. A developer, given a community
-          input, produces an output to be a help. Appreciating the culture of
-          sharing expertise and knowledge rather than hoarding, I started this
-          website as a way of contributing back to the community.
+          it seems to me that every member of this community is not only a
+          learner but also a teacher at the same time. A developer, given a
+          community input, produces an output to be a help. Appreciating the
+          culture of sharing expertise and knowledge rather than hoarding, I
+          started this website as a way of contributing back to the community.
         </p>
         <p>
           I open up my <em>thoughts</em>, my{' '}
