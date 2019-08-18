@@ -13,7 +13,8 @@ export default () => (
     <div css={styles.body}>
       <section css={styles.lede}>
         <span>
-          I am Joseph, web front-end developer. 👋
+          I am Joseph, web front-end developer.
+          <span css={styles.hand} role="img" aria-label="waving hand">👋</span>
           <br />
           This website is a personal blog where I share my thoughts and life.
         </span>
@@ -84,6 +85,9 @@ const styles = {
     border-bottom: 6px solid #fd8283;
     line-height: 1.5;
     font-size: 2.618rem;
+  `,
+  hand: css`
+    margin-left: 1.25rem;
   `,
   body: css`
     margin: 2.5rem 0 0 0;
