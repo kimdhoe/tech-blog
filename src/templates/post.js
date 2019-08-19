@@ -3,10 +3,10 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import Helmet from 'react-helmet'
 
 import Icon from '../components/icon'
 import Thread from '../components/thread'
+import SEO from '../components/seo'
 
 export const query = graphql`
   query($slug: String!) {
@@ -57,10 +57,14 @@ const PostTemplate = ({
   },
 }) => (
     <>
-      <Helmet>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.deck || frontmatter.abstract}
+      />
+      {/* <Helmet>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.abstract || frontmatter.deck} />
-      </Helmet>
+      </Helmet> */}
       <BackToAllPosts />
       <Article
         headline={frontmatter.title}
