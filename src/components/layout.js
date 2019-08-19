@@ -7,6 +7,7 @@ import useSiteMetadata from '../hooks/use-sitemetadata'
 import useLogo from '../hooks/use-logo'
 import Header from './header'
 import Footer from './footer'
+import SEO from './seo'
 
 import 'normalize.css'
 
@@ -16,12 +17,14 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Helmet>
-        <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta property="og:image" content="/images/logo.png" />
-      </Helmet>
+      <SEO
+        lang="en"
+        meta={[
+          { property: `og:image`, content: "/images/monstera.jpg" },
+        ]}
+        title={title}
+        description={description}
+      />
       <Global styles={styles.global} />
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
