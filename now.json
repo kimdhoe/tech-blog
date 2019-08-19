@@ -5,6 +5,7 @@
   ],
   "build": {
     "env": {
+      "SITE_URL": "@site-url",
       "AUTHOR": "@author",
       "GA_TRACKING_ID": "@ga-tracking-id",
       "STATICMAN_ENDPOINT": "@staticman-endpoint",

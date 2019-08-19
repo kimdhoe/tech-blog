@@ -4,6 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
+    siteUrl: process.env.SITE_URL,
     title: 'dhk.party',
     description: 'I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life',
     author: process.env.AUTHOR,
@@ -14,6 +15,7 @@ module.exports = {
     githubBranch: process.env.GITHUB_BRANCH,
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-layout',
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
