@@ -94,7 +94,7 @@ const styles = {
     }
   `,
   navListItem: css`
-    margin: 0 0 0 1.5rem;
+    margin: 0;
 
     @media only screen and (max-width: 600px) {
       margin: 0 1.5rem 0 0;
@@ -104,7 +104,7 @@ const styles = {
   navListItemLink: css`
     position: relative;
     margin-left: 0.04rem;
-    padding: 0.5rem 0;
+    padding: 1rem;
     font-size: 0.8rem;
     letter-spacing: 0.03rem;
     text-decoration: none;
