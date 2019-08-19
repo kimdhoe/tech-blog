@@ -1,3 +1,4 @@
+console.log(process.env.NOW_GITHUB_COMMIT_REF)
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const postsResult = await graphql(`
     query {
