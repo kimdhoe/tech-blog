@@ -1,8 +1,14 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
+import SEO from '../components/seo'
+
 export default () => (
   <article css={styles.container}>
+    <SEO
+      title="About"
+      description="I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life."
+    />
     <header>
       <h1 css={styles.heading}>About</h1>
       <h2 css={styles.subheading}>

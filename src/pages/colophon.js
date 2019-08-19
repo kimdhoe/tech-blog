@@ -1,8 +1,11 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
+import SEO from '../components/seo'
+
 export default () => (
   <article css={styles.container}>
+    <SEO title="Colophon" />
     <h1 css={styles.heading}>Colophon</h1>
 
     <p css={styles.date}>

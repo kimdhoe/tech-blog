@@ -1,8 +1,14 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
+import SEO from '../components/seo'
+
 export default () => (
   <div css={styles.container}>
+    <SEO
+     title="Contact"
+     description="I'd love to hear from you, whether you have a question about this website, a feedback on me, or anything else. I'm happy to send you a real response, so please email me and say hi."
+    />
     <h1 css={styles.heading}>Contact</h1>
     <h2 css={styles.subheading}>
       Drop me a line

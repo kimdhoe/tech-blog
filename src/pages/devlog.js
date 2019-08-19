@@ -3,12 +3,14 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 
 import useDevLogs from '../hooks/use-devlogs'
+import SEO from '../components/seo'
 
 export default () => {
   const devLogs = useDevLogs()
 
   return (
     <>
+      <SEO title="Devlog" description="A developer keeps a log." />
       <h2 css={styles.title}>Devlog</h2>
       <h3 css={styles.subtitle}>
         <span css={[styles.subtitleLine, styles.mozHack]}>

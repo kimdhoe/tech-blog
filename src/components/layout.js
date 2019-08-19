@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         meta={[
           { property: `og:image`, content: "/images/monstera.jpg" },
         ]}
-        title={title}
+        title="Blog"
         description={description}
       />
       <Global styles={styles.global} />
