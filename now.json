@@ -19,16 +19,6 @@
   },
   "routes": [
     {
-      "src": "https://tech-blog.kimdhoe.now.sh/(.*)",
-      "status": 301,
-      "dest": "https://www.dhk.party/$1"
-    },
-    {
-      "src": "https://tech-blog-git-master.kimdhoe.now.sh/(.*)",
-      "status": 301,
-      "dest": "https://www.dhk.party/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/$1"
     },
