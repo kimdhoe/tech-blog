@@ -18,9 +18,7 @@ const Layout = ({ children }) => {
     <>
       <SEO
         lang="en"
-        meta={[
-          { property: `og:image`, content: "/images/monstera.jpg" },
-        ]}
+        meta={[{ property: `og:image`, content: '/images/monstera.jpg' }]}
         title="Blog"
         description={description}
       />

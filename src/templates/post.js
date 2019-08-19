@@ -56,29 +56,29 @@ const PostTemplate = ({
     comments: { edges },
   },
 }) => (
-    <>
-      <SEO
-        title={frontmatter.title}
-        description={frontmatter.deck || frontmatter.abstract}
-      />
-      {/* <Helmet>
+  <>
+    <SEO
+      title={frontmatter.title}
+      description={frontmatter.deck || frontmatter.abstract}
+    />
+    {/* <Helmet>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.abstract || frontmatter.deck} />
       </Helmet> */}
-      <BackToAllPosts />
-      <Article
-        headline={frontmatter.title}
-        deck={frontmatter.deck}
-        abstract={frontmatter.abstract}
-        epigraph={frontmatter.epigraph}
-        epigraphAuthor={frontmatter.epigraphAuthor}
-        date={frontmatter.date}
-        dateFormatted={frontmatter.dateFormatted}
-        body={body}
-      />
-      <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
-    </>
-  )
+    <BackToAllPosts />
+    <Article
+      headline={frontmatter.title}
+      deck={frontmatter.deck}
+      abstract={frontmatter.abstract}
+      epigraph={frontmatter.epigraph}
+      epigraphAuthor={frontmatter.epigraphAuthor}
+      date={frontmatter.date}
+      dateFormatted={frontmatter.dateFormatted}
+      body={body}
+    />
+    <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
+  </>
+)
 
 const BackToAllPosts = () => (
   <BackLink css={styles.backLink} to="/">
@@ -99,18 +99,18 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-    <article css={styles.article}>
-      <Header headline={headline} deck={deck} />
+  <article css={styles.article}>
+    <Header headline={headline} deck={deck} />
 
-      {abstract && <Abstract text={abstract} />}
+    {abstract && <Abstract text={abstract} />}
 
-      {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-      <Body body={body} />
+    <Body body={body} />
 
-      <Footer date={date} dateFormatted={dateFormatted} />
-    </article>
-  )
+    <Footer date={date} dateFormatted={dateFormatted} />
+  </article>
+)
 
 const Header = ({ headline, deck }) => (
   <header css={styles.header}>

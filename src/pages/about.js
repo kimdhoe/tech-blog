@@ -11,16 +11,16 @@ export default () => (
     />
     <header>
       <h1 css={styles.heading}>About</h1>
-      <h2 css={styles.subheading}>
-        dhk.party
-      </h2>
+      <h2 css={styles.subheading}>dhk.party</h2>
     </header>
 
     <div css={styles.body}>
       <section css={styles.lede}>
         <span>
           I am Joseph, web front-end developer.
-          <span css={styles.hand} role="img" aria-label="waving hand">👋</span>
+          <span css={styles.hand} role="img" aria-label="waving hand">
+            👋
+          </span>
           <br />
           This website is a personal blog where I share my thoughts and life.
         </span>
@@ -31,8 +31,8 @@ export default () => (
         <p>
           I am, so to speak, a <em>self-taught</em> software engineer. Having
           said that, I'm hesitant to describe myself as self-taught. The
-          community around the art of building software is so supportive that
-          I have always been able to learn from something or someone.
+          community around the art of building software is so supportive that I
+          have always been able to learn from something or someone.
         </p>
         <p>
           it seems to me that every member of this community is not only a
@@ -42,9 +42,9 @@ export default () => (
           started this website as a way of contributing back to the community.
         </p>
         <p>
-          I open up my <em>thoughts</em>, my{' '}
-          <em>findings</em>, or just <em>what I'm doing</em>, by simply
-          publishing them here, on the internet.
+          I open up my <em>thoughts</em>, my <em>findings</em>, or just{' '}
+          <em>what I'm doing</em>, by simply publishing them here, on the
+          internet.
         </p>
       </section>
 
@@ -62,9 +62,9 @@ export default () => (
           <i>Summer</i>.
         </p>
         <p>
-          The top-level part of the domain name, although cool, hardly represent my
-          personality. I'm not really a party person, just in case you get the
-          wrong impression. When I'm away from the computer, I like to spend
+          The top-level part of the domain name, although cool, hardly represent
+          my personality. I'm not really a party person, just in case you get
+          the wrong impression. When I'm away from the computer, I like to spend
           time with my wife or read a book in a quiet place. I love{' '}
           <strong>coffee</strong> and seldom drink liquor.
         </p>
@@ -120,7 +120,8 @@ const styles = {
       }
     }
 
-    em, strong {
+    em,
+    strong {
       letter-spacing: 0.02rem;
       text-transform: lowercase;
       font-variant: small-caps;

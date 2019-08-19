@@ -17,7 +17,11 @@ const Header = ({ siteTitle, logo }) => {
       <div css={styles.wrapper}>
         <Link css={styles.title} to="/">
           <div css={styles.logo}>
-            <Image css={styles.logoImg} fixed={logo.fixed} imgStyle={{ width: 43, height: 34, intrinsicSize: "129x101" }} />
+            <Image
+              css={styles.logoImg}
+              fixed={logo.fixed}
+              imgStyle={{ width: 43, height: 34, intrinsicSize: '129x101' }}
+            />
           </div>
           <p css={styles.titleText}>{siteTitle}</p>
         </Link>
@@ -69,8 +73,7 @@ const styles = {
     width: 43px;
     height: 34px;
   `,
-  logoImg: css`
-  `,
+  logoImg: css``,
   titleText: css`
     margin: 0;
     font-size: 1.1rem;
