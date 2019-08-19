@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import Helmet from 'react-helmet'
 
 import Icon from '../components/icon'
 import Thread from '../components/thread'
@@ -55,21 +56,25 @@ const PostTemplate = ({
     comments: { edges },
   },
 }) => (
-  <>
-    <BackToAllPosts />
-    <Article
-      headline={frontmatter.title}
-      deck={frontmatter.deck}
-      abstract={frontmatter.abstract}
-      epigraph={frontmatter.epigraph}
-      epigraphAuthor={frontmatter.epigraphAuthor}
-      date={frontmatter.date}
-      dateFormatted={frontmatter.dateFormatted}
-      body={body}
-    />
-    <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
-  </>
-)
+    <>
+      <Helmet>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.abstract || frontmatter.deck} />
+      </Helmet>
+      <BackToAllPosts />
+      <Article
+        headline={frontmatter.title}
+        deck={frontmatter.deck}
+        abstract={frontmatter.abstract}
+        epigraph={frontmatter.epigraph}
+        epigraphAuthor={frontmatter.epigraphAuthor}
+        date={frontmatter.date}
+        dateFormatted={frontmatter.dateFormatted}
+        body={body}
+      />
+      <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
+    </>
+  )
 
 const BackToAllPosts = () => (
   <BackLink css={styles.backLink} to="/">
@@ -90,18 +95,18 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-  <article css={styles.article}>
-    <Header headline={headline} deck={deck} />
+    <article css={styles.article}>
+      <Header headline={headline} deck={deck} />
 
-    {abstract && <Abstract text={abstract} />}
+      {abstract && <Abstract text={abstract} />}
 
-    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+      {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-    <Body body={body} />
+      <Body body={body} />
 
-    <Footer date={date} dateFormatted={dateFormatted} />
-  </article>
-)
+      <Footer date={date} dateFormatted={dateFormatted} />
+    </article>
+  )
 
 const Header = ({ headline, deck }) => (
   <header css={styles.header}>
@@ -167,7 +172,6 @@ const styles = {
   `,
   headline: css`
     margin: 0;
-    max-width: 500px;
     line-height: 1.6;
     font-size: 1.802rem;
   `,
@@ -190,23 +194,26 @@ const styles = {
   `,
   abstractText: css`
     max-width: 500px;
-    line-height: 1.7;
+    line-height: 1.9;
     font-size: 0.889rem;
   `,
   epigraph: css`
-    margin: 5.5rem 0 0 0;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    margin: 6.5rem 0 0 0;
+    font-size: 0.889rem;
+    color: #555;
   `,
   epigraphText: css`
+    max-width: 500px;
     margin: 0 0 1rem 0;
-    font-style: italic;
+    line-height: 1.9;
   `,
   epigraphAuthor: css`
+    max-width: 500px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     margin: 0 0.225rem 0 0;
-    font-size: 0.889rem;
 
     ::before {
       content: '';
@@ -225,6 +232,11 @@ const styles = {
     ul,
     ol {
       margin-bottom: 1.602rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.5rem;
     }
 
     blockquote {
@@ -273,12 +285,11 @@ const styles = {
     h3,
     h4,
     h5 {
-      margin: 2.75rem 0 1.602rem;
+      margin: 2.75rem 0 1.602rem 0;
       line-height: 1.15;
     }
 
     h2 {
-      margin-top: 0;
       font-size: 1.802rem;
     }
 

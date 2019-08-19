@@ -48,7 +48,7 @@ const styles = {
 
     html {
       box-sizing: border-box;
-      font-size: 16px;
+      font-size: 15px;
 
       @media only screen and (max-width: 600px) {
         font-size: 17px;
