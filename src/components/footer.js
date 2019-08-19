@@ -19,7 +19,7 @@ const Footer = ({ author }) => {
         <small css={styles.copyright}>
           &copy; {new Date().getFullYear()} {author}
         </small>
-        <Link css={styles.colophon} to="/colophon">
+        <Link css={styles.colophon} to="/colophon/">
           Colophon
         </Link>
       </div>

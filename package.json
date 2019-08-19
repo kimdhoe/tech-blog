@@ -1,9 +1,9 @@
 {
   "name": "dhk.party",
   "private": true,
-  "description": "My personal blog",
+  "description": "Joseph's personal blog",
   "version": "0.0.1",
-  "author": "Donghee Kim <kimdhoe1@gmail.com>",
+  "author": "Joseph <kimdhoe1@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
@@ -21,6 +21,7 @@
     "gatsby-plugin-mdx": "^1.0.22",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-react-helmet-canonical-urls": "^1.2.0",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-plugin-sitemap": "^2.2.6",
@@ -47,7 +48,9 @@
   },
   "keywords": [
     "kimdhoe",
-    "blog"
+    "joseph",
+    "blog",
+    "devlog"
   ],
   "license": "MIT",
   "scripts": {
@@ -57,7 +60,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "analyze": "ANALYZE_BUNDLE_SIZE=true gatsby build",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"No tests\""
   },
   "repository": {
     "type": "git",

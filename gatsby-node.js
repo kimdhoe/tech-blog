@@ -29,7 +29,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   postEdges.forEach(edge => {
     actions.createPage({
-      path: edge.node.childMdx.frontmatter.slug,
+      path: edge.node.childMdx.frontmatter.slug + '/',
       component: `${__dirname}/src/templates/post.js`,
       context: {
         slug: `${edge.node.childMdx.frontmatter.slug}`

@@ -5,10 +5,10 @@ import Image from 'gatsby-image'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },
-  { to: '/devlog', label: 'Devlog' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/devlog/', label: 'Devlog' },
+  { to: '/projects/', label: 'Projects' },
+  { to: '/about/', label: 'About' },
+  { to: '/contact/', label: 'Contact' },
 ]
 
 const Header = ({ siteTitle, logo }) => {

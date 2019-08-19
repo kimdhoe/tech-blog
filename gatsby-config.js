@@ -16,6 +16,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-react-helmet-canonical-urls',
+      options: {
+        siteUrl: 'https://www.dhk.party',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         resolveEnv: () => process.env.NOW_GITHUB_COMMIT_REF === 'master' ? 'production' : 'staging',
