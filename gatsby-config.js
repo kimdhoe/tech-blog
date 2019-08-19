@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'dhk.party',
-    description: 'This is my tech blog.',
+    description: 'I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life',
     author: process.env.AUTHOR,
     staticmanEndpoint: process.env.STATICMAN_ENDPOINT,
     staticmanVersion: process.env.STATICMAN_VERSION,

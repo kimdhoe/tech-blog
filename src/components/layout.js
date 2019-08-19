@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta property="og:image" content="/images/logo.png" />
       </Helmet>
       <Global styles={styles.global} />
       <div css={styles.wrapper}>
