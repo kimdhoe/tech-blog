@@ -1,4 +1,3 @@
-console.log('=======', process.env)
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const postsResult = await graphql(`
     query {

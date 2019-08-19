@@ -19,6 +19,11 @@
   },
   "routes": [
     {
+      "src": "tech-blog-git-master.kimdhoe.now.sh/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://www.dhk.party/$1" }
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     },
