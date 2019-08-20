@@ -17,13 +17,8 @@ const Header = ({ siteTitle, logo }) => {
       <div css={styles.wrapper}>
         <Link css={styles.title} to="/">
           <div css={styles.logo}>
-            <Image
-              css={styles.logoImg}
-              fixed={logo.fixed}
-              imgStyle={{ width: 43, height: 34, intrinsicSize: '129x101' }}
-            />
+            <img css={styles.logoImg} src="/images/logo.svg" alt="dhk.party" />
           </div>
-          <p css={styles.titleText}>{siteTitle}</p>
         </Link>
         <nav css={styles.nav}>
           <ul css={styles.navList}>
@@ -70,10 +65,11 @@ const styles = {
   `,
   logo: css`
     margin-right: 0.7rem;
-    width: 43px;
-    height: 34px;
+    width: 140px;
   `,
-  logoImg: css``,
+  logoImg: css`
+    width: 100%;
+  `,
   titleText: css`
     margin: 0;
     font-size: 1.1rem;

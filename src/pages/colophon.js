@@ -30,11 +30,6 @@ export default () => (
           The whole source code, articles and comments are hosted on{' '}
           <a href="https://github.com/kimdhoe/tech-blog">GitHub</a>.
         </li>
-      </ul>
-
-      <h3>Tools</h3>
-
-      <ul>
         <li>
           Made on a Mac with{' '}
           <a href="https://code.visualstudio.com">Visual Studio Code</a>,{' '}
@@ -43,24 +38,15 @@ export default () => (
         </li>
       </ul>
 
-      <h2>Design</h2>
+      <h2>Logo</h2>
 
       <ul>
         <li>
-          This website was designed by me, a frontend developer based in Seoul.
+          The logo was made by <a href="https://www.namecheap.com/logo-maker/">Namecheap Logo Maker</a>.
         </li>
       </ul>
 
-      <h3>Logo</h3>
-
-      <ul>
-        <li>
-          The logo was drawn by me using{' '}
-          <a href="https://www.pixelmator.com">Pixelmator</a>.
-        </li>
-      </ul>
-
-      <h3>Icon</h3>
+      <h2>Icon</h2>
 
       <ul>
         <li>
@@ -68,7 +54,7 @@ export default () => (
         </li>
       </ul>
 
-      <h3>Typeface</h3>
+      <h2>Typeface</h2>
 
       <ul>
         <li>
