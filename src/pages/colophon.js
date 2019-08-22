@@ -9,7 +9,7 @@ export default () => (
     <h1 css={styles.heading}>Colophon</h1>
 
     <p css={styles.date}>
-      <time dateTime="2019-08-12">August 12, 2019</time>
+      Updated at <time dateTime="2019-08-22">August 12, 2019</time>.
     </p>
 
     <div css={styles.body}>
