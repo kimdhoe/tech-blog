@@ -1,0 +1,136 @@
+---
+title: Now + Gatsby 블로그의 중복 콘텐츠 SEO 이슈 대응하기
+slug: now-gatsby-solve-duplicate-content-seo-issue
+author: Joseph
+date: 2019-08-23
+deck: "Gatsby 사이트가 ZEIT Now의 배포기능에서 발생하는 중복 콘텐츠 이슈에 대응하는 방법을 정리한 글."
+abstract: ""
+epigraph: ""
+epigraphAuthor: ""
+---
+
+## 들어가며
+
+정적 사이트와 _[ZEIT Now](https://zeit.co/home)_ 혹은 _[Netlify](https://www.netlify.com/)_ 무료 플랜의 조합은 개발자 블로거들에게 인기 있는 선택지 중 하나이다. 이 블로그도 _[Gatsby](https://www.gatsbyjs.org)_로 만들어졌고, *ZEIT Now*로 호스팅되고 있는데, 이 둘의 조합은 더할 나위가 없다. *Gatsby* 사이트는 놀랄 만큼 빠르고, *Now*를 통한 배포는 군더더기 없이 간편하다.
+
+그런데 이 조합으로 블로그를 며칠 운영하다 보니 SEO 이슈 하나가 눈에 들어왔다. 바로 콘텐츠가 웹에 중복되어 게시되고 있다는 것이다. *Now*가 제공하는 아주 편리한 배포 기능이 이유인데, *Netlify* 역시 같은 기능이 있는 걸로 보아 마찬가지인 듯하다. 프로덕션 버전의 웹사이트에 여러 개의 URL을 통해 접근할 수 있고, 스테이징 버전 배포가 자유로워 같은 내용을 가진 웹사이트가 여러 개 존재할 수 있다. 이는 웹에 콘텐츠를 게시하는 사람이라면 대체로 피하고 싶은 상황이다. 만일 www.dhk.party 외 다른 도메인이 검색엔진에 인덱싱 된다면 랭킹에 부정적인 영향이 있을 뿐더러 사용자 경험을 저해할 수 있다.
+
+## 문제 파악
+
+중복 콘텐츠라는 범주로 묶여있지만 문제를 두 가지로 나눠볼 수 있다.
+
+1. 프로덕션 사이트에 접근할 수 있는 URL이 여러 개 있다.
+2. 검색엔진이 스테이징 사이트를 인덱싱할 수 있다.
+
+### 가명(Alias)
+
+첫 번째 문제는 프로덕션 사이트에 여러 개의 URL을 통해 접근할 수 있다는 것이다. 이 블로그는 www.dhk.party를 메인으로 사용하지만 *Now*에 의해 자동으로 배정되는 도메인을 통해서도 접근이 가능하다. *Now*는 기본적으로 *.now.sh 형태의 도메인 이름과 그 외 여러 개의 가명을 제공한다. 예를 들면, 이 블로그는 `master`를 프로덕션 브랜치로 쓰고 있고, 아래처럼 여러 개의 URL을 통해 접근할 수 있다:
+
+1. www.dhk.party
+2. xxx.now.sh
+3. xxx.kimdhoe.now.sh
+4. xxx-master.kimdhoe.now.sh
+
+똑같은 내용이 네 군데를 통해 제공되고 있는 셈이다.
+
+### 스테이징 프리뷰
+
+두번째로, 스테이징 사이트들이 외부로 공개되고 있다. *[Now for Github](https://zeit.co/github)*을 통해 배포하면 *GitHub* 저장소에 대한 모든 푸시가 빌드로 이어진다. 프로덕션 브랜치 뿐만이 아니라 모든 브랜치에 대한 매 푸시마다 배포가 이루어지고, 각 브랜치 별로 접속 가능한 URL이 배정된다. 풀 리퀘스트 또한 마찬가지로 별도의 스테이징 URL을 배정받고, 매 푸시가 배포로 이어진다. 변경사항을 프리뷰하기에 편리한 기능이긴 하지만 이 스테이징 사이트들이 검색엔진에 인덱싱될 위험이 있다.
+
+## 해결책
+
+두 가지 문제 모두 웹페이지에  메타 정보를 추가하는 방식으로 대응할 수 있다.
+
+* Canonical URL 설정
+* Robots 정보 설정
+
+### Canonical URL
+
+프로덕션 사이트로 접근하는 URL이 여럿 있는 문제에는 Canonical URL을 통해 대응할 수 있다. Canonical URL은 같은 내용을 가진 여러 웹페이지들 중 어떤 것이 대표격인지 검색엔진에게 알려줄 수 있는 방법이다. 명시한 URL 이외의 다른 것들은 중복 콘텐츠로 간주된다.
+*Gatsby* 사이트에는 *[gatsby-plugin-react-helmet-canonical-urls](https://github.com/NickCis/gatsby-plugin-react-helmet-canonical-urls#readme)*를 이용해서 간단히 Canonical URL을 추가할 수 있다.
+
+```sh
+$ npm install gatsby-plugin-react-helmet gatsby-plugin-react-helmet-canonical-urls
+```
+
+플러그인 설치 후, gatsby.config.js 파일에서 사이트 URL과 함께 플러그인을 사용하도록 설정한다.
+
+```json
+plugins: [
+  'gatsby-plugin-react-helmet',
+  {
+    resolve: 'gatsby-plugin-react-helmet-canonical-urls',
+    options: {
+      siteUrl: 'https://www.dhk.party'
+    }
+  },
+  // ...
+```
+
+Canonical URL은 아래와 같은 형태로 페이지마다 들어간다.
+
+```
+<link rel="canonical" href="https://www.dhk.party/" />
+<link rel="canonical" href="https://www.dhk.party/package-lock-json/" />
+```
+
+### Robots meta 태그
+
+웹페이지가 검색엔진에 인덱싱되지 않도록 하기 위해선 Robots 메타 정보를 설정해줘야 한다. 이 정보는 HTTP 헤더를 통해 전달하거나 웹페이지에 포함시킬 수 있다. *Now*는 now.json 파일을 통한 커스텀 헤더 설정을 지원하지만 스테이징 사이트인 경우를 판별할 방법이 — 내가 알기로는 — 없다. 후자의 방법을 택할 경우, 아래와 같은 형태로 메타 정보가 웹페이지에 들어가게 된다.
+
+```jsx
+<meta name="robots" content="noindex,nofollow" />
+```
+
+이 메타 정보는 크롤러에게 해당 페이지를 어떻게 처리할 것인지를 지시하고 있다:
+
+* `noindex`: 해당 페이지를 인덱싱하지 말 것.
+* `nofollow`: 해당 페이지의 링크를 따라가지 말 것.
+
+물론 이 정보는 스테이징 빌드에만 포함되어야 하며, 프로덕션 빌드에 포함되어선 안된다. 이제 빌드 시점에 프로덕션 여부를 판별할 방법만 있으면 된다. *Now for GitHub*이 배포시에 제공하는 환경변수 중, [`NOW_GITHUB_COMMIT_REF`](https://zeit.co/docs/v2/advanced/now-for-github#included-environment-variables)가 이 목적에 부합한다. 이 변수의 값은 배포시 사용되는 브랜치의 이름이다. *dhk.party*의 경우, 디폴트 설정을 그대로 유지했으므로 `master`를 프로덕션 브랜치로 사용하고 있다. 따라서 이 변수가 `master`가 아닌 경우만 판별하여 해당 메타 정보를 넣어주도록 설정할 수 있다.
+
+먼저, *Gatsby*에 이미 딸려있는 *[DefinePlugin](https://www.gatsbyjs.org/docs/add-custom-webpack-config/#examples)*을 이용해 글로벌 변수를 설정한다.
+
+```js
+exports.onCreateWebpackConfig = ({ actions, plugins }) => {
+  actions.setWebpackConfig({
+    plugins: [
+      plugins.define({
+        'process.env.NOW_GITHUB_COMMIT_REF': JSON.stringify(process.env.NOW_GITHUB_COMMIT_REF),
+      })
+    ],
+  })
+}
+```
+
+*[React Helmet](https://github.com/nfl/react-helmet)*을 이용해서 모든 페이지에서 공통적으로 사용되는 레이아웃 컴포넌트 안에 해당 정보를 넣어준다.
+
+```jsx
+const isProd = process.env.NOW_GITHUB_COMMIT_REF === 'master'
+
+// ...
+
+<Helmet>
+  {!isProd && (
+    <meta name="robots" content="noindex,nofollow" />
+  )}
+  {/* ... */}
+</Helmet>
+```
+
+#### robots.txt?
+
+위처럼 웹페이지에 메타 정보를 넣는 방식으로 대응하기 전에, 아래처럼 robots.txt를 통해서 스테이징 사이트 크롤링을 막는 방식의 대응을 시도했었다.
+
+```
+User-agent: *
+Disallow: /
+```
+
+합리적인 방식으로 보이긴 하지만 여기엔 함정이 있는데, 바로 크롤링을 막는다고 해서 인덱싱이 되지 않으리라는 보장이 없다는 것이다. 검색엔진은 크롤링 외 다른 방식을 통해서도 인덱싱을 시도하기 때문에 인덱싱에 대한 명시적인 신호(`noindex`)를 줄 필요가 있다. 앞서 한 것처럼 인덱싱에 대한 지시를 Robots 메타 정보를 통해 포함시킨다고 해도 robots.txt로 크롤링을 금지하면 무용지물이 될 수 있다. 검색엔진이 웹페이지에 포함된 인덱싱 정보를 얻으려면 우선 페이지를 읽어와야 하는데, 크롤링을 막아버리면 해당 정보를 알아낼 길이 없기 때문이다.
+
+## 맺으며
+
+*ZEIT Now*의 배포 기능에서 초래되는 중복 콘텐츠 이슈에 대해 *Gatsby* 사이트의 맥락에서 대응하는 방법을 살펴보았다. 중복 콘텐츠의 원인은 프로덕션 사이트에 여러 개의 도메인이 연결되어 있는 것과 인덱싱이 가능한 스테이징 사이트들이 존재하는 것이었다. 전자의 원인에 대해서는 Canonical URL을 설정하는 것으로, 후자의 원인에 대해서는 Robots 메타 정보를 설정하는 것으로 대응하였다.
+
+이 글은 *dhk.party*가 호스팅되고 있는 *Now*를 대상으로 했지만 *Netlify*에서도 같은 이슈가 존재하는 것으로 보인다. *Netlify*를 충분히 사용해보지는 않았지만 *ZEIT Now*와 유사한 기능을 제공하고 있고 검색 결과 이슈를 언급한 경우가 몇 있었다. *Netlify*에서 빌드 시 프로덕션 사이트를 판별하는 방법만 찾으면 나머지 대응책은 대동소이하지 않을까 싶다.
