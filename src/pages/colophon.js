@@ -42,7 +42,11 @@ export default () => (
 
       <ul>
         <li>
-          The logo was made by <a href="https://www.namecheap.com/logo-maker/">Namecheap Logo Maker</a>.
+          The logo was made by{' '}
+          <a href="https://www.namecheap.com/logo-maker/">
+            Namecheap Logo Maker
+          </a>
+          .
         </li>
       </ul>
 
