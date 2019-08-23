@@ -178,12 +178,13 @@ const styles = {
     margin: 0;
     line-height: 1.6;
     font-size: 1.802rem;
+    font-weight: 500;
   `,
   deck: css`
     margin-top: 1.125rem;
     max-width: 550px;
     line-height: 1.8;
-    font-size: 1.266rem;
+    font-size: 1.215rem;
   `,
   deckText: css`
     display: inline;
@@ -229,7 +230,7 @@ const styles = {
   `,
   body: css`
     margin: 7rem 0 0 0;
-    line-height: 1.95;
+    line-height: 2.1;
     font-size: 0.9792rem;
 
     p,
@@ -291,34 +292,28 @@ const styles = {
     h5 {
       margin: 2.75rem 0 1.602rem 0;
       line-height: 1.15;
+      font-weight: 400;
     }
 
     h2 {
-      font-size: 1.802rem;
+      font-size: 1.296rem;
+      font-weight: 500;
     }
 
     h3 {
-      font-size: 1.602rem;
+      font-size: 1.215rem;
     }
 
     h4 {
-      font-size: 1.424rem;
+      font-size: 1.138rem;
     }
 
     h5 {
-      font-size: 1.266rem;
-    }
-
-    h6 {
-      font-size: 1.125rem;
+      font-size: 1.067rem;
     }
 
     small {
-      font-size: 0.889rem;
-    }
-
-    .gatsby-highlight {
-      padding: 0.1rem 0 0.7rem 0;
+      font-size: 0.937rem;
     }
   `,
   footer: css`
