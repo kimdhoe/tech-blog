@@ -11,8 +11,7 @@ import SEO from './seo'
 import 'normalize.css'
 
 const Layout = ({ children }) => {
-  const isProd = process.env.NOW_GITHUB_COMMIT_REF === 'master'
-  const { title, description, author } = useSiteMetadata()
+  const { title, description, author, deployBranch } = useSiteMetadata()
   const logo = useLogo()
 
   return (
@@ -21,7 +20,7 @@ const Layout = ({ children }) => {
         lang="en"
         meta={[
           { property: 'og:image', content: '/images/cover.png' },
-          !isProd && { name: 'robots', content: 'noindex,nofollow' },
+          deployBranch !== 'master' && { name: 'robots', content: 'noindex,nofollow' },
         ].filter(Boolean)}
         title="Blog"
         description={description}

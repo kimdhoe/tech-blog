@@ -1,13 +1,3 @@
-exports.onCreateWebpackConfig = ({ actions, plugins }) => {
-  actions.setWebpackConfig({
-    plugins: [
-      plugins.define({
-        'process.env.NOW_GITHUB_COMMIT_REF': JSON.stringify(process.env.NOW_GITHUB_COMMIT_REF),
-      })
-    ],
-  })
-}
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const postsResult = await graphql(`
     query {

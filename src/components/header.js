@@ -1,7 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
-import Image from 'gatsby-image'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },

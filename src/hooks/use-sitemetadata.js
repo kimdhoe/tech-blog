@@ -8,6 +8,7 @@ const UseSiteMetadata = () => {
           title
           description
           author
+          deployBranch
           staticmanEndpoint
           staticmanVersion
           githubUsername

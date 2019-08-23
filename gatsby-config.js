@@ -8,6 +8,7 @@ module.exports = {
     title: 'dhk.party',
     description: 'I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life',
     author: process.env.AUTHOR,
+    deployBranch: process.env.NOW_GITHUB_COMMIT_REF || 'dev',
     staticmanEndpoint: process.env.STATICMAN_ENDPOINT,
     staticmanVersion: process.env.STATICMAN_VERSION,
     githubUsername: process.env.GITHUB_USERNAME,
