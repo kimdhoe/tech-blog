@@ -11,7 +11,6 @@ import SEO from './seo'
 import 'normalize.css'
 
 const Layout = ({ children }) => {
-  console.log('=======', process.env.NOW_GITHUB_COMMIT_REF)
   const isProd = process.env.NOW_GITHUB_COMMIT_REF === 'master'
   const { title, description, author } = useSiteMetadata()
   const logo = useLogo()

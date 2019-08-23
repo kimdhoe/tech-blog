@@ -89,8 +89,8 @@ module.exports = {
         name: 'dhk.party',
         short_name: 'dhk',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#29C785',
+        theme_color: '#29C785',
         display: 'minimal-ui',
         icon: 'static/images/profile-black.svg', // This path is relative to the root of the site.
       },
