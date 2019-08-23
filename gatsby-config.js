@@ -21,22 +21,6 @@ module.exports = {
         siteUrl: 'https://www.dhk.party',
       },
     },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        resolveEnv: () => process.env.NOW_GITHUB_COMMIT_REF === 'master' ? 'production' : 'staging',
-        env: {
-          staging: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null,
-          },
-          production: {
-            policy: [{ userAgent: '*', allow: '/' }],
-          },
-        },
-      },
-    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-layout',
     'gatsby-plugin-emotion',
