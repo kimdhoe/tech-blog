@@ -55,7 +55,7 @@ $ npm install gatsby-plugin-react-helmet gatsby-plugin-react-helmet-canonical-ur
 
 플러그인 설치 후, gatsby.config.js 파일에서 사이트 URL과 함께 플러그인을 사용하도록 설정한다.
 
-```json
+```js
 plugins: [
   'gatsby-plugin-react-helmet',
   {
@@ -65,11 +65,12 @@ plugins: [
     }
   },
   // ...
+],
 ```
 
 Canonical URL은 아래와 같은 형태로 페이지마다 들어간다.
 
-```
+```jsx
 <link rel="canonical" href="https://www.dhk.party/" />
 <link rel="canonical" href="https://www.dhk.party/package-lock-json/" />
 ```
@@ -89,33 +90,42 @@ Canonical URL은 아래와 같은 형태로 페이지마다 들어간다.
 
 물론 이 정보는 스테이징 빌드에만 포함되어야 하며, 프로덕션 빌드에 포함되어선 안된다. 이제 빌드 시점에 프로덕션 여부를 판별할 방법만 있으면 된다. *Now for GitHub*이 배포시에 제공하는 환경변수 중, [`NOW_GITHUB_COMMIT_REF`](https://zeit.co/docs/v2/advanced/now-for-github#included-environment-variables)가 이 목적에 부합한다. 이 변수의 값은 배포시 사용되는 브랜치의 이름이다. *dhk.party*의 경우, 디폴트 설정을 그대로 유지했으므로 `master`를 프로덕션 브랜치로 사용하고 있다. 따라서 이 변수가 `master`가 아닌 경우만 판별하여 해당 메타 정보를 넣어주도록 설정할 수 있다.
 
-먼저, *Gatsby*에 이미 딸려있는 *[DefinePlugin](https://www.gatsbyjs.org/docs/add-custom-webpack-config/#examples)*을 이용해 글로벌 변수를 설정한다.
+먼저, 해당 값을 gatsby-config.js 파일에 사이트 메타데이터로 추가한다.
 
 ```js
-exports.onCreateWebpackConfig = ({ actions, plugins }) => {
-  actions.setWebpackConfig({
-    plugins: [
-      plugins.define({
-        'process.env.NOW_GITHUB_COMMIT_REF': JSON.stringify(process.env.NOW_GITHUB_COMMIT_REF),
-      })
-    ],
-  })
-}
+siteMetadata: {
+  deployBranch: process.env.NOW_GITHUB_COMMIT_REF || 'dev',
+  // ...
+},
 ```
 
-*[React Helmet](https://github.com/nfl/react-helmet)*을 이용해서 모든 페이지에서 공통적으로 사용되는 레이아웃 컴포넌트 안에 해당 정보를 넣어준다.
+이제 사이트 전체에서 사용되는 레이아웃 컴포넌트에서 `deployBranch` 값을 읽어올 수 있다. *[React Helmet](https://github.com/nfl/react-helmet)*을 이용해서 해당 값이 `master`가 아닌 경우에만 필요한 메타 정보를 넣어준다.
 
 ```jsx
-const isProd = process.env.NOW_GITHUB_COMMIT_REF === 'master'
+const Layout = (/* ... */) =>
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          deployBranch
+        }
+      }
+    }
+  `)
 
-// ...
-
-<Helmet>
-  {!isProd && (
-    <meta name="robots" content="noindex,nofollow" />
-  )}
-  {/* ... */}
-</Helmet>
+  return (
+    <>
+      <Helmet>
+        {data.site.siteMetadata.deployBranch !== 'master' && (
+          <meta name="robots" content="noindex,nofollow" />
+        )}
+        {/* ... */}
+      </Helmet>
+      {/* ... */}
+    <>
+  )
+}
 ```
 
 #### robots.txt?
@@ -133,4 +143,4 @@ Disallow: /
 
 *ZEIT Now*의 배포 기능에서 초래되는 중복 콘텐츠 이슈에 대해 *Gatsby* 사이트의 맥락에서 대응하는 방법을 살펴보았다. 중복 콘텐츠의 원인은 프로덕션 사이트에 여러 개의 도메인이 연결되어 있는 것과 인덱싱이 가능한 스테이징 사이트들이 존재하는 것이었다. 전자의 원인에 대해서는 Canonical URL을 설정하는 것으로, 후자의 원인에 대해서는 Robots 메타 정보를 설정하는 것으로 대응하였다.
 
-이 글은 *dhk.party*가 호스팅되고 있는 *Now*를 대상으로 했지만 *Netlify*에서도 같은 이슈가 존재하는 것으로 보인다. *Netlify*를 충분히 사용해보지는 않았지만 *ZEIT Now*와 유사한 기능을 제공하고 있고 검색 결과 이슈를 언급한 경우가 몇 있었다. *Netlify*에서 빌드 시 프로덕션 사이트를 판별하는 방법만 찾으면 나머지 대응책은 대동소이하지 않을까 싶다.
+이 글은 *dhk.party*가 호스팅되고 있는 *Now*를 대상으로 했지만 *Netlify*에서도 같은 이슈가 존재하는 것으로 보인다. *Netlify*를 충분히 사용해보지는 않았지만 *ZEIT Now*와 유사한 기능을 제공하고 있고 검색 결과 이슈를 언급한 경우가 몇 있었다. *Netlify*에서 빌드 시 프로덕션 사이트를 판별하는 방법만 찾으면 같은 방식으로 대응할 수 있지 않을까 싶다.
