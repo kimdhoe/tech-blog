@@ -237,6 +237,11 @@ const styles = {
     ul,
     ol {
       margin-bottom: 1.602rem;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      word-break: break-word;
+      hyphens: auto;
     }
 
     ul,
