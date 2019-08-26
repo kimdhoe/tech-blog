@@ -22,7 +22,7 @@ pre[class*="language-"] {
   -webkit-hyphens:none;
   -ms-hyphens:none;
   hyphens:none;
-  background:#f9f8f2;
+  background:#fefefe;
   color:#499fbc;
 }
 pre[class*="language-"]::-moz-selection,
@@ -30,14 +30,14 @@ pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] ::-moz-selection {
   text-shadow: none;
-  background: #fafaf9;
+  background:#fefefe;
 }
 pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
   text-shadow:none;
-  background:#fafaf9;
+  background:#fefefe;
 }
 pre[class*="language-"] {
   margin: 0.5em 0;
@@ -72,7 +72,7 @@ pre[class*="language-"] {
 code[class*="language-"],
 pre[class*="language-"] {
     color: #393A34;
-  font-family: 'Fira Code', 'Consolas', 'Menlo', 'Monaco', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', 'Courier', monospace;
+    font-family: 'Fira Code', 'Consolas', 'Menlo', 'Monaco', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', 'Courier', monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -105,7 +105,8 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 pre[class*="language-"] {
     overflow: auto;
     border: 1px solid #e9ecef;
-    background-color: #f9f8f2;
+    border-radius: 4px;
+    background-color: #fefefe;
 }
 
 /* Inline code */
@@ -113,8 +114,9 @@ pre[class*="language-"] {
     padding: .2em;
     padding-top: 1px;
     padding-bottom: 1px;
-    background: #f8f8f4;
+    background:#fefefe;
     border: 1px solid #dee2e6;
+    border-radius: 4px;
 }
 
 .token.comment,

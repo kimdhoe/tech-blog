@@ -64,10 +64,10 @@ const styles = {
       box-sizing: inherit;
     }
     body {
-      --bg: #f8f9f2;
+      --bg: #f4f7fb;
       --well: white;
-      --text: #052a4e;
-      --textLink: #052a4e;
+      --text: #232c23;
+      --textLink: #232c23;
       --hr: hsla(0, 0%, 0%, 0.2);
 
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',

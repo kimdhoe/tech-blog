@@ -184,7 +184,7 @@ const styles = {
     margin-top: 1.125rem;
     max-width: 550px;
     line-height: 1.8;
-    font-size: 1.215rem;
+    font-size: 1.125rem;
   `,
   deckText: css`
     display: inline;
@@ -200,7 +200,7 @@ const styles = {
   abstractText: css`
     max-width: 500px;
     line-height: 1.9;
-    font-size: 0.889rem;
+    font-size: 0.9rem;
   `,
   epigraph: css`
     display: flex;
@@ -319,6 +319,10 @@ const styles = {
 
     small {
       font-size: 0.937rem;
+    }
+
+    em {
+      font-family: Georgia, 'Times New Roman', Times, serif;
     }
   `,
   footer: css`
