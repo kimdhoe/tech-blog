@@ -194,6 +194,10 @@ const styles = {
       font-size: 0.889rem;
     }
 
+    em {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
     .gatsby-highlight {
       padding: 0.1rem 0 0.7rem 0;
     }
