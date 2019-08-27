@@ -19,11 +19,6 @@
   },
   "routes": [
     {
-      "src": "https://www.dhk.party/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://dhk.party/$1"}
-    },
-    {
       "src": "/(.*)",
       "dest": "/$1"
     },
