@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-react-helmet-canonical-urls',
       options: {
-        siteUrl: 'https://www.dhk.party',
+        siteUrl: process.env.SITE_URL,
       },
     },
     'gatsby-plugin-sitemap',
