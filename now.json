@@ -1,7 +1,7 @@
 {
   "version": 2,
   "alias": [
-    "www.dhk.party"
+    "dhk.party"
   ],
   "build": {
     "env": {
@@ -20,11 +20,6 @@
   "routes": [
     {
       "src": "https://dhk.party/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://www.dhk.party/$1" }
-    },
-    {
-      "src": "https://tech-blog.*.now.sh/(.*)",
       "status": 301,
       "headers": { "Location": "https://www.dhk.party/$1" }
     },
