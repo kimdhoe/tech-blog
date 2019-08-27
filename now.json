@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "alias": [
-    "dhk.party"
-  ],
   "build": {
     "env": {
       "SITE_URL": "@site-url",
@@ -22,10 +19,6 @@
       "src": "/(.*)",
       "status": 301,
       "headers": { "Location": "https://www.dhk.party/$1"}
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     },
     {
       "handle": "filesystem"
