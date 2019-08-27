@@ -24,7 +24,7 @@
       "headers": { "Location": "https://www.dhk.party/$1" }
     },
     {
-      "src": "tech-blog.*.now.sh/(.*)",
+      "src": "https://tech-blog.*.now.sh/(.*)",
       "status": 301,
       "headers": { "Location": "https://www.dhk.party/$1" }
     },
