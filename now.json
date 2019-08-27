@@ -21,6 +21,10 @@
       "headers": { "Location": "https://www.dhk.party/$1"}
     },
     {
+      "src": "/(.*)",
+      "dest": "/$1"
+    },
+    {
       "handle": "filesystem"
     },
     {
