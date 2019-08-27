@@ -65,6 +65,7 @@ const styles = {
   logo: css`
     margin-right: 0.7rem;
     width: 140px;
+    height: 34px;
   `,
   logoImg: css`
     width: 100%;
