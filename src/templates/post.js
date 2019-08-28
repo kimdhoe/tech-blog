@@ -109,8 +109,8 @@ const Article = ({
     <Body body={body} />
 
     <Footer date={date} dateFormatted={dateFormatted} />
-  </article>
-)
+    </article>
+  )
 
 const Header = ({ headline, deck }) => (
   <header css={styles.header}>
@@ -172,19 +172,24 @@ const styles = {
     border-bottom: 0.5px solid #adb5bd;
   `,
   header: css`
-    margin: 3.204rem 0 0 0;
+    margin: 3.204rem 0 0;
+    max-width: 720px;
   `,
   headline: css`
     margin: 0;
-    line-height: 1.6;
-    font-size: 1.802rem;
-    font-weight: 500;
+    line-height: 1.5;
+    font-size: 3.2rem;
+    font-weight: 600;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 2.4rem;
+    }
   `,
   deck: css`
-    margin-top: 1.125rem;
-    max-width: 550px;
-    line-height: 1.8;
-    font-size: 1.125rem;
+    margin: 1.125rem 1rem 0;
+    line-height: 2;
+    font-size: 1.2rem;
+    color: #444;
   `,
   deckText: css`
     display: inline;
@@ -229,9 +234,14 @@ const styles = {
     }
   `,
   body: css`
-    margin: 7rem 0 0 0;
+    margin: 7rem auto 0;
+    width: 100%;
+    max-width: 650px;
     line-height: 2.1;
     font-size: 0.9792rem;
+
+    @media only screen and (max-width: 1060px) {
+    }
 
     p,
     ul,
@@ -302,7 +312,7 @@ const styles = {
 
     h2 {
       font-size: 1.296rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     h3 {
@@ -321,8 +331,18 @@ const styles = {
       font-size: 0.937rem;
     }
   `,
+  articleWrapper: css`
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: row-reverse;
+
+    @media only screen and (max-width: 1060px) {
+      flex-direction: column;
+    }
+  `,
   footer: css`
-    margin-top: 5rem;
+    margin: 5rem auto 0;
+    max-width: 650px;
   `,
   date: css`
     font-size: 0.889rem;
@@ -332,6 +352,9 @@ const styles = {
       display: 'block',
     },
   },
+  wrapper: {
+
+  }
 }
 
 export default PostTemplate

@@ -51,7 +51,7 @@ const styles = {
   wrapper: css`
     margin: 0 auto;
     padding: 0 1rem;
-    max-width: 650px;
+    max-width: 768px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,11 +63,11 @@ const styles = {
   `,
   logo: css`
     position: fixed;
-    top: 1.5rem;
+    top: 2rem;
     left: 1rem;
     width: 45px;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 868px) {
       display: none;
     }
   `,
@@ -83,14 +83,14 @@ const styles = {
   logoTypeface: css`
     overflow: hidden;
     margin-right: 0.7rem;
-    width: 140px;
-    height: 34px;
+    width: 180px;
+    height: 40px;
   `,
   logoTypefaceImg: css`
-    margin-left: -39px;
+    margin-left: -50px;
     width: 100%;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 868px) {
       margin-left: 0;
     }
   `,

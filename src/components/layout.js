@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
+import Helmet from 'react-helmet'
 
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import useLogo from '../hooks/use-logo'
@@ -98,7 +99,8 @@ const styles = {
     flex: 1;
     margin: 3.5rem auto 9rem;
     padding: 0 1.5rem;
-    max-width: 650px;
+    /* max-width: 650px; */
+    max-width: 768px;
     width: 100%;
   `,
 }

@@ -39,7 +39,8 @@ const PostPreview = ({ post }) => (
 
 const Container = styled.article`
   position: relative;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
+  max-width: 650px;
 `
 
 const styles = {
@@ -73,7 +74,8 @@ const styles = {
     margin: 0 0 0.5rem 0;
     padding-top: 0.7rem;
     border-top: 2px solid #5A6C70;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     text-decoration: none;
   `,
   titleText: css`

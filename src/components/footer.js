@@ -59,7 +59,7 @@ const styles = {
   wrapper: css`
     margin: 5rem auto 0;
     padding: 2rem 1rem 1rem;
-    max-width: 650px;
+    max-width: 768px;
     display: flex;
     align-items: center;
     justify-content: space-between;
