@@ -15,8 +15,8 @@ const Header = ({ siteTitle, logo }) => {
     <header css={styles.container}>
       <div css={styles.wrapper}>
         <Link css={styles.title} to="/">
-          <div css={styles.logo}>
-            <img css={styles.logoImg} src="/images/logo.svg" alt="dhk.party" />
+          <div css={styles.logoTypeface}>
+            <img css={styles.logoTypefaceImg} src="/images/logo.svg" alt="dhk.party" />
           </div>
         </Link>
         <nav css={styles.nav}>
@@ -27,6 +27,11 @@ const Header = ({ siteTitle, logo }) => {
           </ul>
         </nav>
       </div>
+      <Link to="/">
+        <div css={styles.logo}>
+          <img css={styles.logoImg} src="/images/profile-black.svg" alt="dhk.party" />
+        </div>
+      </Link>
     </header>
   )
 }
@@ -45,8 +50,8 @@ const styles = {
   `,
   wrapper: css`
     margin: 0 auto;
-    padding: 0 2rem;
-    max-width: 1200px;
+    padding: 0 1rem;
+    max-width: 650px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,19 +61,38 @@ const styles = {
       align-items: flex-start;
     }
   `,
+  logo: css`
+    position: fixed;
+    top: 1.5rem;
+    left: 1rem;
+    width: 45px;
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  `,
+  logoImg: css`
+    width: 100%;
+  `,
   title: css`
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
   `,
-  logo: css`
+  logoTypeface: css`
+    overflow: hidden;
     margin-right: 0.7rem;
     width: 140px;
     height: 34px;
   `,
-  logoImg: css`
+  logoTypefaceImg: css`
+    margin-left: -39px;
     width: 100%;
+
+    @media only screen and (max-width: 768px) {
+      margin-left: 0;
+    }
   `,
   titleText: css`
     margin: 0;

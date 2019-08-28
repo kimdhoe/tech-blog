@@ -46,7 +46,7 @@ const styles = {
     display: inline-block;
     margin: 0 0 0.5rem 0;
     padding-top: 0.7rem;
-    border-top: 1px solid #5A6C70;
+    border-top: 2px solid #5A6C70;
     font-size: 1.3rem;
     text-decoration: none;
   `,
