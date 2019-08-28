@@ -1,0 +1,200 @@
+---
+title: Reanimated의 장점(No Bridge!) 눈으로 확인하기
+slug: see-reanimated-strength-for-yourself
+author: Joseph
+date: 2019-08-28
+deck: "Gatsby 사이트가 ZEIT Now의 배포기능에서 발생하는 중복 콘텐츠 이슈에 대응하는 방법을 정리한 글."
+abstract: ""
+epigraph: ""
+epigraphAuthor: ""
+image: ./images/reanimated1.gif
+---
+
+## 들어가는 글
+
+*Reanimated*가 좋다는 얘기는 많이 들었지만 내 눈으로 직접 보고 싶었다. 하지만 사용하기가 워낙 어려운 탓에 본격적으로 뛰어들기 전에 무엇보다 스스로를 설득할 필요가 있었다. 간단한 케이스를 만들어서 *Animated*와 *Reanimated*를 각각 사용해보았다. 이 글은 비교 과정 및결과, 즉 둘 사이에 어떤 차이가 있는지, 그리고 그것을 어떻게 직접 확인할 수 있었는지를 정리한 것이다. 다음과 같은 것들이 이 글에 포함되어 있다.
+
+- 애니메이션 체감 성능 비교
+- JS 쓰레드가 스트레스를 받는 상황에서 애니메이션 비교
+- *MessageQueue*로 브리지(Bridge)를 통해 주고받는 데이터 관찰
+
+## Reanimated의 배경
+
+*[react-native-reanimated](https://github.com/kmagiera/react-native-reanimated)*는  *React Native*에서 사용되는 애니메이션 라이브러리다. *Kryzsztof Magiera*는 *React Native*의 *Animated*가 가진 한계점 때문에 이 라이브러리를 만들었다고 한다. 그는 문서에서 매우 구체적인 사례를 들고 있다.
+
+> 나는 물체를 화면 위에서 드래그하다가 놓았을 때 화면 위 어떤 위치로 착 달라붙는 판 인터랙션(Pan Interaction)의 이슈를 해결하기 위해 이 프로젝트를 시작했다. 문제는, `Animated.event`로 제스쳐 상태를 상자의 위치와 연동하고, `useNativeDriver` 플래그를 사용하여 이 인터랙션 전체가 UI 쓰레드에서 돌아가도록 했음에도 불구하고 제스쳐가 끝났을 때  “착 달라붙는(Snap)” 애니메이션을 위해 다시 JS를 호출해야만 한다는 것이었다.
+
+*Reanimated*가 선언적인 방법으로 애니메이션을 구현하도록 하는 것은 이런 배경을 갖고 있다. 다시 말해, *Reanimated*는 UI 쓰레드와 JS 쓰레드 간의 데이터 핑퐁을 줄인다. 그렇다면 *Animated*와 *Reanimated*의 차이을 어떻게 눈으로 확인할 수 있을까?
+
+## 사례 — 너비가 변하는 박스
+
+간단한 사례를 통해서 체감 성능의 차이와 두 쓰레드 간 주고 받는 데이터 변화를 살펴보자. *Reanimated* 초심자에게는 위에 언급된 *드래그 & 릴리즈*을 구현한 코드가 불필요하게 복잡해보일 수 있기 때문에 더 간단한 사례로 비교를 해보았다.  *[Expo](https://expo.io)*로 프로젝트를 생성했고, App.js에서 아래의 모든 코드가 작성되었다.
+
+우리에게 필요한 스펙은 다음과 같다:
+
+- Grow 버튼을 누르면 위쪽 박스의 가로 너비가 늘어난다.
+- Shrink 버튼을 누르면 줄어든다.
+
+### 성능 모니터
+
+성능 모니터링을 위해 UI 쓰레드와 JS 쓰레드의 FPS를 확인해보도록 하자. *Expo* 앱의 개발 메뉴를 열어 “Show Perf Monitor”를 선택하면 화면상으로 UI 쓰레드와 JS 쓰레드의 FPS를 확인할 수 있다.
+
+::퍼프 모니터 스크린샷::
+
+![Smooth animation](./images/reanimated1.gif)
+
+### 기본 동작 확인
+
+우선 *Animated*를 사용한 코드로 동작을 확인해보자.
+
+```jsx
+import React from 'react'
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  Animated,
+  Easing,
+} from 'react-native'
+
+const BOX_SIZE = 100
+
+export default class App extends React.Component {
+  width = new Animated.Value(BOX_SIZE)
+
+  grow = () => {
+    Animated.timing(this.width, {
+      toValue: BOX_SIZE * 3,
+      duration: 1500,
+      easing: Easing.ease,
+    }).start()
+  }
+
+  shrink = () => {
+    Animated.timing(this.width, {
+      toValue: BOX_SIZE,
+      duration: 1500,
+      easing: Easing.ease,
+    }).start()
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.section}>
+          <Animated.View style={[styles.box, { width: this.width }]} />
+        </View>
+        <View style={styles.section}>
+          <TouchableOpacity style={styles.button} onPress={this.grow}>
+            <Text style={styles.buttonText}>Grow</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={this.shrink}>
+            <Text style={styles.buttonText}>Shrink</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  section: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  box: {
+    height: 100,
+    backgroundColor: 'rebeccapurple',
+  },
+  button: {
+    marginTop: 15,
+    paddingVertical: 15,
+    width: 300,
+    alignItems: 'center',
+    backgroundColor: 'gainsboro',
+  },
+  buttonText: {
+    fontSize: 25,
+  },
+})
+```
+
+*Reanimated*를 사용한 경우를 확인하려면  *react-native*에서 가져오던 *Animated*와 *Easing*을 `react-native-reanimated`에서 가져오도록 수정해주면 된다. 나머지 코드는 동일하다.
+
+```jsx
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+} from 'react-native'
+import Animated, { Easing } from 'react-native-reanimated'
+```
+
+::애니메이션 시연 움짤::
+
+두 경우 모두 애니메이션이 부드럽게 잘 동작하는 것을 확인할 수 있다. *Animated*의 경우,  레이아웃 속성인 `width`에 대해 `useNativeDriver`를 사용할 수 없지만 그래도 무리가 없어 보인다.  FPS 역시 60으로 유지되는 것을 확인할 수 있다.
+
+그런데 아직 애니메이션 외엔 말 그대로 아무 일도 일어나지 않고 있다. 만일 정상적인 앱처럼, JS 쓰레드에서 작업이 이루어지고 있다면 어떨까?
+
+### JS  쓰레드가 바쁜 경우
+
+JS 쓰레드가 바쁜 경우에 애니메이션에 어떤 영향이 있는지를 보기 위해 아래와 같이 주기적으로 코드를 실행시켰다.
+
+```jsx
+componentDidMount() {
+  setInterval(() => {
+    for (let i = 0; i < 100; i++) {
+      console.log('JS thread is busy.')
+    }
+  }, 500)
+}
+```
+
+::끊기는 움짤::
+
+*Animated*와 *Reanimated* 각각의 경우를 다시 실행시켜 보면 이번엔 다른 결과를 볼 수 있다. 우선 JS 쓰레드의 FPS가 30대까지 떨어졌다. *Reanimated*는 큰 변화가 없지만, *Animated*의 경우는 눈으로도 변화를 확인할 수 있다. JS 쓰레드가 바쁜 와중에 애니메이션까지 실행되고 있어, 적절한 시점에 UI 쓰레드로 메시지가 전달되지 못하고 있는 모습이다.
+
+
+## 브리지 메시지 관찰하기
+
+*Animated*는 *Reanimated*와 달리 UI 쓰레드와 JS 쓰레드 간에 데이터가 오가도록 하면서 애니메이션이 뚝뚝 끊기고 있다. 브리지를 통해 오가는 이 데이터들을 직접 눈으로 확인해볼 차례다. 공식 문서에 포함되어 있지는 않지만 *MessageQueue*라는 모듈은 브리지를 오가는 메시지를 관찰할 수 있는 `spy`라는 메서드를 제공한다.
+
+```jsx
+import MessageQueue from 'react-native/Libraries/BatchedBridge/MessageQueue.js'
+
+MessageQueue.spy(message => {
+  if (message.method === 'updateView') {
+    console.log(message)
+  }
+})
+```
+
+위 코드는 애니메이션이 일어나는 동안 반복적으로 호출되는 `updateView` 메세지만 출력하도록 되어있다. 로그를 쉽게 확인할 수 있도록 좀 전에 스트레스 상황을 시험하기 위해 넣은 출력 코드를 삭제하자. *Animated*의 경우, 애니메이션이 실행되는 매 순간마다 아래와 같이 메시지가 출력된다.
+
+```json
+{
+  "args": [
+    3,
+    "RCTView",
+    { "width": 293.9561894853392 },
+  ],
+  "method": "updateView",
+  "module": "UIManager",
+  "type": 1,
+}
+...
+```
+
+`type`  `1`은 JS에서 네이티브로, `2`는 네이티브에서 JS로의 호출을 뜻한다. 애니메이션의 타겟인 `width` 정보가 `updateView` 메서드를 통해 매순간마다 네이티브로 전달되고 있다. *Reanimated*의 경우는 아무런 로그도 찍히지 않는 걸 확인할 수 있다.
+
+## 나가는 글
+
+너비가 늘어나고 줄어드는 간단한 사례를 만들어서 *Animated*와 *Reanimated*를 비교해보았다. JS 쓰레드에 스트레스가 있는 상황에서 성능의 차이가 확연했고, 브리지를 통해 JS에서 네이티브로 전달되는 데이터를 직접 관찰할 수 있었다.
+
+난해한 사용법에도 불구하고 *Reanimated*는 시도할 가치가 있는 것으로 판단을 내렸다. 특히 *Kryzsztof Magiera*가 언급한 것처럼 제스쳐에 많이 의존하는 앱을 만들 때 반드시 고려해야 할 옵션이라고 생각한다. 사실 *Reanimated*에 의해 열릴 가능성과 모바일 앱에서 직관적인 제스쳐가 차지하는 중요도를 고려하면 아직 학습 자료가 부족한 것이 많이 아쉽다. 부족하나마 개인적인 학습 과정을 이 블로그에 다양한 형식으로 남겨볼 생각이다.
