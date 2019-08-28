@@ -16,7 +16,7 @@ const usePosts = () => {
               frontmatter {
                 title
                 date
-                dateFormatted: date(formatString: "MMMM D, YYYY")
+                dateFormatted: date(formatString: "MMM D, YYYY")
                 slug
                 author
                 deck

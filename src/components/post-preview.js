@@ -8,6 +8,9 @@ import Icon from './icon'
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
+      <p css={styles.date}>
+        <time dateTime={post.date}>{post.dateFormatted}</time>
+      </p>
       <h3 css={styles.title}>
         <span css={styles.titleText}>{post.title}</span>
       </h3>
@@ -17,9 +20,6 @@ const PostPreview = ({ post }) => (
         </p>
       )}
       <div css={styles.footer}>
-        <p css={styles.date}>
-          <time dateTime={post.date}>{post.dateFormatted}</time>
-        </p>
         <p css={styles.read}>
           <span css={styles.readText}>Read this post</span>
           <span css={styles.readIcon}>
@@ -34,7 +34,7 @@ const PostPreview = ({ post }) => (
 const Container = styled.article`
   position: relative;
   display: block;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 `
 
 const styles = {
@@ -44,10 +44,10 @@ const styles = {
   `,
   title: css`
     display: inline-block;
-    margin: 0 0 1.424rem 0;
-    padding-top: 1.424rem;
-    border-top: 1px solid #495057;
-    font-size: 1.424rem;
+    margin: 0 0 0.5rem 0;
+    padding-top: 0.7rem;
+    border-top: 1px solid #5A6C70;
+    font-size: 1.3rem;
     text-decoration: none;
   `,
   titleText: css`
@@ -75,7 +75,7 @@ const styles = {
   footer: css`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     > * {
       margin: 0;
@@ -85,6 +85,8 @@ const styles = {
     display: flex;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;
+    font-weight: 500;
+    color: #5A6C70;
   `,
   read: css`
     margin: 0;
