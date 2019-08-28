@@ -17,7 +17,7 @@ const useDevLogs = () => {
                 title
                 slug
                 date
-                dateFormatted: date(fromNow: true)
+                dateFormatted: date(formatString: "MMM D, YYYY")
               }
               body
               id

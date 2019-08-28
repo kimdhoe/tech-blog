@@ -250,9 +250,9 @@ const styles = {
     }
 
     blockquote {
-      margin-left: 1.5rem;
+      margin-left: 2.1rem;
       margin-right: 0;
-      font-size: 0.889rem;
+      font-size: 0.9rem;
     }
 
     a {
@@ -319,10 +319,6 @@ const styles = {
 
     small {
       font-size: 0.937rem;
-    }
-
-    em {
-      font-family: Georgia, 'Times New Roman', Times, serif;
     }
   `,
   footer: css`
