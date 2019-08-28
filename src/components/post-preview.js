@@ -8,24 +8,30 @@ import Icon from './icon'
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
-      <p css={styles.date}>
-        <time dateTime={post.date}>{post.dateFormatted}</time>
-      </p>
-      <h3 css={styles.title}>
-        <span css={styles.titleText}>{post.title}</span>
-      </h3>
-      {post.deck && (
-        <p css={styles.deck}>
-          <span css={[styles.deckText, styles.mozHack]}>{post.deck}</span>
+      <div css={styles.left}>
+        <img src={`https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1`} />
+      </div>
+
+      <div css={styles.right}>
+        <p css={styles.date}>
+          <time dateTime={post.date}>{post.dateFormatted}</time>
         </p>
-      )}
-      <div css={styles.footer}>
-        <p css={styles.read}>
-          <span css={styles.readText}>Read this post</span>
-          <span css={styles.readIcon}>
-            <Icon name="arrow-right" attrs={{ width: 14 }} />
-          </span>
-        </p>
+        <h3 css={styles.title}>
+          <span css={styles.titleText}>{post.title}</span>
+        </h3>
+        {post.deck && (
+          <p css={styles.deck}>
+            <span css={[styles.deckText, styles.mozHack]}>{post.deck}</span>
+          </p>
+        )}
+        <div css={styles.footer}>
+          <p css={styles.read}>
+            <span css={styles.readText}>Read this post</span>
+            <span css={styles.readIcon}>
+              <Icon name="arrow-right" attrs={{ width: 14 }} />
+            </span>
+          </p>
+        </div>
       </div>
     </Link>
   </Container>
@@ -33,12 +39,32 @@ const PostPreview = ({ post }) => (
 
 const Container = styled.article`
   position: relative;
-  display: block;
   margin-bottom: 2rem;
 `
 
 const styles = {
   link: css`
+    display: flex;
+    justify-content: space-between;
+  `,
+  left: css`
+    margin: 2rem 2rem 0 0;
+    border-radius: 2px;
+    width: 100px;
+    height: 100px;
+    background-color: #7D786A;
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+
+    img {
+      border-radius: 2px;
+      width: 100%;
+    }
+  `,
+  right: css`
+    flex: 1;
     display: block;
     text-decoration: none;
   `,
@@ -53,9 +79,14 @@ const styles = {
   titleText: css`
     padding-bottom: 0.4rem;
     line-height: 1.65;
+    transition: color 150ms ease-out;
+
+    ${Container}:hover & {
+      color: black;
+    }
   `,
   deck: css`
-    margin: 0 0 1.266rem 0;
+    margin: 0 0 0.7rem 0;
     line-height: 1.9;
   `,
   mozHack: {
@@ -66,11 +97,7 @@ const styles = {
   deckText: css`
     padding: 0.5rem 0 0.75rem 0;
     transition: all 0.2s ease-out;
-
-    ${Container}:hover & {
-      background: var(--well);
-      box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
-    }
+    font-size: 0.95rem;
   `,
   footer: css`
     display: flex;
@@ -94,10 +121,12 @@ const styles = {
     align-items: center;
     justify-content: flex-end;
     opacity: 0;
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s ease-out;
 
     ${Container}:hover & {
       opacity: 1;
+      background: var(--well);
+      box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
     }
   `,
   readText: css`
