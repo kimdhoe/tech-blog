@@ -67,8 +67,8 @@ const styles = {
     body {
       --bg: #f4f7fb;
       --well: white;
-      --text: #232c23;
-      --textLink: #232c23;
+      --text: #2B2836;
+      --textLink: #2b2b2b;
       --hr: hsla(0, 0%, 0%, 0.2);
 
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',

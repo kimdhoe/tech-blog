@@ -262,7 +262,7 @@ const styles = {
   buttonText: css`
     display: inline-block;
     padding: 0.3rem 0.1rem;
-    border-bottom: 2px solid #a7edff;
+    border-bottom: 1px solid #728CA3;
     color: inherit;
     transition: border-color 0.1s ease-out;
 

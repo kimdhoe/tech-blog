@@ -49,11 +49,11 @@ const styles = {
     justify-content: space-between;
   `,
   left: css`
-    margin: 2rem 2rem 0 0;
+    margin: 1rem 2rem 0 0;
     border-radius: 2px;
     width: 100px;
     height: 100px;
-    background-color: #7D786A;
+    background-color: #f1f3f5;
 
     @media only screen and (max-width: 600px) {
       display: none;
@@ -72,23 +72,19 @@ const styles = {
   title: css`
     display: inline-block;
     margin: 0 0 0.5rem 0;
-    padding-top: 0.7rem;
-    border-top: 2px solid #5A6C70;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #728CA3;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 400;
     text-decoration: none;
   `,
   titleText: css`
     padding-bottom: 0.4rem;
     line-height: 1.65;
     transition: color 150ms ease-out;
-
-    ${Container}:hover & {
-      color: black;
-    }
   `,
   deck: css`
-    margin: 0 0 0.7rem 0;
+    margin: 0 0 0.3rem 0;
     line-height: 1.9;
   `,
   mozHack: {
@@ -111,14 +107,15 @@ const styles = {
     }
   `,
   date: css`
+    margin: 0 0 0.5rem 0.1rem;
     display: flex;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;
-    font-weight: 500;
-    color: #5A6C70;
+    color: #728CA3;
   `,
   read: css`
     margin: 0;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -128,13 +125,12 @@ const styles = {
     ${Container}:hover & {
       opacity: 1;
       background: var(--well);
-      box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
+      box-shadow: 0.7rem 0 0 var(--well), -0.7rem 0 0 var(--well);
     }
   `,
   readText: css`
-    letter-spacing: 0.01rem;
-    font-size: 0.79rem;
-    font-family: Fira Code;
+    letter-spacing: 0.02rem;
+    font-size: 0.8rem;
     transform: translateX(-0.25rem);
     transition: all 0.2s ease-out;
 

@@ -24,7 +24,7 @@ export const query = graphql`
           epigraph
           epigraphAuthor
           date
-          dateFormatted: date(formatString: "MMMM D, YYYY")
+          dateFormatted: date(formatString: "MMM D, YYYY hh:mm A")
         }
         body
       }
@@ -61,10 +61,6 @@ const PostTemplate = ({
       title={frontmatter.title}
       description={frontmatter.deck || frontmatter.abstract}
     />
-    {/* <Helmet>
-        <title>{frontmatter.title}</title>
-        <meta name="description" content={frontmatter.abstract || frontmatter.deck} />
-      </Helmet> */}
     <BackToAllPosts />
     <Article
       headline={frontmatter.title}
@@ -106,9 +102,11 @@ const Article = ({
 
     {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
+    <Meta date={date} dateFormatted={dateFormatted} />
+
     <Body body={body} />
 
-    <Footer date={date} dateFormatted={dateFormatted} />
+    <Footer />
     </article>
   )
 
@@ -136,17 +134,22 @@ const Epigraph = ({ text, author }) => (
   </section>
 )
 
+const Meta = ({ date, dateFormatted }) => (
+  <section css={styles.meta}>
+    <time dateTime={date}>{dateFormatted} KST</time>
+    {/* TODO: share buttons */}
+  </section>
+)
+
 const Body = ({ body }) => (
   <div css={styles.body}>
     <MDXRenderer>{body}</MDXRenderer>
   </div>
 )
 
-const Footer = ({ date, dateFormatted }) => (
+const Footer = () => (
   <footer css={styles.footer}>
-    <p css={styles.date}>
-      <time dateTime={date}>Posted {dateFormatted}</time>
-    </p>
+    {/* TODO: Move all posts link here? */}
   </footer>
 )
 
@@ -178,8 +181,8 @@ const styles = {
   headline: css`
     margin: 0;
     line-height: 1.5;
-    font-size: 3.2rem;
-    font-weight: 600;
+    font-size: 2.1rem;
+    font-weight: 500;
 
     @media only screen and (max-width: 600px) {
       font-size: 2.4rem;
@@ -233,6 +236,13 @@ const styles = {
       background: #555;
     }
   `,
+  meta: css`
+    margin: 7rem auto 0;
+    width: 100%;
+    max-width: 650px;
+    letter-spacing: 0.02rem;
+    font-size: 0.83rem;
+  `,
   body: css`
     margin: 7rem auto 0;
     width: 100%;
@@ -266,18 +276,20 @@ const styles = {
     }
 
     a {
+      padding-bottom: 0.15rem;
       text-decoration: none;
+      color: #7F5555;
 
       &[href] {
-        background: linear-gradient(to right, #fd828377 0%, #fd828377);
-        background-repeat: no-repeat;
-        background-size: 100% 0.2rem;
-        background-position: 0 88%;
-        transition: background-size 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)
-          0s;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #7F5555;
+        background-position: 0 100%;
+        background-size: auto 3px;
+        background-repeat: repeat-x;
 
         &:hover {
-          background-size: 100% 88%;
+          border-color: transparent;
+          background-image: url('/images/underline.svg');
         }
       }
     }

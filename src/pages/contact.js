@@ -36,13 +36,13 @@ const styles = {
     letter-spacing: 0.02rem;
     font-size: 0.889rem;
     font-weight: 400;
-    color: #fd8283;
+    color: #728CA3;
   `,
   subheading: css`
     margin: 0;
     padding-bottom: 0.2rem;
     display: inline-block;
-    border-bottom: 6px solid #fd8283;
+    border-bottom: 6px solid #728CA3;
     line-height: 1.4;
     font-size: 2.618rem;
   `,
@@ -81,15 +81,19 @@ const styles = {
     a {
       letter-spacing: 0.04rem;
       font-size: 1rem;
+      color: #7F5555;
 
-      background: linear-gradient(to right, #fd828377 0%, #fd828377);
-      background-repeat: no-repeat;
-      background-size: 100% 0.2rem;
-      background-position: 0 88%;
-      transition: background-size 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+      &[href] {
+        padding-bottom: 3px;
+        border-bottom: 1px solid #7F5555;
+        background-position: 0 100%;
+        background-size: auto 3px;
+        background-repeat: repeat-x;
 
-      &:hover {
-        background-size: 100% 88%;
+        :hover {
+          border-color: transparent;
+          background-image: url('/images/underline.svg');
+        }
       }
     }
   `,

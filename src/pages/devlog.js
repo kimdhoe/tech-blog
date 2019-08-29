@@ -101,12 +101,17 @@ const styles = {
     margin-bottom: 4rem;
   `,
   entryDate: css`
-    font-size: 0.889rem;
-    color: #868e96;
+    margin: 0 0 0.4rem 0;
+    font-size: 0.85rem;
+    color: #5a6c70;
   `,
   entryTitle: css`
-    margin: 0 0 1.6rem 0;
-    font-size: 1.266rem;
+    display: inline-block;
+    margin: 0 0 0.6rem 0;
+    padding: 0.2rem 0 0.4rem 0;
+    border-bottom: 1px solid #5a6c70;
+    font-size: 1.1rem;
+    font-weight: 400;
   `,
   entryBody: css`
     margin-top: 0;
@@ -116,7 +121,7 @@ const styles = {
     p,
     ul,
     ol {
-      margin-bottom: 1.602rem;
+      margin: 0 0 0.5rem 0;
     }
 
     blockquote {
@@ -195,7 +200,6 @@ const styles = {
     }
 
     em {
-      font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
     .gatsby-highlight {
