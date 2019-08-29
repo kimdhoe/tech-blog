@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import validator from 'validator'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { css } from '@emotion/core'
+import { css, keyframes } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import Icon from '../components/icon'
@@ -72,9 +74,60 @@ const PostTemplate = ({
       dateFormatted={frontmatter.dateFormatted}
       body={body}
     />
+    <Newsletter />
     <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
   </>
 )
+
+const Newsletter = () => {
+  const [status, setStatus] = useState('default')
+  const [email, setEmail] = useState('')
+  const inputRef = useRef()
+  return (
+    <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
+      {status === 'success' ? (
+        <p css={styles.successMessage}>
+          Thanks. TTYS.
+        </p>
+      ) : (
+          <form
+            onSubmit={async e => {
+              e.preventDefault()
+              const email = inputRef.current.value
+              if (!validator.isEmail(email.trim())) {
+                setStatus('error')
+                inputRef.current.focus()
+                return
+              }
+              try {
+                await addToMailchimp(email)
+                setStatus('success')
+              } catch (err) {
+                setStatus('error')
+                inputRef.current.focus()
+              }
+            }}
+          >
+            <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+            <input
+              css={[styles.newsletterInput, status === 'error' && styles.newsletterInputError]}
+              placeholder="your email here"
+              ref={inputRef}
+              type="email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value)
+                setStatus('default')
+              }}
+            />
+            <button css={styles.newsletterButton} type="submit">
+              Subscribe
+            </button>
+          </form>
+        )}
+    </div>
+  )
+}
 
 const BackToAllPosts = () => (
   <BackLink css={styles.backLink} to="/">
@@ -95,18 +148,18 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-  <article css={styles.article}>
-    <Header headline={headline} deck={deck} />
+    <article css={styles.article}>
+      <Header headline={headline} deck={deck} />
 
-    {abstract && <Abstract text={abstract} />}
+      {abstract && <Abstract text={abstract} />}
 
-    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+      {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-    <Meta date={date} dateFormatted={dateFormatted} />
+      <Meta date={date} dateFormatted={dateFormatted} />
 
-    <Body body={body} />
+      <Body body={body} />
 
-    <Footer />
+      <Footer />
     </article>
   )
 
@@ -165,6 +218,12 @@ const BackLink = styled(Link)`
     color: #555;
   }
 `
+
+const fadeIn = keyframes`
+  from { opacity: 0 }
+  to: { opacity: 1 }
+`
+
 const styles = {
   backLinkArrow: css`
     margin-right: 0.3rem;
@@ -366,7 +425,59 @@ const styles = {
   },
   wrapper: {
 
-  }
+  },
+  newsletter: css`
+    margin: 5rem auto 0;
+    padding: 2rem 0;
+    max-width: 650px;
+    height: 226px;
+    border: 1px solid #728CA3;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 150ms ease-out;
+  `,
+  newsletterSuccess: css`
+    border: none;
+    background-color: transparent;
+  `,
+  successMessage: css`
+    letter-spacing: 0.03rem;
+    font-size: 1.3rem;
+    animation: ${fadeIn} 0.5s ease-out;
+    color: #728CA3;
+  `,
+  newsletterHeader: css`
+    margin-top: 0;
+    font-size: 1.7rem;
+    color: #728CA3;
+  `,
+  newsletterInput: css`
+    outline: none;
+    margin-bottom: 3rem;
+    padding: 0.5rem 0;
+    border: none;
+    border-bottom: 2px solid #728CA3;
+    width: 100%;
+    max-width: 330px;
+    background: none;
+    font-size: 1.3rem;
+
+    ::placeholder {
+      color: #728CA360;
+    }
+  `,
+  newsletterButton: css`
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+    color: #728CA3;
+    cursor: pointer;
+  `,
 }
 
 export default PostTemplate

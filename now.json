@@ -12,7 +12,8 @@
       "STATICMAN_VERSION": "@staticman-version",
       "GITHUB_USERNAME": "@github-username",
       "GITHUB_REPOSITORY": "@github-repository",
-      "GITHUB_BRANCH": "@github-branch"
+      "GITHUB_BRANCH": "@github-branch",
+      "MAILCHIMP_ENDPOINT": "@mailchimp-endpoint"
     },
     "src": "package.json",
     "use": "@now/static-build"

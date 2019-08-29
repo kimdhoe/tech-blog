@@ -9,7 +9,10 @@ const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
       <div css={styles.left}>
-        <img src={`https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1`} />
+        <img
+          src={`https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1`}
+          alt="An identicon"
+        />
       </div>
 
       <div css={styles.right}>

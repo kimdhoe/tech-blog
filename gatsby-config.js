@@ -17,6 +17,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-helmet-canonical-urls',
       options: {
         siteUrl: process.env.SITE_URL,

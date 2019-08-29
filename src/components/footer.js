@@ -57,8 +57,8 @@ const styles = {
     font-size: 0.79rem;
   `,
   wrapper: css`
-    margin: 5rem auto 0;
-    padding: 2rem 1rem 1rem;
+    margin: 0 auto;
+    padding: 1.2rem 1rem 1rem;
     max-width: 768px;
     display: flex;
     align-items: center;

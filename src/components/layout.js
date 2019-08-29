@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
-import Helmet from 'react-helmet'
 
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import useLogo from '../hooks/use-logo'
@@ -29,7 +28,9 @@ const Layout = ({ children }) => {
       <Global styles={styles.global} />
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
-        <main css={styles.main}>{children}</main>
+        <div css={styles.mainWrapper}>
+          <main css={styles.main}>{children}</main>
+        </div>
         <Footer author={author} />
       </div>
     </>
@@ -94,10 +95,13 @@ const styles = {
     min-height: 100vh;
     flex-direction: column;
   `,
+  mainWrapper: css`
+    flex: 1;
+  `,
   main: css`
     position: relative;
     flex: 1;
-    margin: 3.5rem auto 9rem;
+    margin: 3.5rem auto 1.3rem;
     padding: 0 1.5rem;
     /* max-width: 650px; */
     max-width: 768px;

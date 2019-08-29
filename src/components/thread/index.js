@@ -76,7 +76,7 @@ const ThreadMessage = ({ id, slug, name, email, message, date, dateFormatted }) 
 
 const styles = {
   container: css`
-    margin: 7.5rem auto 0;
+    margin: 7.5rem auto 9.5rem;
     max-width: 650px;
   `,
   threadHeading: css`
