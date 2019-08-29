@@ -9,7 +9,7 @@ export default () => {
   const devLogs = useDevLogs()
 
   return (
-    <>
+    <div css={styles.container}>
       <SEO title="Devlog" description="A developer keeps a log." />
       <h2 css={styles.title}>Devlog</h2>
       <h3 css={styles.subtitle}>
@@ -35,7 +35,7 @@ export default () => {
           />
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
@@ -52,6 +52,11 @@ const Entry = ({ slug, title, date, dateFormatted, body }) => (
 )
 
 const styles = {
+  container: css`
+    margin: 6rem auto;
+    padding: 0 1rem;
+    max-width: 650px;
+  `,
   title: css`
     margin: 0 0 0.79rem 0;
     padding-top: 1rem;

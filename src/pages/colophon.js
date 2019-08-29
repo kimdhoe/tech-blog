@@ -74,6 +74,11 @@ export default () => (
 )
 
 const styles = {
+  container: css`
+    margin: 6rem auto;
+    padding: 0 1rem;
+    max-width: 650px;
+  `,
   heading: css`
     margin: 0 0 1rem 0;
     padding-top: 1rem;

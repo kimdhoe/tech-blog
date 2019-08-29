@@ -1,5 +1,5 @@
 import React/*, { useState, useRef }*/ from 'react'
-// import { css, keyframes } from '@emotion/core'
+import { css } from '@emotion/core'
 // import addToMailchimp from 'gatsby-plugin-mailchimp'
 // import validator from 'validator'
 
@@ -18,7 +18,7 @@ const IndexPage = () => {
   // const [status, setStatus] = useState('default')
 
   return (
-    <>
+    <div css={styles.container}>
       {posts.map(post => (
         <PostPreview key={post.slug} post={post} />
       ))}
@@ -68,8 +68,15 @@ const IndexPage = () => {
             </form>
           )}
       </div> */}
-    </>
+    </div>
   )
+}
+
+const styles = {
+  container: css`
+    margin-top: 6rem;
+    padding: 0 1rem;
+  `,
 }
 
 // const fadeIn = keyframes`

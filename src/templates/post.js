@@ -1,12 +1,10 @@
 import React, { useState, useRef } from 'react'
 import validator from 'validator'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css, keyframes } from '@emotion/core'
-import styled from '@emotion/styled'
 
-import Icon from '../components/icon'
 import Thread from '../components/thread'
 import SEO from '../components/seo'
 
@@ -63,7 +61,6 @@ const PostTemplate = ({
       title={frontmatter.title}
       description={frontmatter.deck || frontmatter.abstract}
     />
-    <BackToAllPosts />
     <Article
       headline={frontmatter.title}
       deck={frontmatter.deck}
@@ -84,59 +81,52 @@ const Newsletter = () => {
   const [email, setEmail] = useState('')
   const inputRef = useRef()
   return (
-    <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
-      {status === 'success' ? (
-        <p css={styles.successMessage}>
-          Thanks. TTYS.
+    <div css={styles.newsletterContainer}>
+      <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
+        {status === 'success' ? (
+          <p css={styles.successMessage}>
+            Thanks. TTYS.
         </p>
-      ) : (
-          <form
-            onSubmit={async e => {
-              e.preventDefault()
-              const email = inputRef.current.value
-              if (!validator.isEmail(email.trim())) {
-                setStatus('error')
-                inputRef.current.focus()
-                return
-              }
-              try {
-                await addToMailchimp(email)
-                setStatus('success')
-              } catch (err) {
-                setStatus('error')
-                inputRef.current.focus()
-              }
-            }}
-          >
-            <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
-            <input
-              css={[styles.newsletterInput, status === 'error' && styles.newsletterInputError]}
-              placeholder="your email here"
-              ref={inputRef}
-              type="email"
-              value={email}
-              onChange={e => {
-                setEmail(e.target.value)
-                setStatus('default')
+        ) : (
+            <form
+              onSubmit={async e => {
+                e.preventDefault()
+                const email = inputRef.current.value
+                if (!validator.isEmail(email.trim())) {
+                  setStatus('error')
+                  inputRef.current.focus()
+                  return
+                }
+                try {
+                  await addToMailchimp(email)
+                  setStatus('success')
+                } catch (err) {
+                  setStatus('error')
+                  inputRef.current.focus()
+                }
               }}
-            />
-            <button css={styles.newsletterButton} type="submit">
-              Subscribe
-            </button>
-          </form>
-        )}
+            >
+              <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+              <input
+                css={[styles.newsletterInput, status === 'error' && styles.newsletterInputError]}
+                placeholder="your email here"
+                ref={inputRef}
+                type="email"
+                value={email}
+                onChange={e => {
+                  setEmail(e.target.value)
+                  setStatus('default')
+                }}
+              />
+              <button css={styles.newsletterButton} type="submit">
+                Subscribe
+              </button>
+            </form>
+          )}
+      </div>
     </div>
   )
 }
-
-const BackToAllPosts = () => (
-  <BackLink css={styles.backLink} to="/">
-    <span css={styles.backLinkArrow}>
-      <Icon name="arrow-left" attrs={{ width: 13 }} />
-    </span>
-    <span css={styles.backLinkText}>All Posts</span>
-  </BackLink>
-)
 
 const Article = ({
   headline,
@@ -149,9 +139,11 @@ const Article = ({
   dateFormatted,
 }) => (
     <article css={styles.article}>
-      <Header headline={headline} deck={deck} />
+      <div css={styles.hero}>
+        <Header headline={headline} deck={deck} />
 
-      {abstract && <Abstract text={abstract} />}
+        {abstract && <Abstract text={abstract} />}
+      </div>
 
       {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
@@ -206,39 +198,25 @@ const Footer = () => (
   </footer>
 )
 
-const BackLink = styled(Link)`
-  max-width: 100px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #868e96;
-  transition: color 0.1s ease-out;
-
-  &:hover {
-    color: #555;
-  }
-`
-
 const fadeIn = keyframes`
   from { opacity: 0 }
   to: { opacity: 1 }
 `
 
 const styles = {
-  backLinkArrow: css`
-    margin-right: 0.3rem;
-  `,
-  backLinkText: css`
-    padding-bottom: 0.1rem;
-    font-size: 0.79rem;
-    border-bottom: 0.5px solid #adb5bd;
+  hero: css`
+    margin: 0 0 5rem 0;
+    padding: 4rem 1rem 5rem;
+    background-color: #728ca377;
+    color: #111;
   `,
   header: css`
-    margin: 3.204rem 0 0;
+    margin: 0 auto;
     max-width: 720px;
   `,
   headline: css`
     margin: 0;
+    padding: 0 1rem;
     line-height: 1.5;
     font-size: 2.1rem;
     font-weight: 500;
@@ -248,62 +226,66 @@ const styles = {
     }
   `,
   deck: css`
-    margin: 1.125rem 1rem 0;
+    margin: 1.125rem 0 0;
+    padding: 0 1rem;
     line-height: 2;
     font-size: 1.2rem;
-    color: #444;
   `,
   deckText: css`
-    display: inline;
-    padding: 0.5rem 0 0.75rem 0;
-    background: white;
-    box-shadow: 1rem 0 0 white, -1rem 0 0 white;
   `,
   abstract: css`
-    margin: 6.5rem 0 0 0;
+    margin: 3.5rem auto 0;
+    max-width: 720px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   `,
   abstractText: css`
     max-width: 500px;
-    line-height: 1.9;
-    font-size: 0.9rem;
+    line-height: 2;
   `,
   epigraph: css`
     display: flex;
     flex-direction: column;
-    margin: 6.5rem 0 0 0;
-    font-size: 0.889rem;
-    color: #555;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 1rem 5rem;
+    max-width: 650px;
+    text-align: center;
   `,
   epigraphText: css`
-    max-width: 500px;
-    margin: 0 0 1rem 0;
+    max-width: 450px;
+    margin: 0 0 0.5rem 0;
     line-height: 1.9;
   `,
   epigraphAuthor: css`
+    padding-top: 0.3rem;
     max-width: 500px;
     display: flex;
     align-items: center;
     margin: 0 0.225rem 0 0;
+    letter-spacing: 0.03rem;
+    color: #555;
 
     ::before {
       content: '';
       margin-right: 0.44rem;
-      width: 30px;
+      width: 13px;
       height: 1px;
-      background: #555;
+      background: #777;
     }
   `,
   meta: css`
-    margin: 7rem auto 0;
+    margin: 0 auto;
+    padding: 0 1rem 0;
     width: 100%;
     max-width: 650px;
+    text-align: right;
     letter-spacing: 0.02rem;
     font-size: 0.83rem;
   `,
   body: css`
     margin: 7rem auto 0;
+    padding: 0 1rem;
     width: 100%;
     max-width: 650px;
     line-height: 2.1;
@@ -415,9 +397,6 @@ const styles = {
     margin: 5rem auto 0;
     max-width: 650px;
   `,
-  date: css`
-    font-size: 0.889rem;
-  `,
   mozHack: {
     '@-moz-document url-prefix()': {
       display: 'block',
@@ -426,8 +405,12 @@ const styles = {
   wrapper: {
 
   },
-  newsletter: css`
+  newsletterContainer: css`
     margin: 5rem auto 0;
+    padding: 0 1rem;;
+  `,
+  newsletter: css`
+    margin: 0 auto;
     padding: 2rem 0;
     max-width: 650px;
     height: 226px;

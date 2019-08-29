@@ -47,6 +47,7 @@ const NavListItem = ({ to, label }) => (
 const styles = {
   container: css`
     padding: 2rem 0;
+    background-color: #728ca377;
   `,
   wrapper: css`
     margin: 0 auto;
@@ -63,6 +64,7 @@ const styles = {
   `,
   logo: css`
     position: fixed;
+    z-index: 11;
     top: 2rem;
     left: 1rem;
     width: 45px;
@@ -128,9 +130,10 @@ const styles = {
     position: relative;
     margin-left: 0.04rem;
     padding: 1rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.03rem;
     text-decoration: none;
+    color: black;
 
     @media only screen and (max-width: 600px) {
       display: block;

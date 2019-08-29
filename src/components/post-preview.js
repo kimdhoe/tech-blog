@@ -16,9 +16,6 @@ const PostPreview = ({ post }) => (
       </div>
 
       <div css={styles.right}>
-        <p css={styles.date}>
-          <time dateTime={post.date}>{post.dateFormatted}</time>
-        </p>
         <h3 css={styles.title}>
           <span css={styles.titleText}>{post.title}</span>
         </h3>
@@ -28,12 +25,15 @@ const PostPreview = ({ post }) => (
           </p>
         )}
         <div css={styles.footer}>
-          <p css={styles.read}>
+          <p css={styles.date}>
+            <time dateTime={post.date}>{post.dateFormatted}</time>
+          </p>
+          {/* <p css={styles.read}>
             <span css={styles.readText}>Read this post</span>
             <span css={styles.readIcon}>
               <Icon name="arrow-right" attrs={{ width: 14 }} />
             </span>
-          </p>
+          </p> */}
         </div>
       </div>
     </Link>
@@ -42,14 +42,24 @@ const PostPreview = ({ post }) => (
 
 const Container = styled.article`
   position: relative;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   max-width: 650px;
+  border-bottom: 1px solid #728CA3;
+
+  :last-of-type {
+    border: none;
+  }
 `
 
 const styles = {
   link: css`
+    padding: 2.5rem 0;
     display: flex;
     justify-content: space-between;
+
+    ${Container}:first-of-type & {
+      padding-top: 0;
+    }
   `,
   left: css`
     margin: 1rem 2rem 0 0;
@@ -74,9 +84,8 @@ const styles = {
   `,
   title: css`
     display: inline-block;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     padding-bottom: 0.2rem;
-    border-bottom: 1px solid #728CA3;
     font-size: 1.5rem;
     font-weight: 400;
     text-decoration: none;
@@ -84,7 +93,11 @@ const styles = {
   titleText: css`
     padding-bottom: 0.4rem;
     line-height: 1.65;
-    transition: color 150ms ease-out;
+    transition: color 100ms ease-out;
+
+    ${Container}:hover & {
+      color: #7F5555;
+    }
   `,
   deck: css`
     margin: 0 0 0.3rem 0;
@@ -103,14 +116,14 @@ const styles = {
   footer: css`
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     > * {
       margin: 0;
     }
   `,
   date: css`
-    margin: 0 0 0.5rem 0.1rem;
+    margin: 0.3rem 0 0.5rem;
     display: flex;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;

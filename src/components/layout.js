@@ -101,10 +101,11 @@ const styles = {
   main: css`
     position: relative;
     flex: 1;
-    margin: 3.5rem auto 1.3rem;
-    padding: 0 1.5rem;
-    /* max-width: 650px; */
-    max-width: 768px;
+    /* margin: 3.5rem auto 1.3rem; */
+    /* padding: 0 1.5rem; */
+    /* max-width: 768px; */
+    margin: 0 auto;
+    padding: 0;
     width: 100%;
   `,
 }

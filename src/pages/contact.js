@@ -30,7 +30,9 @@ export default () => (
 
 const styles = {
   container: css`
-    margin-top: 0.7rem;
+    margin: 6rem auto;
+    padding: 0 1rem;
+    max-width: 650px;
   `,
   heading: css`
     letter-spacing: 0.02rem;
