@@ -228,7 +228,7 @@ const styles = {
   deck: css`
     margin: 1.125rem 0 0;
     padding: 0 1rem;
-    line-height: 2;
+    line-height: 1.8;
     font-size: 1.2rem;
   `,
   deckText: css`
