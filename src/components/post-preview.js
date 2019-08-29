@@ -3,7 +3,6 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import Icon from './icon'
 
 const PostPreview = ({ post }) => (
   <Container>
