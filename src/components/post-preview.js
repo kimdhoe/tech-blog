@@ -68,6 +68,13 @@ const styles = {
     height: 100px;
     background-color: #f1f3f5;
     background-size: 25px;
+    transition: all 200ms ease-out;
+    z-index: 1;
+
+    ${Container}:hover & {
+      transform: translate3d(5rem, -2rem, 0) rotate(180deg) scale(1.7);
+      opacity: 0.1;
+    }
 
     @media only screen and (max-width: 600px) {
       display: none;
@@ -82,6 +89,7 @@ const styles = {
     flex: 1;
     display: block;
     text-decoration: none;
+    z-index: 3;
   `,
   title: css`
     display: inline-block;
