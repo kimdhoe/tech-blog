@@ -7,11 +7,12 @@ import { Link } from 'gatsby'
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
-      <div css={styles.left}>
-        <img
-          src={`https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1`}
-          alt="An identicon"
-        />
+      <div
+        css={styles.left}
+        style={{
+          backgroundImage: `url(https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0)`,
+        }}
+      >
       </div>
 
       <div css={styles.right}>
@@ -62,10 +63,11 @@ const styles = {
   `,
   left: css`
     margin: 1rem 2rem 0 0;
-    border-radius: 2px;
+    border-radius: 50px;
     width: 100px;
     height: 100px;
     background-color: #f1f3f5;
+    background-size: 25px;
 
     @media only screen and (max-width: 600px) {
       display: none;
