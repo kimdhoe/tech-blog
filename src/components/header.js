@@ -2,6 +2,9 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 
+import { Logo } from './logo'
+import { LogoTypeface } from './logo-typeface'
+
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },
   { to: '/devlog/', label: 'Devlog' },
@@ -10,13 +13,15 @@ const NAV_ITEMS = [
   { to: '/contact/', label: 'Contact' },
 ]
 
-const Header = ({ siteTitle, logo }) => {
+const Header = ({ siteTitle }) => {
   return (
     <header css={styles.container}>
       <div css={styles.wrapper}>
         <Link css={styles.title} to="/">
           <div css={styles.logoTypeface}>
-            <img css={styles.logoTypefaceImg} src="/images/logo.svg" alt="dhk.party" />
+            <div css={styles.logoTypefaceImg}>
+              <LogoTypeface title={siteTitle} />
+            </div>
           </div>
         </Link>
         <nav css={styles.nav}>
@@ -29,7 +34,7 @@ const Header = ({ siteTitle, logo }) => {
       </div>
       <Link to="/">
         <div css={styles.logo}>
-          <img css={styles.logoImg} src="/images/profile-black.svg" alt="dhk.party" />
+          <Logo title={siteTitle} />
         </div>
       </Link>
     </header>
@@ -72,9 +77,6 @@ const styles = {
     @media only screen and (max-width: 868px) {
       display: none;
     }
-  `,
-  logoImg: css`
-    width: 100%;
   `,
   title: css`
     display: flex;
