@@ -303,9 +303,6 @@ const styles = {
     line-height: 2.1;
     font-size: 0.9792rem;
 
-    @media only screen and (max-width: 1060px) {
-    }
-
     p,
     ul,
     ol {
@@ -345,6 +342,10 @@ const styles = {
           background-image: url('/images/underline.svg');
         }
       }
+    }
+
+    img {
+      max-width: 100%;
     }
 
     hr {
