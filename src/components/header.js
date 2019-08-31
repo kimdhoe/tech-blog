@@ -52,7 +52,6 @@ const NavListItem = ({ to, label }) => (
 const styles = {
   container: css`
     padding: 2rem 0;
-    background-color: #728ca377;
   `,
   wrapper: css`
     margin: 0 auto;

@@ -7,12 +7,15 @@ import { Link } from 'gatsby'
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
-      <div
-        css={styles.left}
-        style={{
-          backgroundImage: `url(https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0)`,
-        }}
-      >
+      <div css={styles.left}>
+        <div
+          css={[
+            styles.image,
+            {
+              backgroundImage: `url(https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1)`,
+            },
+          ]}
+        />
       </div>
 
       <div css={styles.right}>
@@ -43,6 +46,7 @@ const PostPreview = ({ post }) => (
 const Container = styled.article`
   position: relative;
   margin: 0 auto;
+  padding: 0 1rem;
   max-width: 650px;
   border-bottom: 1px solid #728CA3;
 
@@ -53,32 +57,28 @@ const Container = styled.article`
 
 const styles = {
   link: css`
+    position: relative;
     padding: 2.5rem 0;
     display: flex;
     justify-content: space-between;
-
-    ${Container}:first-of-type & {
-      padding-top: 0;
-    }
   `,
   left: css`
     margin: 1rem 2rem 0 0;
+    width: 100px;
+    height: 100px;
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  `,
+  image: css`
     border-radius: 50px;
     width: 100px;
     height: 100px;
     background-color: #f1f3f5;
     background-size: 25px;
-    transition: all 200ms ease-out;
+    opacity: 0.7;
     z-index: 1;
-
-    ${Container}:hover & {
-      transform: translate3d(5rem, -2rem, 0) rotate(180deg) scale(1.7);
-      opacity: 0.1;
-    }
-
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
 
     img {
       border-radius: 2px;

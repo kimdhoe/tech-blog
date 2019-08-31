@@ -74,7 +74,7 @@ const IndexPage = () => {
 
 const styles = {
   container: css`
-    margin-top: 6rem;
+    margin-top: 4rem;
     padding: 0 1rem;
   `,
 }

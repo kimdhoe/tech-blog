@@ -56,12 +56,13 @@ const PostTemplate = ({
     comments: { edges },
   },
 }) => (
-  <>
+  <div css={styles.container}>
     <SEO
       title={frontmatter.title}
       description={frontmatter.deck || frontmatter.abstract}
     />
     <Article
+      slug={frontmatter.slug}
       headline={frontmatter.title}
       deck={frontmatter.deck}
       abstract={frontmatter.abstract}
@@ -73,7 +74,7 @@ const PostTemplate = ({
     />
     <Newsletter />
     <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
-  </>
+  </div>
 )
 
 const Newsletter = () => {
@@ -129,6 +130,7 @@ const Newsletter = () => {
 }
 
 const Article = ({
+  slug,
   headline,
   deck,
   abstract,
@@ -204,10 +206,12 @@ const fadeIn = keyframes`
 `
 
 const styles = {
+  container: css`
+  `,
   hero: css`
     margin: 0 0 5rem 0;
-    padding: 4rem 1rem 5rem;
-    background-color: #728ca377;
+    padding: 5rem 1rem;
+    /* background-color: #6d95a7; */
     color: #111;
   `,
   header: css`
