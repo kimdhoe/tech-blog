@@ -210,9 +210,13 @@ const styles = {
   `,
   hero: css`
     margin: 0 0 5rem 0;
-    padding: 5rem 1rem;
+    padding: 5rem 0rem;
     /* background-color: #6d95a7; */
     color: #111;
+
+    @media only screen and (max-width: 600px) {
+      padding-top: 1rem;
+    }
   `,
   header: css`
     margin: 0 auto;
@@ -226,7 +230,7 @@ const styles = {
     font-weight: 500;
 
     @media only screen and (max-width: 600px) {
-      font-size: 2.4rem;
+      font-size: 1.95rem;
     }
   `,
   deck: css`
@@ -234,6 +238,10 @@ const styles = {
     padding: 0 1rem;
     line-height: 1.8;
     font-size: 1.2rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.1rem;
+    }
   `,
   deckText: css`
   `,
@@ -415,9 +423,9 @@ const styles = {
   `,
   newsletter: css`
     margin: 0 auto;
-    padding: 2rem 0;
-    max-width: 650px;
-    height: 226px;
+    padding: 2rem 1rem;
+    max-width: 550px;
+    /* height: 226px; */
     border: 1px solid #728CA3;
     flex: 1;
     display: flex;
@@ -448,10 +456,13 @@ const styles = {
     padding: 0.5rem 0;
     border: none;
     border-bottom: 2px solid #728CA3;
+    border-radius: 0;
+    -webkit-appearance: none;
     width: 100%;
     max-width: 330px;
     background: none;
     font-size: 1.3rem;
+
 
     ::placeholder {
       color: #728CA360;

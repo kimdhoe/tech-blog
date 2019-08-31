@@ -76,6 +76,10 @@ const styles = {
   container: css`
     margin-top: 4rem;
     padding: 0 1rem;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 1rem;
+    }
   `,
 }
 
