@@ -300,7 +300,7 @@ const styles = {
     padding: 0 1rem;
     width: 100%;
     max-width: 650px;
-    line-height: 2.1;
+    line-height: 2;
     font-size: 0.9792rem;
 
     p,
