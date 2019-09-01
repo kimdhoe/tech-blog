@@ -326,12 +326,11 @@ const styles = {
     }
 
     a {
-      padding-bottom: 0.15rem;
       text-decoration: none;
       color: #7F5555;
 
       &[href] {
-        padding-bottom: 3px;
+        padding-bottom: 0.07rem;
         border-bottom: 1px solid #7F5555;
         background-position: 0 100%;
         background-size: auto 3px;
