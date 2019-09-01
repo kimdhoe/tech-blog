@@ -111,7 +111,7 @@ const styles = {
 
     @media only screen and (max-width: 600px) {
       margin-top: 1.5rem;
-      display: none;
+      /* display: none; */
     }
   `,
   navList: css`
