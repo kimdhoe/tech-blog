@@ -52,6 +52,10 @@ const NavListItem = ({ to, label }) => (
 const styles = {
   container: css`
     padding: 2rem 0;
+
+    @media only screen and (max-width: 600px) {
+      padding: 1rem 0;
+    }
   `,
   wrapper: css`
     margin: 0 auto;
@@ -107,6 +111,7 @@ const styles = {
 
     @media only screen and (max-width: 600px) {
       margin-top: 1.5rem;
+      display: none;
     }
   `,
   navList: css`

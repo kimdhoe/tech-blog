@@ -24,7 +24,7 @@ export const query = graphql`
           epigraph
           epigraphAuthor
           date
-          dateFormatted: date(formatString: "MMM D, YYYY hh:mm A")
+          dateFormatted: date(formatString: "MMM D, YYYY hh:mmA")
         }
         body
       }
@@ -210,50 +210,54 @@ const styles = {
   `,
   hero: css`
     margin: 0 0 5rem 0;
-    padding: 5rem 0rem;
+    padding: 5rem 0 0;
     /* background-color: #6d95a7; */
     color: #111;
 
     @media only screen and (max-width: 600px) {
-      padding-top: 1rem;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
     }
   `,
   header: css`
     margin: 0 auto;
-    max-width: 720px;
+    max-width: 650px;
   `,
   headline: css`
     margin: 0;
     padding: 0 1rem;
-    line-height: 1.5;
+    line-height: 1.4;
     font-size: 2.1rem;
     font-weight: 500;
 
     @media only screen and (max-width: 600px) {
-      font-size: 1.95rem;
+      font-size: 1.65rem;
     }
   `,
   deck: css`
-    margin: 1.125rem 0 0;
+    margin: 0.95rem 0 0;
     padding: 0 1rem;
-    line-height: 1.8;
+    line-height: 1.75;
     font-size: 1.2rem;
+    color: #444;
 
     @media only screen and (max-width: 600px) {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
   `,
   deckText: css`
   `,
   abstract: css`
     margin: 3.5rem auto 0;
+    padding: 0 1rem;
     max-width: 720px;
     display: flex;
     justify-content: center;
   `,
   abstractText: css`
     max-width: 500px;
-    line-height: 2;
+    line-height: 1.9;
+    color: #444;
   `,
   epigraph: css`
     display: flex;
@@ -291,17 +295,20 @@ const styles = {
     padding: 0 1rem 0;
     width: 100%;
     max-width: 650px;
-    text-align: right;
     letter-spacing: 0.02rem;
     font-size: 0.83rem;
   `,
   body: css`
-    margin: 7rem auto 0;
+    margin: 8rem auto 0;
     padding: 0 1rem;
     width: 100%;
     max-width: 650px;
     line-height: 2;
     font-size: 0.9792rem;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 5.5rem;
+    }
 
     p,
     ul,
