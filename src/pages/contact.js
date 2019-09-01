@@ -38,13 +38,13 @@ const styles = {
     letter-spacing: 0.02rem;
     font-size: 0.889rem;
     font-weight: 400;
-    color: #728CA3;
+    color: #728ca3;
   `,
   subheading: css`
     margin: 0;
     padding-bottom: 0.2rem;
     display: inline-block;
-    border-bottom: 6px solid #728CA3;
+    border-bottom: 6px solid #728ca3;
     line-height: 1.4;
     font-size: 2.618rem;
   `,
@@ -83,11 +83,11 @@ const styles = {
     a {
       letter-spacing: 0.04rem;
       font-size: 1rem;
-      color: #7F5555;
+      color: #7f5555;
 
       &[href] {
         padding-bottom: 3px;
-        border-bottom: 1px solid #7F5555;
+        border-bottom: 1px solid #7f5555;
         background-position: 0 100%;
         background-size: auto 3px;
         background-repeat: repeat-x;

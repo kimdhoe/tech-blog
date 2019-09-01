@@ -42,7 +42,11 @@ export default () => (
 
       <ul>
         <li>
-          The logo was made by <a href="https://www.namecheap.com/logo-maker/">Namecheap Logo Maker</a>.
+          The logo was made by{' '}
+          <a href="https://www.namecheap.com/logo-maker/">
+            Namecheap Logo Maker
+          </a>
+          .
         </li>
       </ul>
 
@@ -107,11 +111,11 @@ const styles = {
     a {
       text-decoration: none;
       color: inherit;
-      color: #7F5555;
+      color: #7f5555;
 
       &[href] {
         padding-bottom: 3px;
-        border-bottom: 1px solid #7F5555;
+        border-bottom: 1px solid #7f5555;
         background-position: 0 100%;
         background-size: auto 3px;
         background-repeat: repeat-x;

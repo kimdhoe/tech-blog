@@ -3,7 +3,6 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
@@ -48,7 +47,7 @@ const Container = styled.article`
   margin: 0 auto;
   padding: 0 1rem;
   max-width: 650px;
-  border-bottom: 1px solid #728CA3;
+  border-bottom: 1px solid #728ca3;
 
   :last-of-type {
     border: none;
@@ -105,7 +104,7 @@ const styles = {
     transition: color 100ms ease-out;
 
     ${Container}:hover & {
-      color: #7F5555;
+      color: #7f5555;
     }
   `,
   deck: css`
@@ -136,7 +135,7 @@ const styles = {
     display: flex;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;
-    color: #728CA3;
+    color: #728ca3;
   `,
   read: css`
     margin: 0;

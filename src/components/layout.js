@@ -20,7 +20,10 @@ const Layout = ({ children }) => {
         lang="en"
         meta={[
           { property: 'og:image', content: '/images/cover.png' },
-          deployBranch !== 'master' && { name: 'robots', content: 'noindex,nofollow' },
+          deployBranch !== 'master' && {
+            name: 'robots',
+            content: 'noindex,nofollow',
+          },
         ].filter(Boolean)}
         title="Blog"
         description={description}
@@ -68,7 +71,7 @@ const styles = {
     body {
       --bg: #f4f7fb;
       --well: white;
-      --text: #2B2836;
+      --text: #2b2836;
       --textLink: #2b2b2b;
       --hr: hsla(0, 0%, 0%, 0.2);
 

@@ -58,26 +58,26 @@ const PostTemplate = ({
     comments: { edges },
   },
 }) => (
-    <div css={styles.container}>
-      <SEO
-        title={frontmatter.title}
-        description={frontmatter.deck || frontmatter.abstract}
-      />
-      <Article
-        slug={frontmatter.slug}
-        headline={frontmatter.title}
-        deck={frontmatter.deck}
-        abstract={frontmatter.abstract}
-        epigraph={frontmatter.epigraph}
-        epigraphAuthor={frontmatter.epigraphAuthor}
-        date={frontmatter.date}
-        dateFormatted={frontmatter.dateFormatted}
-        body={body}
-      />
-      <Newsletter />
-      <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
-    </div>
-  )
+  <div css={styles.container}>
+    <SEO
+      title={frontmatter.title}
+      description={frontmatter.deck || frontmatter.abstract}
+    />
+    <Article
+      slug={frontmatter.slug}
+      headline={frontmatter.title}
+      deck={frontmatter.deck}
+      abstract={frontmatter.abstract}
+      epigraph={frontmatter.epigraph}
+      epigraphAuthor={frontmatter.epigraphAuthor}
+      date={frontmatter.date}
+      dateFormatted={frontmatter.dateFormatted}
+      body={body}
+    />
+    <Newsletter />
+    <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
+  </div>
+)
 
 const Newsletter = () => {
   const [status, setStatus] = useState('default')
@@ -85,47 +85,53 @@ const Newsletter = () => {
   const inputRef = useRef()
   return (
     <div css={styles.newsletterContainer}>
-      <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
+      <div
+        css={[
+          styles.newsletter,
+          status === 'success' && styles.newsletterSuccess,
+        ]}
+      >
         {status === 'success' ? (
-          <p css={styles.successMessage}>
-            Thanks. TTYS.
-        </p>
+          <p css={styles.successMessage}>Thanks. TTYS.</p>
         ) : (
-            <form
-              onSubmit={async e => {
-                e.preventDefault()
-                const email = inputRef.current.value
-                if (!validator.isEmail(email.trim())) {
-                  setStatus('error')
-                  inputRef.current.focus()
-                  return
-                }
-                try {
-                  await addToMailchimp(email)
-                  setStatus('success')
-                } catch (err) {
-                  setStatus('error')
-                  inputRef.current.focus()
-                }
+          <form
+            onSubmit={async e => {
+              e.preventDefault()
+              const email = inputRef.current.value
+              if (!validator.isEmail(email.trim())) {
+                setStatus('error')
+                inputRef.current.focus()
+                return
+              }
+              try {
+                await addToMailchimp(email)
+                setStatus('success')
+              } catch (err) {
+                setStatus('error')
+                inputRef.current.focus()
+              }
+            }}
+          >
+            <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+            <input
+              css={[
+                styles.newsletterInput,
+                status === 'error' && styles.newsletterInputError,
+              ]}
+              placeholder="your email here"
+              ref={inputRef}
+              type="email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value)
+                setStatus('default')
               }}
-            >
-              <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
-              <input
-                css={[styles.newsletterInput, status === 'error' && styles.newsletterInputError]}
-                placeholder="your email here"
-                ref={inputRef}
-                type="email"
-                value={email}
-                onChange={e => {
-                  setEmail(e.target.value)
-                  setStatus('default')
-                }}
-              />
-              <button css={styles.newsletterButton} type="submit">
-                Subscribe
-              </button>
-            </form>
-          )}
+            />
+            <button css={styles.newsletterButton} type="submit">
+              Subscribe
+            </button>
+          </form>
+        )}
       </div>
     </div>
   )
@@ -142,28 +148,28 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-    <article css={styles.article}>
-      <div css={styles.hero}>
-        <Header headline={headline} deck={deck} />
+  <article css={styles.article}>
+    <div css={styles.hero}>
+      <Header headline={headline} deck={deck} />
 
-        {abstract && <Abstract text={abstract} />}
-      </div>
+      {abstract && <Abstract text={abstract} />}
+    </div>
 
-      {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-      <Meta
-        headline={headline}
-        deck={deck}
-        date={date}
-        dateFormatted={dateFormatted}
-        slug={slug}
-      />
+    <Meta
+      headline={headline}
+      deck={deck}
+      date={date}
+      dateFormatted={dateFormatted}
+      slug={slug}
+    />
 
-      <Body body={body} />
+    <Body body={body} />
 
-      <Footer />
-    </article>
-  )
+    <Footer />
+  </article>
+)
 
 const Header = ({ headline, deck }) => (
   <header css={styles.header}>
@@ -211,9 +217,7 @@ const Body = ({ body }) => (
 )
 
 const Footer = () => (
-  <footer css={styles.footer}>
-    {/* TODO: Move all posts link here? */}
-  </footer>
+  <footer css={styles.footer}>{/* TODO: Move all posts link here? */}</footer>
 )
 
 const fadeIn = keyframes`
@@ -222,8 +226,7 @@ const fadeIn = keyframes`
 `
 
 const styles = {
-  container: css`
-  `,
+  container: css``,
   hero: css`
     margin: 0 0 5rem 0;
     padding: 5rem 0 0;
@@ -261,8 +264,7 @@ const styles = {
       font-size: 1.05rem;
     }
   `,
-  deckText: css`
-  `,
+  deckText: css``,
   abstract: css`
     margin: 3.5rem auto 0;
     padding: 0 1rem;
@@ -353,11 +355,11 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: #7F5555;
+      color: #7f5555;
 
       &[href] {
         padding-bottom: 0.07rem;
-        border-bottom: 1px solid #7F5555;
+        border-bottom: 1px solid #7f5555;
         background-position: 0 100%;
         background-size: auto 3px;
         background-repeat: repeat-x;
@@ -440,19 +442,17 @@ const styles = {
       display: 'block',
     },
   },
-  wrapper: {
-
-  },
+  wrapper: {},
   newsletterContainer: css`
     margin: 5rem auto 0;
-    padding: 0 1rem;;
+    padding: 0 1rem;
   `,
   newsletter: css`
     margin: 0 auto;
     padding: 2rem 1rem;
     max-width: 550px;
     /* height: 226px; */
-    border: 1px solid #728CA3;
+    border: 1px solid #728ca3;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -469,19 +469,19 @@ const styles = {
     letter-spacing: 0.03rem;
     font-size: 1.3rem;
     animation: ${fadeIn} 0.5s ease-out;
-    color: #728CA3;
+    color: #728ca3;
   `,
   newsletterHeader: css`
     margin-top: 0;
     font-size: 1.7rem;
-    color: #728CA3;
+    color: #728ca3;
   `,
   newsletterInput: css`
     outline: none;
     margin-bottom: 3rem;
     padding: 0.5rem 0;
     border: none;
-    border-bottom: 2px solid #728CA3;
+    border-bottom: 2px solid #728ca3;
     border-radius: 0;
     -webkit-appearance: none;
     width: 100%;
@@ -489,9 +489,8 @@ const styles = {
     background: none;
     font-size: 1.3rem;
 
-
     ::placeholder {
-      color: #728CA360;
+      color: #728ca360;
     }
   `,
   newsletterButton: css`
@@ -499,7 +498,7 @@ const styles = {
     border: none;
     background: none;
     font-size: 1.3rem;
-    color: #728CA3;
+    color: #728ca3;
     cursor: pointer;
   `,
 }

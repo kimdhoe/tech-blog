@@ -67,7 +67,9 @@ function SEO({ description, lang, meta, title }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-      ].concat(meta).filter(Boolean)}
+      ]
+        .concat(meta)
+        .filter(Boolean)}
     />
   )
 }

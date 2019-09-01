@@ -1,4 +1,4 @@
-import React/*, { useState, useRef }*/ from 'react'
+import React /*, { useState, useRef }*/ from 'react'
 import { css } from '@emotion/core'
 // import addToMailchimp from 'gatsby-plugin-mailchimp'
 // import validator from 'validator'

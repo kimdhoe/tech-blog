@@ -84,13 +84,13 @@ const styles = {
     letter-spacing: 0.02rem;
     font-size: 0.889rem;
     font-weight: 400;
-    color: #728CA3;
+    color: #728ca3;
   `,
   subheading: css`
     margin: 0;
     padding-bottom: 0.5rem;
     display: inline;
-    border-bottom: 6px solid #728CA3;
+    border-bottom: 6px solid #728ca3;
     line-height: 1.5;
     font-size: 2.618rem;
   `,
