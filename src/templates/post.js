@@ -5,8 +5,10 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css, keyframes } from '@emotion/core'
 
+import useSiteMetadata from '../hooks/use-sitemetadata'
 import Thread from '../components/thread'
 import SEO from '../components/seo'
+import Share from '../components/share'
 
 export const query = graphql`
   query($slug: String!) {
@@ -56,26 +58,26 @@ const PostTemplate = ({
     comments: { edges },
   },
 }) => (
-  <div css={styles.container}>
-    <SEO
-      title={frontmatter.title}
-      description={frontmatter.deck || frontmatter.abstract}
-    />
-    <Article
-      slug={frontmatter.slug}
-      headline={frontmatter.title}
-      deck={frontmatter.deck}
-      abstract={frontmatter.abstract}
-      epigraph={frontmatter.epigraph}
-      epigraphAuthor={frontmatter.epigraphAuthor}
-      date={frontmatter.date}
-      dateFormatted={frontmatter.dateFormatted}
-      body={body}
-    />
-    <Newsletter />
-    <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
-  </div>
-)
+    <div css={styles.container}>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.deck || frontmatter.abstract}
+      />
+      <Article
+        slug={frontmatter.slug}
+        headline={frontmatter.title}
+        deck={frontmatter.deck}
+        abstract={frontmatter.abstract}
+        epigraph={frontmatter.epigraph}
+        epigraphAuthor={frontmatter.epigraphAuthor}
+        date={frontmatter.date}
+        dateFormatted={frontmatter.dateFormatted}
+        body={body}
+      />
+      <Newsletter />
+      <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
+    </div>
+  )
 
 const Newsletter = () => {
   const [status, setStatus] = useState('default')
@@ -149,7 +151,13 @@ const Article = ({
 
       {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-      <Meta date={date} dateFormatted={dateFormatted} />
+      <Meta
+        headline={headline}
+        deck={deck}
+        date={date}
+        dateFormatted={dateFormatted}
+        slug={slug}
+      />
 
       <Body body={body} />
 
@@ -181,12 +189,20 @@ const Epigraph = ({ text, author }) => (
   </section>
 )
 
-const Meta = ({ date, dateFormatted }) => (
-  <section css={styles.meta}>
-    <time dateTime={date}>{dateFormatted} KST</time>
-    {/* TODO: share buttons */}
-  </section>
-)
+const Meta = ({ headline, deck, date, dateFormatted, slug }) => {
+  const { siteUrl } = useSiteMetadata()
+  const url = `${siteUrl}/${slug}/`
+  const body = headline + '%0A%0A' + deck + '%0A%0A' + url
+
+  return (
+    <section css={styles.meta}>
+      <div css={styles.share}>
+        <Share url={url} headline={headline} body={body} />
+      </div>
+      <time dateTime={date}>{dateFormatted} KST</time>
+    </section>
+  )
+}
 
 const Body = ({ body }) => (
   <div css={styles.body}>
@@ -297,6 +313,9 @@ const styles = {
     max-width: 650px;
     letter-spacing: 0.02rem;
     font-size: 0.83rem;
+  `,
+  share: css`
+    margin-bottom: 1rem;
   `,
   body: css`
     margin: 8rem auto 0;
