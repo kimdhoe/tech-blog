@@ -6,7 +6,11 @@ import Icon from '../components/icon'
 const Share = ({ url, body, headline }) => {
   return (
     <div css={styles.container}>
-      <a href={`http://www.facebook.com/sharer.php?u=${url}`} target="_blank" rel="noopener noreferrer">
+      <a
+        href={`http://www.facebook.com/sharer.php?u=${url}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Icon name="facebook" attrs={{ width: 22 }} />
       </a>
       <a

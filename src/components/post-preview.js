@@ -45,7 +45,7 @@ const PostPreview = ({ post }) => (
 const Container = styled.article`
   position: relative;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0;
   max-width: 650px;
   border-bottom: 1px solid #728ca3;
 

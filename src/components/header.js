@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 
 import { Logo } from './logo'
 import { LogoTypeface } from './logo-typeface'
+import { MobileHeader } from './mobile-header'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },
@@ -16,27 +17,31 @@ const NAV_ITEMS = [
 const Header = ({ siteTitle }) => {
   return (
     <header css={styles.container}>
-      <div css={styles.wrapper}>
-        <Link css={styles.title} to="/">
-          <div css={styles.logoTypeface}>
-            <div css={styles.logoTypefaceImg}>
-              <LogoTypeface title={siteTitle} />
+      <div css={styles.pc}>
+        <div css={styles.wrapper}>
+          <Link css={styles.title} to="/">
+            <div css={styles.logoTypeface}>
+              <div css={styles.logoTypefaceImg}>
+                <LogoTypeface title={siteTitle} />
+              </div>
             </div>
+          </Link>
+          <nav css={styles.nav}>
+            <ul css={styles.navList}>
+              {NAV_ITEMS.map(page => (
+                <NavListItem key={page.label} to={page.to} label={page.label} />
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <Link to="/">
+          <div css={styles.logo}>
+            <Logo title={siteTitle} />
           </div>
         </Link>
-        <nav css={styles.nav}>
-          <ul css={styles.navList}>
-            {NAV_ITEMS.map(page => (
-              <NavListItem key={page.label} to={page.to} label={page.label} />
-            ))}
-          </ul>
-        </nav>
       </div>
-      <Link to="/">
-        <div css={styles.logo}>
-          <Logo title={siteTitle} />
-        </div>
-      </Link>
+
+      <MobileHeader title={siteTitle} />
     </header>
   )
 }
@@ -54,7 +59,12 @@ const styles = {
     padding: 2rem 0;
 
     @media only screen and (max-width: 600px) {
-      padding: 1rem 0;
+      padding: 0;
+    }
+  `,
+  pc: css`
+    @media only screen and (max-width: 600px) {
+      display: none;
     }
   `,
   wrapper: css`
@@ -110,6 +120,7 @@ const styles = {
     margin-top: 0;
 
     @media only screen and (max-width: 600px) {
+      display: none;
       margin-top: 1.5rem;
     }
   `,

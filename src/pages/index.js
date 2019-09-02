@@ -78,7 +78,7 @@ const styles = {
     padding: 0 1rem;
 
     @media only screen and (max-width: 600px) {
-      margin-top: 1rem;
+      margin-top: 3rem;
     }
   `,
 }

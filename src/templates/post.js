@@ -235,7 +235,7 @@ const styles = {
 
     @media only screen and (max-width: 600px) {
       margin-bottom: 3rem;
-      padding-top: 2rem;
+      padding-top: 4.5rem;
     }
   `,
   header: css`
