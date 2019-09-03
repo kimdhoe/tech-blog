@@ -124,9 +124,9 @@ const styles = {
   brand: css`
     position: relative;
     z-index: 12;
-    top: 0.5rem;
-    width: 100px;
-    height: 34px;
+    top: 0.7rem;
+    width: 90px;
+    height: 31px;
   `,
   logo: css`
     width: 35px;

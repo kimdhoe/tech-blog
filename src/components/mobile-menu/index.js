@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV_ITEMS = [
-  { to: '/', label: 'Blog' },
+  { to: '/', label: 'Writings' },
   { to: '/devlog/', label: 'Devlog' },
   { to: '/projects/', label: 'Projects' },
   { to: '/about/', label: 'About' },
@@ -122,15 +122,6 @@ const styles = {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-  `,
-  logo: css`
-    margin-bottom: 1rem;
-    padding: 1rem;
-    width: 100%;
-  `,
-  logoWrapper: css`
-    width: 180px;
-    height: 40px;
   `,
   listItem: css`
   `,
