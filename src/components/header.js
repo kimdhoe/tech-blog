@@ -99,12 +99,11 @@ const styles = {
   `,
   logoTypeface: css`
     overflow: hidden;
-    margin-right: 0.7rem;
-    width: 180px;
-    height: 40px;
+    width: 160px;
+    height: 36px;
   `,
   logoTypefaceImg: css`
-    margin-left: -50px;
+    margin-left: -45px;
     width: 100%;
 
     @media only screen and (max-width: 868px) {
