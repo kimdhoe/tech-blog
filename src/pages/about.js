@@ -9,7 +9,7 @@ export default () => (
       title="About"
       description="I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life."
     />
-    <header>
+    <header css={styles.header}>
       <h1 css={styles.heading}>About</h1>
       <h2 css={styles.subheading}>dhk.party</h2>
     </header>
@@ -78,6 +78,8 @@ const styles = {
     margin: 6rem auto;
     padding: 0 1rem;
     max-width: 650px;
+  `,
+  header: css`
   `,
   heading: css`
     margin: 0;

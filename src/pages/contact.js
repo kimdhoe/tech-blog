@@ -9,8 +9,10 @@ export default () => (
       title="Contact"
       description="I'd love to hear from you, whether you have a question about this website, a feedback on me, or anything else. I'm happy to send you a real response, so please email me and say hi."
     />
-    <h1 css={styles.heading}>Contact</h1>
-    <h2 css={styles.subheading}>Drop me a line</h2>
+    <header>
+      <h1 css={styles.heading}>Contact</h1>
+      <h2 css={styles.subheading}>Drop me a line</h2>
+    </header>
 
     <div css={styles.body}>
       <p css={styles.deck}>

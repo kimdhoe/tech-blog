@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const NAV_ITEMS = [
   { to: '/', label: 'Writings' },
   { to: '/devlog/', label: 'Devlog' },
-  { to: '/projects/', label: 'Projects' },
+  { to: '/now/', label: 'Now' },
   { to: '/about/', label: 'About' },
   { to: '/contact/', label: 'Contact' },
   { to: '/colophon/', label: 'Colophon' },

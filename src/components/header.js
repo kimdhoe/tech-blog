@@ -9,7 +9,7 @@ import { MobileHeader } from './mobile-header'
 const NAV_ITEMS = [
   { to: '/', label: 'Writings' },
   { to: '/devlog/', label: 'Devlog' },
-  { to: '/projects/', label: 'Projects' },
+  { to: '/now/', label: 'Now' },
   { to: '/about/', label: 'About' },
   { to: '/contact/', label: 'Contact' },
 ]
