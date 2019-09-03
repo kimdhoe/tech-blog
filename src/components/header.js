@@ -7,8 +7,9 @@ import { LogoText } from './logo-text'
 import { MobileHeader } from './mobile-header'
 
 const NAV_ITEMS = [
-  { to: '/', label: 'Writings' },
+  { to: '/', label: 'Writing' },
   { to: '/devlog/', label: 'Devlog' },
+  { to: '/journal/', label: 'Journal' },
   { to: '/now/', label: 'Now' },
   { to: '/about/', label: 'About' },
   { to: '/contact/', label: 'Contact' },
