@@ -31,9 +31,7 @@ const Layout = ({ children }) => {
       <Global styles={styles.global} />
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
-        <div css={styles.mainWrapper}>
-          <main css={styles.main}>{children}</main>
-        </div>
+        <main css={styles.main}>{children}</main>
         <Footer author={author} />
       </div>
     </>
@@ -98,15 +96,9 @@ const styles = {
     min-height: 100vh;
     flex-direction: column;
   `,
-  mainWrapper: css`
-    flex: 1;
-  `,
   main: css`
     position: relative;
     flex: 1;
-    /* margin: 3.5rem auto 1.3rem; */
-    /* padding: 0 1.5rem; */
-    /* max-width: 768px; */
     margin: 0 auto;
     padding: 0;
     width: 100%;
