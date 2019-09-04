@@ -58,7 +58,7 @@ const styles = {
   `,
   wrapper: css`
     margin: 0 auto;
-    padding: 1.2rem 1rem 1rem;
+    padding: 0 1rem;
     max-width: 768px;
     display: flex;
     align-items: center;

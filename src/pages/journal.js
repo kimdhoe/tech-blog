@@ -12,17 +12,13 @@ export default () => {
 
   return (
     <div css={styles.container}>
-      <SEO title="Journal" description="Life of Joseph" />
+      <SEO title="Life" description="Life of Joseph" />
+
       <header css={styles.header}>
-        <h2 css={styles.title}>Journal</h2>
-        <h3 css={styles.subtitle}>
-          Life of Joseph
-        </h3>
+        <h2 css={styles.title}>Life</h2>
       </header>
 
-      <h4 css={styles.monthYear}>
-        September, 2019
-      </h4>
+      <h4 css={styles.monthYear}>2019</h4>
 
       <div css={styles.entries}>
         {journals.map((journal, i) => (
@@ -41,13 +37,15 @@ export default () => {
 }
 
 const Entry = ({ slug, title, date, dateFormatted, fluid }) => (
-  <EntryContainer to={'/' + slug + '/'}>
+  <EntryContainer to={'/journal/' + slug + '/'}>
     <div css={styles.entryImageContainer}>
       <BackgroundImage css={styles.entryImage} fluid={fluid} />
     </div>
     <div css={styles.entryLayer}>
       <h4 css={styles.entryInfo}>
-        <time css={styles.entryDate} dateTime={date}>{dateFormatted}</time>
+        <time css={styles.entryDate} dateTime={date}>
+          {dateFormatted}
+        </time>
         <span css={styles.entryTitle}>{title}</span>
       </h4>
     </div>
@@ -68,12 +66,12 @@ const styles = {
     max-width: 650px;
   `,
   header: css`
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
   `,
   monthYear: css`
     position: relative;
-    margin: 0 0 5rem 0;
+    margin: 0 0 4.5rem 0;
     padding: 4.5rem 0 0 0;
     text-align: center;
     font-weight: 600;
@@ -91,15 +89,8 @@ const styles = {
   `,
   title: css`
     margin: 0 0 0.79rem 0;
-    padding-top: 1rem;
+    padding: 0;
     font-size: 1.802rem;
-  `,
-  subtitle: css`
-    margin: 0;
-    word-break: keep-all;
-    line-height: 1.7;
-    font-size: 1rem;
-    font-weight: 400;
   `,
   entries: css`
     display: grid;
@@ -129,7 +120,6 @@ const styles = {
     ${EntryContainer}:hover & {
       filter: grayscale(0) contrast(80%);
     }
-
   `,
   entryLayer: css`
     position: absolute;
@@ -147,7 +137,6 @@ const styles = {
     ${EntryContainer}:hover & {
       opacity: 0;
     }
-
   `,
   entryInfo: css`
     flex: 1;
