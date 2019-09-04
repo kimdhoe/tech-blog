@@ -79,8 +79,7 @@ const styles = {
     padding: 0 1rem;
     max-width: 650px;
   `,
-  header: css`
-  `,
+  header: css``,
   heading: css`
     margin: 0;
     letter-spacing: 0.02rem;

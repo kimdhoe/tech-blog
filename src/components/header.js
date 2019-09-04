@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 
 import { Logo } from './logo'
-import { LogoTypeface } from './logo-typeface'
+import { LogoText } from './logo-text'
 import { MobileHeader } from './mobile-header'
 
 const NAV_ITEMS = [
@@ -20,9 +20,9 @@ const Header = ({ siteTitle }) => {
       <div css={styles.pc}>
         <div css={styles.wrapper}>
           <Link css={styles.title} to="/">
-            <div css={styles.logoTypeface}>
-              <div css={styles.logoTypefaceImg}>
-                <LogoTypeface title={siteTitle} />
+            <div css={styles.logoText}>
+              <div css={styles.logoTextImg}>
+                <LogoText title={siteTitle} />
               </div>
             </div>
           </Link>
@@ -56,11 +56,7 @@ const NavListItem = ({ to, label }) => (
 
 const styles = {
   container: css`
-    padding: 2rem 0;
-
-    @media only screen and (max-width: 600px) {
-      padding: 0;
-    }
+    padding: 0;
   `,
   pc: css`
     @media only screen and (max-width: 600px) {
@@ -69,46 +65,33 @@ const styles = {
   `,
   wrapper: css`
     margin: 0 auto;
-    padding: 0 1rem;
-    max-width: 768px;
+    padding: 0.8rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @media only screen and (max-width: 600px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
   `,
   logo: css`
     position: fixed;
     z-index: 11;
-    top: 2rem;
+    top: 0.7rem;
     left: 1rem;
-    width: 45px;
-
-    @media only screen and (max-width: 868px) {
-      display: none;
-    }
+    width: 40px;
+    height: 37px;
   `,
   title: css`
+    margin-left: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
   `,
-  logoTypeface: css`
+  logoText: css`
     overflow: hidden;
-    width: 160px;
+    width: 120px;
     height: 36px;
   `,
-  logoTypefaceImg: css`
-    margin-left: -45px;
+  logoTextImg: css`
     width: 100%;
-
-    @media only screen and (max-width: 868px) {
-      margin-left: 0;
-    }
   `,
   titleText: css`
     margin: 0;
@@ -142,43 +125,18 @@ const styles = {
     }
   `,
   navListItemLink: css`
-    position: relative;
-    margin-left: 0.04rem;
     padding: 1rem;
     font-size: 0.9rem;
-    letter-spacing: 0.03rem;
+    letter-spacing: 0.02rem;
     text-decoration: none;
-    color: black;
-
-    @media only screen and (max-width: 600px) {
-      display: block;
-    }
-
-    ::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0rem;
-      transform: translateX(-50%);
-      transition: all 0.12s ease-out;
-      border-radius: 2px;
-      width: 4px;
-      height: 4px;
-      background: transparent;
-    }
+    transition: all 0.15s ease-out;
 
     :hover {
-      ::before {
-        background: #dee2e6;
-        transform: translate(-50%, -0.3rem);
-      }
+      color: #7f5555;
     }
 
     &.current-page {
-      ::before {
-        background: #868e96;
-        transform: translate(-50%, 0);
-      }
+      color: #7f5555;
     }
   `,
 }

@@ -18,10 +18,10 @@ const PostPreview = ({ post }) => (
       </div>
 
       <div css={styles.right}>
-          <p css={styles.date}>
-            <span css={styles.category}>{post.category}</span>
-            <time dateTime={post.date}>{post.dateFormatted}</time>
-          </p>
+        <p css={styles.date}>
+          <span css={styles.category}>{post.category}</span>
+          <time dateTime={post.date}>{post.dateFormatted}</time>
+        </p>
         <h3 css={styles.title}>
           <span css={styles.titleText}>{post.title}</span>
         </h3>
@@ -39,7 +39,7 @@ const Container = styled.article`
   position: relative;
   margin: 0 auto;
   padding: 0;
-  max-width: 650px;
+  max-width: calc(768px - 1rem);
   border-bottom: 1px solid #728ca3;
 
   :last-of-type {

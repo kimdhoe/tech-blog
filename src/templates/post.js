@@ -358,7 +358,8 @@ const styles = {
     ol {
       padding-left: 1.5rem;
 
-      ul, ol {
+      ul,
+      ol {
         margin-bottom: 0;
       }
     }

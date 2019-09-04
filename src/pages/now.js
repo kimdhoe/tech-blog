@@ -5,10 +5,7 @@ import SEO from '../components/seo'
 
 export default () => (
   <article css={styles.container}>
-    <SEO
-      title="What I'm doing now"
-      description="Joseph: What I'm doing now"
-    />
+    <SEO title="What I'm doing now" description="Joseph: What I'm doing now" />
     <header css={styles.header}>
       <h2 css={styles.heading}>What I'm doing now</h2>
       <h1 css={styles.subheading}>Now</h1>
@@ -20,9 +17,8 @@ export default () => (
           rel="noopener noreferrer"
         >
           now
-        </a>
-        {' '}page.{' '}
-        Updated September 3, 2019.
+        </a>{' '}
+        page. Updated September 3, 2019.
       </p>
     </header>
 
@@ -35,8 +31,8 @@ export default () => (
 
         <p>
           Making and polishing this website has been my recent priority. The
-          goal is to develop the habit of documenting dev-related progress
-          as well as other thoughts and events.
+          goal is to develop the habit of documenting dev-related progress as
+          well as other thoughts and events.
         </p>
 
         <p>
@@ -45,8 +41,8 @@ export default () => (
         </p>
 
         <p>
-          I'm trying to put weight on. All I need is 1.5kg to reach my
-          target weight.
+          I'm trying to put weight on. All I need is 1.5kg to reach my target
+          weight.
         </p>
       </section>
     </div>
