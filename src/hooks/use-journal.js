@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 const useJournal = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulJournal {
+      allContentfulJournal(sort: { fields: publishDate, order: DESC }) {
         nodes {
           id
           date: publishDate

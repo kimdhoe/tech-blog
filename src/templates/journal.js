@@ -72,6 +72,10 @@ const JournalTemplate = ({
 const styles = {
   container: css`
     margin: 4.5rem 0 17rem;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 2rem;
+    }
   `,
   header: css`
     margin: 0 0 4rem 0;
@@ -83,7 +87,7 @@ const styles = {
     max-width: 1024px;
 
     @media only screen and (max-width: 600px) {
-      padding: 0;
+      padding: 0 1rem;
     }
   `,
   headline: css`
