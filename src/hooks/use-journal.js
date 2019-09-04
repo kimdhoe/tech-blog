@@ -7,7 +7,7 @@ const useJournal = () => {
         nodes {
           id
           date: publishDate
-          dateFormatted: publishDate(formatString: "MMM DD")
+          dateFormatted: publishDate(formatString: "MMM D")
           slug
           headline
           heroImage {

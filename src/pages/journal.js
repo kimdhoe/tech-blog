@@ -38,16 +38,18 @@ export default () => {
 
 const Entry = ({ slug, title, date, dateFormatted, fluid }) => (
   <EntryContainer to={'/journal/' + slug + '/'}>
-    <div css={styles.entryImageContainer}>
-      <BackgroundImage css={styles.entryImage} fluid={fluid} />
-    </div>
-    <div css={styles.entryLayer}>
-      <h4 css={styles.entryInfo}>
-        <time css={styles.entryDate} dateTime={date}>
-          {dateFormatted}
-        </time>
-        <span css={styles.entryTitle}>{title}</span>
-      </h4>
+    <div css={styles.entryWrapper}>
+      <div css={styles.entryImageContainer}>
+        <BackgroundImage css={styles.entryImage} fluid={fluid} />
+      </div>
+      <div css={styles.entryLayer}>
+        <h4 css={styles.entryInfo}>
+          <time css={styles.entryDate} dateTime={date}>
+            {dateFormatted}
+          </time>
+          <span css={styles.entryTitle}>{title}</span>
+        </h4>
+      </div>
     </div>
   </EntryContainer>
 )
@@ -102,26 +104,7 @@ const styles = {
       grid-template-columns: 1fr;
     }
   `,
-  entryImageContainer: css`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #f1f3f5;
-  `,
-  entryImage: css`
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(0.8) contrast(60%);
-    transition: filter 0.15s ease-out;
-
-    ${EntryContainer}:hover & {
-      filter: grayscale(0) contrast(80%);
-    }
-  `,
-  entryLayer: css`
+  entryWrapper: css`
     position: absolute;
     top: 0;
     right: 0;
@@ -129,35 +112,45 @@ const styles = {
     left: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transition: opacity 0.1s ease-out;
+  `,
+  entryImageContainer: css`
+    flex: 1;
+    transition: all 0.15s ease-out;
 
     ${EntryContainer}:hover & {
-      opacity: 0;
+      box-shadow: 0 8px 19px -12px rgba(0, 0, 0, 0.56), 0 2px 12.5px 0px rgba(0, 0, 0, 0.12), 0 4px 5px -5px rgba(0, 0, 0, 0.2);
+      transform: translate3d(0, -0.1rem, 0);
     }
+  `,
+  entryImage: css`
+    height: 100%;
+    background-color: #f1f3f5;
+    background-size: cover;
+    background-position: center;
+  `,
+  entryLayer: css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   `,
   entryInfo: css`
     flex: 1;
     margin: 0;
-    padding: 1rem;
+    padding: 0.7rem 0.3rem 0;
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1.5rem;
     font-weight: 400;
-    color: var(--bg);
   `,
   entryDate: css`
-    margin: 0 0 1rem 0;
+    margin: 0 1rem 0 0;
     padding: 0;
-    font-weight: 600;
+    font-weight: 500;
   `,
   entryTitle: css`
     margin: 0;
