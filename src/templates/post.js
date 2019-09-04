@@ -20,6 +20,7 @@ export const query = graphql`
         frontmatter {
           title
           slug
+          category
           author
           deck
           abstract
@@ -65,6 +66,7 @@ const PostTemplate = ({
     />
     <Article
       slug={frontmatter.slug}
+      category={frontmatter.category}
       headline={frontmatter.title}
       deck={frontmatter.deck}
       abstract={frontmatter.abstract}
@@ -139,6 +141,7 @@ const Newsletter = () => {
 
 const Article = ({
   slug,
+  category,
   headline,
   deck,
   abstract,
@@ -150,7 +153,7 @@ const Article = ({
 }) => (
   <article css={styles.article}>
     <div css={styles.hero}>
-      <Header headline={headline} deck={deck} />
+      <Header category={category} headline={headline} deck={deck} />
 
       {abstract && <Abstract text={abstract} />}
     </div>
@@ -171,8 +174,9 @@ const Article = ({
   </article>
 )
 
-const Header = ({ headline, deck }) => (
+const Header = ({ category, headline, deck }) => (
   <header css={styles.header}>
+    {category && <p css={styles.category}>{category}</p>}
     <h2 css={styles.headline}>{headline}</h2>
     {deck && (
       <section css={styles.deck}>
@@ -240,11 +244,19 @@ const styles = {
   `,
   header: css`
     margin: 0 auto;
+    padding: 0 1rem;
     max-width: 650px;
+  `,
+  category: css`
+    margin: 0 0 1.1rem 0.15rem;
+    letter-spacing: 0.03rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #728ca3;
   `,
   headline: css`
     margin: 0;
-    padding: 0 1rem;
+    padding: 0;
     line-height: 1.4;
     font-size: 2.1rem;
     font-weight: 500;
@@ -255,7 +267,7 @@ const styles = {
   `,
   deck: css`
     margin: 0.95rem 0 0;
-    padding: 0 1rem;
+    padding: 0 0.1rem;
     line-height: 1.75;
     font-size: 1.2rem;
     color: #444;
@@ -345,6 +357,10 @@ const styles = {
     ul,
     ol {
       padding-left: 1.5rem;
+
+      ul, ol {
+        margin-bottom: 0;
+      }
     }
 
     blockquote {

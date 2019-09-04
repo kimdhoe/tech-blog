@@ -15,6 +15,7 @@ const usePosts = () => {
             childMdx {
               frontmatter {
                 title
+                category
                 date
                 dateFormatted: date(formatString: "MMM D, YYYY")
                 slug
@@ -30,6 +31,7 @@ const usePosts = () => {
 
   return data.allFile.edges.map(({ node: { childMdx: { frontmatter } } }) => ({
     title: frontmatter.title,
+    category: frontmatter.category,
     author: frontmatter.author,
     deck: frontmatter.deck,
     slug: frontmatter.slug,

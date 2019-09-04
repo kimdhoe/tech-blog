@@ -18,6 +18,10 @@ const PostPreview = ({ post }) => (
       </div>
 
       <div css={styles.right}>
+          <p css={styles.date}>
+            <span css={styles.category}>{post.category}</span>
+            <time dateTime={post.date}>{post.dateFormatted}</time>
+          </p>
         <h3 css={styles.title}>
           <span css={styles.titleText}>{post.title}</span>
         </h3>
@@ -26,17 +30,6 @@ const PostPreview = ({ post }) => (
             <span css={[styles.deckText, styles.mozHack]}>{post.deck}</span>
           </p>
         )}
-        <div css={styles.footer}>
-          <p css={styles.date}>
-            <time dateTime={post.date}>{post.dateFormatted}</time>
-          </p>
-          {/* <p css={styles.read}>
-            <span css={styles.readText}>Read this post</span>
-            <span css={styles.readIcon}>
-              <Icon name="arrow-right" attrs={{ width: 14 }} />
-            </span>
-          </p> */}
-        </div>
       </div>
     </Link>
   </Container>
@@ -62,9 +55,9 @@ const styles = {
     justify-content: space-between;
   `,
   left: css`
-    margin: 1rem 2rem 0 0;
-    width: 100px;
-    height: 100px;
+    margin: 0.5rem 2rem 0 0;
+    width: 90px;
+    height: 90px;
 
     @media only screen and (max-width: 600px) {
       display: none;
@@ -72,8 +65,8 @@ const styles = {
   `,
   image: css`
     border-radius: 50px;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: #f1f3f5;
     background-size: 25px;
     opacity: 0.7;
@@ -121,55 +114,19 @@ const styles = {
     transition: all 0.2s ease-out;
     font-size: 0.95rem;
   `,
-  footer: css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > * {
-      margin: 0;
-    }
+  category: css`
+    margin-right: 0.55rem;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #728ca3;
   `,
   date: css`
     margin: 0.3rem 0 0.5rem;
     display: flex;
     letter-spacing: 0.02rem;
     font-size: 0.79rem;
-    color: #728ca3;
-  `,
-  read: css`
-    margin: 0;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    opacity: 0;
-    transition: all 0.2s ease-out;
-
-    ${Container}:hover & {
-      opacity: 1;
-      background: var(--well);
-      box-shadow: 0.7rem 0 0 var(--well), -0.7rem 0 0 var(--well);
-    }
-  `,
-  readText: css`
-    letter-spacing: 0.02rem;
-    font-size: 0.8rem;
-    transform: translateX(-0.25rem);
-    transition: all 0.2s ease-out;
-
-    ${Container}:hover & {
-      transform: translateX(0);
-    }
-  `,
-  readIcon: css`
-    margin: 0 0 0 0.2rem;
-    transform: translateX(-0.2rem);
-    transition: all 0.15s ease-out;
-
-    ${Container}:hover & {
-      transform: translateX(0);
-    }
+    color: var(--text);
   `,
 }
 
