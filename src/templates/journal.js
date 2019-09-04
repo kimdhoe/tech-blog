@@ -10,7 +10,9 @@ export const query = graphql`
   query($slug: String!) {
     contentfulJournal(slug: { eq: $slug }) {
       headline
+      description
       date: publishDate(formatString: "ddd, MMM D, YYYY")
+      date2: publishDate(formatString: "YYYY년 M월 D일")
       body {
         childMdx {
           body
@@ -29,7 +31,9 @@ const JournalTemplate = ({
   data: {
     contentfulJournal: {
       headline,
+      description,
       date,
+      date2,
       location = 'Seoul',
       body: {
         childMdx: { body: mdx },
@@ -41,7 +45,7 @@ const JournalTemplate = ({
   <article css={styles.container}>
     <SEO
       title={headline}
-      // description={rowBody}
+      description={description || `Joseph이 ${date2}에 남긴 일상 기록.`}
       meta={[
         {
           property: 'og:image',

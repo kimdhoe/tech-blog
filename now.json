@@ -13,7 +13,9 @@
       "GITHUB_USERNAME": "@github-username",
       "GITHUB_REPOSITORY": "@github-repository",
       "GITHUB_BRANCH": "@github-branch",
-      "MAILCHIMP_ENDPOINT": "@mailchimp-endpoint"
+      "MAILCHIMP_ENDPOINT": "@mailchimp-endpoint",
+      "CONTENTFUL_ACCESS_TOKEN": "@contentful-access-token",
+      "CONTENTFUL_SPACE_ID": "@contentful-space-id"
     },
     "src": "package.json",
     "use": "@now/static-build"
