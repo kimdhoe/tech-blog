@@ -5,20 +5,20 @@ import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
 
 import useJournal from '../hooks/use-journal'
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
 
 export default () => {
   const journals = useJournal()
 
   return (
     <div css={styles.container}>
-      <SEO title="Life" description="Life of Joseph" />
+      <SEO title="Journal" description="Life of Joseph" />
 
       <header css={styles.header}>
-        <h2 css={styles.title}>Life</h2>
+        <h2 css={styles.title}>Journal</h2>
       </header>
 
-      <h4 css={styles.monthYear}>2019</h4>
+      <h3 css={styles.monthYear}>2019</h3>
 
       <div css={styles.entries}>
         {journals.map((journal, i) => (
@@ -74,9 +74,10 @@ const styles = {
   monthYear: css`
     position: relative;
     margin: 0 0 4.5rem 0;
-    padding: 4.5rem 0 0 0;
+    padding: 2.5rem 0 0 0;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 1rem;
 
     ::before {
       content: ' ';
@@ -118,7 +119,8 @@ const styles = {
     transition: all 0.15s ease-out;
 
     ${EntryContainer}:hover & {
-      box-shadow: 0 8px 19px -12px rgba(0, 0, 0, 0.56), 0 2px 12.5px 0px rgba(0, 0, 0, 0.12), 0 4px 5px -5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 19px -12px rgba(0, 0, 0, 0.56),
+        0 2px 12.5px 0px rgba(0, 0, 0, 0.12), 0 4px 5px -5px rgba(0, 0, 0, 0.2);
       transform: translate3d(0, -0.1rem, 0);
     }
   `,
@@ -131,7 +133,7 @@ const styles = {
   entryInfo: css`
     flex: 1;
     margin: 0;
-    padding: 0.7rem 0.3rem 0;
+    padding: 0.5rem 0.3rem 0;
     width: 100%;
     display: flex;
     align-items: center;

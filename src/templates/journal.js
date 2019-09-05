@@ -4,7 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 import Image from 'gatsby-image'
 
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
 
 export const query = graphql`
   query($slug: String!) {
@@ -94,9 +94,9 @@ const styles = {
     position: relative;
     display: inline-block;
     margin: 0 0 2rem 0;
-    padding-bottom: 2.2rem;
+    padding-bottom: 2rem;
     text-align: center;
-    font-size: 1.65rem;
+    font-size: 1.55rem;
     font-weight: 400;
 
     ::after {

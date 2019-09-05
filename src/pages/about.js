@@ -1,7 +1,8 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
+import { PageHeader } from '../components/page-header'
 
 export default () => (
   <article css={styles.container}>
@@ -9,21 +10,18 @@ export default () => (
       title="About"
       description="I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life."
     />
-    <header css={styles.header}>
-      <h1 css={styles.heading}>About</h1>
-      <h2 css={styles.subheading}>dhk.party</h2>
-    </header>
+    <PageHeader title="About" subtitle="dhk.party" />
 
     <div css={styles.body}>
-      <section css={styles.lede}>
-        <span>
-          I am Joseph, web front-end developer.
-          <span css={styles.hand} role="img" aria-label="waving hand">
+      <section>
+        <p>
+          I am Joseph, web front-end developer.{' '}
+          <span role="img" aria-label="waving hand">
             👋
           </span>
           <br />
           This website is a personal blog where I share my thoughts and life.
-        </span>
+        </p>
       </section>
 
       <section>
@@ -75,31 +73,12 @@ export default () => (
 
 const styles = {
   container: css`
-    margin: 6rem auto;
+    margin: 4rem auto;
     padding: 0 1rem;
     max-width: 650px;
   `,
-  header: css``,
-  heading: css`
-    margin: 0;
-    letter-spacing: 0.02rem;
-    font-size: 0.889rem;
-    font-weight: 400;
-    color: #728ca3;
-  `,
-  subheading: css`
-    margin: 0;
-    padding-bottom: 0.5rem;
-    display: inline;
-    border-bottom: 6px solid #728ca3;
-    line-height: 1.5;
-    font-size: 2.618rem;
-  `,
-  hand: css`
-    margin-left: 1.25rem;
-  `,
   body: css`
-    margin: 2.5rem 0 0 0;
+    margin: 0;
     line-height: 1.8;
 
     h3 {
@@ -134,17 +113,6 @@ const styles = {
 
     i {
       font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-  `,
-  lede: css`
-    margin-bottom: 2rem;
-    line-height: 1.85;
-    font-size: 1.266rem;
-
-    span {
-      padding: 0.7rem 0 0.7rem 0;
-      background: var(--well);
-      box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
     }
   `,
 }

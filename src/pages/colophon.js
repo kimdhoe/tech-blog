@@ -1,12 +1,13 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
+import { PageHeader } from '../components/page-header'
 
 export default () => (
   <article css={styles.container}>
     <SEO title="Colophon" />
-    <h1 css={styles.heading}>Colophon</h1>
+    <PageHeader title="Colophon" />
 
     <p css={styles.date}>
       Updated at <time dateTime="2019-08-22">August 12, 2019</time>.
@@ -79,7 +80,7 @@ export default () => (
 
 const styles = {
   container: css`
-    margin: 6rem auto;
+    margin: 4rem auto;
     padding: 0 1rem;
     max-width: 650px;
   `,
@@ -90,7 +91,7 @@ const styles = {
   `,
   date: css`
     margin: 0 0 5rem 0;
-    font-size: 0.79rem;
+    font-size: 0.8rem;
     color: #888;
   `,
   body: css`

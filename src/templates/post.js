@@ -7,7 +7,7 @@ import { css, keyframes } from '@emotion/core'
 
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import Thread from '../components/thread'
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
 import Share from '../components/share'
 
 export const query = graphql`

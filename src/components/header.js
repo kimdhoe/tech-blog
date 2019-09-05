@@ -9,10 +9,10 @@ import { MobileHeader } from './mobile-header'
 const NAV_ITEMS = [
   { to: '/', label: 'Writing' },
   { to: '/devlog/', label: 'Devlog' },
+  { to: '/journal/', label: 'Journal' },
   { to: '/now/', label: 'Now' },
   { to: '/about/', label: 'About' },
   { to: '/contact/', label: 'Contact' },
-  { to: '/journal/', label: 'Life' },
 ]
 
 const Header = ({ siteTitle }) => {

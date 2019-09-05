@@ -3,7 +3,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 
 import useDevLogs from '../hooks/use-devlogs'
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
+import { PageHeader } from '../components/page-header'
 
 export default () => {
   const devLogs = useDevLogs()
@@ -11,17 +12,9 @@ export default () => {
   return (
     <div css={styles.container}>
       <SEO title="Devlog" description="A developer keeps a log." />
-      <h2 css={styles.title}>Devlog</h2>
-      <h3 css={styles.subtitle}>
-        <span css={[styles.subtitleLine, styles.mozHack]}>
-          A developer keeps a log.
-        </span>
-      </h3>
+      <PageHeader title="Devlog" subtitle="A developer keeps a log." />
 
-      <figure css={styles.epigraph}>
-        <blockquote css={styles.epigraphQuote}>Wait. Compiling...</blockquote>
-        <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
-      </figure>
+      <Epigraph />
 
       <div css={styles.entries}>
         {devLogs.map(devLog => (
@@ -39,6 +32,13 @@ export default () => {
   )
 }
 
+const Epigraph = () => (
+  <figure css={styles.epigraph}>
+    <blockquote css={styles.epigraphQuote}>Wait. Compiling...</blockquote>
+    <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
+  </figure>
+)
+
 const Entry = ({ slug, title, date, dateFormatted, body }) => (
   <div css={styles.entry}>
     <p css={styles.entryDate}>
@@ -53,51 +53,30 @@ const Entry = ({ slug, title, date, dateFormatted, body }) => (
 
 const styles = {
   container: css`
-    margin: 6rem auto;
+    margin: 4rem auto;
     padding: 0 1rem;
     max-width: 650px;
   `,
-  title: css`
-    margin: 0 0 0.79rem 0;
-    padding-top: 1rem;
-    font-size: 1.802rem;
-  `,
-  subtitle: css`
-    margin: 0;
-    max-width: 450px;
-    word-break: keep-all;
-    line-height: 1.7;
-    font-size: 1.266rem;
-    font-weight: 400;
-  `,
-  subtitleLine: css`
-    padding: 0.5rem 0 0.75rem 0;
-    background: var(--well);
-    box-shadow: 1rem 0 0 var(--well), -1rem 0 0 var(--well);
-  `,
   epigraph: css`
-    margin: 8rem 0 7rem;
+    margin: 5rem 0 5rem;
     display: flex;
     align-items: center;
-    color: #555;
+    color: #777;
   `,
   epigraphQuote: css`
     margin: 0;
-    letter-spacing: 0.08rem;
-    font-size: 0.889rem;
-    text-transform: uppercase;
+    font-size: 0.8rem;
   `,
   epigraphAuthor: css`
     display: flex;
     align-items: center;
     letter-spacing: 0.02rem;
-    font-size: 0.79rem;
-    font-style: italic;
+    font-size: 0.8rem;
 
     ::before {
       content: '';
-      margin: 0 0.5rem 0 1rem;
-      width: 2rem;
+      margin: 0 0.3rem 0 1rem;
+      width: 1.5rem;
       height: 1px;
       background: #495057;
     }

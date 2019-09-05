@@ -6,7 +6,7 @@ import useSiteMetadata from '../hooks/use-sitemetadata'
 import useLogo from '../hooks/use-logo'
 import Header from './header'
 import Footer from './footer'
-import SEO from './seo'
+import { SEO } from './seo'
 
 import 'normalize.css'
 

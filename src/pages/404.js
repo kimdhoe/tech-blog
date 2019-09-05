@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-import SEO from '../components/seo'
+import { SEO } from '../components/seo'
 
 const NotFoundPage = () => (
   <div css={styles.container}>
