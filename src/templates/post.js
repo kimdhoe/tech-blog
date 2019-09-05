@@ -85,7 +85,11 @@ const PostTemplate = ({
               "url": "${siteUrl}/images/profile.png"
             }
           },
-          "description": "${frontmatter.deck || frontmatter.abstract}"
+          "description": "${frontmatter.deck || frontmatter.abstract}",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "${siteUrl}/${frontmatter.slug}"
+          }
         }
       `}</script>
       </SEO>
