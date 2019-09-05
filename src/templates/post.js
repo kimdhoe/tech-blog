@@ -78,7 +78,7 @@ const PostTemplate = ({
         title={frontmatter.title}
         description={frontmatter.deck || frontmatter.abstract}
         meta={[
-          !!imageSrc && { property: 'og:image', content: imageSrc }
+          !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc }
         ]}
       >
         <script type="application/ld+json">{`
@@ -88,7 +88,7 @@ const PostTemplate = ({
           "headline": "${frontmatter.title}",
           "datePublished": "${frontmatter.date}",
           "dateModified": "${frontmatter.updateDate}",
-          "image": ${JSON.stringify(imageSrc ? [imageSrc] : [])},
+          "image": ${JSON.stringify(imageSrc ? [siteUrl + imageSrc] : [])},
           "author": {
             "@type": "Person",
             "name": "${author}"
