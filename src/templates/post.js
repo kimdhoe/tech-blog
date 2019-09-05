@@ -69,13 +69,16 @@ const PostTemplate = ({
   },
 }) => {
   const { author, siteUrl } = useSiteMetadata()
-  const imageForJSONLD = frontmatter.image ? [frontmatter.image.childImageSharp.fluid.srcWebp] : []
+  const imageSrc = frontmatter.image ? frontmatter.image.childImageSharp.fluid.srcWebp : ''
 
   return (
     <div css={styles.container}>
       <SEO
         title={frontmatter.title}
         description={frontmatter.deck || frontmatter.abstract}
+        meta={[
+          !!imageSrc && { property: 'og:image', content: imageSrc }
+        ]}
       >
         <script type="application/ld+json">{`
         {
@@ -83,7 +86,7 @@ const PostTemplate = ({
           "@type": "TechArticle",
           "headline": "${frontmatter.title}",
           "datePublished": "${frontmatter.date}",
-          "image": "${JSON.stringify(imageForJSONLD)}",
+          "image": ${JSON.stringify(imageSrc ? [imageSrc] : [])},
           "author": {
             "@type": "Person",
             "name": "${author}"
