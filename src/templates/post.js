@@ -4,6 +4,7 @@ import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css, keyframes } from '@emotion/core'
+import Image from 'gatsby-image'
 
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import Thread from '../components/thread'
@@ -28,6 +29,14 @@ export const query = graphql`
           epigraphAuthor
           date
           dateFormatted: date(formatString: "MMM D, YYYY hh:mmA")
+          image {
+            childImageSharp {
+              fluid(quality: 80) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          imageAlt
         }
         body
       }
@@ -60,6 +69,7 @@ const PostTemplate = ({
   },
 }) => {
   const { author, siteUrl } = useSiteMetadata()
+  const imageForJSONLD = frontmatter.image ? [frontmatter.image.childImageSharp.fluid.srcWebp] : []
 
   return (
     <div css={styles.container}>
@@ -73,6 +83,7 @@ const PostTemplate = ({
           "@type": "TechArticle",
           "headline": "${frontmatter.title}",
           "datePublished": "${frontmatter.date}",
+          "image": "${JSON.stringify(imageForJSONLD)}",
           "author": {
             "@type": "Person",
             "name": "${author}"
@@ -104,6 +115,8 @@ const PostTemplate = ({
         epigraphAuthor={frontmatter.epigraphAuthor}
         date={frontmatter.date}
         dateFormatted={frontmatter.dateFormatted}
+        image={frontmatter.image}
+        imageAlt={frontmatter.imageAlt}
         body={body}
       />
       <Newsletter />
@@ -179,6 +192,8 @@ const Article = ({
   abstract,
   epigraph,
   epigraphAuthor,
+  image,
+  imageAlt,
   body,
   date,
   dateFormatted,
@@ -186,6 +201,17 @@ const Article = ({
     <article css={styles.article}>
       <div css={styles.hero}>
         <Header category={category} headline={headline} deck={deck} />
+
+        {image && (
+          <div css={styles.heroImageWrapper}>
+            <Image
+              css={styles.heroImage}
+              loading="eager"
+              alt={imageAlt}
+              fluid={image.childImageSharp.fluid}
+            />
+          </div>
+        )}
 
         {abstract && <Abstract text={abstract} />}
       </div>
@@ -264,7 +290,7 @@ const fadeIn = keyframes`
 const styles = {
   container: css``,
   hero: css`
-    margin: 0 0 5rem 0;
+    margin: 0 0 3rem 0;
     padding: 5rem 0 0;
     /* background-color: #6d95a7; */
     color: #111;
@@ -273,6 +299,13 @@ const styles = {
       margin-bottom: 3rem;
       padding-top: 4.5rem;
     }
+  `,
+  heroImageWrapper: css`
+    margin: 2.5rem auto 0;
+    padding: 0 1rem;
+    max-width: 800px;
+  `,
+  heroImage: css`
   `,
   header: css`
     margin: 0 auto;
@@ -364,7 +397,7 @@ const styles = {
     margin-bottom: 1rem;
   `,
   body: css`
-    margin: 8rem auto 0;
+    margin: 6rem auto 0;
     padding: 0 1rem;
     width: 100%;
     max-width: 650px;

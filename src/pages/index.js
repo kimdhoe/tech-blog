@@ -1,10 +1,11 @@
 import React /*, { useState, useRef }*/ from 'react'
 import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 // import addToMailchimp from 'gatsby-plugin-mailchimp'
 // import validator from 'validator'
 
 import usePosts from '../hooks/use-posts'
-import PostPreview from '../components/post-preview'
+import PostPreview, { Container as PostPreviewContainer } from '../components/post-preview'
 
 // A Status is one of:
 //   - default
@@ -19,11 +20,11 @@ const IndexPage = () => {
 
   return (
     <div css={styles.container}>
-      <div css={styles.postPreviews}>
+      <Previews>
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />
         ))}
-      </div>
+      </Previews>
 
       {/* <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
         {status === 'success' ? (
@@ -73,6 +74,14 @@ const IndexPage = () => {
     </div>
   )
 }
+
+const Previews = styled.div`
+  padding: 0;
+
+  &:hover ${PostPreviewContainer} {
+    opacity: 0.7;
+  }
+`
 
 const styles = {
   container: css`

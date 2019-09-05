@@ -53,9 +53,14 @@ const Container = styled.article`
   padding: 0;
   max-width: calc(768px - 1rem);
   border-bottom: 1px solid #728ca3;
+  transition: all 200ms ease-out;
 
   :last-of-type {
     border: none;
+  }
+
+  :hover {
+    opacity: 1 !important;
   }
 `
 
@@ -145,3 +150,4 @@ const styles = {
 }
 
 export default PostPreview
+export { Container }
