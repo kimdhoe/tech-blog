@@ -80,6 +80,10 @@ const Previews = styled.div`
 
   &:hover ${PostPreviewContainer} {
     opacity: 0.7;
+
+    @media only screen and (max-width: 650px) {
+      opacity: 1;
+    }
   }
 `
 
@@ -89,7 +93,7 @@ const styles = {
     padding: 0 1rem;
     max-width: 650px;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 650px) {
       margin-top: 3rem;
     }
   `,
