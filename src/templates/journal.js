@@ -22,6 +22,7 @@ export const query = graphql`
         fluid(quality: 80) {
           ...GatsbyContentfulFluid_withWebp
         }
+        alt: title
       }
     }
   }
@@ -38,7 +39,7 @@ const JournalTemplate = ({
       body: {
         childMdx: { body: mdx },
       },
-      heroImage: { fluid },
+      heroImage: { fluid, alt },
     },
   },
 }) => (
@@ -55,7 +56,7 @@ const JournalTemplate = ({
     />
     <header css={styles.header}>
       <div css={styles.hero}>
-        <Image fluid={fluid} loading="eager" />
+        <Image fluid={fluid} loading="eager" alt={alt} />
       </div>
       <h1 css={styles.headline}>{headline}</h1>
       <p css={styles.date}>
