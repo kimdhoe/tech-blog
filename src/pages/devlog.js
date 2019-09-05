@@ -57,10 +57,13 @@ const styles = {
     display: flex;
     align-items: center;
     color: #777;
+
+    blockquote {
+      margin: 0;
+      font-size: 0.8rem;
+    }
   `,
   epigraphQuote: css`
-    margin: 0;
-    font-size: 0.8rem;
   `,
   epigraphAuthor: css`
     display: flex;
@@ -71,7 +74,7 @@ const styles = {
     ::before {
       content: '';
       margin: 0 0.3rem 0 1rem;
-      width: 1.5rem;
+      width: 1.3rem;
       height: 1px;
       background: #495057;
     }

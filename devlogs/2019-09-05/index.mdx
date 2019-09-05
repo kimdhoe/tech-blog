@@ -1,0 +1,10 @@
+---
+title: Webhook
+slug: 2019-09-05-contentful-zeit-webhook
+date: 2019-09-05T23:55+09:00
+author: Joseph
+---
+
+gatsby-background-image renders the same image on multiple instances of a component. I was using Emotion’s `css` prop to set the height of the element so that the background is visible. Seems like the component uses `className` to find a specific target instance to set an image URL. Used plain `style` obejct instead of Emotion.
+
+Configured Contentful to call the ZEIT Now webhook on content publish.
