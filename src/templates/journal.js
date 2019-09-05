@@ -102,6 +102,7 @@ const styles = {
   `,
   heroCaption: css`
     margin-top: 0.7rem;
+    line-height: 1.5;
     font-size: 0.88rem;
     color: #757d85;
 
