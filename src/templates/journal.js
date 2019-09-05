@@ -23,6 +23,7 @@ export const query = graphql`
           ...GatsbyContentfulFluid_withWebp
         }
         alt: title
+        caption: description
       }
     }
   }
@@ -39,7 +40,7 @@ const JournalTemplate = ({
       body: {
         childMdx: { body: mdx },
       },
-      heroImage: { fluid, alt },
+      heroImage: { fluid, alt, caption },
     },
   },
 }) => (
@@ -56,7 +57,12 @@ const JournalTemplate = ({
     />
     <header css={styles.header}>
       <div css={styles.hero}>
-        <Image fluid={fluid} loading="eager" alt={alt} />
+        <figure css={styles.heroFigure}>
+          <Image fluid={fluid} loading="eager" alt={alt} />
+          {caption && (
+            <figcaption css={styles.heroCaption}>{caption}</figcaption>
+          )}
+        </figure>
       </div>
       <h1 css={styles.headline}>{headline}</h1>
       <p css={styles.date}>
@@ -83,13 +89,22 @@ const styles = {
     text-align: center;
   `,
   hero: css`
-    margin: 0 auto 5.5rem;
+    margin: 0 auto 7rem;
     padding: 0 4rem;
     max-width: 1024px;
 
     @media only screen and (max-width: 650px) {
       padding: 0 1rem;
     }
+  `,
+  heroFigure: css`
+    margin: 0;
+  `,
+  heroCaption: css`
+    margin-top: 0.7rem;
+    font-size: 0.88rem;
+    color: #757d85;
+
   `,
   headline: css`
     position: relative;
