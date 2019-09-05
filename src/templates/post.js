@@ -354,14 +354,6 @@ const styles = {
       hyphens: auto;
     }
 
-    code {
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: break-all;
-      word-break: break-word;
-      hyphens: auto;
-    }
-
     ul,
     ol {
       padding-left: 1.5rem;
