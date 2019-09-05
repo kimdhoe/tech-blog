@@ -90,7 +90,7 @@ const styles = {
     max-width: 650px;
   `,
   postPreviews: css`
-    padding: 0 1rem;
+    padding: 0;
   `,
 }
 

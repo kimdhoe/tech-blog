@@ -21,6 +21,13 @@ const usePosts = () => {
                 slug
                 author
                 deck
+                image {
+                  childImageSharp {
+                    fluid(quality: 80) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
               }
             }
           }
@@ -37,7 +44,7 @@ const usePosts = () => {
     slug: frontmatter.slug,
     date: frontmatter.date,
     dateFormatted: frontmatter.dateFormatted,
-    image: frontmatter.image,
+    image: frontmatter.image ? frontmatter.image.childImageSharp.fluid : null,
   }))
 }
 

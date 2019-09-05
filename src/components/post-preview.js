@@ -2,19 +2,31 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
       <div css={styles.left}>
-        <div
-          css={[
-            styles.image,
-            {
-              backgroundImage: `url(https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1)`,
-            },
-          ]}
-        />
+        {post.image ? (
+          <BackgroundImage
+            style={{
+              width: '100%',
+              height: '100%',
+              filter: 'grayscale(0.1) contrast(0.8)',
+            }}
+            fluid={post.image}
+          />
+        ) : (
+          <div
+            css={[
+              styles.image,
+              {
+                backgroundImage: `url(https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1)`,
+              },
+            ]}
+          />
+        )}
       </div>
 
       <div css={styles.right}>
@@ -49,31 +61,33 @@ const Container = styled.article`
 
 const styles = {
   link: css`
-    position: relative;
     padding: 2.5rem 0;
     display: flex;
     justify-content: space-between;
   `,
   left: css`
-    margin: 0.5rem 2rem 0 0;
-    width: 90px;
-    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5rem 0 0;
+    width: 180px;
+    height: 180px;
 
     @media only screen and (max-width: 600px) {
       display: none;
     }
   `,
   image: css`
-    border-radius: 50px;
-    width: 90px;
-    height: 90px;
+    overflow: hidden;
+    border-radius: 5px;
+    width: 98%;
+    height: 98%;
     background-color: #f1f3f5;
-    background-size: 25px;
-    opacity: 0.7;
-    z-index: 1;
+    background-size: 19px;
+    opacity: 0.5;
 
     img {
-      border-radius: 2px;
+      border-radius: 50%;
       width: 100%;
     }
   `,
