@@ -11,7 +11,7 @@ const useJournal = () => {
           slug
           headline
           heroImage {
-            fluid {
+            fluid(quality: 70) {
               ...GatsbyContentfulFluid_withWebp
             }
           }

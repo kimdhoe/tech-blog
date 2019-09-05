@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import Image from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 
 import useJournal from '../hooks/use-journal'
 import SEO from '../components/seo'
@@ -40,7 +40,7 @@ const Entry = ({ slug, title, date, dateFormatted, fluid }) => (
   <EntryContainer to={'/journal/' + slug + '/'}>
     <div css={styles.entryWrapper}>
       <div css={styles.entryImageContainer}>
-        <Image css={styles.entryImage} fluid={fluid} />
+        <BackgroundImage fluid={fluid} style={{ height: '100%' }} />
       </div>
       <div css={styles.entryLayer}>
         <h4 css={styles.entryInfo}>
@@ -121,12 +121,6 @@ const styles = {
       box-shadow: 0 8px 19px -12px rgba(0, 0, 0, 0.56), 0 2px 12.5px 0px rgba(0, 0, 0, 0.12), 0 4px 5px -5px rgba(0, 0, 0, 0.2);
       transform: translate3d(0, -0.1rem, 0);
     }
-  `,
-  entryImage: css`
-    height: 100%;
-    background-color: #f1f3f5;
-    background-size: cover;
-    background-position: center;
   `,
   entryLayer: css`
     display: flex;
