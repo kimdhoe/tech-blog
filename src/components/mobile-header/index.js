@@ -103,7 +103,7 @@ const styles = {
     align-items: center;
     justify-content: center;
 
-    @media only screen and (min-width: 601px) {
+    @media only screen and (min-width: 651px) {
       display: none;
     }
   `,

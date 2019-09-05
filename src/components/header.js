@@ -60,7 +60,7 @@ const styles = {
     padding: 0;
   `,
   pc: css`
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 650px) {
       display: none;
     }
   `,
@@ -102,7 +102,7 @@ const styles = {
   nav: css`
     margin-top: 0;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 650px) {
       display: none;
       margin-top: 1.5rem;
     }
@@ -113,14 +113,14 @@ const styles = {
     padding: 0;
     display: flex;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 650px) {
       display: block;
     }
   `,
   navListItem: css`
     margin: 0;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 650px) {
       margin: 0 1.5rem 0 0;
       display: inline-block;
     }
