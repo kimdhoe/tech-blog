@@ -6,6 +6,7 @@ import BackgroundImage from 'gatsby-background-image'
 
 import useJournal from '../hooks/use-journal'
 import { SEO } from '../components/seo'
+import { PageHeader } from '../components/page-header'
 
 export default () => {
   const journals = useJournal()
@@ -13,13 +14,7 @@ export default () => {
   return (
     <div css={styles.container}>
       <SEO title="Journal" description="Life of Joseph" />
-
-      <header css={styles.header}>
-        <h2 css={styles.title}>Journal</h2>
-      </header>
-
-      <h3 css={styles.monthYear}>2019</h3>
-
+      <PageHeader headline="Journal" lede="2019" />
       <div css={styles.entries}>
         {journals.map((journal, i) => (
           <Entry
@@ -63,37 +58,9 @@ const EntryContainer = styled(Link)`
 
 const styles = {
   container: css`
-    margin: 6rem auto;
+    margin: 4rem auto 9rem;
     padding: 0 1rem;
     max-width: 650px;
-  `,
-  header: css`
-    margin-bottom: 2rem;
-    text-align: center;
-  `,
-  monthYear: css`
-    position: relative;
-    margin: 0 0 4.5rem 0;
-    padding: 2.5rem 0 0 0;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1rem;
-
-    ::before {
-      content: ' ';
-      position: absolute;
-      top: 0rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 1px;
-      background-color: #444;
-    }
-  `,
-  title: css`
-    margin: 0 0 0.79rem 0;
-    padding: 0;
-    font-size: 1.802rem;
   `,
   entries: css`
     display: grid;

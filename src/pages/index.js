@@ -19,9 +19,11 @@ const IndexPage = () => {
 
   return (
     <div css={styles.container}>
-      {posts.map(post => (
-        <PostPreview key={post.slug} post={post} />
-      ))}
+      <div css={styles.postPreviews}>
+        {posts.map(post => (
+          <PostPreview key={post.slug} post={post} />
+        ))}
+      </div>
 
       {/* <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
         {status === 'success' ? (
@@ -74,12 +76,21 @@ const IndexPage = () => {
 
 const styles = {
   container: css`
-    margin-top: 4rem;
+    margin: 4rem auto;
     padding: 0 1rem;
+    max-width: 650px;
 
     @media only screen and (max-width: 600px) {
       margin-top: 3rem;
     }
+  `,
+  header: css`
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 650px;
+  `,
+  postPreviews: css`
+    padding: 0 1rem;
   `,
 }
 

@@ -19,7 +19,7 @@ export const query = graphql`
         }
       }
       heroImage {
-        fluid {
+        fluid(quality: 80) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
@@ -55,7 +55,7 @@ const JournalTemplate = ({
     />
     <header css={styles.header}>
       <div css={styles.hero}>
-        <Image fluid={fluid} />
+        <Image fluid={fluid} loading="eager" />
       </div>
       <h1 css={styles.headline}>{headline}</h1>
       <p css={styles.date}>
@@ -181,7 +181,7 @@ const styles = {
 
     hr {
       position: relative;
-      margin: 2.848rem auto 2.848rem;
+      margin: 1.7rem auto;
       padding: 0;
       border: none;
       width: 20px;
@@ -194,6 +194,8 @@ const styles = {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        font-size: 0.8rem;
+        color: #555;
       }
     }
 

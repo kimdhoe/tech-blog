@@ -1,14 +1,17 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-const PageHeader = ({ title, subtitle }) => (
+const PageHeader = ({ headline, lede }) => (
   <header css={styles.header}>
-    <h1 css={styles.heading}>{title}</h1>
-    <h2 css={styles.subheading}>{subtitle}</h2>
+    <h1 css={styles.heading}>{headline}</h1>
+    <h2 css={styles.subheading}>{lede}</h2>
   </header>
 )
 
 const styles = {
+  header: css`
+    margin-bottom: 4rem;
+  `,
   heading: css`
     margin: 0 0 1.5rem 0;
     padding-top: 1rem;
@@ -16,7 +19,7 @@ const styles = {
   `,
   subheading: css`
     position: relative;
-    margin: 0 0 4rem 0;
+    margin: 0;
     padding-top: 1.5rem;
     word-break: keep-all;
     line-height: 1.7;

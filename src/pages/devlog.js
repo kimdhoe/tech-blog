@@ -3,19 +3,19 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css } from '@emotion/core'
 
 import useDevLogs from '../hooks/use-devlogs'
-import { SEO } from '../components/seo'
-import { PageHeader } from '../components/page-header'
+import { Page } from '../components/page'
 
 export default () => {
   const devLogs = useDevLogs()
 
   return (
-    <div css={styles.container}>
-      <SEO title="Devlog" description="A developer keeps a log." />
-      <PageHeader title="Devlog" subtitle="A developer keeps a log." />
-
+    <Page
+      headline="Devlog"
+      lede="A developer keeps a log."
+      title="Devlog"
+      description="A developer keeps a log."
+    >
       <Epigraph />
-
       <div css={styles.entries}>
         {devLogs.map(devLog => (
           <Entry
@@ -28,7 +28,7 @@ export default () => {
           />
         ))}
       </div>
-    </div>
+    </Page>
   )
 }
 
@@ -41,9 +41,9 @@ const Epigraph = () => (
 
 const Entry = ({ slug, title, date, dateFormatted, body }) => (
   <div css={styles.entry}>
-    <p css={styles.entryDate}>
+    <span css={styles.entryDate}>
       <time dateTime={date}>{dateFormatted}</time>
-    </p>
+    </span>
     <h4 css={styles.entryTitle}>{title}</h4>
     <div css={styles.entryBody}>
       <MDXRenderer>{body}</MDXRenderer>
@@ -52,11 +52,6 @@ const Entry = ({ slug, title, date, dateFormatted, body }) => (
 )
 
 const styles = {
-  container: css`
-    margin: 4rem auto;
-    padding: 0 1rem;
-    max-width: 650px;
-  `,
   epigraph: css`
     margin: 5rem 0 5rem;
     display: flex;
@@ -85,7 +80,8 @@ const styles = {
     margin-bottom: 4rem;
   `,
   entryDate: css`
-    margin: 0 0 0.4rem 0;
+    display: block;
+    margin: 0;
     font-size: 0.85rem;
     color: #5a6c70;
   `,
@@ -190,9 +186,4 @@ const styles = {
       padding: 0.1rem 0 0.7rem 0;
     }
   `,
-  mozHack: {
-    '@-moz-document url-prefix()': {
-      display: 'block',
-    },
-  },
 }
