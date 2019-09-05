@@ -29,6 +29,7 @@ export const query = graphql`
           epigraphAuthor
           date
           dateFormatted: date(formatString: "MMM D, YYYY hh:mmA")
+          updateDate
           image {
             childImageSharp {
               fluid(quality: 80) {
@@ -86,6 +87,7 @@ const PostTemplate = ({
           "@type": "TechArticle",
           "headline": "${frontmatter.title}",
           "datePublished": "${frontmatter.date}",
+          "dateModified": "${frontmatter.updateDate}",
           "image": ${JSON.stringify(imageSrc ? [imageSrc] : [])},
           "author": {
             "@type": "Person",
