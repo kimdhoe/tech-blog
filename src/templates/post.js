@@ -58,28 +58,55 @@ const PostTemplate = ({
     },
     comments: { edges },
   },
-}) => (
-  <div css={styles.container}>
-    <SEO
-      title={frontmatter.title}
-      description={frontmatter.deck || frontmatter.abstract}
-    />
-    <Article
-      slug={frontmatter.slug}
-      category={frontmatter.category}
-      headline={frontmatter.title}
-      deck={frontmatter.deck}
-      abstract={frontmatter.abstract}
-      epigraph={frontmatter.epigraph}
-      epigraphAuthor={frontmatter.epigraphAuthor}
-      date={frontmatter.date}
-      dateFormatted={frontmatter.dateFormatted}
-      body={body}
-    />
-    <Newsletter />
-    <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
-  </div>
-)
+}) => {
+  const { author, siteUrl } = useSiteMetadata()
+
+  return (
+    <div css={styles.container}>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.deck || frontmatter.abstract}
+      >
+        <script type="application/ld+json">{`
+        {
+          "@context": "http://schema.org",
+          "@type": "TechArticle",
+          "headline": "${frontmatter.title}",
+          "datePublished": "${frontmatter.date}",
+          "author": {
+            "@type": "Person",
+            "name": "${author}"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Joseph K.",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "${siteUrl}/images/profile.png"
+            }
+          },
+          "description": "${frontmatter.deck || frontmatter.abstract}"
+        }
+      `}</script>
+      </SEO>
+      <Article
+        siteUrl={siteUrl}
+        slug={frontmatter.slug}
+        category={frontmatter.category}
+        headline={frontmatter.title}
+        deck={frontmatter.deck}
+        abstract={frontmatter.abstract}
+        epigraph={frontmatter.epigraph}
+        epigraphAuthor={frontmatter.epigraphAuthor}
+        date={frontmatter.date}
+        dateFormatted={frontmatter.dateFormatted}
+        body={body}
+      />
+      <Newsletter />
+      <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
+    </div>
+  )
+}
 
 const Newsletter = () => {
   const [status, setStatus] = useState('default')
@@ -96,50 +123,51 @@ const Newsletter = () => {
         {status === 'success' ? (
           <p css={styles.successMessage}>Thanks. TTYS.</p>
         ) : (
-          <form
-            onSubmit={async e => {
-              e.preventDefault()
-              const email = inputRef.current.value
-              if (!validator.isEmail(email.trim())) {
-                setStatus('error')
-                inputRef.current.focus()
-                return
-              }
-              try {
-                await addToMailchimp(email)
-                setStatus('success')
-              } catch (err) {
-                setStatus('error')
-                inputRef.current.focus()
-              }
-            }}
-          >
-            <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
-            <input
-              css={[
-                styles.newsletterInput,
-                status === 'error' && styles.newsletterInputError,
-              ]}
-              placeholder="your email here"
-              ref={inputRef}
-              type="email"
-              value={email}
-              onChange={e => {
-                setEmail(e.target.value)
-                setStatus('default')
+            <form
+              onSubmit={async e => {
+                e.preventDefault()
+                const email = inputRef.current.value
+                if (!validator.isEmail(email.trim())) {
+                  setStatus('error')
+                  inputRef.current.focus()
+                  return
+                }
+                try {
+                  await addToMailchimp(email)
+                  setStatus('success')
+                } catch (err) {
+                  setStatus('error')
+                  inputRef.current.focus()
+                }
               }}
-            />
-            <button css={styles.newsletterButton} type="submit">
-              Subscribe
+            >
+              <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+              <input
+                css={[
+                  styles.newsletterInput,
+                  status === 'error' && styles.newsletterInputError,
+                ]}
+                placeholder="your email here"
+                ref={inputRef}
+                type="email"
+                value={email}
+                onChange={e => {
+                  setEmail(e.target.value)
+                  setStatus('default')
+                }}
+              />
+              <button css={styles.newsletterButton} type="submit">
+                Subscribe
             </button>
-          </form>
-        )}
+            </form>
+          )}
       </div>
     </div>
   )
 }
 
 const Article = ({
+  siteUrl,
   slug,
   category,
   headline,
@@ -151,28 +179,29 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-  <article css={styles.article}>
-    <div css={styles.hero}>
-      <Header category={category} headline={headline} deck={deck} />
+    <article css={styles.article}>
+      <div css={styles.hero}>
+        <Header category={category} headline={headline} deck={deck} />
 
-      {abstract && <Abstract text={abstract} />}
-    </div>
+        {abstract && <Abstract text={abstract} />}
+      </div>
 
-    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+      {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-    <Meta
-      headline={headline}
-      deck={deck}
-      date={date}
-      dateFormatted={dateFormatted}
-      slug={slug}
-    />
+      <Meta
+        siteUrl={siteUrl}
+        headline={headline}
+        deck={deck}
+        date={date}
+        dateFormatted={dateFormatted}
+        slug={slug}
+      />
 
-    <Body body={body} />
+      <Body body={body} />
 
-    <Footer />
-  </article>
-)
+      <Footer />
+    </article>
+  )
 
 const Header = ({ category, headline, deck }) => (
   <header css={styles.header}>
@@ -199,8 +228,7 @@ const Epigraph = ({ text, author }) => (
   </section>
 )
 
-const Meta = ({ headline, deck, date, dateFormatted, slug }) => {
-  const { siteUrl } = useSiteMetadata()
+const Meta = ({ siteUrl, headline, deck, date, dateFormatted, slug }) => {
   const url = `${siteUrl}/${slug}/`
   const body = headline + '%0A%0A' + deck + '%0A%0A' + url
 
