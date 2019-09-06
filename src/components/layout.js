@@ -25,7 +25,6 @@ const Layout = ({ children }) => {
             content: 'noindex,nofollow',
           },
         ].filter(Boolean)}
-        title="Blog"
         description={description}
       />
       <Global styles={styles.global} />
