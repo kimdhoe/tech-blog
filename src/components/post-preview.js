@@ -116,7 +116,7 @@ const styles = {
     transition: color 100ms ease-out;
 
     ${Container}:hover & {
-      color: #7f5555;
+      color: #111;
     }
   `,
   deck: css`
