@@ -19,45 +19,51 @@ const NAV_ITEMS = [
 
 const Header = ({ siteTitle }) => {
   return (
-    <header css={styles.container}>
-      <div css={styles.pc}>
-        <div css={styles.wrapper}>
-          <Link css={styles.title} to="/">
-            <div css={styles.logoText}>
-              <div css={styles.logoTextImg}>
-                <LogoText title={siteTitle} />
-              </div>
-            </div>
-          </Link>
-          <nav css={styles.nav}>
-            <ul css={styles.navList}>
-              {NAV_ITEMS.map(page => (
-                <NavListItem key={page.label} to={page.to} label={page.label} />
-              ))}
-              <li css={[styles.navListItem, { marginLeft: '0.7rem' }]}>
-                <ThemeToggler>
-                  {({ theme, toggleTheme }) => (
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
+        <header css={styles.container}>
+          <div css={styles.pc}>
+            <div css={styles.wrapper}>
+              <Link css={styles.title} to="/">
+                <div css={styles.logoText}>
+                  <div css={styles.logoTextImg}>
+                    <LogoText title={siteTitle} />
+                  </div>
+                </div>
+              </Link>
+              <nav css={styles.nav}>
+                <ul css={styles.navList}>
+                  {NAV_ITEMS.map(page => (
+                    <NavListItem key={page.label} to={page.to} label={page.label} />
+                  ))}
+                  <li css={[styles.navListItem, { marginLeft: '0.7rem' }]}>
                     <DarkModeButton
                       theme={theme}
-                      onToggle={() =>
+                      onToggle={() => {
                         toggleTheme(theme === 'dark' ? 'light' : 'dark')
-                      }
+                      }}
                     />
-                  )}
-                </ThemeToggler>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <Link to="/">
-          <div css={styles.logo}>
-            <Logo title={siteTitle} />
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <Link to="/">
+              <div css={styles.logo}>
+                <Logo title={siteTitle} />
+              </div>
+            </Link>
           </div>
-        </Link>
-      </div>
 
-      <MobileHeader title={siteTitle} />
-    </header>
+          <MobileHeader
+            title={siteTitle}
+            theme={theme}
+            onToggle={() => {
+              toggleTheme(theme === 'dark' ? 'light' : 'dark')
+            }}
+          />
+        </header>
+      )}
+    </ThemeToggler>
   )
 }
 

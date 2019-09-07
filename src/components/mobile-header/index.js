@@ -18,7 +18,7 @@ const fixBody = (fix) => {
   }
 }
 
-const MobileHeader = ({ title }) => {
+const MobileHeader = ({ title, theme, onToggle }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   const close = () => {
@@ -36,14 +36,7 @@ const MobileHeader = ({ title }) => {
         </div>
 
         <div css={styles.buttonWrapper}>
-          <ThemeToggler>
-            {({ theme, toggleTheme }) => (
-              <DarkModeButton
-                theme={theme}
-                onToggle={() => toggleTheme(theme === 'dark' ? 'light' : 'dark')}
-              />
-            )}
-          </ThemeToggler>
+          <DarkModeButton {...{ theme, onToggle }} />
           <Switch
             opened={showMenu}
             onClick={() => {
