@@ -3,23 +3,13 @@ import { css } from '@emotion/core'
 import { Moon, Sun } from 'react-feather'
 
 const DarkModeButton = ({ theme, onToggle }) => (
-  <button
-    type="button"
-    css={styles.container}
-    onClick={onToggle}
-  >
+  <button type="button" css={styles.container} onClick={onToggle}>
     <Sun
-      css={[
-        styles.icon,
-        { opacity: theme === 'light' ? 0 : 1 },
-      ]}
+      css={[styles.icon, { opacity: theme === 'light' ? 0 : 1 }]}
       size={15}
     />
     <Moon
-      css={[
-        styles.icon,
-        { opacity: theme === 'light' ? 1 : 0 },
-      ]}
+      css={[styles.icon, { opacity: theme === 'light' ? 1 : 0 }]}
       size={15}
     />
     <div css={styles.ball} />

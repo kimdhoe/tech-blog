@@ -70,7 +70,9 @@ const PostTemplate = ({
   },
 }) => {
   const { author, siteUrl } = useSiteMetadata()
-  const imageSrc = frontmatter.image ? frontmatter.image.childImageSharp.fluid.srcWebp : ''
+  const imageSrc = frontmatter.image
+    ? frontmatter.image.childImageSharp.fluid.srcWebp
+    : ''
 
   return (
     <div css={styles.container}>
@@ -78,7 +80,7 @@ const PostTemplate = ({
         title={frontmatter.title}
         description={frontmatter.deck || frontmatter.abstract}
         meta={[
-          !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc }
+          !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc },
         ].filter(Boolean)}
       >
         <script type="application/ld+json">{`
@@ -145,44 +147,44 @@ const Newsletter = () => {
         {status === 'success' ? (
           <p css={styles.successMessage}>Thanks. TTYS.</p>
         ) : (
-            <form
-              onSubmit={async e => {
-                e.preventDefault()
-                const email = inputRef.current.value
-                if (!validator.isEmail(email.trim())) {
-                  setStatus('error')
-                  inputRef.current.focus()
-                  return
-                }
-                try {
-                  await addToMailchimp(email)
-                  setStatus('success')
-                } catch (err) {
-                  setStatus('error')
-                  inputRef.current.focus()
-                }
+          <form
+            onSubmit={async e => {
+              e.preventDefault()
+              const email = inputRef.current.value
+              if (!validator.isEmail(email.trim())) {
+                setStatus('error')
+                inputRef.current.focus()
+                return
+              }
+              try {
+                await addToMailchimp(email)
+                setStatus('success')
+              } catch (err) {
+                setStatus('error')
+                inputRef.current.focus()
+              }
+            }}
+          >
+            <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+            <input
+              css={[
+                styles.newsletterInput,
+                status === 'error' && styles.newsletterInputError,
+              ]}
+              placeholder="your email here"
+              ref={inputRef}
+              type="email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value)
+                setStatus('default')
               }}
-            >
-              <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
-              <input
-                css={[
-                  styles.newsletterInput,
-                  status === 'error' && styles.newsletterInputError,
-                ]}
-                placeholder="your email here"
-                ref={inputRef}
-                type="email"
-                value={email}
-                onChange={e => {
-                  setEmail(e.target.value)
-                  setStatus('default')
-                }}
-              />
-              <button css={styles.newsletterButton} type="submit">
-                Subscribe
+            />
+            <button css={styles.newsletterButton} type="submit">
+              Subscribe
             </button>
-            </form>
-          )}
+          </form>
+        )}
       </div>
     </div>
   )
@@ -203,40 +205,40 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-    <article css={styles.article}>
-      <div css={styles.hero}>
-        <Header category={category} headline={headline} deck={deck} />
+  <article css={styles.article}>
+    <div css={styles.hero}>
+      <Header category={category} headline={headline} deck={deck} />
 
-        {image && (
-          <div css={styles.heroImageWrapper}>
-            <Image
-              css={styles.heroImage}
-              loading="eager"
-              alt={imageAlt}
-              fluid={image.childImageSharp.fluid}
-            />
-          </div>
-        )}
+      {image && (
+        <div css={styles.heroImageWrapper}>
+          <Image
+            css={styles.heroImage}
+            loading="eager"
+            alt={imageAlt}
+            fluid={image.childImageSharp.fluid}
+          />
+        </div>
+      )}
 
-        {abstract && <Abstract text={abstract} />}
-      </div>
+      {abstract && <Abstract text={abstract} />}
+    </div>
 
-      {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
 
-      <Meta
-        siteUrl={siteUrl}
-        headline={headline}
-        deck={deck}
-        date={date}
-        dateFormatted={dateFormatted}
-        slug={slug}
-      />
+    <Meta
+      siteUrl={siteUrl}
+      headline={headline}
+      deck={deck}
+      date={date}
+      dateFormatted={dateFormatted}
+      slug={slug}
+    />
 
-      <Body body={body} />
+    <Body body={body} />
 
-      <Footer />
-    </article>
-  )
+    <Footer />
+  </article>
+)
 
 const Header = ({ category, headline, deck }) => (
   <header css={styles.header}>
@@ -310,8 +312,7 @@ const styles = {
     padding: 0 1rem;
     max-width: 800px;
   `,
-  heroImage: css`
-  `,
+  heroImage: css``,
   header: css`
     margin: 0 auto;
     padding: 0 1rem;

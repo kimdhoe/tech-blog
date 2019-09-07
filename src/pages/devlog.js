@@ -63,8 +63,7 @@ const styles = {
       font-size: 0.8rem;
     }
   `,
-  epigraphQuote: css`
-  `,
+  epigraphQuote: css``,
   epigraphAuthor: css`
     display: flex;
     align-items: center;

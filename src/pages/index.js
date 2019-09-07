@@ -5,7 +5,9 @@ import styled from '@emotion/styled'
 // import validator from 'validator'
 
 import usePosts from '../hooks/use-posts'
-import PostPreview, { Container as PostPreviewContainer } from '../components/post-preview'
+import PostPreview, {
+  Container as PostPreviewContainer,
+} from '../components/post-preview'
 
 // A Status is one of:
 //   - default

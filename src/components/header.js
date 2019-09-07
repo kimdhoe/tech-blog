@@ -39,7 +39,9 @@ const Header = ({ siteTitle }) => {
                   {({ theme, toggleTheme }) => (
                     <DarkModeButton
                       theme={theme}
-                      onToggle={() => toggleTheme(theme === 'dark' ? 'light' : 'dark')}
+                      onToggle={() =>
+                        toggleTheme(theme === 'dark' ? 'light' : 'dark')
+                      }
                     />
                   )}
                 </ThemeToggler>

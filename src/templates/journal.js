@@ -105,7 +105,6 @@ const styles = {
     line-height: 1.5;
     font-size: 0.88rem;
     color: var(--text-auxiliary);
-
   `,
   headline: css`
     position: relative;
