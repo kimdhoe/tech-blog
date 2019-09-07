@@ -79,7 +79,7 @@ const PostTemplate = ({
         description={frontmatter.deck || frontmatter.abstract}
         meta={[
           !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc }
-        ]}
+        ].filter(Boolean)}
       >
         <script type="application/ld+json">{`
         {
