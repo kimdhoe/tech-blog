@@ -23,6 +23,8 @@ const styles = {
     position: relative;
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
     width: 48px;
     height: 23px;
     background-color: var(--bg1);

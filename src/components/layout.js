@@ -83,7 +83,7 @@ const styles = {
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
-      transition: color, background-color 0.1s ease-out;
+      transition: all 0.1s ease-out;
       background-color: var(--bg);
       color: var(--text);
     }
