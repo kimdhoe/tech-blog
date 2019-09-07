@@ -3,10 +3,12 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
 import disableScroll from 'disable-scroll'
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import { Logo } from '../logo'
 import { LogoText } from '../logo-text'
 import { MobileMenu } from '../mobile-menu'
+import { DarkModeButton } from '../dark-mode-button'
 
 const fixBody = (fix) => {
   if (fix) {
@@ -32,13 +34,24 @@ const MobileHeader = ({ title }) => {
             <Logo title={title} />
           </Link>
         </div>
-        <Switch
-          opened={showMenu}
-          onClick={() => {
-            fixBody(!showMenu)
-            setShowMenu(!showMenu)
-          }}
-        />
+
+        <div css={styles.buttonWrapper}>
+          <ThemeToggler>
+            {({ theme, toggleTheme }) => (
+              <DarkModeButton
+                theme={theme}
+                onToggle={() => toggleTheme(theme === 'dark' ? 'light' : 'dark')}
+              />
+            )}
+          </ThemeToggler>
+          <Switch
+            opened={showMenu}
+            onClick={() => {
+              fixBody(!showMenu)
+              setShowMenu(!showMenu)
+            }}
+          />
+        </div>
       </motion.div>
 
       <div css={styles.brand}>
@@ -132,6 +145,9 @@ const styles = {
     width: 35px;
     height: 33px;
   `,
+  buttonWrapper: css`
+    display: flex;
+  `,
   switchContainer: css`
     position: relative;
     z-index: 12;
@@ -141,7 +157,7 @@ const styles = {
     align-items: center;
     justify-content:center;
     outline: none;
-    margin: 0;
+    margin: 0 0 0 0.5rem;
     padding: 0;
     border: none;
     background: none;
