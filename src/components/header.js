@@ -2,11 +2,11 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
-import { Moon, Sun } from 'react-feather'
 
 import { Logo } from './logo'
 import { LogoText } from './logo-text'
 import { MobileHeader } from './mobile-header'
+import { DarkModeButton } from './dark-mode-button'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },
@@ -36,10 +36,10 @@ const Header = ({ siteTitle }) => {
               ))}
               <li css={[styles.navListItem, { marginLeft: '0.7rem' }]}>
                 <ThemeToggler>
-                  {(x) => console.log(x) || (
-                    <ToggleDarkMode
-                      theme={x.theme}
-                      onToggle={() => x.toggleTheme(x.theme === 'dark' ? 'light' : 'dark')}
+                  {({ theme, toggleTheme }) => (
+                    <DarkModeButton
+                      theme={theme}
+                      onToggle={() => toggleTheme(theme === 'dark' ? 'light' : 'dark')}
                     />
                   )}
                 </ThemeToggler>
@@ -56,56 +56,6 @@ const Header = ({ siteTitle }) => {
 
       <MobileHeader title={siteTitle} />
     </header>
-  )
-}
-
-const ToggleDarkMode = ({ theme, onToggle }) => {
-  return (
-    <div
-      css={css`
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 50px;
-        height: 25px;
-        background-color: var(--bg1);
-        border-radius: 35px;
-        cursor: pointer;
-      `}
-      onClick={onToggle}
-    >
-      <Sun
-        css={css`
-          flex: 1;
-          justify-content: center;
-          align-items: center;
-          color: var(--text);
-        `}
-        size={15}
-      />
-      <Moon
-        css={css`
-          flex: 1;
-          justify-content: center;
-          align-items: center;
-          color: var(--text);
-        `}
-        size={15}
-      />
-      <div
-        css={css`
-          position: absolute;
-          top: 2px;
-          left: 2px;
-          width: 21px;
-          height: 21px;
-          border-radius: 13px;
-          background-color: var(--bg2);
-          transition: transform 0.2s ease-out;
-          transform: translateX(${theme === 'dark' ? '25px' : '0'});
-        `}
-      />
-    </div>
   )
 }
 
