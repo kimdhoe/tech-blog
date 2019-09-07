@@ -56,7 +56,7 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: #7f5555;
+      color: var(--text-link);
 
       &[href] {
         padding-bottom: 0.07rem;

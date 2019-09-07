@@ -33,7 +33,7 @@ const styles = {
       left: 0.1rem;
       width: 70px;
       height: 1px;
-      background-color: #444;
+      background-color: var(--text)
     }
   `,
 }

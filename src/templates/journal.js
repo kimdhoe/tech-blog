@@ -104,7 +104,7 @@ const styles = {
     margin-top: 0.7rem;
     line-height: 1.5;
     font-size: 0.88rem;
-    color: #757d85;
+    color: var(--text-auxiliary);
 
   `,
   headline: css`
@@ -176,7 +176,7 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: #7f5555;
+      color: var(--text-link);
 
       &[href] {
         padding-bottom: 0.07rem;
@@ -212,7 +212,7 @@ const styles = {
         top: 50%;
         transform: translate(-50%, -50%);
         font-size: 0.8rem;
-        color: #555;
+        color: var(--text);
       }
     }
 

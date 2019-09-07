@@ -16,6 +16,7 @@ module.exports = {
     githubBranch: process.env.GITHUB_BRANCH,
   },
   plugins: [
+    'gatsby-plugin-dark-mode',
     {
       resolve: `gatsby-source-contentful`,
       options: {

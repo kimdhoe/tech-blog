@@ -87,9 +87,9 @@ const Switch = ({ opened, onClick }) => (
 
 const Path = props => (
   <motion.path
+    css={css`stroke: var(--text);`}
     fill="transparent"
     strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
     strokeLinecap="round"
     {...props}
   />
@@ -103,7 +103,7 @@ const styles = {
     align-items: center;
     justify-content: center;
 
-    @media only screen and (min-width: 651px) {
+    @media only screen and (min-width: 761px) {
       display: none;
     }
   `,
@@ -114,7 +114,7 @@ const styles = {
     right: 0;
     left: 0;
     padding: 0.5rem 1rem 0.3rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--card);
     display: flex;
     align-items: center;
     justify-content: space-between;

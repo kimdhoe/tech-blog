@@ -2,14 +2,14 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
+import Image from 'gatsby-image'
 
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
       <div css={styles.left}>
         {post.image ? (
-          <BackgroundImage
+          <Image
             style={{
               width: '100%',
               height: '100%',
@@ -52,7 +52,7 @@ const Container = styled.article`
   margin: 0 auto;
   padding: 0;
   max-width: calc(768px - 1rem);
-  border-bottom: 1px solid #728ca3;
+  border-bottom: 1px solid var(--hr);
   transition: all 200ms ease-out;
 
   :last-of-type {
@@ -114,10 +114,6 @@ const styles = {
     padding-bottom: 0.4rem;
     line-height: 1.65;
     transition: color 100ms ease-out;
-
-    ${Container}:hover & {
-      color: #111;
-    }
   `,
   deck: css`
     margin: 0 0 0.3rem 0;
@@ -138,7 +134,7 @@ const styles = {
     letter-spacing: 0.03rem;
     text-transform: uppercase;
     font-weight: 500;
-    color: #728ca3;
+    color: var(--text-auxiliary);
   `,
   date: css`
     margin: 0.3rem 0 0.5rem;

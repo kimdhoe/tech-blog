@@ -56,7 +56,7 @@ const styles = {
     margin: 5rem 0 5rem;
     display: flex;
     align-items: center;
-    color: #777;
+    color: var(--text-auxiliary);
 
     blockquote {
       margin: 0;
@@ -86,13 +86,15 @@ const styles = {
     display: block;
     margin: 0;
     font-size: 0.85rem;
-    color: #5a6c70;
+    color: var(--text-auxiliary);
+    /* color: #5a6c70; */
   `,
   entryTitle: css`
     display: inline-block;
     margin: 0 0 0.6rem 0;
     padding: 0.2rem 0 0.4rem 0;
-    border-bottom: 1px solid #5a6c70;
+    /* border-bottom: 1px solid #5a6c70; */
+    border-bottom: 1px solid var(--text-auxiliary);
     font-size: 1.1rem;
     font-weight: 400;
   `,

@@ -1,7 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-
-import Icon from '../components/icon'
+import { Facebook, Mail, Twitter } from 'react-feather'
 
 const Share = ({ url, body, headline }) => {
   return (
@@ -11,17 +10,17 @@ const Share = ({ url, body, headline }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Icon name="facebook" attrs={{ width: 22 }} />
+        <Facebook size={22} />
       </a>
       <a
         href={`https://twitter.com/share?url=${url}&text=${headline}&via=kimdhoe`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Icon name="twitter" attrs={{ width: 20 }} />
+        <Twitter size={20} />
       </a>
       <a href={`mailto:?Subject=${headline}&Body=${body}`}>
-        <Icon name="mail" attrs={{ width: 19 }} />
+        <Mail size={19} />
       </a>
     </div>
   )

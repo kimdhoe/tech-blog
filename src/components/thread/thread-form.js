@@ -199,7 +199,7 @@ const styles = {
       'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
       'Noto Color Emoji';
-    color: #666;
+    color: var(--text-auxiliary);
   `,
   inputWrapper: css`
     margin: 0;
@@ -207,21 +207,26 @@ const styles = {
   input: css`
     outline: none;
     padding: 0.6rem 0.7rem;
-    border: 1px solid #e9ecef;
+    /* border: none; */
+    border: 1px solid var(--hr);
+    /* border: 1px solid #e9ecef; */
     border-radius: 3px;
     max-width: 300px;
     width: 100%;
     line-height: 1.6;
-    background: #e6e6e577;
+    /* background: #e6e6e577; */
+    background: var(--well);
     -webkit-appearance: none;
     transition: border-color 0.1s ease;
+    color: var(--text);
 
     ::placeholder {
-      color: #adb5bd;
+      color: var(--text-auxiliary);
+      /* color: #adb5bd; */
     }
 
     :focus {
-      border-color: #ced4da;
+      /* border-color: #ced4da; */
     }
   `,
   inputError: css`

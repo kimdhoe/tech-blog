@@ -298,7 +298,7 @@ const styles = {
     margin: 0 0 3rem 0;
     padding: 5rem 0 0;
     /* background-color: #6d95a7; */
-    color: #111;
+    /* color: #111; */
 
     @media only screen and (max-width: 600px) {
       margin-bottom: 3rem;
@@ -322,7 +322,7 @@ const styles = {
     letter-spacing: 0.03rem;
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: #728ca3;
+    color: var(--text-auxiliary);
   `,
   headline: css`
     margin: 0;
@@ -340,7 +340,6 @@ const styles = {
     padding: 0 0.1rem;
     line-height: 1.75;
     font-size: 1.2rem;
-    color: #444;
 
     @media only screen and (max-width: 600px) {
       font-size: 1.05rem;
@@ -357,7 +356,6 @@ const styles = {
   abstractText: css`
     max-width: 500px;
     line-height: 1.9;
-    color: #444;
   `,
   epigraph: css`
     display: flex;
@@ -380,7 +378,6 @@ const styles = {
     align-items: center;
     margin: 0 0.225rem 0 0;
     letter-spacing: 0.03rem;
-    color: #555;
 
     ::before {
       content: '';
@@ -406,7 +403,7 @@ const styles = {
     padding: 0 1rem;
     width: 100%;
     max-width: 650px;
-    line-height: 2;
+    line-height: 2.1;
     font-size: 0.9792rem;
 
     @media only screen and (max-width: 600px) {
@@ -442,7 +439,6 @@ const styles = {
 
     a {
       text-decoration: none;
-      color: #7f5555;
 
       &[href] {
         padding-bottom: 0.07rem;
@@ -450,6 +446,7 @@ const styles = {
         background-position: 0 100%;
         background-size: auto 3px;
         background-repeat: repeat-x;
+        color: var(--text-link);
 
         &:hover {
           border-color: transparent;
@@ -531,15 +528,15 @@ const styles = {
   },
   wrapper: {},
   newsletterContainer: css`
-    margin: 5rem auto 0;
+    margin: 7rem auto 0;
     padding: 0 1rem;
   `,
   newsletter: css`
     margin: 0 auto;
     padding: 2rem 1rem;
-    max-width: 550px;
+    max-width: 620px;
     /* height: 226px; */
-    border: 1px solid #728ca3;
+    border-radius: 3px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -547,6 +544,7 @@ const styles = {
     justify-content: center;
     text-align: center;
     transition: all 150ms ease-out;
+    background-color: var(--card);
   `,
   newsletterSuccess: css`
     border: none;
@@ -560,7 +558,7 @@ const styles = {
   `,
   newsletterHeader: css`
     margin-top: 0;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: #728ca3;
   `,
   newsletterInput: css`
@@ -584,7 +582,7 @@ const styles = {
     outline: none;
     border: none;
     background: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #728ca3;
     cursor: pointer;
   `,

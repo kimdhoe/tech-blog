@@ -2,9 +2,9 @@ import React from 'react'
 import { css } from '@emotion/core'
 import ReactMarkdown from 'react-markdown'
 // import Refractor from 'react-refractor'
+import { GitHub } from 'react-feather'
 
 import ThreadForm from './thread-form'
-import Icon from '../icon'
 
 const Thread = ({ slug, messages }) => (
   <div css={styles.container}>
@@ -58,7 +58,7 @@ const ThreadMessage = ({ id, slug, name, email, message, date, dateFormatted }) 
               css={styles.messageFileLink}
               href={`https://github.com/kimdhoe/tech-blog/blob/master/data/comments/${slug}/${id}.yml`}
             >
-              <Icon css={styles.messageFileIcon} name="github" attrs={{ width: 13 }} />
+              <GitHub css={styles.messageFileIcon} size={13} />
             </a>
           </p>
         </div>

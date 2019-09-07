@@ -66,29 +66,47 @@ const styles = {
     *:after {
       box-sizing: inherit;
     }
+
     body {
+      --brand: #728ca3;
       --bg: #f4f7fb;
-      --well: white;
+      --bg1: #dee2e6;
+      --bg2: #b6bfc8;
+      --well: #f8f9fa;
+      --card: #ecf1f8;
       --text: #2b2836;
-      --textLink: #2b2b2b;
-      --hr: hsla(0, 0%, 0%, 0.2);
+      --text-link: #7f5555;
+      --text-auxiliary: #868e96;
+      --hr: hsla(0, 0%, 0%, 0.15);
 
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
-      transition: all 0.1s ease;
+      transition: all 0.2s ease-out;
       background-color: var(--bg);
       color: var(--text);
     }
 
+    body.dark {
+      --bg: #2b2836;
+      --bg1: #696284;
+      --bg2: #3a3649;
+      --well: #23212c;
+      --card: #3a3649;
+      --text: #b6bfc8;
+      --text-link: #a37676;
+      --text-auxiliary: #848c94;
+      --hr: #3a3649;
+    }
+
     a {
       text-decoration: none;
-      color: var(--textLink);
+      color: var(--text);
     }
 
     button {
-      color: var(--textLink);
+      color: var(--text);
     }
   `,
   wrapper: css`
