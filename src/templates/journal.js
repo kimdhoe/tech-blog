@@ -66,7 +66,7 @@ const JournalTemplate = ({
       </div>
       <h1 css={styles.headline}>{headline}</h1>
       <p css={styles.date}>
-        {date}, {location}
+        {location}, {date}
       </p>
     </header>
 
@@ -130,7 +130,8 @@ const styles = {
     margin: 0;
     text-align: center;
     letter-spacing: 0.02rem;
-    font-size: 0.889rem;
+    font-size: 0.9rem;
+    font-style: italic;
   `,
   body: css`
     margin: 0 auto;
