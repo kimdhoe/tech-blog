@@ -90,8 +90,8 @@ const styles = {
 
     body.dark {
       --bg: #2b2836;
-      --bg1: #696284;
-      --bg2: #3a3649;
+      --bg1: #3a3649;
+      --bg2: #514c66;
       --well: #23212c;
       --card: #3a3649;
       --text: #b6bfc8;
