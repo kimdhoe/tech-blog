@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV_ITEMS = [
-  { to: '/', label: 'Writings' },
+  { to: '/', label: 'Blog' },
   { to: '/devlog/', label: 'Devlog' },
   { to: '/journal/', label: 'Journal' },
   { to: '/now/', label: 'Now' },
