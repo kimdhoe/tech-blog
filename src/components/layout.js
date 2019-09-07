@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
     <>
       <SEO
         lang="en"
+        title=""
         meta={[
           { property: 'og:image', content: '/images/cover.png' },
           deployBranch !== 'master' && {
