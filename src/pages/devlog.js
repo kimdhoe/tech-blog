@@ -28,6 +28,9 @@ export default () => {
           />
         ))}
       </div>
+      <div css={styles.titleWrapper}>
+        <p css={styles.title}>Devlog</p>
+      </div>
     </Page>
   )
 }
@@ -188,6 +191,38 @@ const styles = {
 
     .gatsby-highlight {
       padding: 0.1rem 0 0.7rem 0;
+    }
+  `,
+  titleWrapper: css`
+    position: fixed;
+    z-index: -1;
+    top: 11px;
+    left: 7rem;
+    right: 7rem;
+    text-align: center;
+
+    .scrolled-a-bit & {
+      z-index: 12;
+    }
+  `,
+  title: css`
+    margin: 0 auto;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9792rem;
+    transition: all 0.15s ease-out;
+    transform: translate3d(0, 0.5rem, 0);
+    opacity: 0;
+
+    .scrolled-a-bit & {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @media only screen and (max-width: 650px) {
+      font-size: 0.8rem;
     }
   `,
 }
