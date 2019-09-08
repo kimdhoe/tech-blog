@@ -343,11 +343,15 @@ const styles = {
   `,
   titleWrapper: css`
     position: fixed;
-    z-index: 12;
-    top: 14px;
+    z-index: -1;
+    top: 15px;
     left: 7rem;
     right: 7rem;
     text-align: center;
+
+    .scrolled-a-bit & {
+      z-index: 12;
+    }
   `,
   title: css`
     margin: 0 auto;
