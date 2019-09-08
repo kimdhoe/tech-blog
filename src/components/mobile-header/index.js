@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
-import disableScroll from 'disable-scroll'
+// import disableScroll from 'disable-scroll'
 
 import { Logo } from '../logo'
 import { LogoText } from '../logo-text'
 import { MobileMenu } from '../mobile-menu'
 import { DarkModeButton } from '../dark-mode-button'
 
-const fixBody = (fix) => {
-  if (fix) {
-    disableScroll.on()
-  } else {
-    disableScroll.off()
-  }
-}
+// const fixBody = (fix) => {
+//   if (fix) {
+//     disableScroll.on()
+//   } else {
+//     disableScroll.off()
+//   }
+// }
 
 const MobileHeader = ({ title, theme, onToggle }) => {
   const [showMenu, setShowMenu] = useState(false)

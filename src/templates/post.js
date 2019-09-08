@@ -359,6 +359,7 @@ const styles = {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 0.9792rem;
     transition: all 0.15s ease-out;
     transform: translate3d(0, 0.5rem, 0);
     opacity: 0;

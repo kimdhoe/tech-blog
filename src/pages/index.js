@@ -1,4 +1,5 @@
 import React /*, { useState, useRef }*/ from 'react'
+import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 // import addToMailchimp from 'gatsby-plugin-mailchimp'
@@ -14,6 +15,15 @@ import PostPreview, {
 //   - success
 //   - error
 
+const NAV_ITEMS = [
+  { to: '/', label: 'Blog' },
+  { to: '/devlog/', label: 'Devlog' },
+  { to: '/journal/', label: 'Journal' },
+  { to: '/now/', label: 'Now' },
+  { to: '/about/', label: 'About' },
+  { to: '/contact/', label: 'Contact' },
+]
+
 const IndexPage = () => {
   const posts = usePosts()
   // const inputRef = useRef()
@@ -21,14 +31,26 @@ const IndexPage = () => {
   // const [status, setStatus] = useState('default')
 
   return (
-    <div css={styles.container}>
-      <Previews>
-        {posts.map(post => (
-          <PostPreview key={post.slug} post={post} />
-        ))}
-      </Previews>
+    <>
+      <div css={styles.nav}>
+        <div css={styles.navWrapper}>
+          {NAV_ITEMS.map(item => (
+            <div key={item.to} css={styles.navItem}>
+              <Link css={styles.navItemLink} to={item.to} activeClassName="current">
+                {item.label}
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div css={styles.container}>
+        <Previews>
+          {posts.map(post => (
+            <PostPreview key={post.slug} post={post} />
+          ))}
+        </Previews>
 
-      {/* <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
+        {/* <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
         {status === 'success' ? (
           <p css={styles.successMessage}>
             Thanks. TTYS.
@@ -73,7 +95,8 @@ const IndexPage = () => {
             </form>
           )}
       </div> */}
-    </div>
+      </div>
+    </>
   )
 }
 
@@ -91,12 +114,61 @@ const Previews = styled.div`
 
 const styles = {
   container: css`
-    margin: 4rem auto;
+    margin: 7rem auto;
     padding: 0 1rem;
     max-width: 650px;
 
     @media only screen and (max-width: 650px) {
       margin-top: 3rem;
+    }
+  `,
+  nav: css`
+    position: fixed;
+    z-index: 4;
+    top: 46px;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid var(--hr);
+    height: 45px;
+    transition: all 0.25s ease-out;
+
+    .scrolled-a-bit & {
+      transform: translate3d(0, -45px, 0);
+    }
+
+    @media only screen and (max-width: 650px) {
+      display: none;
+    }
+  `,
+  navWrapper: css`
+    margin: 0 auto;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    background: var(--bg);
+  `,
+  navItem: css`
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  `,
+  navItemLink: css`
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+
+    :hover {
+      color: var(--text-link);
+    }
+
+    &.current {
+      color: var(--brand);
     }
   `,
   header: css`

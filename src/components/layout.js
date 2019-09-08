@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
 
@@ -14,7 +14,6 @@ const Layout = ({ children }) => {
   const { title, description, author, deployBranch } = useSiteMetadata()
   const logo = useLogo()
   const spy = useRef()
-  const [hideBrand, setHideBrand] = useState(false)
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
