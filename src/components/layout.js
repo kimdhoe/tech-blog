@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
 
@@ -13,6 +13,23 @@ import 'normalize.css'
 const Layout = ({ children }) => {
   const { title, description, author, deployBranch } = useSiteMetadata()
   const logo = useLogo()
+  const spy = useRef()
+  const [hideBrand, setHideBrand] = useState(false)
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (!entry.intersectionRatio) {
+          document.body.classList.add('scrolled-a-bit')
+        } else {
+          document.body.classList.remove('scrolled-a-bit')
+        }
+      },
+      { rootMargin: '0px' },
+    )
+    observer.observe(spy.current)
+    return observer.disconnect
+  }, [])
 
   return (
     <>
@@ -29,6 +46,7 @@ const Layout = ({ children }) => {
         description={description}
       />
       <Global styles={styles.global} />
+      <div css={styles.scrollSpy} ref={spy} />
       <div css={styles.wrapper}>
         <Header siteTitle={title} logo={logo} />
         <main css={styles.main}>{children}</main>
@@ -108,6 +126,13 @@ const styles = {
     button {
       color: var(--text);
     }
+  `,
+  scrollSpy: css`
+    position: absolute;
+    z-index: -999;
+    top: 0;
+    width: 1px;
+    height: 210px;
   `,
   wrapper: css`
     display: flex;

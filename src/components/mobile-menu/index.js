@@ -77,11 +77,14 @@ const MobileMenu = ({ visible, close }) => {
           animate={visible ? 'open' : 'closed'}
           exit="closed"
         >
+          <div style={{ overflow: 'scroll'}}>
           <motion.div css={styles.list} key="a" variants={variants2}>
             {NAV_ITEMS.map(item => (
               <MenuItem key={item.to} to={item.to} label={item.label} close={close} />
             ))}
           </motion.div>
+
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
@@ -113,6 +116,7 @@ const styles = {
     right: 0;
     bottom: 0;
     left: 0;
+    overflow: scroll;
     background-color: var(--bg);
   `,
   list: css`

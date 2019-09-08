@@ -3,7 +3,6 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
 import disableScroll from 'disable-scroll'
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import { Logo } from '../logo'
 import { LogoText } from '../logo-text'
@@ -22,7 +21,7 @@ const MobileHeader = ({ title, theme, onToggle }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   const close = () => {
-    fixBody(false)
+    // fixBody(false)
     setShowMenu(false)
   }
 
@@ -40,18 +39,19 @@ const MobileHeader = ({ title, theme, onToggle }) => {
           <Switch
             opened={showMenu}
             onClick={() => {
-              fixBody(!showMenu)
+              // fixBody(!showMenu)
               setShowMenu(!showMenu)
             }}
           />
         </div>
-      </motion.div>
 
-      <div css={styles.brand}>
-        <Link to="/" onClick={close}>
-          <LogoText title={title} />
-        </Link>
-      </div>
+        <div css={styles.brand}>
+          <Link to="/" onClick={close}>
+            <LogoText title={title} />
+            {/* dhk.party */}
+          </Link>
+        </div>
+      </motion.div>
 
       <MobileMenu visible={showMenu} close={close} />
     </div>
@@ -109,7 +109,7 @@ const styles = {
     align-items: center;
     justify-content: center;
 
-    @media only screen and (min-width: 761px) {
+    @media only screen and (min-width: 1761px) {
       display: none;
     }
   `,
@@ -120,7 +120,7 @@ const styles = {
     right: 0;
     left: 0;
     padding: 0.5rem 1rem 0.3rem;
-    border-bottom: 1px solid var(--card);
+    border-bottom: 1px solid var(--hr);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -128,11 +128,19 @@ const styles = {
 
   `,
   brand: css`
-    position: relative;
+    position: absolute;
     z-index: 12;
     top: 0.7rem;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
     width: 90px;
     height: 31px;
+    transition: all 0.1s ease-out;
+
+    .scrolled-a-bit & {
+      opacity: 0;
+      transform: translate3d(-50%, -2.5rem, 0);
+    }
   `,
   logo: css`
     width: 35px;

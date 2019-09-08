@@ -240,17 +240,24 @@ const Article = ({
   </article>
 )
 
-const Header = ({ category, headline, deck }) => (
-  <header css={styles.header}>
-    {category && <p css={styles.category}>{category}</p>}
-    <h2 css={styles.headline}>{headline}</h2>
-    {deck && (
-      <section css={styles.deck}>
-        <span css={[styles.deckText, styles.mozHack]}>{deck}</span>
-      </section>
-    )}
-  </header>
-)
+const Header = ({ category, headline, deck }) => {
+  return (
+    <header css={styles.header}>
+      {category && <p css={styles.category}>{category}</p>}
+      <h2 css={styles.headline}>{headline}</h2>
+      {deck && (
+        <section css={styles.deck}>
+          <span css={[styles.deckText, styles.mozHack]}>{deck}</span>
+        </section>
+      )}
+      <div css={styles.titleWrapper}>
+        <p css={styles.title}>
+          {headline}
+        </p>
+      </div>
+    </header>
+  )
+}
 
 const Abstract = ({ text }) => (
   <section css={styles.abstract}>
@@ -299,8 +306,6 @@ const styles = {
   hero: css`
     margin: 0 0 3rem 0;
     padding: 5rem 0 0;
-    /* background-color: #6d95a7; */
-    /* color: #111; */
 
     @media only screen and (max-width: 600px) {
       margin-bottom: 3rem;
@@ -334,6 +339,33 @@ const styles = {
 
     @media only screen and (max-width: 600px) {
       font-size: 1.65rem;
+    }
+  `,
+  titleWrapper: css`
+    position: fixed;
+    z-index: 12;
+    top: 14px;
+    left: 7rem;
+    right: 7rem;
+    text-align: center;
+  `,
+  title: css`
+    margin: 0 auto;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.15s ease-out;
+    transform: translate3d(0, 0.5rem, 0);
+    opacity: 0;
+
+    .scrolled-a-bit & {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @media only screen and (max-width: 650px) {
+      font-size: 0.8rem;
     }
   `,
   deck: css`

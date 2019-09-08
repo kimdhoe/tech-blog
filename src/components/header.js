@@ -80,7 +80,8 @@ const styles = {
     padding: 0;
   `,
   pc: css`
-    @media only screen and (max-width: 760px) {
+    @media only screen and (max-width: 1760px) {
+    /* @media only screen and (max-width: 760px) { */
       display: none;
     }
   `,
