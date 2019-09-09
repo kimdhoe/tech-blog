@@ -2,12 +2,12 @@ import React from 'react'
 
 const LogoTypeface = ({ title }) => (
   <svg
-    aria-labelledby="logoimage"
+    aria-labelledby="logotypefaceimage"
     data-v-d3f97b9e=""
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 407 90"
   >
-    <title id="logoimage">{title}</title>
+    <title id="logotypefaceimage">{title}</title>
     <g
       data-v-d3f97b9e=""
       id="0b1e6343-7b79-4b13-b040-1721bf8218b2"

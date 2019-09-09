@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import { Moon, Sun } from 'react-feather'
 
 const DarkModeButton = ({ theme, onToggle }) => (
-  <button type="button" css={styles.container} onClick={onToggle}>
+  <div type="button" css={styles.container} onClick={onToggle}>
     <Sun
       css={[styles.icon, { opacity: theme === 'light' ? 0 : 1 }]}
       size={15}
@@ -13,7 +13,7 @@ const DarkModeButton = ({ theme, onToggle }) => (
       size={15}
     />
     <div css={styles.ball} />
-  </button>
+  </div>
 )
 
 const styles = {
