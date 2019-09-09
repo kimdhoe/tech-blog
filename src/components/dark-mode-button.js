@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import { Moon, Sun } from 'react-feather'
 
 const DarkModeButton = ({ theme, onToggle }) => (
-  <button ariaLabel="Toggle Dark Mode" type="button" css={styles.container} onClick={onToggle}>
+  <button aria-label="Toggle Dark Mode" type="button" css={styles.container} onClick={onToggle}>
     <span css={styles.hidden}>Toggle Dark Mode</span>
     <Sun
       css={[styles.icon, { opacity: theme === 'light' ? 0 : 1 }]}

@@ -59,7 +59,7 @@ const MobileHeader = ({ title, theme, onToggle }) => {
 }
 
 const Switch = ({ opened, onClick }) => (
-  <button css={styles.switchContainer} onClick={onClick} ariaLlbel="Toggle Menu">
+  <button css={styles.switchContainer} onClick={onClick} aria-label="Toggle Menu">
     <span css={styles.hidden}>Munu Button</span>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
