@@ -94,7 +94,8 @@ const styles = {
       --card: #ecf1f8;
       --text: #2b2836;
       --text-link: #7f5555;
-      --text-auxiliary: #868e96;
+      /* --text-auxiliary: #868e96; */
+      --text-auxiliary: #535960;
       --hr: hsla(0, 0%, 0%, 0.15);
 
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',

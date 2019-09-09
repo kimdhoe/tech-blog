@@ -88,8 +88,7 @@ const styles = {
     display: block;
     margin: 0;
     font-size: 0.85rem;
-    color: var(--text-auxiliary);
-    /* color: #5a6c70; */
+    color: var(--brand);
   `,
   entryTitle: css`
     display: inline-block;

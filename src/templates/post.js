@@ -166,11 +166,13 @@ const Newsletter = () => {
             }}
           >
             <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+            <label css={styles.hidden} htmlFor="newsletter-email">Email</label>
             <input
               css={[
                 styles.newsletterInput,
                 status === 'error' && styles.newsletterInputError,
               ]}
+              id="newsletter-email"
               placeholder="your email here"
               ref={inputRef}
               type="email"
@@ -597,7 +599,7 @@ const styles = {
   newsletterHeader: css`
     margin-top: 0;
     font-size: 1.5rem;
-    color: #728ca3;
+    color: var(--text-auxiliary);
   `,
   newsletterInput: css`
     outline: none;
@@ -621,8 +623,19 @@ const styles = {
     border: none;
     background: none;
     font-size: 1.2rem;
-    color: #728ca3;
+    /* color: #728ca3; */
+    color: var(--text-auxiliary);
     cursor: pointer;
+  `,
+  hidden: css`
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
   `,
 }
 
