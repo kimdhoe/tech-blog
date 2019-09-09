@@ -221,8 +221,7 @@ const styles = {
     color: var(--text);
 
     ::placeholder {
-      color: var(--text-auxiliary);
-      /* color: #adb5bd; */
+      color: var(--text-placeholder);
     }
 
     :focus {

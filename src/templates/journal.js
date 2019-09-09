@@ -180,7 +180,7 @@ const styles = {
 
       &[href] {
         padding-bottom: 0.07rem;
-        border-bottom: 1px solid #7f5555;
+        border-bottom: 1px solid var(--text-link);
         background-position: 0 100%;
         background-size: auto 3px;
         background-repeat: repeat-x;
@@ -188,6 +188,11 @@ const styles = {
         &:hover {
           border-color: transparent;
           background-image: url('/images/underline.svg');
+        }
+
+        .dark &:hover {
+          border-color: transparent;
+          background-image: url('/images/underline-dark.svg');
         }
       }
     }

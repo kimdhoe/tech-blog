@@ -86,7 +86,6 @@ const styles = {
 
     body {
       --brand: #5b748b;
-      /* --brand: #728ca3; */
       --bg: #f4f7fb;
       --bg1: #dee2e6;
       --bg2: #b6bfc8;
@@ -94,8 +93,8 @@ const styles = {
       --card: #ecf1f8;
       --text: #2b2836;
       --text-link: #7f5555;
-      /* --text-auxiliary: #868e96; */
       --text-auxiliary: #535960;
+      --text-placeholder: #868e96;
       --hr: hsla(0, 0%, 0%, 0.15);
 
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
@@ -108,14 +107,16 @@ const styles = {
     }
 
     body.dark {
+      --brand: #93a7b9;
       --bg: #2b2836;
       --bg1: #3a3649;
       --bg2: #514c66;
       --well: #23212c;
       --card: #3a3649;
       --text: #b6bfc8;
-      --text-link: #a37676;
+      --text-link: #b79494;
       --text-auxiliary: #848c94;
+      --text-placeholder: #868e9688;
       --hr: #3a3649;
     }
 
