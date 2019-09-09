@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
 
@@ -14,13 +14,8 @@ const Layout = ({ children }) => {
   const { title, description, author, deployBranch } = useSiteMetadata()
   const logo = useLogo()
   const spy = useRef()
-  const [go, setGo] = useState(false)
 
   useEffect(() => {
-    const mm = window.matchMedia('(prefers-color-scheme: dark)')
-    mm.addListener(console.log)
-    const x = localStorage.getItem('fuck')
-
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (!entry.intersectionRatio) {
@@ -34,8 +29,6 @@ const Layout = ({ children }) => {
     observer.observe(spy.current)
     return observer.disconnect
   }, [])
-
-  // if (!go) return null
 
   return (
     <>
