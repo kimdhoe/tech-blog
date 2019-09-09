@@ -59,7 +59,8 @@ const MobileHeader = ({ title, theme, onToggle }) => {
 }
 
 const Switch = ({ opened, onClick }) => (
-  <button css={styles.switchContainer} onClick={onClick}>
+  <button css={styles.switchContainer} onClick={onClick} ariaLlbel="Toggle Menu">
+    <span css={styles.hidden}>Munu Button</span>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         initial="closed"
@@ -102,6 +103,16 @@ const Path = props => (
 )
 
 const styles = {
+  hidden: css`
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  `,
   container: css`
     position: relative;
     z-index: 11;

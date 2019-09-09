@@ -13,7 +13,6 @@ const Logo = ({ title }) => (
     <g
       css={styles.g}
       data-v-d3f97b9e=""
-      id="2c8b65a9-763e-48f0-bc5c-ac0d2319bb5f"
       transform="matrix(0.7249178624236731,0,0,0.7249178624236731,1.689816784278264e-7,-6.245890618180233)"
       stroke="none"
     >

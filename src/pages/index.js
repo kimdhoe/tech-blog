@@ -168,7 +168,7 @@ const styles = {
     }
 
     &.current {
-      color: var(--brand);
+      color: var(--text-link);
     }
   `,
   header: css`

@@ -162,7 +162,7 @@ const styles = {
     }
 
     &.current-page {
-      color: var(--brand);
+      color: var(--text-link);
     }
   `,
 }

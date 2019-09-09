@@ -94,6 +94,7 @@ const styles = {
     img {
       border-radius: 50%;
       width: 100%;
+      color: black;
     }
   `,
   right: css`
@@ -134,7 +135,7 @@ const styles = {
     letter-spacing: 0.03rem;
     text-transform: uppercase;
     font-weight: 500;
-    color: var(--text-auxiliary);
+    color: var(--brand);
   `,
   date: css`
     margin: 0.3rem 0 0.5rem;

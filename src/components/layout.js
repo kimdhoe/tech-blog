@@ -85,7 +85,8 @@ const styles = {
     }
 
     body {
-      --brand: #728ca3;
+      --brand: #5b748b;
+      /* --brand: #728ca3; */
       --bg: #f4f7fb;
       --bg1: #dee2e6;
       --bg2: #b6bfc8;
