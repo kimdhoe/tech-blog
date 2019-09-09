@@ -68,6 +68,7 @@ const styles = {
       src: local('Fira Code'),
         url('/fonts/FiraCode-Regular.woff2') format('woff2'),
         url('/fonts/FiraCode-Regular.woff') format('woff');
+      font-display: swap;
     }
 
     html {
