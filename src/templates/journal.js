@@ -12,7 +12,7 @@ export const query = graphql`
       headline
       description
       location
-      date: publishDate(formatString: "ddd, MMM D, YYYY")
+      date: publishDate(formatString: "dddd, MMMM D, YYYY")
       date2: publishDate(formatString: "YYYY년 M월 D일")
       body {
         childMdx {
