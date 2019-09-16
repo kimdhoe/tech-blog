@@ -11,7 +11,7 @@ export const query = graphql`
     contentfulJournal(slug: { eq: $slug }) {
       headline
       description
-      location
+      place
       date: publishDate(formatString: "dddd, MMMM D, YYYY")
       date2: publishDate(formatString: "YYYY년 M월 D일")
       body {
@@ -37,7 +37,7 @@ const JournalTemplate = ({
       description,
       date,
       date2,
-      location = 'Seoul',
+      place = 'Seoul',
       body: {
         childMdx: { body: mdx },
       },
@@ -67,7 +67,7 @@ const JournalTemplate = ({
       </div>
       <h1 css={styles.headline}>{headline}</h1>
       <p css={styles.date}>
-        {location ? location + ', ' : ''}{date}
+        {place ? place + ', ' : ''}{date}
       </p>
     </header>
 
