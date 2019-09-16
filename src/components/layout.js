@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
           document.body.classList.remove('scrolled-a-bit')
         }
       },
-      { rootMargin: '0px' },
+      { rootMargin: '0px' }
     )
     observer.observe(spy.current)
     return observer.disconnect

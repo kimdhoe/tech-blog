@@ -36,7 +36,11 @@ const IndexPage = () => {
         <div css={styles.navWrapper}>
           {NAV_ITEMS.map(item => (
             <div key={item.to} css={styles.navItem}>
-              <Link css={styles.navItemLink} to={item.to} activeClassName="current">
+              <Link
+                css={styles.navItemLink}
+                to={item.to}
+                activeClassName="current"
+              >
                 {item.label}
               </Link>
             </div>

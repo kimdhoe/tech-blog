@@ -53,4 +53,4 @@ const styles = {
   `,
 }
 
-export { Toggle }
+export default Toggle

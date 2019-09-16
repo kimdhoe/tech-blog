@@ -11,56 +11,6 @@ import Thread from '../components/thread'
 import { SEO } from '../components/seo'
 import Share from '../components/share'
 
-export const query = graphql`
-  query($slug: String!) {
-    post: file(
-      sourceInstanceName: { eq: "posts" }
-      childMdx: { frontmatter: { slug: { eq: $slug } } }
-    ) {
-      childMdx {
-        frontmatter {
-          title
-          slug
-          category
-          author
-          deck
-          abstract
-          epigraph
-          epigraphAuthor
-          date
-          dateFormatted: date(formatString: "MMM D, YYYY hh:mmA")
-          updateDate
-          image {
-            childImageSharp {
-              fluid(quality: 80, maxWidth: 770) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          imageAlt
-        }
-        body
-      }
-    }
-    comments: allYaml(
-      filter: { slug: { eq: $slug } }
-      sort: { fields: date, order: DESC }
-    ) {
-      edges {
-        node {
-          id: _id
-          name
-          email
-          message
-          slug
-          date
-          dateFormatted: date(formatString: "MMMM D, YYYY")
-        }
-      }
-    }
-  }
-`
-
 const PostTemplate = ({
   data: {
     post: {
@@ -76,41 +26,15 @@ const PostTemplate = ({
 
   return (
     <div css={styles.container}>
-      <SEO
+      <Seo
+        {...{ imageSrc, siteUrl, author }}
+        slug={frontmatter.slug}
         title={frontmatter.title}
-        description={frontmatter.deck || frontmatter.abstract}
-        meta={[
-          !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc },
-        ].filter(Boolean)}
-      >
-        <script type="application/ld+json">{`
-        {
-          "@context": "http://schema.org",
-          "@type": "TechArticle",
-          "headline": "${frontmatter.title}",
-          "datePublished": "${frontmatter.date}",
-          "dateModified": "${frontmatter.updateDate}",
-          "image": ${JSON.stringify(imageSrc ? [siteUrl + imageSrc] : [])},
-          "author": {
-            "@type": "Person",
-            "name": "${author}"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Joseph K.",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "${siteUrl}/images/profile.png"
-            }
-          },
-          "description": "${frontmatter.deck || frontmatter.abstract}",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "${siteUrl}/${frontmatter.slug}"
-          }
-        }
-      `}</script>
-      </SEO>
+        deck={frontmatter.deck}
+        abstract={frontmatter.abstract}
+        date={frontmatter.date}
+        updateDate={frontmatter.updateDate}
+      />
       <Article
         siteUrl={siteUrl}
         slug={frontmatter.slug}
@@ -131,6 +55,54 @@ const PostTemplate = ({
     </div>
   )
 }
+
+const Seo = ({
+  imageSrc,
+  siteUrl,
+  author,
+  title,
+  date,
+  updateDate,
+  deck,
+  abstract,
+  slug,
+}) => (
+  <SEO
+    title={title}
+    description={deck || abstract}
+    meta={[
+      !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc },
+    ].filter(Boolean)}
+  >
+    <script type="application/ld+json">{`
+      {
+        "@context": "http://schema.org",
+        "@type": "TechArticle",
+        "headline": "${title}",
+        "datePublished": "${date}",
+        "dateModified": "${updateDate}",
+        "image": ${JSON.stringify(imageSrc ? [siteUrl + imageSrc] : [])},
+        "author": {
+          "@type": "Person",
+          "name": "${author}"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Joseph K.",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "${siteUrl}/images/profile.png"
+          }
+        },
+        "description": "${deck || abstract}",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "${siteUrl}/${slug}"
+        }
+      }
+  `}</script>
+  </SEO>
+)
 
 const Newsletter = () => {
   const [status, setStatus] = useState('default')
@@ -166,7 +138,9 @@ const Newsletter = () => {
             }}
           >
             <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
-            <label css={styles.hidden} htmlFor="newsletter-email">Email</label>
+            <label css={styles.hidden} htmlFor="newsletter-email">
+              Email
+            </label>
             <input
               css={[
                 styles.newsletterInput,
@@ -253,9 +227,7 @@ const Header = ({ category, headline, deck }) => {
         </section>
       )}
       <div css={styles.titleWrapper}>
-        <p css={styles.title}>
-          {headline}
-        </p>
+        <p css={styles.title}>{headline}</p>
       </div>
     </header>
   )
@@ -636,12 +608,62 @@ const styles = {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
-    padding:0 !important;
-    border:0 !important;
+    padding: 0 !important;
+    border: 0 !important;
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
   `,
 }
+
+export const query = graphql`
+  query($slug: String!) {
+    post: file(
+      sourceInstanceName: { eq: "posts" }
+      childMdx: { frontmatter: { slug: { eq: $slug } } }
+    ) {
+      childMdx {
+        frontmatter {
+          title
+          slug
+          category
+          author
+          deck
+          abstract
+          epigraph
+          epigraphAuthor
+          date
+          dateFormatted: date(formatString: "MMM D, YYYY hh:mmA")
+          updateDate
+          image {
+            childImageSharp {
+              fluid(quality: 80, maxWidth: 770) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          imageAlt
+        }
+        body
+      }
+    }
+    comments: allYaml(
+      filter: { slug: { eq: $slug } }
+      sort: { fields: date, order: DESC }
+    ) {
+      edges {
+        node {
+          id: _id
+          name
+          email
+          message
+          slug
+          date
+          dateFormatted: date(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
+  }
+`
 
 export default PostTemplate

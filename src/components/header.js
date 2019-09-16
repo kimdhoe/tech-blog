@@ -34,7 +34,11 @@ const Header = ({ siteTitle }) => {
               <nav css={styles.nav}>
                 <ul css={styles.navList}>
                   {NAV_ITEMS.map(page => (
-                    <NavListItem key={page.label} to={page.to} label={page.label} />
+                    <NavListItem
+                      key={page.label}
+                      to={page.to}
+                      label={page.label}
+                    />
                   ))}
                   <li css={[styles.navListItem, { marginLeft: '0.7rem' }]}>
                     <DarkModeButton
@@ -81,7 +85,7 @@ const styles = {
   `,
   pc: css`
     @media only screen and (max-width: 1760px) {
-    /* @media only screen and (max-width: 760px) { */
+      /* @media only screen and (max-width: 760px) { */
       display: none;
     }
   `,

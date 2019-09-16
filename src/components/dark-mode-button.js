@@ -3,7 +3,12 @@ import { css } from '@emotion/core'
 import { Moon, Sun } from 'react-feather'
 
 const DarkModeButton = ({ theme, onToggle }) => (
-  <button aria-label="Toggle Dark Mode" type="button" css={styles.container} onClick={onToggle}>
+  <button
+    aria-label="Toggle Dark Mode"
+    type="button"
+    css={styles.container}
+    onClick={onToggle}
+  >
     <span css={styles.hidden}>Toggle Dark Mode</span>
     <Sun
       css={[styles.icon, { opacity: theme === 'light' ? 0 : 1 }]}
@@ -56,8 +61,8 @@ const styles = {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
-    padding:0 !important;
-    border:0 !important;
+    padding: 0 !important;
+    border: 0 !important;
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
