@@ -1,8 +1,7 @@
 {
   "version": 2,
   "alias": [
-    "josephk.io",
-    "dhk.party"
+    "josephk.io"
   ],
   "build": {
     "env": {
