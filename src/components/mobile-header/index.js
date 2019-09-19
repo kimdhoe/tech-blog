@@ -48,7 +48,7 @@ const MobileHeader = ({ title, theme, onToggle }) => {
         <div css={styles.brand}>
           <Link to="/" onClick={close}>
             <LogoText title={title} />
-            {/* dhk.party */}
+            {/* josephk.io */}
           </Link>
         </div>
       </motion.div>

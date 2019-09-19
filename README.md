@@ -1,4 +1,4 @@
-# dhk.party
+# josephk.io
 
 This is my personal blog to share my life and thoughts about software, mostly frontend-related ones.
 
