@@ -5,7 +5,7 @@ import { Page } from '../components/page'
 export default () => (
   <Page
     headline="About"
-    lede="dhk.party"
+    lede="josephk.io"
     title="About"
     description="I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life."
   >
@@ -55,9 +55,7 @@ export default () => (
         currently residing in Songpa District with my lovely wife <i>Summer</i>.
       </p>
       <p>
-        The top-level part of the domain name, although cool, hardly represent
-        my personality. I'm not really a party person, just in case you get the
-        wrong impression. When I'm away from the computer, I like to spend time
+        When I'm away from the computer, I like to spend time
         with my wife or read a book in a quiet place. I love{' '}
         <strong>coffee</strong> and seldom drink liquor.
       </p>
