@@ -67,7 +67,8 @@ const JournalTemplate = ({
       </div>
       <h1 css={styles.headline}>{headline}</h1>
       <p css={styles.date}>
-        {place ? place + ', ' : ''}{date}
+        {place ? place + ', ' : ''}
+        {date}
       </p>
     </header>
 
