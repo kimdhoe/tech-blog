@@ -23,9 +23,9 @@
   },
   "routes": [
     {
-      "src": "https://dhk.party/(.*)",
+      "src": "https://josephk.io/(.*)",
       "status": 301,
-      "headers": { "Location": "https://www.dhk.party/$1" }
+      "headers": { "Location": "https://www.josephk.io/$1" }
     },
     {
       "src": "/(.*)",

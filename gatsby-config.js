@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
-    title: 'dhk.party',
+    title: 'josephk.io',
     description: 'I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life',
     author: process.env.AUTHOR,
     deployBranch: process.env.NOW_GITHUB_COMMIT_REF || 'dev',
@@ -101,8 +101,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'dhk.party',
-        short_name: 'dhk',
+        name: 'josephk.io',
+        short_name: 'josephk',
         start_url: '/',
         background_color: '#29C785',
         theme_color: '#29C785',
