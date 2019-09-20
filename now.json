@@ -22,7 +22,7 @@
   },
   "routes": [
     {
-      "src": "https://josephk.io/(.*)",
+      "src": "/(.*)",
       "status": 301,
       "headers": { "Location": "https://www.josephk.io/$1" }
     },
