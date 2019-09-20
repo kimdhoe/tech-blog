@@ -2,26 +2,15 @@ import React, { useState } from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
-// import disableScroll from 'disable-scroll'
 
 import { Logo } from '../logo'
-import { LogoText } from '../logo-text'
 import { MobileMenu } from '../mobile-menu'
 import { DarkModeButton } from '../dark-mode-button'
-
-// const fixBody = (fix) => {
-//   if (fix) {
-//     disableScroll.on()
-//   } else {
-//     disableScroll.off()
-//   }
-// }
 
 const MobileHeader = ({ title, theme, onToggle }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   const close = () => {
-    // fixBody(false)
     setShowMenu(false)
   }
 
@@ -39,7 +28,6 @@ const MobileHeader = ({ title, theme, onToggle }) => {
           <Switch
             opened={showMenu}
             onClick={() => {
-              // fixBody(!showMenu)
               setShowMenu(!showMenu)
             }}
           />
@@ -47,8 +35,7 @@ const MobileHeader = ({ title, theme, onToggle }) => {
 
         <div css={styles.brand}>
           <Link to="/" onClick={close}>
-            <LogoText title={title} />
-            {/* josephk.io */}
+            JosephK.io
           </Link>
         </div>
       </motion.div>
@@ -147,6 +134,8 @@ const styles = {
     width: 90px;
     height: 31px;
     transition: all 0.1s ease-out;
+    font-variant: small-caps;
+    letter-spacing: 0.02rem;
 
     .scrolled-a-bit & {
       opacity: 0;
