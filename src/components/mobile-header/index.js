@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
@@ -9,13 +9,26 @@ import { DarkModeButton } from '../dark-mode-button'
 
 const MobileHeader = ({ title, theme, onToggle }) => {
   const [showMenu, setShowMenu] = useState(false)
+  const containerRef = useRef()
+
+  useEffect(() => {
+    const handleClick = e => {
+      if (!isChild(e.target, containerRef.current)) {
+        setShowMenu(false)
+      }
+    }
+
+    document.addEventListener('click', handleClick)
+
+    return () => document.removeEventListener('click', handleClick)
+  })
 
   const close = () => {
     setShowMenu(false)
   }
 
   return (
-    <div css={styles.container}>
+    <div css={styles.container} ref={containerRef}>
       <motion.div css={styles.fixed}>
         <div css={styles.logo}>
           <Link to="/" onClick={close}>
@@ -165,6 +178,13 @@ const styles = {
     background: none;
     cursor: pointer;
   `,
+}
+
+// Is target a child of node?
+function isChild(target, node) {
+  if (target === node) return true
+  if (!target.parentNode) return false
+  return isChild(target.parentNode, node)
 }
 
 export { MobileHeader }

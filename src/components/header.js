@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { css } from '@emotion/core'
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import { MobileHeader } from './mobile-header'
 
-const Header = ({ siteTitle }) => {
+const Header = memo(({ siteTitle }) => {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
@@ -20,7 +20,7 @@ const Header = ({ siteTitle }) => {
       )}
     </ThemeToggler>
   )
-}
+})
 
 const styles = {
   container: css`

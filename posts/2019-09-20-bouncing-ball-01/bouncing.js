@@ -3,8 +3,8 @@ import React, { useEffect, useRef, forwardRef } from 'react'
 const WIDTH = 300
 const HEIGHT = 450
 const BALL_RADIUS = 16
-let vx = 100
-let vy = 350
+let vx = 350
+let vy = 300
 
 export default () => {
   const ballRef = useRef()

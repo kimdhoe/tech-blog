@@ -3,6 +3,7 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
+const SIDEBAR_WIDTH = 250
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },
   { to: '/devlog/', label: 'Devlog' },
@@ -19,23 +20,23 @@ const variants = {
     x: 0,
     transition: {
       type: 'tween',
-      duration: 0.15,
+      duration: 0.25,
     },
   },
   closed: {
-    opacity: 0,
-    x: '60vw',
+    opacity: 1,
+    x: SIDEBAR_WIDTH + 'px',
     transition: {
       type: 'tween',
-      duration: 0.15,
+      duration: 0.25,
     },
   },
   exit: {
-    opacity: 0,
-    x: '60vw',
+    opacity: 1,
+    x: SIDEBAR_WIDTH + 'px',
     transition: {
       type: 'tween',
-      duration: 0.15,
+      duration: 0.25,
     },
   },
 }
@@ -58,7 +59,7 @@ const variants3 = {
     }
   },
   closed: {
-    y: 50,
+    y: 30,
     opacity: 0,
     transition: {
       y: { stiffness: 1000 }
@@ -96,11 +97,15 @@ const MenuItem = ({ to, label, close }) => {
       css={styles.listItem}
       key={to + label}
       variants={variants3}
-      whileHover={{ scale: 1.1 }}
+      // whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       exit={{ opacity: 0 }}
     >
-      <Link css={styles.listItemLink} to={to} onClick={close}>
+      <Link
+        css={styles.listItemLink}
+        to={to}
+        onClick={() => setTimeout(close)}
+      >
         {label}
       </Link>
     </motion.div>
@@ -114,26 +119,23 @@ const styles = {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    border-left: 1px solid var(--hr);
+    width: 100%;
+    max-width: ${SIDEBAR_WIDTH}px;
     overflow: scroll;
     transition: background-color 0.1s ease-out;
     background-color: var(--bg);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
   `,
   list: css`
     margin-top: 5rem;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
   `,
   listItem: css`
   `,
   listItemLink: css`
     display: block;
-    padding: 0.7rem;
-    font-size: 1.7rem;
+    padding: 0.7rem 1.4rem;
   `,
 }
 
