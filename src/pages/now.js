@@ -44,8 +44,8 @@ const Body = () => (
     </p>
 
     <p>
-      I'm learning how to use Reaniamted to implement sleek gesture
-      interactions in my new React Native project.
+      I'm learning how to use Reaniamted to implement sleek gesture interactions
+      in my new React Native project.
     </p>
 
     <p>

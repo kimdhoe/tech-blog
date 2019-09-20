@@ -55,9 +55,9 @@ export default () => (
         currently residing in Songpa District with my lovely wife <i>Summer</i>.
       </p>
       <p>
-        When I'm away from the computer, I like to spend time
-        with my wife or read a book in a quiet place. I love{' '}
-        <strong>coffee</strong> and seldom drink liquor.
+        When I'm away from the computer, I like to spend time with my wife or
+        read a book in a quiet place. I love <strong>coffee</strong> and seldom
+        drink liquor.
       </p>
     </section>
   </Page>

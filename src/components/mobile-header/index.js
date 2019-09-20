@@ -122,6 +122,7 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background 0.1s ease-out;
     background: var(--bg);
 
   `,

@@ -134,7 +134,8 @@ const styles = {
     left: 0;
     border-bottom: 1px solid var(--hr);
     height: 45px;
-    transition: all 0.25s ease-out;
+    transition: all 0.1s ease-out;
+    background: var(--bg);
 
     .scrolled-a-bit & {
       transform: translate3d(0, -45px, 0);
@@ -151,7 +152,6 @@ const styles = {
     flex-direction: row;
     align-items: center;
     height: 100%;
-    background: var(--bg);
   `,
   navItem: css`
     flex: 1;
