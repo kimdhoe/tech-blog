@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const SIDEBAR_WIDTH = 250
