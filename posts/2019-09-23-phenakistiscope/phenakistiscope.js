@@ -131,7 +131,7 @@ const styles = {
     border-radius: 50%;
     width: 15px;
     height: 15px;
-    background: white;
+    background: var(--bg);
     border: 1px solid #ccc;
     box-shadow: inset 8px 8px 7px -10px rgba(0,0,0,0.43);
   `,
