@@ -119,10 +119,6 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @media only screen and (min-width: 1761px) {
-      display: none;
-    }
   `,
   fixed: css`
     position: fixed;
