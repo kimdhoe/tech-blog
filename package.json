@@ -36,6 +36,7 @@
     "gatsby-source-filesystem": "^2.1.7",
     "gatsby-transformer-sharp": "^2.2.5",
     "gatsby-transformer-yaml": "^2.2.4",
+    "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
