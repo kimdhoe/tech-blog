@@ -28,7 +28,6 @@ const Example = ({ filename }) => {
       <div css={styles.imgContainer}>
         <img ref={imgRef} css={styles.img} src={require(`./${filename}`)} alt="phenakistiscope" />
       </div>
-      <div css={styles.strobe} />
     </div>
   )
 }
@@ -45,7 +44,6 @@ const styles = {
   imgContainer: css`
     padding: 2%;
     border-radius: 50%;
-    background-color: white;
     overflow: hidden;
   `,
   img: css`
