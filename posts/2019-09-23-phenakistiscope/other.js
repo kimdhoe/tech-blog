@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { css, keyframes } from '@emotion/core'
+import React, { useEffect, useRef } from 'react'
+import { css } from '@emotion/core'
 
 const Example = ({ filename }) => {
   let intervalId
