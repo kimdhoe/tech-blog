@@ -48,6 +48,7 @@ const PostTemplate = ({
         dateFormatted={frontmatter.dateFormatted}
         image={frontmatter.image}
         imageAlt={frontmatter.imageAlt}
+        hideHeroImage={frontmatter.hideHeroImage}
         body={body}
       />
       <Newsletter />
@@ -177,6 +178,7 @@ const Article = ({
   epigraphAuthor,
   image,
   imageAlt,
+  hideHeroImage,
   body,
   date,
   dateFormatted,
@@ -185,7 +187,7 @@ const Article = ({
     <div css={styles.hero}>
       <Header category={category} headline={headline} deck={deck} />
 
-      {image && (
+      {image && !hideHeroImage && (
         <div css={styles.heroImageWrapper}>
           <Image
             css={styles.heroImage}
@@ -643,6 +645,7 @@ export const query = graphql`
             }
           }
           imageAlt
+          hideHeroImage
         }
         body
       }

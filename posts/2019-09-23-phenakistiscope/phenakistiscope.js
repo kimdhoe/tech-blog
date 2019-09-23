@@ -4,7 +4,7 @@ import debounce from 'lodash.debounce'
 
 // MESSAGE :: string
 // Message to display.
-const MESSAGE = "everything in its place oliver"
+const MESSAGE = 'come away death twelfth night'
 // N :: number
 // Number of text lines in disc.
 const N = 80
@@ -33,13 +33,17 @@ export default class Phenakistiscope extends React.Component {
     setTimeout(() => this.setState({ go: true }), 1500)
   }, 300)
 
+  handleClick = () => {
+    this.setState(({ go }) => ({ go: !go }))
+  }
+
   draw = () => {
     const canvas = this.canvasRef.current
     const context = canvas.getContext('2d')
     const R = canvas.width / 2
     const LETTER_WIDTH = R / 40
     const FONT_SIZE = R / 23
-    const BIG_FONT_SIZE = FONT_SIZE * 5
+    const BIG_FONT_SIZE = FONT_SIZE * 7
 
     context.save()
     context.clearRect(0, 0, canvas.width, canvas.height)
@@ -84,7 +88,10 @@ export default class Phenakistiscope extends React.Component {
           ref={this.boxRef}
           css={styles.box}
         >
-          <div css={[styles.boxWrapper, { opacity: width ? 1 : 0 }]}>
+          <div
+            css={[styles.boxWrapper, { opacity: width ? 1 : 0 }]}
+            onClick={this.handleClick}
+          >
             <canvas
               ref={this.canvasRef}
               css={[styles.canvas, go && styles.play]}
@@ -146,6 +153,7 @@ const styles = {
     border-radius: 50%;
     box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
     transition: opacity 0.5s ease-out;
+    cursor: pointer;
   `,
 }
 

@@ -1,18 +1,53 @@
 ---
-title: Phenakistiscope
-slug: phenakistiscope-00
+title: 페나키스티스코프(Phenakistiscope)
+slug: phenakistiscope-magical-animation
 category: Craft
 author: Joseph
 date: 2019-09-23
 updateDate: 2019-09-23
-deck: ""
+deck: "HTML Canvas로 만든 페나키스티스코프(Phenakistiscope). 마술 같은 애니메이션."
 abstract: ""
 epigraph: ""
 epigraphAuthor: ""
+image: ./hero.png
+imageAlt: "HTML Canvas로 만든 페나키스티스코프(Phenakistiscope). 마술 같은 애니메이션."
+hideHeroImage: true
 ---
 
-Phenakistiscope
-
 import Phenakistiscope from './phenakistiscope'
+import Example1 from './other'
 
-<Phenakistiscope />
+<div style={{ padding: '0 0 2rem 0' }}>
+  <Phenakistiscope />
+</div>
+
+<div style={{ textAlign: 'center' }}>
+  <iframe
+    src="https://archive.org/embed/78_1-come-away-death-twelfth-night-2-take-oh-take-those-lips-away-measure-fo_gbia0058126a"
+    frameborder="0"
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
+    style={{
+      overflow: 'hidden',
+      margin: '2rem auto 0',
+      height: '50px',
+    }}
+  />
+</div>
+
+웹서핑 중에 우연히 마술 같은 동영상 하나를 보았다. 앞면이 온통 글자로 뒤덮힌 CD를 재생하는 영상이었는데, CD가 속도를 붙여 빙글빙글 돌아가자 글자들이 마치 살아난 것처럼 움직이기 시작했다. 눈으로 보면서도 머리로는 무슨 일이 벌어지고 있는 건지 이해할 수가 없어서 화면만 뚫어져라 쳐다보았다. 한참 후에야 오래된 애니메이션 기법인 페나키스티스코프라(Phenakistiscope)라는 댓글의 설명 덕분에 겨우 헤어나올 수 있었다.
+
+페나키스티스코프는 1832년 벨기에의 물리학자 Joseph Plateau와 그의 아들에 의해 소개되었다. 방사형으로 놓인 이미지들과 가장자리에 작은 조리개 구멍들이 일정 간격으로 배치된 원형판을 돌려서 움직임이 일어나는 착시를 일으키는 것이다. 아무리 봐도 단순한 작동 방식에 비해 그 효과가 대단하다. 이에 비해 고도로 발달한 현대 만화나 영화를 보면서도 신기하다는 생각을 한 적이 없었다. 그런데 더 원시적인 형태가 오히려 마술적으로 느껴지는 건 왜인지 모르겠다.
+
+위는 그 영상을 보고 HTML Canvas로 페나키스티스코프, 혹은 그와 유사한 것을 만든 것이다. 원판에는 「come away death twelfth night」라고 씌여있다. 움직이는 효과를 위해서 조명을 빠르게 깜빡여야 된다는 얘기가 있고, [위키피디아](https://en.wikipedia.org/wiki/Phenakistiscope)의 설명에는 조리개 구멍에 대한 언급이 있다. 햐지만 이미 빠르게 깜빡이고 있는 모니터 스크린의 특성 때문인지 다른 장치 없이 원판을 돌리는 것만으로도 충분한 착시가 만들어졌다. 소프트웨어로 구현된 페나키스티스코프에는 왜곡이나 깜빡거림이 없고, 실제 장치의 결과물과는 다르다고 한다.
+
+아래 원판들도 클릭하면 움직인다. [미국 의회 도서관(Library of Congress)](https://www.loc.gov/search/?fa=subject%3Aoptical+illusions&dates=1800-1899&st=list)에서 찾은 오래된 원판 그림들인데 위의 것처럼 실제로 회전시키진 않고, 각도만 변경해서 GIF 같은 애니메이션 효과가 나도록 했다.
+
+<div style={{ paddingnTop: '3rem', display: 'flex' }}>
+  <Example1 filename="1.jpg" />
+  <Example1 filename="2.jpg" />
+</div>
+<div style={{ display: 'flex' }}>
+  <Example1 filename="3.jpg" />
+  <Example1 filename="4.jpg" />
+</div>
