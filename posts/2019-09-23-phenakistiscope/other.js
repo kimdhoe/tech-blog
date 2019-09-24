@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { css } from '@emotion/core'
 
-const Example = ({ filename }) => {
+const Example = ({ filename, nFrames }) => {
   let intervalId
   let go = false
   const imgRef = useRef()
@@ -11,7 +11,7 @@ const Example = ({ filename }) => {
       go = true
       intervalId = setInterval(() => {
         imgRef.current.style.transform = `rotate(${angleRef.current}deg)`
-        angleRef.current = (angleRef.current % 360) - 30
+        angleRef.current = (angleRef.current % 360) - (360 / nFrames)
       }, 1000 / 12)
     } else {
       go = false
