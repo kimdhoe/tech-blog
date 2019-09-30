@@ -1,0 +1,8 @@
+---
+title: Long-press a row item inside a ScrollView to drag around
+slug: 2019-09-29-long-press-item-scrollview-drag
+date: 2019-09-29T23:01+09:00
+author: Joseph
+---
+
+Spent all day figuring out how to drag an item inside a `ScrollView` only if it was long-pressed. After a lot of experiments, I found a working implementation that uses `simultaenousHandlers`, `NativeViewGestureHandler` and `LongPressGestureHandler`.
