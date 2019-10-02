@@ -1,0 +1,22 @@
+---
+title: "Signs of Progress: Sep 23 – 29, 2019"
+slug: signs-of-progress-2019-09-29
+category: Report
+author: Joseph
+date: 2019-09-29
+updateDate: 2019-09-29
+deck: React Native, Etc.
+abstract: ""
+epigraph: ""
+epigraphAuthor: ""
+---
+
+## React Native
+
+- 클리어(Clear) 앱의 손가락으로 벌려서 새 아이템이 나타나도록 하는 핀치(pinch) 제스쳐 구현해보았다.
+- `Animated.TextInput`가 Animated.Value 텍스트를 `value` propd으로 입력받아서 표시할 수 있다는 것 처음 알았다. `Reanimated.TextInput`은 `value` 대신 `text` prop으로 `Reanimated.Value`를 전달할 수 있다.
+- `ScrollView` 안에 있는 아이템들을 드래그해서 움직일 방법을 고민했다. 기본 상태에서는 스크롤이 일어나도록 하고 롱 프레스로 활성화된 아이템만 드래그되도록 했다. `ScrollView` 이벤트와 `PanGestureHandler` 이벤트가 동시에 발생하도록 하기 위해서 `simultaneousHandler`, `NativeViewGestureHandler`, `LongPressGestureHandler`를 사용했다. `ScrollView`를 `NativeViewGestureHandler`로 감싼 후 `simultaneousHandler` prop을 전달했다. 처음에는 이미 그 용도로 감싸져있는 react-native-gesture-handler의 `ScrollView`를 사용했는데 왜인지 원하는 대로 작동하지 않았다.
+
+## Etc.
+
+- [페나키스티스코프(Phenakistiscope)](/phenakistiscope-magical-animation/)를 HTML Canvas로 만들었다.
