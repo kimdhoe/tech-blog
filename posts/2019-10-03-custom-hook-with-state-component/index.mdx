@@ -1,0 +1,55 @@
+---
+title: "상태와 컴포넌트를 만드는 커스텀 리액트 훅(React Hook) 사례"
+slug: custom-hook-with-state-component
+category: Thoughts
+author: Joseph
+date: 2019-10-03T22:05:00+09:00
+updateDate: 2019-10-03T22:05:00+09:00
+deck: 훅의 장점을 확인해가는 중.
+abstract: ""
+epigraph: ""
+epigraphAuthor: ""
+image: ./image.jpg
+imageAlt: 망치를 내려치는 모습 사진
+---
+
+나는 React의 Hooks가 도입된 걸 크게 반긴 편은 아니다. 그렇다고 거부감이 들었다거나 한 건 아니지만 함수 컴포넌트가 유용함을 얻은 대신에 순수성을 잃은 것에 대한 아쉬운 마음이 있었다. 어쨌든 요즘 훅을 하나씩 보면서 장점을 발견해가고 있다.
+
+상태를 관리하는 커스텀 훅의 유용한 사레 하나. 컴포넌트 내부에서 상태를 관리하도록 하면 좋을 것 같지만 부모 컴포넌트에서도 그 상태값에 접근해야 하는 경우가 종종 있었다. 그럴 때는 어쩔 수 없이 상태는 부모가 관리하도록 하고 자식은 데이터를 내려받기만 하도록 하곤 했다. 코드가 장황해지는 경향이 있지만 단순하고 명시적인 방식으로 데이터를 추적할 수 있는 게 리액트의 가장 큰 강점이라고 생각했기 때문에 별 불만은 없었다.
+
+특히 한 페이지에서 여러 개의 폼을 다룰 때 많이 느꼈던 불편함이었는데, 커스텀 훅을 통해 싱태 관리는 자식 컴포넌트가 담당하면서 동시에  부모도 그 상태값에 접근하도록 할 수 있다. 입력폼을 예로 들면, 사용자가 입력한 데이터 값과 컴포넌트를 제공하는 커스텀 훅을 만들어 부모 컴포넌트에서 이 둘을 사용할 수 있다.
+
+```jsx
+const useInput = () => {
+  const [value, setValue] = useState('')
+  const Input = () => (
+    <input
+      type="text"
+      value={value}
+      onChange={e => setValue(e.target.value}
+    />
+  )
+
+  return [value, Input]
+}
+
+const App = () => {
+  const [title, TitleInput] = useInput()
+  const [name, NameInput] = useName()
+
+  return (
+    <div>
+      <TitleInput />
+      <NameInput />
+      <button
+        onClick={() => {
+          console.log(title)
+          console.log(name)
+        }
+      />
+    </div>
+  )
+}
+```
+
+훅이 가져오는 나름의 복잡성이 있지만 이 경우 충분히 직관적인 방식으로 부담을 줄여준다고 느꼈다. 확실히 훅은 개발자에게 손쉬운 방법을 제공해주는 면이 있다.
