@@ -639,7 +639,7 @@ export const query = graphql`
           updateDate
           image {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 770) {
+              fluid(quality: 80, maxWidth: 1540) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
