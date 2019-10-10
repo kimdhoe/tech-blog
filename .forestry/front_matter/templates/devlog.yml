@@ -25,3 +25,5 @@ fields:
   config:
     required: true
   default: Joseph
+pages:
+- devlogs/2019-10-10/forestry.md
