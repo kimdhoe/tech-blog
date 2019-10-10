@@ -6,7 +6,7 @@ const useDevLogs = () => {
       allFile(
         filter: {
           sourceInstanceName: { eq: "devlogs" }
-          extension: { eq: "mdx" }
+          extension: { in: ["md", "mdx"] }
         }
         sort: { order: DESC, fields: childMdx___frontmatter___date }
       ) {
