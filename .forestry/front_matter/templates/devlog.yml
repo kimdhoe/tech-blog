@@ -16,11 +16,11 @@ fields:
   name: date
   label: Date
   config:
-    date_format: YYYY-MM-DD
+    date_format: ''
     required: true
-    time_format: hh:mmA
+    time_format: ''
     display_utc: false
-    export_format: ''
+    export_format: YYYY-MM-DDThh:mmA
   default: now
 - type: text
   name: author
