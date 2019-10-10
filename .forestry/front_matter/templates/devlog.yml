@@ -4,13 +4,24 @@ hide_body: false
 fields:
 - type: text
   name: title
-  label: title
-- type: datetime
-  name: slug
-  label: slug
+  label: Title
+  config:
+    required: true
+- name: slug
+  type: text
+  config:
+    required: true
+  label: Slug
 - type: datetime
   name: date
-  label: date
+  label: Date
+  config:
+    date_format: YYYY-MM-DD
+    required: true
+  default: now
 - type: text
   name: author
-  label: author
+  label: Author
+  config:
+    required: true
+  default: Joseph
