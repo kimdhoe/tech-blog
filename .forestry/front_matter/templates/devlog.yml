@@ -24,6 +24,7 @@ fields:
     required: true
   default: Joseph
 pages:
+- devlogs/xxx.mdx
 - devlogs/zzzzz.mdx
 - devlogs/2019-10-13/hmmm.mdx
 - devlogs/trying-forestry-out.mdx
