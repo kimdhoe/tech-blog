@@ -18,6 +18,9 @@ fields:
   config:
     date_format: YYYY-MM-DD
     required: true
+    time_format: hh:mmA
+    display_utc: false
+    export_format: YYYY-MM-DDThh:mmA+09:00
   default: now
 - type: text
   name: author
