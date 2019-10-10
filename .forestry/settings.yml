@@ -9,6 +9,9 @@ sections:
   label: devlog
   create: all
   match: "**/*"
+  new_doc_ext: ".mdx"
+  templates:
+  - devlog
 - type: document
   path: testing
   label: Testing
