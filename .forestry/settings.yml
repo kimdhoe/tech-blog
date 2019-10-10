@@ -4,10 +4,14 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: directory
+  path: devlogs
+  label: devlog
+  create: all
+  match: "**/*"
 - type: document
   path: testing
   label: Testing
-  match: "**/*"
   read_only: true
 upload_dir: uploads
 public_path: "/uploads"
