@@ -20,7 +20,7 @@ fields:
     required: true
     time_format: ''
     display_utc: false
-    export_format: YYYY-MM-DDThh:mm+09:00
+    export_format: YYYY-MM-DDThh:mm
   default: now
 - type: text
   name: author
