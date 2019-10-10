@@ -2,16 +2,16 @@
 label: Devlog
 hide_body: false
 fields:
-- type: text
-  name: title
-  label: Title
-  config:
-    required: true
 - name: slug
   type: text
   config:
     required: true
   label: Slug
+- type: text
+  name: title
+  label: Title
+  config:
+    required: true
 - type: datetime
   name: date
   label: Date
