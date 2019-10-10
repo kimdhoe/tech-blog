@@ -101,7 +101,7 @@ const styles = {
   `,
   entryBody: css`
     margin-top: 0;
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: 0.9792rem;
 
     p,
@@ -120,15 +120,21 @@ const styles = {
       text-decoration: none;
 
       &[href] {
-        background: linear-gradient(to right, #fd828377 0%, #fd828377);
-        background-repeat: no-repeat;
-        background-size: 100% 0.2rem;
-        background-position: 0 88%;
-        transition: background-size 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86)
-          0s;
+        padding-bottom: 0.07rem;
+        border-bottom: 1px solid var(--text-link);
+        background-position: 0 100%;
+        background-size: auto 3px;
+        background-repeat: repeat-x;
+        color: var(--text-link);
 
         &:hover {
-          background-size: 100% 88%;
+          border-color: transparent;
+          background-image: url('/images/underline.svg');
+        }
+
+        .dark &:hover {
+          border-color: transparent;
+          background-image: url('/images/underline-dark.svg');
         }
       }
     }
