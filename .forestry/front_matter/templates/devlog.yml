@@ -26,4 +26,5 @@ fields:
     required: true
   default: Joseph
 pages:
+- devlogs/test.mdx
 - devlogs/2019-10-10/forestry.md
