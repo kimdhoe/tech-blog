@@ -24,8 +24,8 @@ fields:
     required: true
   default: Joseph
 pages:
+- devlogs/2019-10-17/facebook-login.mdx
 - devlogs/2019-10-15/next-js-render-logged-in-state-on-server.mdx
 - devlogs/2019-10-16/facebook-login.mdx
 - devlogs/2019-10-18/google-sign-in.mdx
-- devlogs/2019-10-17/facebook-login.mdx
 - devlogs/2019-10-10/forestry-cms.mdx
