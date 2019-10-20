@@ -24,4 +24,5 @@ fields:
     required: true
   default: Joseph
 pages:
+- devlogs/2019-10-18/google-sign-in.mdx
 - devlogs/2019-10-10/forestry-cms.mdx
