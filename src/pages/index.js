@@ -18,7 +18,7 @@ import PostPreview, {
 const NAV_ITEMS = [
   { to: '/', label: 'Blog' },
   { to: '/devlog/', label: 'Devlog' },
-  { to: '/journal/', label: 'Journal' },
+  { to: '/crafts/', label: 'Crafts' },
   { to: '/now/', label: 'Now' },
   { to: '/about/', label: 'About' },
   { to: '/contact/', label: 'Contact' },
