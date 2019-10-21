@@ -59,6 +59,14 @@ export default () => {
           </li>
         </ul>
 
+        <h2>Illustration</h2>
+
+        <ul>
+          <li>
+            Illustrations by <a href="https://icons8.com/ouch">Ouch.pics</a>.
+          </li>
+        </ul>
+
         <h2>Icon</h2>
 
         <ul>
