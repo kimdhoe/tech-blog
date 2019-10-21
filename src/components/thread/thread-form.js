@@ -19,8 +19,7 @@ const CommentForm = ({ slug }) => {
   const [inputs, setInputs] = useState(INPUTS)
 
   const handleInputChange = e => {
-    setInputs({
-      ...inputs,
+    setInputs({ ...inputs,
       [e.target.name]: e.target.value,
     })
     setMessage('')

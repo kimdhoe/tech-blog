@@ -3,22 +3,38 @@ import { css } from '@emotion/core'
 import ReactMarkdown from 'react-markdown'
 // import Refractor from 'react-refractor'
 import { GitHub } from 'react-feather'
+import GatsbyImage from 'gatsby-image'
 
 import ThreadForm from './thread-form'
 
-const Thread = ({ slug, messages }) => (
+const Thread = ({ slug, messages, noCommentsImage }) => (
   <div css={styles.container}>
     <Heading />
-    <ThreadForm slug={slug} />
+    <ThreadForm slug={slug} noCommentsImage={noCommentsImage} />
     <ThreadMessages messages={messages} />
+    {messages.length === 0 && <Image image={noCommentsImage} />}
   </div>
 )
 
-const Heading = () => (
-  <h2 css={styles.threadHeading}>
-    Comments
-  </h2>
+const Image = ({ image }) => (
+  <div
+    css={css`
+      position: relative;
+    `}
+  >
+    <GatsbyImage css={styles.noCommentsImage} fluid={image} />
+    <div
+      css={css`
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      `}
+    />
+  </div>
 )
+
+const Heading = () => <h2 css={styles.threadHeading}>Comments</h2>
 
 const ThreadMessages = ({ messages }) => (
   <div css={styles.threadMessages}>
@@ -37,7 +53,15 @@ const ThreadMessages = ({ messages }) => (
   </div>
 )
 
-const ThreadMessage = ({ id, slug, name, email, message, date, dateFormatted }) => {
+const ThreadMessage = ({
+  id,
+  slug,
+  name,
+  email,
+  message,
+  date,
+  dateFormatted,
+}) => {
   return (
     <div css={styles.threadMessage}>
       <div css={styles.avatar}>
@@ -80,11 +104,14 @@ const styles = {
     padding: 0 1rem;
     max-width: 650px;
   `,
+  noCommentsImage: css`
+    margin: 0 auto;
+    max-width: 400px;
+  `,
   threadHeading: css`
     margin-bottom: 0;
   `,
-  threadMessages: css`
-  `,
+  threadMessages: css``,
   threadMessage: css`
     display: flex;
     align-items: flex-start;
@@ -104,7 +131,7 @@ const styles = {
     width: 100%;
   `,
   messageContent: css`
-    flex:1;
+    flex: 1;
     display: flex;
     flex-direction: column;
   `,
@@ -168,7 +195,11 @@ const styles = {
       border: none;
     }
 
-    h1, h2, h3, h4, h5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       margin: 1rem 0 1rem 0;
       line-height: 1.3;
     }
@@ -177,15 +208,25 @@ const styles = {
       font-size: 1.383rem;
     }
 
-    h2 { font-size: 1.296rem; }
+    h2 {
+      font-size: 1.296rem;
+    }
 
-    h3 { font-size: 1.215rem; }
+    h3 {
+      font-size: 1.215rem;
+    }
 
-    h4 { font-size: 1.138rem; }
+    h4 {
+      font-size: 1.138rem;
+    }
 
-    h5 { font-size: 1.067rem; }
+    h5 {
+      font-size: 1.067rem;
+    }
 
-    small { font-size: 0.937rem; }
+    small {
+      font-size: 0.937rem;
+    }
   `,
 }
 

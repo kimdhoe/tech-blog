@@ -7,6 +7,7 @@ import { css, keyframes } from '@emotion/core'
 import Image from 'gatsby-image'
 
 import useSiteMetadata from '../hooks/use-sitemetadata'
+import usePost from '../hooks/use-post'
 import Thread from '../components/thread'
 import { SEO } from '../components/seo'
 import Share from '../components/share'
@@ -20,6 +21,7 @@ const PostTemplate = ({
   },
 }) => {
   const { author, siteUrl } = useSiteMetadata()
+  const { noCommentsImage } = usePost()
   const imageSrc = frontmatter.image
     ? frontmatter.image.childImageSharp.fluid.srcWebp
     : ''
@@ -52,7 +54,11 @@ const PostTemplate = ({
         body={body}
       />
       <Newsletter />
-      <Thread slug={frontmatter.slug} messages={edges.map(edge => edge.node)} />
+      <Thread
+        noCommentsImage={noCommentsImage}
+        slug={frontmatter.slug}
+        messages={edges.map(edge => edge.node)}
+      />
     </div>
   )
 }
