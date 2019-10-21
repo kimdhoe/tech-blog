@@ -17,7 +17,7 @@ export default () => {
     >
       <section css={styles.date}>
         <p css={styles.date}>
-          Updated at <time dateTime="2019-08-22">August 12, 2019</time>.
+          Updated at <time dateTime="2019-08-22">October 21, 2019</time>.
         </p>
       </section>
 
