@@ -38,7 +38,6 @@ const useDevLogs = () => {
     }
   `)
 
-console.log(data.image)
   return {
     devLogs: data.allFile.edges.map(edge => ({
       id: edge.node.childMdx.id,
