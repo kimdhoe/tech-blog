@@ -66,7 +66,7 @@ const styles = {
     margin: 0 0 9rem 0;
   `,
   headerWrapper: css`
-    margin: 4rem auto 7rem;
+    margin: 4rem auto;
     padding: 0 1rem;
     max-width: 650px;
   `,
@@ -81,6 +81,8 @@ const styles = {
 
     @media only screen and (max-width: 600px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-column-gap: 1rem;
+      grid-row-gap: 1.5rem;
     }
   `,
   entryWrapper: css`
@@ -91,12 +93,13 @@ const styles = {
     left: 0;
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 2px;
     overflow: hidden;
   `,
   entryImageContainer: css`
     flex: 1;
-    border-radius: 5px;
+    border: 1px solid #222;
+    border-radius: 2px;
     transition: all 0.15s ease-out;
     filter: grayscale(90%);
 

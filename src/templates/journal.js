@@ -59,7 +59,7 @@ const JournalTemplate = ({
     <header css={styles.header}>
       <div css={styles.hero}>
         <figure css={styles.heroFigure}>
-          <Image fluid={fluid} loading="eager" alt={alt} />
+          <Image css={styles.image} fluid={fluid} loading="eager" alt={alt} />
           {caption && (
             <figcaption css={styles.heroCaption}>{caption}</figcaption>
           )}
@@ -101,6 +101,10 @@ const styles = {
   `,
   heroFigure: css`
     margin: 0;
+  `,
+  image: css`
+    border: 1px solid #222;
+    border-radius: 2px;
   `,
   heroCaption: css`
     margin-top: 0.7rem;
