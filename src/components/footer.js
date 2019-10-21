@@ -6,6 +6,9 @@ import styled from '@emotion/styled'
 const Footer = ({ author }) => {
   return (
     <footer css={styles.container}>
+      <p css={styles.illustrations}>
+        Illustrations by{' '}<a href="https://icons8.com">Ouch.pics</a>
+      </p>
       <div css={styles.wrapper}>
         <TopButton
           css={styles.top}
@@ -23,9 +26,6 @@ const Footer = ({ author }) => {
           Colophon
         </Link>
       </div>
-      <p css={styles.illustrations}>
-        Illustrations by{' '}<a href="https://icons8.com">Ouch.pics</a>
-      </p>
     </footer>
   )
 }
@@ -88,7 +88,7 @@ const styles = {
   `,
   illustrations: css`
     margin: 0 auto;
-    padding: 0.7rem 1rem 0;
+    padding: 0 1rem 0.7rem;
     max-width: 768px;
     display: flex;
     align-items: center;
