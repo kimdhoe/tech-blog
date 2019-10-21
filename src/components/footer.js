@@ -23,6 +23,9 @@ const Footer = ({ author }) => {
           Colophon
         </Link>
       </div>
+      <p css={styles.illustrations}>
+        Illustrations by{' '}<a href="https://icons8.com">Ouch.pics</a>
+      </p>
     </footer>
   )
 }
@@ -82,6 +85,18 @@ const styles = {
   `,
   colophon: css`
     text-decoration: none;
+  `,
+  illustrations: css`
+    margin: 0 auto;
+    padding: 0.7rem 1rem 0;
+    max-width: 768px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    a {
+      padding-left: 0.3rem;
+    }
   `,
 }
 
