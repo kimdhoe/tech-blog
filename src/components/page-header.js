@@ -10,7 +10,6 @@ const PageHeader = ({ headline, lede }) => (
 
 const styles = {
   header: css`
-    margin-bottom: 4rem;
   `,
   heading: css`
     margin: 0 0 1.5rem 0;

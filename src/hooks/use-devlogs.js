@@ -25,17 +25,31 @@ const useDevLogs = () => {
           }
         }
       }
+      image: file(
+        sourceInstanceName: { eq: "images" }
+        relativePath: { eq: "eastwood-unsubscribed.png" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 1500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
-  return data.allFile.edges.map(edge => ({
-    id: edge.node.childMdx.id,
-    body: edge.node.childMdx.body,
-    title: edge.node.childMdx.frontmatter.title,
-    slug: edge.node.childMdx.frontmatter.slug,
-    date: edge.node.childMdx.frontmatter.date,
-    dateFormatted: edge.node.childMdx.frontmatter.dateFormatted,
-  }))
+console.log(data.image)
+  return {
+    devLogs: data.allFile.edges.map(edge => ({
+      id: edge.node.childMdx.id,
+      body: edge.node.childMdx.body,
+      title: edge.node.childMdx.frontmatter.title,
+      slug: edge.node.childMdx.frontmatter.slug,
+      date: edge.node.childMdx.frontmatter.date,
+      dateFormatted: edge.node.childMdx.frontmatter.dateFormatted,
+    })),
+    image: data.image ? data.image.childImageSharp.fluid : null,
+  }
 }
 
 export default useDevLogs

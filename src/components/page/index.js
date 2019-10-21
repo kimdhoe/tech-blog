@@ -1,20 +1,40 @@
 import React from 'react'
+import GatsbyImage from 'gatsby-image'
 import { css } from '@emotion/core'
 
 import { SEO } from '../seo'
 import { PageHeader } from '../page-header'
 
-const Page = ({ title, description, headline, lede, children }) => {
+const Page = ({ title, description, headline, lede, children, image }) => {
   return (
     <article css={styles.container}>
       <SEO title={title} description={description} />
       <PageHeader headline={headline} lede={lede} />
-      <div css={styles.body}>
-        {children}
-      </div>
+      {image && <Image imageFluid={image} alt={lede} />}
+      <div css={[styles.body, !!image && styles.noMarginTop]}>{children}</div>
     </article>
   )
 }
+
+const Image = ({ imageFluid, alt }) => (
+  <div
+    css={css`
+      position: relative;
+      height: ${100 / imageFluid.aspectRatio}%;
+    `}
+  >
+    <GatsbyImage fluid={imageFluid} alt={alt} />
+    <div
+      css={css`
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      `}
+    />
+  </div>
+)
 
 const styles = {
   container: css`
@@ -26,8 +46,12 @@ const styles = {
       margin-top: 3rem;
     }
   `,
+  noMarginTop: css`
+    margin-top: 0;
+  `,
   body: css`
     margin: 0;
+    margin-top: 4rem;
     line-height: 1.8;
 
     h3 {

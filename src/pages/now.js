@@ -1,19 +1,25 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
+import useNow from '../hooks/use-now'
 import { Page } from '../components/page'
 
-export default () => (
-  <Page
-    headline="Now"
-    lede="What I'm doing now"
-    title="What I'm doing now"
-    description="Joseph: What I'm doing now"
-  >
-    <AboutNow />
-    <Body />
-  </Page>
-)
+export default () => {
+  const { image } = useNow()
+
+  return (
+    <Page
+      headline="Now"
+      lede="What I'm doing now"
+      title="What I'm doing now"
+      description="Joseph: What I'm doing now"
+      image={image}
+    >
+      <AboutNow />
+      <Body />
+    </Page>
+  )
+}
 
 const AboutNow = () => (
   <section css={styles.now}>

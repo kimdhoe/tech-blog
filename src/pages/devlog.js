@@ -6,7 +6,7 @@ import useDevLogs from '../hooks/use-devlogs'
 import { Page } from '../components/page'
 
 export default () => {
-  const devLogs = useDevLogs()
+  const { devLogs, image } = useDevLogs()
 
   return (
     <Page
@@ -14,8 +14,8 @@ export default () => {
       lede="A developer keeps a log."
       title="Devlog"
       description="A developer keeps a log."
+      image={image}
     >
-      <Epigraph />
       <div css={styles.entries}>
         {devLogs.map(devLog => (
           <Entry
@@ -35,13 +35,6 @@ export default () => {
   )
 }
 
-const Epigraph = () => (
-  <figure css={styles.epigraph}>
-    <blockquote css={styles.epigraphQuote}>Wait. Compiling...</blockquote>
-    <figcaption css={styles.epigraphAuthor}>webpack</figcaption>
-  </figure>
-)
-
 const Entry = ({ slug, title, date, dateFormatted, body }) => (
   <div css={styles.entry}>
     <span css={styles.entryDate}>
@@ -55,32 +48,6 @@ const Entry = ({ slug, title, date, dateFormatted, body }) => (
 )
 
 const styles = {
-  epigraph: css`
-    margin: 5rem 0 5rem;
-    display: flex;
-    align-items: center;
-    color: var(--text-auxiliary);
-
-    blockquote {
-      margin: 0;
-      font-size: 0.8rem;
-    }
-  `,
-  epigraphQuote: css``,
-  epigraphAuthor: css`
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.02rem;
-    font-size: 0.8rem;
-
-    ::before {
-      content: '';
-      margin: 0 0.3rem 0 1rem;
-      width: 1.3rem;
-      height: 1px;
-      background: #495057;
-    }
-  `,
   entry: css`
     margin-bottom: 4rem;
   `,
