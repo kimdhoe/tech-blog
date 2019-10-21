@@ -5,7 +5,7 @@ const use404 = () => {
     query {
       image: file(
         sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "eastwood-page-not-found.png" }
+        relativePath: { eq: "eastwood-list-is-empty.png" }
       ) {
         childImageSharp {
           fluid(maxWidth: 1500) {
