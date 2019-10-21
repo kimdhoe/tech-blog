@@ -1,11 +1,33 @@
 import React from 'react'
+import GatsbyImage from 'gatsby-image'
 import { css } from '@emotion/core'
 
-const PageHeader = ({ headline, lede }) => (
+const PageHeader = ({ headline, lede, image }) => (
   <header css={styles.header}>
     <h1 css={styles.heading}>{headline}</h1>
     <h2 css={styles.subheading}>{lede}</h2>
+    {image && <Image imageFluid={image} alt={lede} />}
   </header>
+)
+
+const Image = ({ imageFluid, alt }) => (
+  <div
+    css={css`
+      position: relative;
+      height: ${100 / imageFluid.aspectRatio}%;
+    `}
+  >
+    <GatsbyImage fluid={imageFluid} alt={alt} />
+    <div
+      css={css`
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      `}
+    />
+  </div>
 )
 
 const styles = {

@@ -17,16 +17,29 @@ const useJournal = () => {
           }
         }
       }
+      image: file(
+        sourceInstanceName: { eq: "images" }
+        relativePath: { eq: "eastwood-downloading.png" }
+      ) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
-  return data.allContentfulJournal.nodes.map(node => ({
-    slug: node.slug,
-    headline: node.headline,
-    date: node.date,
-    dateFormatted: node.dateFormatted,
-    fluid: node.heroImage.fluid,
-  }))
+  return {
+    journals: data.allContentfulJournal.nodes.map(node => ({
+      slug: node.slug,
+      headline: node.headline,
+      date: node.date,
+      dateFormatted: node.dateFormatted,
+      fluid: node.heroImage.fluid,
+    })),
+    image: data.image ? data.image.childImageSharp.fluid : null,
+  }
 }
 
 export default useJournal

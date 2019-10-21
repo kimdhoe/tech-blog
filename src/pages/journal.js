@@ -9,12 +9,14 @@ import { SEO } from '../components/seo'
 import { PageHeader } from '../components/page-header'
 
 export default () => {
-  const journals = useJournal()
+  const { journals, image } = useJournal()
 
   return (
     <div css={styles.container}>
       <SEO title="Journal" description="Life of Joseph" />
-      <PageHeader headline="Journal" lede="2019" />
+      <div css={styles.headerWrapper}>
+        <PageHeader image={image} headline="Journal" lede="2019" />
+      </div>
       <div css={styles.entries}>
         {journals.map((journal, i) => (
           <Entry
@@ -35,7 +37,10 @@ const Entry = ({ slug, title, date, dateFormatted, fluid }) => (
   <EntryContainer to={'/journal/' + slug + '/'}>
     <div css={styles.entryWrapper}>
       <div css={styles.entryImageContainer}>
-        <BackgroundImage fluid={fluid} style={{ height: '100%' }} />
+        <BackgroundImage
+          fluid={fluid}
+          style={{ height: '100%' }}
+        />
       </div>
       <div css={styles.entryLayer}>
         <h4 css={styles.entryInfo}>
@@ -58,18 +63,24 @@ const EntryContainer = styled(Link)`
 
 const styles = {
   container: css`
-    margin: 4rem auto 9rem;
+    margin: 0 0 9rem 0;
+  `,
+  headerWrapper: css`
+    margin: 4rem auto 7rem;
     padding: 0 1rem;
     max-width: 650px;
   `,
   entries: css`
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 900px;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
+    grid-row-gap: 2rem;
 
     @media only screen and (max-width: 600px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   `,
   entryWrapper: css`
@@ -80,15 +91,20 @@ const styles = {
     left: 0;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
   `,
   entryImageContainer: css`
     flex: 1;
+    border-radius: 5px;
     transition: all 0.15s ease-out;
+    filter: grayscale(90%);
 
     ${EntryContainer}:hover & {
       box-shadow: 0 8px 19px -12px rgba(0, 0, 0, 0.56),
         0 2px 12.5px 0px rgba(0, 0, 0, 0.12), 0 4px 5px -5px rgba(0, 0, 0, 0.2);
       transform: translate3d(0, -0.1rem, 0);
+      filter: grayscale(0);
     }
   `,
   entryLayer: css`
