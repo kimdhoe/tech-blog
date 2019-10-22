@@ -5,6 +5,12 @@ admin_path: "/static/admin"
 webhook_url: 
 sections:
 - type: directory
+  path: now
+  label: now
+  create: documents
+  match: "**/*"
+  new_doc_ext: ''
+- type: directory
   path: devlogs
   label: devlog
   create: all
