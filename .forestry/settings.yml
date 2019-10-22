@@ -7,9 +7,9 @@ sections:
 - type: directory
   path: now
   label: now
-  create: none
+  create: documents
   match: "**/*"
-  new_doc_ext: md
+  new_doc_ext: mdx
 - type: directory
   path: devlogs
   label: devlog
