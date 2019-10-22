@@ -5,7 +5,7 @@ const useAbout = () => {
     query {
       image: file(
         sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "eastwood-no-connection.png" }
+        relativePath: { eq: "eastwood-logged-out.png" }
       ) {
         childImageSharp {
           fluid(maxWidth: 1500) {

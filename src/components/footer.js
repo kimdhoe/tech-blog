@@ -56,8 +56,9 @@ const bounce = keyframes`
 const styles = {
   container: css`
     padding: 1rem 0;
+    border-top: 1px solid var(--hr);
     letter-spacing: 0.02rem;
-    font-size: 0.79rem;
+    font-size: 0.9rem;
   `,
   wrapper: css`
     margin: 0 auto;
@@ -81,21 +82,30 @@ const styles = {
     }
   `,
   copyright: css`
-    font-size: 0.79rem;
+    font-size: 0.9rem;
   `,
   colophon: css`
+    padding: 1.1rem 0;
     text-decoration: none;
+
+    :hover {
+      color: var(--text0);
+    }
   `,
   illustrations: css`
     margin: 0 auto;
-    padding: 0 1rem 0.7rem;
+    padding: 0 1rem;
     max-width: 768px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
     a {
-      padding-left: 0.3rem;
+      padding: 1.1rem 0 1.1rem 0.3rem;
+
+      :hover {
+        color: var(--text0);
+      }
     }
   `,
 }
