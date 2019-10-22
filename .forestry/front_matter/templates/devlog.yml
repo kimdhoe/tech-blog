@@ -7,32 +7,27 @@ fields:
   config:
     required: true
   label: Slug
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
 - type: text
   name: title
   label: Title
   config:
     required: true
-- name: date
-  type: text
-  config:
-    required: true
-  label: Date
 - type: text
   name: author
   label: Author
   config:
     required: true
   default: Joseph
-- name: time
-  type: datetime
-  label: time
-  description: ''
-  config:
-    required: false
-    date_format: 
-    time_format: 
-    display_utc: false
-  default: now
 pages:
 - devlogs/2019-10-10/forestry-cms.mdx
 - devlogs/2019-10-13/multiple-layouts-for-next-js.mdx
