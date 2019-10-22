@@ -34,7 +34,7 @@ const Image = ({ image }) => (
   </div>
 )
 
-const Heading = () => <h2 css={styles.threadHeading}>Comments</h2>
+const Heading = () => <h2 css={styles.threadHeading}>Your thoughts? Please leave a reply.</h2>
 
 const ThreadMessages = ({ messages }) => (
   <div css={styles.threadMessages}>

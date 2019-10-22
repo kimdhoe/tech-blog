@@ -6,12 +6,19 @@ import validator from 'validator'
 
 import useSiteMetadata from '../../hooks/use-sitemetadata'
 
-const SUCCESS_MESSAGE = 'Your message has been submitted and is now pending moderation.'
+const SUCCESS_MESSAGE =
+  'Your message has been submitted and is now pending moderation.'
 const ERROR_MESSAGE = 'Sorry, something went wrong.'
 const INPUTS = { name: '', email: '', message: '' }
 
 const CommentForm = ({ slug }) => {
-  const { staticmanEndpoint, staticmanVersion, githubUsername, githubRepository, githubBranch } = useSiteMetadata()
+  const {
+    staticmanEndpoint,
+    staticmanVersion,
+    githubUsername,
+    githubRepository,
+    githubBranch,
+  } = useSiteMetadata()
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -19,9 +26,7 @@ const CommentForm = ({ slug }) => {
   const [inputs, setInputs] = useState(INPUTS)
 
   const handleInputChange = e => {
-    setInputs({ ...inputs,
-      [e.target.name]: e.target.value,
-    })
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
     setMessage('')
     setErrorMessage('')
     setValidationErrors({ ...validationErrors, [e.target.name]: '' })
@@ -76,7 +81,6 @@ const CommentForm = ({ slug }) => {
       <InputField
         label="Name"
         name="name"
-        placeholder="Jane"
         type="text"
         disabled={pending}
         error={validationErrors.name}
@@ -85,9 +89,8 @@ const CommentForm = ({ slug }) => {
       />
 
       <InputField
-        label="Email"
+        label="Email (not visible to anyone)"
         name="email"
-        placeholder="jane@example.com"
         type="email"
         disabled={pending}
         error={validationErrors.email}
@@ -96,7 +99,7 @@ const CommentForm = ({ slug }) => {
       />
 
       <TextAreaField
-        label="Your thoughts"
+        label="Comment"
         name="message"
         placeholder="..."
         disabled={pending}
@@ -108,45 +111,90 @@ const CommentForm = ({ slug }) => {
       <div css={styles.footer}>
         <div css={styles.message}>
           {(errorMessage || message) && (
-            <p css={[styles.messageText, !!errorMessage && styles.errorMessageText]}>
+            <p
+              css={[
+                styles.messageText,
+                !!errorMessage && styles.errorMessageText,
+              ]}
+            >
               {errorMessage || message}
             </p>
           )}
         </div>
 
-        <Button type="button" onClick={handleSubmit}>
-          <span css={[styles.buttonText, pending && styles.buttonTextPending]}>
-            Submit
-          </span>
+        <Button
+          css={styles.button}
+          type="button"
+          onClick={handleSubmit}
+          disabled={pending}
+        >
+          Submit
         </Button>
       </div>
     </form>
   )
 }
 
-const InputField = ({ label, name, type, placeholder, disabled, error, value, onChange }) => {
+const InputField = ({
+  label,
+  name,
+  type,
+  placeholder,
+  disabled,
+  error,
+  value,
+  onChange,
+}) => {
   return (
     <div css={styles.field}>
       <p css={styles.label}>
-        <label css={styles.labelText} htmlFor={'id' + label}>{label}</label>
+        <label css={styles.labelText} htmlFor={'id' + label}>
+          {label}
+        </label>
       </p>
       <p css={styles.inputWrapper}>
-        <input disabled={disabled} value={value} onChange={onChange} css={[styles.input, error && styles.inputError]} id={'id' + label} name={name} type={type} placeholder={placeholder} />
+        <input
+          disabled={disabled}
+          value={value}
+          onChange={onChange}
+          css={[styles.input, error && styles.inputError]}
+          id={'id' + label}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+        />
       </p>
-      <p css={styles.validationError}>
-        {error}
-      </p>
+      <p css={styles.validationError}>{error}</p>
     </div>
   )
 }
 
-const TextAreaField = ({ label, name, placeholder, disabled, error, value, onChange }) => (
+const TextAreaField = ({
+  label,
+  name,
+  placeholder,
+  disabled,
+  error,
+  value,
+  onChange,
+}) => (
   <div css={styles.field}>
     <p css={[styles.label, styles.labelWithError]}>
-      <label css={styles.labelText} htmlFor={'id' + label}>{label}</label>
+      <label css={styles.labelText} htmlFor={'id' + label}>
+        {label}
+      </label>
     </p>
     <p css={styles.inputWrapper}>
-      <textarea disabled={disabled} value={value} onChange={onChange} css={[styles.input, styles.textarea, error && styles.inputError]} id={'id' + label} name={name} placeholder={placeholder} rows="5" />
+      <textarea
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+        css={[styles.input, styles.textarea, error && styles.inputError]}
+        id={'id' + label}
+        name={name}
+        placeholder={placeholder}
+        rows="5"
+      />
     </p>
   </div>
 )
@@ -238,7 +286,6 @@ const styles = {
   footer: css`
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     @media only screen and (max-width: 480px) {
       flex-direction: column;
@@ -262,27 +309,26 @@ const styles = {
   errorMessageText: css`
     color: #ff8787;
   `,
-  buttonText: css`
-    display: inline-block;
-    padding: 0.3rem 0.1rem;
-    border-bottom: 1px solid #728CA3;
-    color: inherit;
-    transition: border-color 0.1s ease-out;
+  button: css`
+    margin-top: 1rem;
+    border: 1px solid var(--text);
+    border-radius: 5px;
+    padding: 0.7rem 2.1rem;
+    background: none;
+    font-size: 1rem;
+    background-color: var(--text);
+    color: var(--bg);
+    cursor: pointer;
+    transition: all 0.15s ease-out;
 
-    ${Button}:hover & {
-      border-color: #555;
+    :disabled {
+      background-color: var(--bg);
+      color: var(--text);
     }
 
-    ${Button}:disabled & {
-      border-color: #ddd;
-    }
-  `,
-  buttonTextPending: css`
-    border-color: #adb5bd;
-    color: #adb5bd;
-
-    ${Button}:hover & {
-      border-color: #adb5bd;
+    :hover {
+      background-color: var(--bg);
+      color: var(--text);
     }
   `,
 }

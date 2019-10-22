@@ -587,8 +587,7 @@ const styles = {
     margin: 0 auto;
     padding: 2rem 1rem;
     max-width: 620px;
-    border: 1px solid #333;
-    border-radius: 3px;
+    border-radius: 5px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -596,6 +595,7 @@ const styles = {
     justify-content: center;
     text-align: center;
     transition: all 150ms ease-out;
+    box-shadow: var(--shadow-large);
   `,
   newsletterSuccess: css`
     border: none;
@@ -613,29 +613,34 @@ const styles = {
   `,
   newsletterInput: css`
     outline: none;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     padding: 0.9rem;
-    border: none;
-    border-bottom: 1px solid #333;
-    border-radius: 0;
+    border: 1px solid var(--hr);
+    border-radius: 5px;
     -webkit-appearance: none;
     width: 100%;
     max-width: 330px;
     text-align: center;
     font-size: 1.2rem;
     background-color: inherit;
+    transition: all 0.15s ease-out;
+    color: var(--text);
+
+    :focus {
+      background-color: var(--well);
+    }
 
     ::placeholder {
-      color: #728ca360;
+      color: var(--text-placeholder);
     }
   `,
   newsletterButton: css`
     outline: none;
     border: 1px solid var(--text);
-    border-radius: 3px;
-    padding: 0.5rem 0.7rem;
+    border-radius: 5px;
+    padding: 0.7rem 1.4rem;
     background: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     background-color: var(--text);
     color: var(--bg);
     cursor: pointer;

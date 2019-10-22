@@ -99,6 +99,9 @@ const styles = {
       --text-auxiliary: #535960;
       --text-placeholder: #868e96;
       --hr: hsla(0, 0%, 0%, 0.15);
+      --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+      --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+      --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
 
       font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
         'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
@@ -123,6 +126,9 @@ const styles = {
       --text-auxiliary: #848c94;
       --text-placeholder: #868e9688;
       --hr: #3a3649;
+      --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.35);
+      --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.35);
+      --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.35);
     }
 
     a {
