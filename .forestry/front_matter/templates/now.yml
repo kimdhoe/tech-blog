@@ -13,4 +13,4 @@ fields:
     display_utc: false
   default: now
 pages:
-- now/now.md
+- now/now.mdx
