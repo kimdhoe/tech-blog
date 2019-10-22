@@ -87,11 +87,13 @@ const styles = {
 
     body {
       --brand: #5b748b;
+      --bg0: white;
       --bg: #f4f7fb;
       --bg1: #dee2e6;
       --bg2: #b6bfc8;
       --well: #f8f9fa;
       --card: #ecf1f8;
+      --text0: black;
       --text: #2b2836;
       --text-link: #7f5555;
       --text-auxiliary: #535960;
@@ -109,11 +111,13 @@ const styles = {
 
     body.dark {
       --brand: #93a7b9;
+      --bg0: black;
       --bg: #2b2836;
       --bg1: #3a3649;
       --bg2: #514c66;
       --well: #23212c;
       --card: #3a3649;
+      --text0: white;
       --text: #b6bfc8;
       --text-link: #b79494;
       --text-auxiliary: #848c94;

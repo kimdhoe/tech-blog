@@ -532,6 +532,33 @@ const styles = {
     small {
       font-size: 0.937rem;
     }
+
+    .gatsby-highlight {
+      margin-bottom: 1.602rem;
+    }
+
+    [data-language] {
+      ::before {
+        content: attr(data-language);
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0.8rem;
+        margin-bottom: -2rem;
+        letter-spacing: 0.05rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--text-placeholder);
+      }
+    }
+
+    .gatsby-code-title {
+      margin-left: 0.2rem;
+      margin-bottom: 0.5rem;
+      text-align: left;
+      font-size: 0.8rem;
+      font-family: Fira Code;
+      color: var(--text-auxiliary);
+    }
   `,
   articleWrapper: css`
     margin-top: 7rem;
@@ -560,7 +587,7 @@ const styles = {
     margin: 0 auto;
     padding: 2rem 1rem;
     max-width: 620px;
-    /* height: 226px; */
+    border: 1px solid #333;
     border-radius: 3px;
     flex: 1;
     display: flex;
@@ -569,7 +596,6 @@ const styles = {
     justify-content: center;
     text-align: center;
     transition: all 150ms ease-out;
-    background-color: var(--card);
   `,
   newsletterSuccess: css`
     border: none;
@@ -579,25 +605,25 @@ const styles = {
     letter-spacing: 0.03rem;
     font-size: 1.3rem;
     animation: ${fadeIn} 0.5s ease-out;
-    color: #728ca3;
   `,
   newsletterHeader: css`
     margin-top: 0;
-    font-size: 1.5rem;
-    color: var(--text-auxiliary);
+    font-size: 1.4rem;
+    font-weight: 500;
   `,
   newsletterInput: css`
     outline: none;
     margin-bottom: 3rem;
-    padding: 0.5rem 0;
+    padding: 0.9rem;
     border: none;
-    border-bottom: 2px solid #728ca3;
+    border-bottom: 1px solid #333;
     border-radius: 0;
     -webkit-appearance: none;
     width: 100%;
     max-width: 330px;
-    background: none;
-    font-size: 1.3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: inherit;
 
     ::placeholder {
       color: #728ca360;
@@ -605,12 +631,20 @@ const styles = {
   `,
   newsletterButton: css`
     outline: none;
-    border: none;
+    border: 1px solid var(--text);
+    border-radius: 3px;
+    padding: 0.5rem 0.7rem;
     background: none;
-    font-size: 1.2rem;
-    /* color: #728ca3; */
-    color: var(--text-auxiliary);
+    font-size: 0.95rem;
+    background-color: var(--text);
+    color: var(--bg);
     cursor: pointer;
+    transition: all 0.15s ease-out;
+
+    :hover {
+      background-color: var(--bg);
+      color: var(--text);
+    }
   `,
   hidden: css`
     position: absolute !important;

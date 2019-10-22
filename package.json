@@ -51,6 +51,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "gatsby-remark-code-titles": "^1.1.0",
     "prettier": "^1.18.2"
   },
   "keywords": [

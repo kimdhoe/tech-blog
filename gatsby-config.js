@@ -6,7 +6,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
     title: 'josephk.io',
-    description: 'I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life',
+    description:
+      'I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life',
     author: process.env.AUTHOR,
     deployBranch: process.env.NOW_GITHUB_COMMIT_REF || 'dev',
     staticmanEndpoint: process.env.STATICMAN_ENDPOINT,
@@ -73,22 +74,26 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'comments',
-        path: `${__dirname}/data`
-      }
+        path: `${__dirname}/data`,
+      },
     },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: `${__dirname}/src/components/layout.js`,
         gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'your-custom-class-name',
+            },
+          },
           { resolve: 'gatsby-remark-images' },
           {
             resolve: 'gatsby-remark-prismjs',
           },
         ],
-        plugins: [
-          { resolve: 'gatsby-remark-images' },
-        ],
+        plugins: [{ resolve: 'gatsby-remark-images' }],
       },
     },
     {

@@ -40,7 +40,7 @@
   background:#fefefe;
 }
 .light pre[class*="language-"] {
-  margin: 0.5em 0;
+  margin: 0;
   padding: 1em;
   overflow:auto;
 }
@@ -307,7 +307,7 @@
 /* Code blocks */
 .dark pre {
   padding: 1em;
-  margin: 0.5em 0;
+  margin: 0;
   overflow: auto;
 }
 

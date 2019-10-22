@@ -22,13 +22,13 @@ imageAlt: 망치를 내려치는 모습 사진
 먼저 일반적인 SPA 형태의 리액트 앱을 만들겠습니다. 가장 중요한 리액트와 번들러인 파슬을 설치합니다.
 
 ```shell
-npm i react react-dom
-npm i -D parcel-bundler
+$ npm i react react-dom
+$ npm i -D parcel-bundler
 ```
 
 package.json 파일의 `scripts` 필드에 개발 환경을 구동하는 파슬 명령어를 추가합니다.
 
-```json
+```json:title=package.json
 "scripts": {
   "dev": "parcel index.html",
   ...
@@ -37,7 +37,7 @@ package.json 파일의 `scripts` 필드에 개발 환경을 구동하는 파슬 
 
 프로젝트의 루트 디렉토리에 파슬의 진입점이 될 index.html 파일을 만듭니다.
 
-```html
+```html:title=index.html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,9 +57,7 @@ package.json 파일의 `scripts` 필드에 개발 환경을 구동하는 파슬 
 
 이제 최소한의 리액트 코드를 추가할 차례입니다. 프로젝트 루트에 src 디렉토리를 만들고 그 안에 아래와 같이 app.js 파일을 작성합니다.
 
-```jsx
-// src/app.js
-
+```jsx:title=src/app.js
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -78,9 +76,7 @@ export { go }
 
 위에서 만든 HTML 파일에서 루트 디렉토리의 main.js 파일을 불러오고 있으니, 거기서 방금 만든 `go` 함수를 실행시켜서 리액트 앱을 렌더링하도록 하겠습니다.
 
-```js
-// main.js
-
+```js:title=main.js
 import { go } from './src/app'
 
 go()
@@ -92,14 +88,12 @@ go()
 SSR 앱으로 바꾸기 전에 최소한의 라우팅 기능을 추가하겠습니다. Reach Router를 설치합니다.
 
 ```shell
-npm i @reach/router
+$ npm i @reach/router
 ```
 
 홈페이지의 내용을 별도의 Home 컴포넌트로 빼내고, 새로운 about 페이지의 내용이 될 About 컴포넌트를 새로 추가합니다.
 
-```jsx
-// src/Home.js
-
+```jsx:title=src/Home.js
 import React from 'react'
 
 const Home = () => (
@@ -111,9 +105,7 @@ const Home = () => (
 export default Home
 ```
 
-```jsx
-// src/About.js
-
+```jsx:title=src/About.js
 import React from 'react'
 
 const About = () => (
@@ -127,9 +119,7 @@ export default About
 
 app.js에 리치 라우터를 이용해서 각 페이지로 연결되는 링크와 내용을 표시해줍니다.
 
-```jsx
-// src/app.js
-
+```jsx:title=src/app.js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Link } from '@reach/router
@@ -164,15 +154,13 @@ SSR을 위해 서버에서 할 일은 리액트 렌더링의 결과를 문자열
 먼저 [익스프레스(Express)](https://expressjs.com/)와, 서버에서 필요한 [바벨(Babel)](https://babeljs.io/) 관련 패키지들을 설치합니다.
 
 ```shell
-npm i express
-npm i -D @babel/register @babel/preset-env @babel/preset-react rimraf
+$ npm i express
+$ npm i -D @babel/register @babel/preset-env @babel/preset-react rimraf
 ```
 
 프로젝트 루트에 server 디렉토리를 만들고, 그 안에 index.js와 server.js 파일 두 개를 추가합니다. 실제 앱이 작성될 곳은 server.js 파일이고, index.js에서는 서버 코드가 바벨을 거쳐 실행되도록 설정합니다.
 
-```js
-// server/index.js
-
+```js:title=server/index.js
 require('@babel/register')({
   ignore: [/(node_modules)/],
   presets: ['@babel/preset-env', '@babel/preset-react'],
@@ -180,9 +168,7 @@ require('@babel/register')({
 require('./server')
 ```
 
-```jsx
-// server/server.js
-
+```jsx:title=server/server.js
 import fs from 'fs'
 import express from 'express'
 import React from 'react'
@@ -226,13 +212,13 @@ app.listen(PORT, () => {
 
 마지막으로 app.js에서 `render` 대신 `hydrate`를 사용하도록 수정합니다. `hydrate`는 `render`와 유사하지만 앱이 서버에서 렌더링된 경우에 사용되며, 이미 완성된 마크업에 이벤트 리스너를 붙이는 등 시동하는 역할을 합니다.
 
-```jsx
+```jsx:title=src/app.js
 ReactDOM.hydrate(<App />, document.getElementById('root'))
 ```
 
 이제 package.json에 빌드 후 노드 서버를 실행하도록 스크립트를 추가합니다.
 
-```json
+```json:title=package.json
 "scripts": {
   "start": "rimraf dist && parcel build main.js && node server",
   ...
@@ -245,7 +231,7 @@ ReactDOM.hydrate(<App />, document.getElementById('root'))
 ## 스트림(Stream)
 리액트 버전 16부터 스트림(Stream) 렌더링을 지원합니다. 덕분에 문서 전체가 완성되기 전에 응답의 일부를 보내기 시작하고 브라우저는 이를 순차적으로 렌더링할 수 있습니다.
 
-```jsx
+```jsx:title=server/server.js
 import fs from 'fs'
 import express from 'express'
 import React from 'react'
