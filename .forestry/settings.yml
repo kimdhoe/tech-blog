@@ -7,7 +7,7 @@ sections:
 - type: directory
   path: now
   label: now
-  create: documents
+  create: none
   match: "**/*"
   new_doc_ext: md
 - type: directory
