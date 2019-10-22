@@ -8,7 +8,7 @@ const useAbout = () => {
         relativePath: { eq: "eastwood-no-connection.png" }
       ) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1500) {
+          fluid(maxWidth: 1500) {
             ...GatsbyImageSharpFluid
           }
         }

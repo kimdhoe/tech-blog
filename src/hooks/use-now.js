@@ -5,10 +5,10 @@ const useNow = () => {
     query {
       image: file(
         sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "eastwood-fatal-error.png" }
+        relativePath: { eq: "eastwood-searching.png" }
       ) {
         childImageSharp {
-          fluid(quality: 100, maxWidth: 1500) {
+          fluid(maxWidth: 1500) {
             ...GatsbyImageSharpFluid
           }
         }

@@ -21,7 +21,7 @@ export default () => {
             👋
           </span>
           <br />
-          This website is a personal blog where I share my thoughts and life.
+          This website is my blog where I share my thoughts and life.
         </p>
       </section>
 

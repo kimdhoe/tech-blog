@@ -32,7 +32,7 @@ const AboutNow = () => (
       >
         now
       </a>{' '}
-      page. Updated September 3, 2019.
+      page. Updated October 22, 2019.
     </p>
   </section>
 )
@@ -50,13 +50,7 @@ const Body = () => (
     </p>
 
     <p>
-      I'm learning how to use Reaniamted to implement sleek gesture interactions
-      in my new React Native project.
-    </p>
-
-    <p>
-      I'm trying to put weight on. All I need is 1.5kg to reach my target
-      weight.
+      We decided to go on a trip to Boston this winter.
     </p>
   </section>
 )
