@@ -1,11 +1,12 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import useNow from '../hooks/use-now'
 import { Page } from '../components/page'
 
 export default () => {
-  const { image } = useNow()
+  const { update, body, image } = useNow()
 
   return (
     <Page
@@ -15,13 +16,13 @@ export default () => {
       description="Joseph: What I'm doing now"
       image={image}
     >
-      <AboutNow />
-      <Body />
+      <AboutNow update={update} />
+      <Body body={body} />
     </Page>
   )
 }
 
-const AboutNow = () => (
+const AboutNow = ({ update }) => (
   <section css={styles.now}>
     <p>
       This is a{' '}
@@ -32,26 +33,14 @@ const AboutNow = () => (
       >
         now
       </a>{' '}
-      page. Updated October 22, 2019.
+      page. Updated {update}.
     </p>
   </section>
 )
 
-const Body = () => (
+const Body = ({ body }) => (
   <section>
-    <p>
-      I'm home in Seoul, Korea with my wife <i>Summer</i>. We married last May.
-    </p>
-
-    <p>
-      Making and polishing this website has been my recent priority. The goal is
-      to develop the habit of documenting dev-related progress as well as other
-      thoughts and events.
-    </p>
-
-    <p>
-      We decided to go on a trip to Boston this winter.
-    </p>
+    <MDXRenderer>{body}</MDXRenderer>
   </section>
 )
 
