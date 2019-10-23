@@ -8,7 +8,7 @@ const PostPreview = ({ post }) => (
     <Link css={styles.link} to={`/${post.slug}/`}>
       <div css={styles.right}>
         <p css={styles.date}>
-          <span css={styles.category}>{post.category}</span>
+          <span>{post.category}</span>
           <span css={styles.separator} />
           <time dateTime={post.date}>{post.dateFormatted}</time>
           <span css={styles.separator} />
@@ -37,10 +37,6 @@ const Container = styled.article`
   :last-of-type {
     border: none;
   }
-
-  :hover {
-    opacity: 1 !important;
-  }
 `
 
 const styles = {
@@ -48,6 +44,10 @@ const styles = {
     padding: 2rem 0;
     display: flex;
     justify-content: space-between;
+
+    :hover {
+      color: var(--text0);
+    }
   `,
   right: css`
     flex: 1;
@@ -59,7 +59,7 @@ const styles = {
     display: inline-block;
     margin: 0 0 0.3rem 0;
     padding-bottom: 0.2rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
   `,
@@ -82,7 +82,6 @@ const styles = {
     transition: all 0.2s ease-out;
     font-size: 0.95rem;
   `,
-  category: css``,
   date: css`
     margin: 0 0 0.8rem 0;
     display: flex;

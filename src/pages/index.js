@@ -51,14 +51,14 @@ const IndexPage = () => {
 
 const Previews = styled.div`
   padding: 0;
-
+/*
   &:hover ${PostPreviewContainer} {
     opacity: 0.7;
 
     @media only screen and (max-width: 650px) {
       opacity: 1;
     }
-  }
+  } */
 `
 
 const styles = {
@@ -93,7 +93,10 @@ const styles = {
       display: none;
     }
   `,
-  featured: css``,
+  featured: css`
+    position: sticky;
+    top: 80px;
+  `,
   featuredHeading: css`
     margin-bottom: 1.5rem;
     font-size: 1.15rem;
@@ -101,7 +104,7 @@ const styles = {
   `,
   featuredList: css`
     list-style: none;
-    padding: 0;
+    padding: 0 0 0 0.15rem;
   `,
   featuredListItem: css`
     margin-bottom: 0.8rem;
@@ -127,7 +130,7 @@ const styles = {
     transition: color 0.15s ease-out;
 
     :hover {
-      color: var(--text);
+      color: var(--text0);
     }
   `,
   nav: css`
