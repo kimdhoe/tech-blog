@@ -9,7 +9,10 @@ const PostPreview = ({ post }) => (
       <div css={styles.right}>
         <p css={styles.date}>
           <span css={styles.category}>{post.category}</span>
+          <span css={styles.separator} />
           <time dateTime={post.date}>{post.dateFormatted}</time>
+          <span css={styles.separator} />
+          <span css={styles.fromNow}> {post.fromNow}</span>
         </p>
         <h3 css={styles.title}>
           <span css={styles.titleText}>{post.title}</span>
@@ -26,7 +29,6 @@ const PostPreview = ({ post }) => (
 
 const Container = styled.article`
   position: relative;
-  /* margin: 0 auto; */
   padding: 0;
   max-width: calc(768px - 1rem);
   border-bottom: 1px solid var(--hr);
@@ -43,7 +45,7 @@ const Container = styled.article`
 
 const styles = {
   link: css`
-    padding: 2.5rem 0;
+    padding: 2rem 0;
     display: flex;
     justify-content: space-between;
   `,
@@ -55,10 +57,10 @@ const styles = {
   `,
   title: css`
     display: inline-block;
-    margin: 0;
+    margin: 0 0 0.3rem 0;
     padding-bottom: 0.2rem;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
     text-decoration: none;
   `,
   titleText: css`
@@ -67,7 +69,7 @@ const styles = {
     transition: color 100ms ease-out;
   `,
   deck: css`
-    margin: 0 0 0.3rem 0;
+    margin: 0;
     line-height: 1.9;
   `,
   mozHack: {
@@ -80,19 +82,22 @@ const styles = {
     transition: all 0.2s ease-out;
     font-size: 0.95rem;
   `,
-  category: css`
-    margin-right: 0.55rem;
-    letter-spacing: 0.03rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--brand);
-  `,
+  category: css``,
   date: css`
-    margin: 0.3rem 0 0.5rem;
+    margin: 0 0 0.8rem 0;
     display: flex;
+    align-items: center;
     letter-spacing: 0.02rem;
-    font-size: 0.79rem;
-    color: var(--text);
+    font-size: 0.8rem;
+    color: var(--text-auxiliary);
+  `,
+  fromNow: css``,
+  separator: css`
+    border-radius: 2px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--hr);
+    margin: 0 0.55rem;
   `,
 }
 

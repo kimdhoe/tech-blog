@@ -86,7 +86,7 @@ const styles = {
   `,
   aside: css`
     margin-left: 1.5rem;
-    padding: 2.5rem 1rem 0;
+    padding: 1rem 1rem 0;
     width: 300px;
 
     @media only screen and (max-width: 730px) {
@@ -96,7 +96,7 @@ const styles = {
   featured: css``,
   featuredHeading: css`
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
   `,
   featuredList: css`
