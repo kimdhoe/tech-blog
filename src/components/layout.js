@@ -99,6 +99,7 @@ const styles = {
       --text-auxiliary: #535960;
       --text-placeholder: #868e96;
       --hr: hsla(0, 0%, 0%, 0.1);
+      --shadow: 0 9px 60px 0 rgba(0, 0, 0, 0.12);
       --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
       --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
       --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
@@ -126,6 +127,7 @@ const styles = {
       --text-auxiliary: #848c94;
       --text-placeholder: #868e9688;
       --hr: #3a3649;
+      --shadow: 0 9px 60px 0 rgba(0, 0, 0, 0.35);
       --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.35);
       --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.35);
       --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.35);

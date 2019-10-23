@@ -1,88 +1,74 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 const PostPreview = ({ post }) => (
-  <Container>
+  <div css={styles.container}>
     <Link css={styles.link} to={`/${post.slug}/`}>
-      <div css={styles.right}>
-        <p css={styles.date}>
-          <span>{post.category}</span>
-          <span css={styles.separator} />
-          <time dateTime={post.date}>{post.dateFormatted}</time>
-          <span css={styles.separator} />
-          <span css={styles.fromNow}> {post.fromNow}</span>
-        </p>
-        <h3 css={styles.title}>
-          <span css={styles.titleText}>{post.title}</span>
-        </h3>
-        {post.deck && (
-          <p css={styles.deck}>
-            <span css={[styles.deckText, styles.mozHack]}>{post.deck}</span>
-          </p>
-        )}
-      </div>
+      <Meta
+        category={post.category}
+        date={post.date}
+        dateFormatted={post.dateFormatted}
+        fromNow={post.fromNow}
+      />
+      <Title title={post.title} />
+      <Deck deck={post.deck} />
     </Link>
-  </Container>
+  </div>
 )
 
-const Container = styled.article`
-  position: relative;
-  padding: 0;
-  max-width: calc(768px - 1rem);
-  border-bottom: 1px solid var(--hr);
-  transition: all 200ms ease-out;
+const Meta = ({ category, date, dateFormatted, fromNow }) => (
+  <p css={styles.meta}>
+    {category}
+    <DotSeparator />
+    <time dateTime={date}>{dateFormatted}</time>
+    <DotSeparator />
+    {fromNow}
+  </p>
+)
 
-  :last-of-type {
-    border: none;
-  }
-`
+const Title = ({ title }) => <h3 css={styles.title}>{title}</h3>
+
+const Deck = ({ deck }) => (!deck ? null : <p css={styles.deck}>{deck}</p>)
+
+const DotSeparator = () => <span css={styles.separator} />
 
 const styles = {
+  container: css`
+    max-width: calc(768px - 1rem);
+    border-bottom: 1px solid var(--hr);
+    transition: all 200ms ease-out;
+
+    :last-of-type {
+      border: none;
+    }
+  `,
   link: css`
     padding: 2rem 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     :hover {
       color: var(--text0);
     }
   `,
-  right: css`
-    flex: 1;
-    display: block;
-    text-decoration: none;
-    z-index: 3;
-  `,
   title: css`
     display: inline-block;
     margin: 0 0 0.3rem 0;
     padding-bottom: 0.2rem;
+    line-height: 1.65;
     font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
-  `,
-  titleText: css`
-    padding-bottom: 0.4rem;
-    line-height: 1.65;
     transition: color 100ms ease-out;
   `,
   deck: css`
     margin: 0;
     line-height: 1.9;
+    font-size: 0.9rem;
   `,
-  mozHack: {
-    '@-moz-document url-prefix()': {
-      display: 'block',
-    },
-  },
-  deckText: css`
-    padding: 0.5rem 0 0.75rem 0;
-    transition: all 0.2s ease-out;
-    font-size: 0.95rem;
-  `,
-  date: css`
+  meta: css`
     margin: 0 0 0.8rem 0;
     display: flex;
     align-items: center;
@@ -90,7 +76,6 @@ const styles = {
     font-size: 0.8rem;
     color: var(--text-auxiliary);
   `,
-  fromNow: css``,
   separator: css`
     border-radius: 2px;
     width: 4px;
@@ -101,4 +86,3 @@ const styles = {
 }
 
 export default PostPreview
-export { Container }

@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 
 import usePosts from '../hooks/use-posts'
-import PostPreview, {
-  Container as PostPreviewContainer,
-} from '../components/post-preview'
+import PostPreview from '../components/post-preview'
 import { PageHeader } from '../components/page-header'
 
 const IndexPage = () => {
@@ -17,49 +14,48 @@ const IndexPage = () => {
       <div css={styles.header}>
         <PageHeader headline="Blog" />
       </div>
+
       <div css={styles.wrapper}>
         <div css={styles.main}>
-          <Previews>
-            {posts.map(post => (
-              <PostPreview key={post.slug} post={post} />
-            ))}
-          </Previews>
+          <Posts posts={posts} />
         </div>
+
         <aside css={styles.aside}>
-          <div css={styles.featured}>
-            <h2 css={styles.featuredHeading}>Featured Posts</h2>
-            <ul css={styles.featuredList}>
-              {posts.map(post =>
-                !post.featured ? null : (
-                  <li key={post.slug} css={styles.featuredListItem}>
-                    <Link
-                      css={styles.featuredListItemLink}
-                      to={`/${post.slug}/`}
-                    >
-                      {post.title}
-                    </Link>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
+          <FeaturedPosts posts={posts} />
         </aside>
       </div>
     </div>
   )
 }
 
-const Previews = styled.div`
-  padding: 0;
-/*
-  &:hover ${PostPreviewContainer} {
-    opacity: 0.7;
+const Posts = ({ posts }) => (
+  <div css={styles.postPreviews}>
+    {posts.map(post => (
+      <PostPreview key={post.slug} post={post} />
+    ))}
+  </div>
+)
 
-    @media only screen and (max-width: 650px) {
-      opacity: 1;
-    }
-  } */
-`
+const FeaturedPosts = ({ posts }) => (
+  <div css={styles.featured}>
+    <h2 css={styles.featuredHeading}>Featured Posts</h2>
+    <ul css={styles.featuredList}>
+      {posts.map(post =>
+        !post.featured ? null : (
+          <FeaturedPost key={post.slug} slug={post.slug} title={post.title} />
+        )
+      )}
+    </ul>
+  </div>
+)
+
+const FeaturedPost = ({ slug, title }) => (
+  <li key={slug} css={styles.featuredListItem}>
+    <Link css={styles.featuredListItemLink} to={`/${slug}/`}>
+      {title}
+    </Link>
+  </li>
+)
 
 const styles = {
   container: css`
