@@ -640,7 +640,7 @@ const styles = {
     outline: none;
     border: 1px solid var(--text);
     border-radius: 5px;
-    width: 150px;
+    min-width: 150px;
     height: 40px;
     background: none;
     font-size: 1rem;
