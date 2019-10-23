@@ -145,7 +145,7 @@ const Newsletter = () => {
             }}
           >
             <p css={styles.newsletterHeader}>Join the Newsletter</p>
-            <p>I'm gonna send you only good things.</p>
+            <p>I will send you only good things.</p>
             <label css={styles.hidden} htmlFor="newsletter-email">
               Email
             </label>
