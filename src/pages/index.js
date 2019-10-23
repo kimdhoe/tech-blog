@@ -1,106 +1,51 @@
-import React /*, { useState, useRef }*/ from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-// import addToMailchimp from 'gatsby-plugin-mailchimp'
-// import validator from 'validator'
 
 import usePosts from '../hooks/use-posts'
 import PostPreview, {
   Container as PostPreviewContainer,
 } from '../components/post-preview'
-
-// A Status is one of:
-//   - default
-//   - success
-//   - error
-
-const NAV_ITEMS = [
-  { to: '/', label: 'Blog' },
-  { to: '/devlog/', label: 'Devlog' },
-  { to: '/crafts/', label: 'Crafts' },
-  { to: '/now/', label: 'Now' },
-  { to: '/about/', label: 'About' },
-  { to: '/contact/', label: 'Contact' },
-]
+import { PageHeader } from '../components/page-header'
 
 const IndexPage = () => {
   const posts = usePosts()
-  // const inputRef = useRef()
-  // const [email, setEmail] = useState('')
-  // const [status, setStatus] = useState('default')
 
   return (
-    <>
-      <div css={styles.nav}>
-        <div css={styles.navWrapper}>
-          {NAV_ITEMS.map(item => (
-            <div key={item.to} css={styles.navItem}>
-              <Link
-                css={styles.navItemLink}
-                to={item.to}
-                activeClassName="current"
-              >
-                {item.label}
-              </Link>
-            </div>
-          ))}
+    <div css={styles.container}>
+      <div css={styles.header}>
+        <PageHeader headline="Blog" />
+      </div>
+      <div css={styles.wrapper}>
+        <div css={styles.main}>
+          <Previews>
+            {posts.map(post => (
+              <PostPreview key={post.slug} post={post} />
+            ))}
+          </Previews>
         </div>
+        <aside css={styles.aside}>
+          <div css={styles.featured}>
+            <h2 css={styles.featuredHeading}>Featured Posts</h2>
+            <ul css={styles.featuredList}>
+              {posts.map(post =>
+                !post.featured ? null : (
+                  <li key={post.slug} css={styles.featuredListItem}>
+                    <Link
+                      css={styles.featuredListItemLink}
+                      to={`/${post.slug}/`}
+                    >
+                      {post.title}
+                    </Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+        </aside>
       </div>
-      <div css={styles.container}>
-        <Previews>
-          {posts.map(post => (
-            <PostPreview key={post.slug} post={post} />
-          ))}
-        </Previews>
-
-        {/* <div css={[styles.newsletter, status === 'success' && styles.newsletterSuccess]}>
-        {status === 'success' ? (
-          <p css={styles.successMessage}>
-            Thanks. TTYS.
-          </p>
-        ) : (
-            <form
-              css={styles.newsletterForm}
-              onSubmit={async e => {
-                e.preventDefault()
-                const email = inputRef.current.value
-                if (!validator.isEmail(email.trim())) {
-                  setStatus('error')
-                  inputRef.current.focus()
-                  return
-                }
-                try {
-                  await addToMailchimp(email)
-                  setStatus('success')
-                } catch (err) {
-                  setStatus('error')
-                  inputRef.current.focus()
-                }
-              }}
-            >
-              <p css={styles.newsletterMessage}>
-                Join the Newsletter
-              </p>
-              <input
-                css={[styles.newsletterInput, status === 'error' && styles.newsletterInputError]}
-                placeholder="your email here"
-                ref={inputRef}
-                type="email"
-                value={email}
-                onChange={e => {
-                  setEmail(e.target.value)
-                  setStatus('default')
-                }}
-              />
-              <button css={styles.newsletterButton} type="submit">
-                Subscribe
-              </button>
-            </form>
-          )}
-      </div> */}
-      </div>
-    </>
+    </div>
   )
 }
 
@@ -119,11 +64,70 @@ const Previews = styled.div`
 const styles = {
   container: css`
     margin: 7rem auto;
+    padding: 0;
+    max-width: 1000px;
+  `,
+  header: css`
     padding: 0 1rem;
-    max-width: 650px;
+  `,
+  wrapper: css`
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
 
     @media only screen and (max-width: 650px) {
       margin-top: 3rem;
+    }
+  `,
+  main: css`
+    flex: 1;
+    padding: 0 1rem;
+    max-width: 730px;
+  `,
+  aside: css`
+    margin-left: 1.5rem;
+    padding: 2.5rem 1rem 0;
+    width: 300px;
+
+    @media only screen and (max-width: 730px) {
+      display: none;
+    }
+  `,
+  featured: css``,
+  featuredHeading: css`
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  `,
+  featuredList: css`
+    list-style: none;
+    padding: 0;
+  `,
+  featuredListItem: css`
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--hr);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    :last-of-type {
+      border: none;
+    }
+
+    ::before {
+      content: '✧';
+      margin-right: 0.6rem;
+      font-size: 0.8rem;
+    }
+  `,
+  featuredListItemLink: css`
+    font-size: 0.9rem;
+    color: var(--text-auxiliary);
+    transition: color 0.15s ease-out;
+
+    :hover {
+      color: var(--text);
     }
   `,
   nav: css`
@@ -175,83 +179,9 @@ const styles = {
       color: var(--text-link);
     }
   `,
-  header: css`
-    margin: 0 auto;
-    padding: 0 1rem;
-    max-width: 650px;
-  `,
   postPreviews: css`
     padding: 0;
   `,
 }
-
-// const fadeIn = keyframes`
-//   from { opacity: 0 }
-//   to: { opacity: 1 }
-// `
-
-// const styles = {
-//   newsletter: css`
-//     margin: 15rem auto 0;
-//     padding: 3rem 0 0;
-//     max-width: 650px;
-//     height: 242px;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     transition: all 150ms ease-out;
-//   `,
-//   newsletterSuccess: css`
-//     background: none;
-
-//     :hover {
-//       box-shadow: none;
-//     }
-//   `,
-//   successMessage: css`
-//     letter-spacing: 0.03rem;
-//     font-size: 1.3rem;
-//     font-weight: 500;
-//     animation: ${fadeIn} 0.5s ease-out;
-//   `,
-//   newsletterForm: css`
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
-//   `,
-//   newsletterMessage: css`
-//     font-size: 1.5rem;
-//     letter-spacing: 0.03rem;
-//   `,
-//   newsletterInput: css`
-//     outline: none;
-//     border: none;
-//     border-bottom: 1px solid #2B2836;
-//     padding: 0.5rem 0.2rem;
-//     width: 100%;
-//     max-width: 270px;
-//     font-size: 1.25rem;
-//     letter-spacing: 0.03rem;
-//     background: none;
-
-//     ::placeholder {
-//       color: #bbb;
-//     }
-//   `,
-//   newsletterInputError: css`
-//     border-color: #ffcc33;
-//   `,
-//   newsletterButton: css`
-//     margin-top: 2rem;
-//     outline: none;
-//     border: none;
-//     background: none;
-//     letter-spacing: 0.03rem;
-//     font-size: 1.25rem;
-//     cursor: pointer;
-//   `,
-// }
 
 export default IndexPage

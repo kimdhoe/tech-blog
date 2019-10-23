@@ -14,6 +14,7 @@ const usePosts = () => {
           node {
             childMdx {
               frontmatter {
+                featured
                 title
                 category
                 date
@@ -37,6 +38,7 @@ const usePosts = () => {
   `)
 
   return data.allFile.edges.map(({ node: { childMdx: { frontmatter } } }) => ({
+    featured: !!frontmatter.featured,
     title: frontmatter.title,
     category: frontmatter.category,
     author: frontmatter.author,

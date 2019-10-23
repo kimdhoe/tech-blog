@@ -2,33 +2,10 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import Image from 'gatsby-image'
 
 const PostPreview = ({ post }) => (
   <Container>
     <Link css={styles.link} to={`/${post.slug}/`}>
-      <div css={styles.left}>
-        {post.image ? (
-          <Image
-            style={{
-              width: '100%',
-              height: '100%',
-              filter: 'grayscale(0.1) contrast(0.8)',
-            }}
-            fluid={post.image}
-          />
-        ) : (
-          <div
-            css={[
-              styles.image,
-              {
-                backgroundImage: `url(https://avatars.dicebear.com/v2/jdenticon/${post.slug}.svg?options[background][]=%23f4f7fb&options[colorSaturation][]=0.1)`,
-              },
-            ]}
-          />
-        )}
-      </div>
-
       <div css={styles.right}>
         <p css={styles.date}>
           <span css={styles.category}>{post.category}</span>
@@ -49,7 +26,7 @@ const PostPreview = ({ post }) => (
 
 const Container = styled.article`
   position: relative;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 0;
   max-width: calc(768px - 1rem);
   border-bottom: 1px solid var(--hr);
@@ -69,33 +46,6 @@ const styles = {
     padding: 2.5rem 0;
     display: flex;
     justify-content: space-between;
-  `,
-  left: css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 1.5rem 0 0;
-    width: 180px;
-    height: 180px;
-
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
-  `,
-  image: css`
-    overflow: hidden;
-    border-radius: 5px;
-    width: 98%;
-    height: 98%;
-    background-color: #f1f3f5;
-    background-size: 19px;
-    opacity: 0.5;
-
-    img {
-      border-radius: 50%;
-      width: 100%;
-      color: black;
-    }
   `,
   right: css`
     flex: 1;

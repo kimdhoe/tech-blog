@@ -98,7 +98,7 @@ const styles = {
       --text-link: #7f5555;
       --text-auxiliary: #535960;
       --text-placeholder: #868e96;
-      --hr: hsla(0, 0%, 0%, 0.15);
+      --hr: hsla(0, 0%, 0%, 0.1);
       --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
       --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
       --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
