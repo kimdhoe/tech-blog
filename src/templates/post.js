@@ -144,7 +144,8 @@ const Newsletter = () => {
               }
             }}
           >
-            <p css={styles.newsletterHeader}>Get the latest emailed to you.</p>
+            <p css={styles.newsletterHeader}>Join the Newsletter</p>
+            <p>I'm gonna send you only good things.</p>
             <label css={styles.hidden} htmlFor="newsletter-email">
               Email
             </label>
@@ -154,7 +155,7 @@ const Newsletter = () => {
                 status === 'error' && styles.newsletterInputError,
               ]}
               id="newsletter-email"
-              placeholder="your email here"
+              placeholder="jane@example.com"
               ref={inputRef}
               type="email"
               value={email}
@@ -608,26 +609,27 @@ const styles = {
   `,
   newsletterHeader: css`
     margin-top: 0;
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
   `,
   newsletterInput: css`
     outline: none;
-    margin-bottom: 2rem;
-    padding: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1.1rem;
     border: 1px solid var(--hr);
     border-radius: 5px;
     -webkit-appearance: none;
     width: 100%;
-    max-width: 330px;
+    max-width: 300px;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color: inherit;
     transition: all 0.15s ease-out;
     color: var(--text);
 
     :focus {
-      background-color: var(--well);
+      border-color: var(--text);
     }
 
     ::placeholder {
@@ -638,7 +640,8 @@ const styles = {
     outline: none;
     border: 1px solid var(--text);
     border-radius: 5px;
-    padding: 0.7rem 1.4rem;
+    width: 150px;
+    height: 40px;
     background: none;
     font-size: 1rem;
     background-color: var(--text);
