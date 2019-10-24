@@ -15,7 +15,8 @@
       "GITHUB_BRANCH": "@github-branch",
       "MAILCHIMP_ENDPOINT": "@mailchimp-endpoint",
       "CONTENTFUL_ACCESS_TOKEN": "@contentful-access-token",
-      "CONTENTFUL_SPACE_ID": "@contentful-space-id"
+      "CONTENTFUL_SPACE_ID": "@contentful-space-id",
+      "SENTRY_DSN": "@sentry-dsn"
     },
     "src": "package.json",
     "use": "@now/static-build"
