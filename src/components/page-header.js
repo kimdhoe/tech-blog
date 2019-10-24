@@ -2,10 +2,10 @@ import React from 'react'
 import GatsbyImage from 'gatsby-image'
 import { css } from '@emotion/core'
 
-const PageHeader = ({ headline, lede, image }) => (
+const PageHeader = ({ headline, lede, image, center = true }) => (
   <header css={styles.header}>
-    <h1 css={styles.heading}>{headline}</h1>
-    <h2 css={styles.subheading}>{lede}</h2>
+    <h1 css={[styles.heading, center && styles.center]}>{headline}</h1>
+    <h2 css={[styles.subheading, center && styles.center]}>{lede}</h2>
     {image && <Image imageFluid={image} alt={lede} />}
   </header>
 )
@@ -31,6 +31,14 @@ const Image = ({ imageFluid, alt }) => (
 )
 
 const styles = {
+  center: css`
+    text-align: center;
+
+    ::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  `,
   header: css``,
   heading: css`
     margin: 0 0 1.5rem 0;

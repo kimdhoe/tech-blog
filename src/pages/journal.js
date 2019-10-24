@@ -91,7 +91,6 @@ const styles = {
     display: flex;
     flex-direction: column;
     border-radius: 2px;
-    overflow: hidden;
   `,
   entryImageContainer: css`
     flex: 1;

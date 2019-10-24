@@ -12,7 +12,7 @@ const IndexPage = () => {
   return (
     <div css={styles.container}>
       <div css={styles.header}>
-        <PageHeader headline="Blog" />
+        <PageHeader headline="Blog" center={false} />
       </div>
 
       <div css={styles.wrapper}>
