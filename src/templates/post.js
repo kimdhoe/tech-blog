@@ -287,6 +287,10 @@ const fadeIn = keyframes`
 const styles = {
   container: css`
     margin-top: 8rem;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 0.5rem;
+    }
   `,
   hero: css`
     margin: 0 0 3rem 0;
