@@ -41,6 +41,9 @@ const MobileHeader = ({ title, theme, onToggle }) => {
             <Link css={styles.navLink} to="/" activeClassName="active">
               Blog
             </Link>
+            <Link css={styles.navLink} to="/devlog/" activeClassName="active">
+              Devlog
+            </Link>
             <Link css={styles.navLink} to="/about/" activeClassName="active">
               About
             </Link>
@@ -191,6 +194,12 @@ const styles = {
     font-size: 0.9rem;
     color: var(--text-auxiliary);
     transition: all 0.15 ease-out;
+
+    @media only screen and (max-width: 1100px) {
+      :last-of-type {
+        display: none;
+      }
+    }
 
     &.active {
       text-decoration: underline;
