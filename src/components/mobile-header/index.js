@@ -48,7 +48,7 @@ const MobileHeader = ({ title, theme, onToggle }) => {
 
         <div css={styles.brand}>
           <Link to="/" onClick={close}>
-            JosephK.io
+            {title}
           </Link>
         </div>
       </motion.div>
@@ -138,14 +138,12 @@ const styles = {
   brand: css`
     position: absolute;
     z-index: 12;
-    top: 0.7rem;
+    top: 0.9rem;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
     width: 90px;
     height: 31px;
     transition: all 0.1s ease-out;
-    font-variant: small-caps;
-    letter-spacing: 0.02rem;
 
     .scrolled-a-bit & {
       opacity: 0;

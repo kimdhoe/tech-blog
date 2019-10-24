@@ -1,112 +1,158 @@
 import React from 'react'
-import { css, keyframes } from '@emotion/core'
+import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+
+import { Logo } from './logo'
 
 const Footer = ({ author }) => {
   return (
     <footer css={styles.container}>
-      <p css={styles.illustrations}>
-        Illustrations by{' '}<a href="https://icons8.com">Ouch.pics</a>
-      </p>
-      <div css={styles.wrapper}>
-        <TopButton
-          css={styles.top}
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-          }}
-        >
-          <span css={styles.arrow}>&uarr;</span>
-          Back to Top
-        </TopButton>
-        <small css={styles.copyright}>
-          &copy; {new Date().getFullYear()} {author}
-        </small>
-        <Link css={styles.colophon} to="/colophon/">
-          Colophon
-        </Link>
+      <div css={styles.links}>
+        <Column css={styles.brandColumn}>
+          <div css={styles.illust}>
+            Illustrations by <a href="https://icons8.com">Ouch.pics</a>
+          </div>
+          <div css={styles.brand}>
+            <div css={styles.logo}>
+              <Logo />
+            </div>
+            <div css={styles.meta}>
+              <div css={styles.brandName}>josephk.io</div>
+              <div css={styles.copyright}>
+                &copy; {new Date().getFullYear()} {author}
+              </div>
+            </div>
+          </div>
+        </Column>
+
+        <Column>
+          <LinkList
+            items={[
+              { label: 'Blog', url: '/' },
+              { label: 'Devlog', url: '/devlog/' },
+              { label: 'Journal', url: '/journal/' },
+            ]}
+          />
+        </Column>
+
+        <Column>
+          <LinkList
+            items={[
+              { label: 'Now', url: '/now/' },
+              { label: 'About', url: '/about/' },
+              { label: 'Crafts', url: '/crafts/' },
+              { label: 'Colophon', url: '/colophon/' },
+            ]}
+          />
+        </Column>
       </div>
     </footer>
   )
 }
 
-const TopButton = styled.button`
-  outline: none;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
-const bounce = keyframes`
-  0% {
-    transform: translate3d(0, 0, 0);
-    animation-timing-function: ease-in;
-  }
-  50% {
-    transform: translate3d(0, -0.2rem, 0);
-    animation-timing-function: ease-out;
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-    animation-timing-function: ease-out;
-  }
-`
+const LinkList = ({ items }) => (
+  <ul css={styles.list}>
+    {items.map((item, i) => (
+      <li css={styles.listItem} key={i}>
+        <Link css={styles.listItemLink} to={item.url}>
+          {item.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+)
 
 const styles = {
   container: css`
-    padding: 1rem 0;
+    padding: 3rem 0 2.5rem;
     border-top: 1px solid var(--hr);
     letter-spacing: 0.02rem;
     font-size: 0.9rem;
+    color: var(--text-auxiliary);
   `,
-  wrapper: css`
-    margin: 0 auto;
-    padding: 0 1rem;
-    max-width: 768px;
+  links: css`
     display: flex;
-    align-items: center;
     justify-content: space-between;
-  `,
-  top: css`
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
-  `,
-  arrow: css`
-    padding-right: 0.2rem;
-    display: inline-block;
-
-    ${TopButton}:hover & {
-      animation: ${bounce} 0.9s infinite;
-    }
-  `,
-  copyright: css`
-    font-size: 0.9rem;
-  `,
-  colophon: css`
-    padding: 1.1rem 0;
-    text-decoration: none;
-
-    :hover {
-      color: var(--text0);
-    }
-  `,
-  illustrations: css`
     margin: 0 auto;
     padding: 0 1rem;
     max-width: 768px;
+
+    @media only screen and (max-width: 600px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  `,
+  column: css`
+    display: flex;
+    flex-direction: column;
+  `,
+  brandColumn: css`
+    justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+      order: 3;
+      margin-top: 1rem;
+      width: 100%;
+    }
+  `,
+  brand: css`
+    margin-left: -1rem;
+    padding-bottom: 0.8rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 3rem;
+      margin-left: 0;
+    }
+  `,
+  logo: css`
+    margin: 0.4rem 0.7rem 0 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  `,
+  meta: css``,
+  brandName: css`
+    margin-bottom: 0.5rem;
+  `,
+  illust: css`
+    padding-top: 0.8rem;
+    text-align: center;
 
     a {
-      padding: 1.1rem 0 1.1rem 0.3rem;
+      color: var(--text-auxiliary);
+      transition: all 0.15s ease-out;
 
       :hover {
         color: var(--text0);
       }
     }
+  `,
+  list: css`
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  `,
+  listItemLink: css`
+    padding: 0.8rem 2rem;
+    display: inline-block;
+    color: var(--text-auxiliary);
+    transition: all 0.15s ease-out;
+
+    :hover {
+      color: var(--text0);
+    }
+  `,
+  copyright: css`
+    font-size: 0.9rem;
   `,
 }
 
