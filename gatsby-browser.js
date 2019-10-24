@@ -6,7 +6,6 @@ require('typeface-noto-sans-kr')
 export const onClientEntry = (_, pluginParams) => {
   console.log('pluginParams', pluginParams)
   if (process.env.NODE_ENV === 'production') {
-    console.log('[1]', process.env.GATSBY_SENTRY_DSN)
     Sentry.init({
       dsn: process.env.SENTRY_DSN,
     })
@@ -14,8 +13,7 @@ export const onClientEntry = (_, pluginParams) => {
 }
 
 export const wrapRootElement = ({ element }) => {
-    console.log('[2]', process.env.NODE_ENV)
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     return element
   }
 
