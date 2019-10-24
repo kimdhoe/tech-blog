@@ -4,8 +4,9 @@ require('./static/styles/code-theme.css')
 require('typeface-noto-sans-kr')
 
 export const onClientEntry = (_, pluginParams) => {
+  console.log('pluginParams', pluginParams)
   if (process.env.NODE_ENV === 'production') {
-    console.log('[1]', process.env.SENTRY_DSN)
+    console.log('[1]', process.env.GATSBY_SENTRY_DSN)
     Sentry.init({
       dsn: process.env.SENTRY_DSN,
     })
