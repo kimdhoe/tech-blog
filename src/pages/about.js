@@ -72,7 +72,7 @@ export default () => {
       </Page>
 
       <section css={styles.techs}>
-        <h3 css={styles.techsHeading}>Technologies I Used</h3>
+        <h3 css={styles.techsHeading}>This website is built with</h3>
 
         <h4 css={styles.stackSectionHeading}>Data Sources</h4>
         <ul css={styles.stackSection}>
