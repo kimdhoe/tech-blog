@@ -63,7 +63,7 @@ const EntryContainer = styled(Link)`
 
 const styles = {
   container: css`
-    margin: 0 0 9rem 0;
+    margin: 6rem 0 9rem;
   `,
   headerWrapper: css`
     margin: 4rem auto;

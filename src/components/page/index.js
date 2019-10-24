@@ -16,7 +16,7 @@ const Page = ({ title, description, headline, lede, children, image }) => {
 
 const styles = {
   container: css`
-    margin: 4rem auto 9rem;
+    margin: 6rem auto 9rem;
     padding: 0 1rem;
     max-width: 650px;
 

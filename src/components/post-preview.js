@@ -1,10 +1,11 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 const PostPreview = ({ post }) => (
   <div css={styles.container}>
-    <Link css={styles.link} to={`/${post.slug}/`}>
+    <StyledLink css={styles.link} to={`/${post.slug}/`}>
       <Meta
         category={post.category}
         date={post.date}
@@ -13,7 +14,7 @@ const PostPreview = ({ post }) => (
       />
       <Title title={post.title} />
       <Deck deck={post.deck} />
-    </Link>
+    </StyledLink>
   </div>
 )
 
@@ -33,6 +34,13 @@ const Deck = ({ deck }) => (!deck ? null : <p css={styles.deck}>{deck}</p>)
 
 const DotSeparator = () => <span css={styles.separator} />
 
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 0;
+`
+
 const styles = {
   container: css`
     max-width: calc(768px - 1rem);
@@ -41,16 +49,6 @@ const styles = {
 
     :last-of-type {
       border: none;
-    }
-  `,
-  link: css`
-    padding: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    :hover {
-      color: var(--text0);
     }
   `,
   title: css`
@@ -62,6 +60,10 @@ const styles = {
     font-weight: 500;
     text-decoration: none;
     transition: color 100ms ease-out;
+
+    ${StyledLink}:hover & {
+      text-decoration: underline;
+    }
   `,
   deck: css`
     margin: 0;

@@ -36,7 +36,8 @@ const styles = {
   heading: css`
     margin: 0 0 1.5rem 0;
     padding-top: 1rem;
-    font-size: 1.802rem;
+    font-size: 2.1rem;
+    font-weight: 500;
   `,
   subheading: css`
     position: relative;

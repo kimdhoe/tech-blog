@@ -59,7 +59,7 @@ const FeaturedPost = ({ slug, title }) => (
 
 const styles = {
   container: css`
-    margin: 7rem auto;
+    margin: 6rem auto;
     padding: 0;
     max-width: 1000px;
   `,
@@ -67,7 +67,7 @@ const styles = {
     padding: 0 1rem;
   `,
   wrapper: css`
-    margin-top: 1rem;
+    margin-top: 3rem;
     display: flex;
     justify-content: space-between;
 
@@ -96,7 +96,7 @@ const styles = {
   featuredHeading: css`
     margin-bottom: 1.5rem;
     font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 500;
   `,
   featuredList: css`
     list-style: none;
