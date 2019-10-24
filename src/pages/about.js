@@ -76,20 +76,20 @@ export default () => {
 
         <h4 css={styles.stackSectionHeading}>Data Sources</h4>
         <ul css={styles.stackSection}>
-          <StackItem name="Contentful" url="" />
-          <StackItem name="Forestry" url="" />
-          <StackItem name="GitHub" url="" />
+          <StackItem name="Contentful" url="https://contentful.com" />
+          <StackItem name="Forestry" url="https://forestry.io" />
+          <StackItem name="GitHub" url="https://github.com" />
         </ul>
         <h4 css={styles.stackSectionHeading}>Build</h4>
         <ul css={styles.stackSection}>
-          <StackItem name="Gatsby" url="" />
-          <StackItem name="Staticman" url="" />
-          <StackItem name="Emotion" url="" />
-          <StackItem name="Node.js" url="" />
+          <StackItem name="Gatsby" url="https://gatsbyjs.org" />
+          <StackItem name="Staticman" url="https://staticman.net" />
+          <StackItem name="Emotion" url="https://emotion.sh" />
+          <StackItem name="Node.js" url="https://nodejs.org" />
         </ul>
         <h4 css={styles.stackSectionHeading}>Deploy</h4>
         <ul css={styles.stackSection}>
-          <StackItem name="ZEIT Now" url="" />
+          <StackItem name="ZEIT Now" url="https://zeit.co/home" />
         </ul>
       </section>
     </>
@@ -98,7 +98,7 @@ export default () => {
 
 const StackItem = ({ name, url }) => (
   <li css={[styles.stackListItem]}>
-    <a css={styles.stackListItemLink} href={url}>
+    <a css={styles.stackListItemLink} href={url} target="_blank">
       {name}
       <ExternalLink css={styles.linkIcon} size={15} />
     </a>
