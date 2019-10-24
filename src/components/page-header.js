@@ -7,6 +7,7 @@ const PageHeader = ({ headline, lede, image, center = true }) => (
   <header css={styles.header}>
     <h1
       onClick={() => {
+        Sentry.captureException(new Error('What the Fuck'))
         try {
           throw new Error('Fuck')
         } catch (err) {
