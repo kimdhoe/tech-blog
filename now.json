@@ -16,7 +16,8 @@
       "MAILCHIMP_ENDPOINT": "@mailchimp-endpoint",
       "CONTENTFUL_ACCESS_TOKEN": "@contentful-access-token",
       "CONTENTFUL_SPACE_ID": "@contentful-space-id",
-      "SENTRY_DSN": "@sentry-dsn"
+      "SENTRY_DSN": "@sentry-dsn",
+      "GATSBY_SENTRY_DSN": "@sentry-dsn"
     },
     "src": "package.json",
     "use": "@now/static-build"
