@@ -183,7 +183,7 @@ const styles = {
   `,
   nav: css`
     display: flex;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 
     @media only screen and (max-width: 1000px) {
       display: none;
@@ -219,7 +219,7 @@ const styles = {
     align-items: center;
     justify-content: center;
     outline: none;
-    margin: 0 0 0 0.5rem;
+    margin: 0.3rem 0 0 0.5rem;
     padding: 0;
     border: none;
     background: none;

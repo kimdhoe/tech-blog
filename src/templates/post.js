@@ -334,9 +334,19 @@ const styles = {
     position: fixed;
     z-index: -1;
     top: 15px;
-    left: 7rem;
-    right: 7rem;
+    left: 24rem;
+    right: 24rem;
     text-align: center;
+
+    @media only screen and (max-width: 1100px) {
+      left: 20rem;
+      right: 20rem;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      left: 7rem;
+      right: 7rem;
+    }
 
     .scrolled-a-bit & {
       z-index: 12;
