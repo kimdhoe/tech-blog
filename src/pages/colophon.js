@@ -17,7 +17,7 @@ export default () => {
     >
       <section css={styles.date}>
         <p css={styles.date}>
-          Updated at <time dateTime="2019-08-22">October 21, 2019</time>.
+          Updated at <time dateTime="2019-10-24">October 24, 2019</time>.
         </p>
       </section>
 
@@ -34,6 +34,11 @@ export default () => {
             The commenting system is implemented with{' '}
             <a href="https://staticman.net">Staticman</a>, whose instance is{' '}
             self-hosted on <a href="https://zeit.co/now">ZEIT Now</a>.
+          </li>
+          <li>
+            Some contents are sourced from{' '}
+            <a href="https://contentful.com">Contentful</a> and{' '}
+            <a href="https://forestry.io">Forestry</a>.
           </li>
           <li>
             The whole source code, articles and comments are hosted on{' '}
