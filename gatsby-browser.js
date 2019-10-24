@@ -3,22 +3,21 @@ import React from 'react'
 require('./static/styles/code-theme.css')
 require('typeface-noto-sans-kr')
 
-export const onClientEntry = (_, pluginParams) => {
-  // if (process.env.NODE_ENV === 'production') {
-    console.log(process.env.GATSBY_SENTRY_DSN)
+export const onClientEntry = () => {
+  if (process.env.NODE_ENV === 'production') {
     Sentry.init({
       dsn: process.env.GATSBY_SENTRY_DSN,
     })
-  // }
+  }
 }
 
-// export const wrapRootElement = ({ element }) => {
-//   if (process.env.NODE_ENV !== 'production') {
-//     return element
-//   }
+export const wrapRootElement = ({ element }) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return element
+  }
 
-//   return <ErrorBoundary>{element}</ErrorBoundary>
-// }
+  return <ErrorBoundary>{element}</ErrorBoundary>
+}
 
 class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
