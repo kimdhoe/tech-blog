@@ -3,16 +3,16 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const SIDEBAR_WIDTH = 250
+const SIDEBAR_WIDTH = 220
 const NAV_ITEMS = [
-  { to: '/', label: 'Blog' },
+  { to: '/', label: 'Home (blog)' },
   { to: '/devlog/', label: 'Devlog' },
-  { to: '/crafts/', label: 'Crafts' },
   { to: '/journal/', label: 'Journal' },
+  { to: '/crafts/', label: 'Crafts' },
   { to: '/now/', label: 'Now' },
   { to: '/about/', label: 'About' },
-  { to: '/contact/', label: 'Contact' },
   { to: '/colophon/', label: 'Colophon' },
+  { to: '/contact/', label: 'Contact' },
 ]
 
 const variants = {
@@ -26,7 +26,7 @@ const variants = {
   },
   closed: {
     opacity: 1,
-    x: SIDEBAR_WIDTH + 'px',
+    x: SIDEBAR_WIDTH + 35 + 'px',
     transition: {
       type: 'tween',
       duration: 0.25,
@@ -34,7 +34,7 @@ const variants = {
   },
   exit: {
     opacity: 1,
-    x: SIDEBAR_WIDTH + 'px',
+    x: SIDEBAR_WIDTH + 35 + 'px',
     transition: {
       type: 'tween',
       duration: 0.25,
@@ -60,7 +60,7 @@ const variants3 = {
     }
   },
   closed: {
-    y: 30,
+    y: 20,
     opacity: 0,
     transition: {
       y: { stiffness: 1000 }
@@ -105,6 +105,7 @@ const MenuItem = ({ to, label, close }) => {
       <Link
         css={styles.listItemLink}
         to={to}
+        activeClassName="active"
         onClick={() => setTimeout(close)}
       >
         {label}
@@ -117,26 +118,39 @@ const styles = {
   container: css`
     position: fixed;
     z-index: 10;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    border-left: 1px solid var(--hr);
+    top: 55px;
+    right: 15px;
+    border-radius: 7px;
     width: 100%;
     max-width: ${SIDEBAR_WIDTH}px;
+    max-height: 500px;
     overflow: scroll;
     transition: background-color 0.1s ease-out;
     background-color: var(--bg);
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-medium);
   `,
   list: css`
-    margin-top: 5rem;
     flex: 1;
   `,
   listItem: css`
+    border-bottom: 1px solid var(--hr);
   `,
   listItemLink: css`
     display: block;
-    padding: 0.7rem 1.4rem;
+    padding: 1.1rem 1.4rem;
+    font-size: 0.95rem;
+    color: var(--text-auxiliary);
+    transition: all 0.15s ease-out;
+
+    :hover {
+      color: var(--text0);
+      background-color: var(--bg-accents);
+    }
+
+    &.active {
+      text-decoration: underline;
+      color: var(--text);
+    }
   `,
 }
 

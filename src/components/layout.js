@@ -90,6 +90,7 @@ const styles = {
       --bg0: white;
       --bg: #f4f7fb;
       --bg-trans: hsla(214, 47%, 97%, 0.7);
+      --bg-accents: hsl(215, 47%, 85%, 0.2);
       --bg1: #dee2e6;
       --bg2: #b6bfc8;
       --well: #f8f9fa;
@@ -119,6 +120,7 @@ const styles = {
       --bg0: black;
       --bg: #2b2836;
       --bg-trans: hsla(253, 15%, 18%, 0.7);
+      --bg-accents: hsl(251, 14%, 20%);
       --bg1: #3a3649;
       --bg2: #514c66;
       --well: #23212c;
