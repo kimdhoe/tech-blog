@@ -235,13 +235,13 @@ const styles = {
     }
   `,
   field: css`
-    margin: 0 0 0.1rem 0;
+    margin: 0 0 0.5rem 0;
   `,
   label: css`
     margin: 0 0 0.5rem 0;
   `,
   labelText: css`
-    font-size: 0.79rem;
+    font-size: 0.9rem;
     font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
       'Helvetica Neue', 'Arial', 'Noto Sans', 'Noto Sans', sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
@@ -254,14 +254,11 @@ const styles = {
   input: css`
     outline: none;
     padding: 0.6rem 0.7rem;
-    /* border: none; */
     border: 1px solid var(--hr);
-    /* border: 1px solid #e9ecef; */
-    border-radius: 3px;
+    border-radius: 5px;
     max-width: 300px;
     width: 100%;
     line-height: 1.6;
-    /* background: #e6e6e577; */
     background: var(--well);
     -webkit-appearance: none;
     transition: border-color 0.1s ease;
@@ -272,7 +269,7 @@ const styles = {
     }
 
     :focus {
-      /* border-color: #ced4da; */
+      border-color: var(--text);
     }
   `,
   inputError: css`
@@ -295,7 +292,7 @@ const styles = {
     margin: 0.2rem 0 0 0;
     height: 17px;
     color: #ff8787;
-    font-size: 0.79rem;
+    font-size: 0.9rem;
   `,
   message: css`
     line-height: 1.5;
@@ -313,7 +310,7 @@ const styles = {
     margin-top: 1rem;
     border: 1px solid var(--text);
     border-radius: 5px;
-    padding: 0.7rem 2.1rem;
+    padding: 0.7rem 3rem;
     background: none;
     font-size: 1rem;
     background-color: var(--text);
