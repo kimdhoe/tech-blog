@@ -31,8 +31,7 @@ const Image = ({ imageFluid, alt }) => (
 )
 
 const styles = {
-  header: css`
-  `,
+  header: css``,
   heading: css`
     margin: 0 0 1.5rem 0;
     padding-top: 1rem;

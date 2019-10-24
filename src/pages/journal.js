@@ -37,10 +37,7 @@ const Entry = ({ slug, title, date, dateFormatted, fluid }) => (
   <EntryContainer to={'/journal/' + slug + '/'}>
     <div css={styles.entryWrapper}>
       <div css={styles.entryImageContainer}>
-        <BackgroundImage
-          fluid={fluid}
-          style={{ height: '100%' }}
-        />
+        <BackgroundImage fluid={fluid} style={{ height: '100%' }} />
       </div>
       <div css={styles.entryLayer}>
         <h4 css={styles.entryInfo}>
