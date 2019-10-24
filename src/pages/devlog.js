@@ -169,9 +169,8 @@ const styles = {
     position: fixed;
     z-index: -1;
     top: 11px;
-    left: 7rem;
-    right: 7rem;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
 
     .scrolled-a-bit & {
       z-index: 12;
