@@ -559,7 +559,7 @@ const styles = {
       margin-bottom: 0.5rem;
       text-align: left;
       font-size: 0.8rem;
-      font-family: Fira Code;
+      font-family: 'Fira Code', 'Consolas', 'Menlo', 'Monaco', 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New', 'Courier', monospace;
       color: var(--text-auxiliary);
     }
   `,

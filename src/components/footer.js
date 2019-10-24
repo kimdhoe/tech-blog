@@ -42,6 +42,7 @@ const Footer = ({ author }) => {
               { label: 'Now', url: '/now/' },
               { label: 'About', url: '/about/' },
               { label: 'Crafts', url: '/crafts/' },
+              { label: 'Contact', url: '/contact/' },
               { label: 'Colophon', url: '/colophon/' },
             ]}
           />
