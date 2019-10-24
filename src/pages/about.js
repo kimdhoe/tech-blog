@@ -98,7 +98,12 @@ export default () => {
 
 const StackItem = ({ name, url }) => (
   <li css={[styles.stackListItem]}>
-    <a css={styles.stackListItemLink} href={url} target="_blank">
+    <a
+      css={styles.stackListItemLink}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {name}
       <ExternalLink css={styles.linkIcon} size={15} />
     </a>
