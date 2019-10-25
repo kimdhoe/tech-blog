@@ -1,10 +1,13 @@
 const Sentry = require('@sentry/browser')
 const React = require('react')
 
-const onClientEntry = () => {
+const onClientEntry = (_, pluginOptions) => {
+  console.log(pluginOptions)
   if (process.env.NODE_ENV === 'production') {
     Sentry.init({
       dsn: process.env.GATSBY_SENTRY_DSN,
+      release: pluginOptions.commitSha,
+      environment: process.env.NODE_ENV,
     })
   }
 }

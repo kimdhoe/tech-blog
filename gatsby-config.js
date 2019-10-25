@@ -17,7 +17,13 @@ module.exports = {
     githubBranch: process.env.GITHUB_BRANCH,
   },
   plugins: [
-    'gatsby-plugin-sentry',
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        test: 'TEST',
+        commitSha: process.env.NOW_GITHUB_COMMIT_SHA,
+      },
+    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-dark-mode',
     {
