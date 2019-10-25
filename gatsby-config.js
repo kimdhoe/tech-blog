@@ -17,6 +17,7 @@ module.exports = {
     githubBranch: process.env.GITHUB_BRANCH,
   },
   plugins: [
+    'gatsby-plugin-sentry',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-dark-mode',
     {
