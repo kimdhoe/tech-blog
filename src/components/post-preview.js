@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-const PostPreview = ({ post }) => (
+const PostPreview = ({ post, i }) => (
   <div css={styles.container}>
     <StyledLink css={styles.link} to={`/${post.slug}/`}>
       <Meta
