@@ -1,24 +1,10 @@
 import React from 'react'
 import GatsbyImage from 'gatsby-image'
 import { css } from '@emotion/core'
-import * as Sentry from '@sentry/browser'
 
 const PageHeader = ({ headline, lede, image, center = true }) => (
   <header css={styles.header}>
-    <h1
-      onClick={() => {
-        throw new Error('OK')
-        try {
-          throw new Error('Fuck')
-        } catch (err) {
-          console.log(err)
-          Sentry.captureException(err)
-        }
-      }}
-      css={[styles.heading, center && styles.center]}
-    >
-      {headline}
-    </h1>
+    <h1 css={[styles.heading, center && styles.center]}>{headline}</h1>
     <h2 css={[styles.subheading, center && styles.center]}>{lede}</h2>
     {image && <Image imageFluid={image} alt={lede} />}
   </header>

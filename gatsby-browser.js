@@ -21,7 +21,6 @@ export const wrapRootElement = ({ element }) => {
 
 class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
-    console.log('info', errorInfo)
     Sentry.withScope(scope => {
       scope.setExtras(errorInfo)
       Sentry.captureException(error)
