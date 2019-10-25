@@ -20,7 +20,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sentry',
       options: {
-        test: 'TEST',
         commitSha: process.env.NOW_GITHUB_COMMIT_SHA,
       },
     },

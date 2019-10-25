@@ -4,14 +4,7 @@ import { css } from '@emotion/core'
 
 const PageHeader = ({ headline, lede, image, center = true }) => (
   <header css={styles.header}>
-    <h1
-      onClick={() => {
-        throw new Error('123')
-      }}
-      css={[styles.heading, center && styles.center]}
-    >
-      {headline}
-    </h1>
+    <h1 css={[styles.heading, center && styles.center]}>{headline}</h1>
     <h2 css={[styles.subheading, center && styles.center]}>{lede}</h2>
     {image && <Image imageFluid={image} alt={lede} />}
   </header>
