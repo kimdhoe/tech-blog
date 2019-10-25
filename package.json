@@ -30,6 +30,8 @@
     "gatsby-plugin-react-helmet-canonical-urls": "^1.2.0",
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-plugin-sitemap": "^2.2.6",
+    "gatsby-plugin-tslint": "0.0.2",
+    "gatsby-plugin-typescript": "^2.1.15",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-remark-images": "^3.1.7",
     "gatsby-remark-prismjs": "^3.3.4",
@@ -52,8 +54,19 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
     "gatsby-remark-code-titles": "^1.1.0",
-    "prettier": "^1.18.2"
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
   },
   "keywords": [
     "dhk",
@@ -64,9 +77,11 @@
   ],
   "license": "MIT",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "format-ts": "prettier --write src/**/*.{ts,tsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "analyze": "ANALYZE_BUNDLE_SIZE=true gatsby build",
@@ -79,5 +94,16 @@
   },
   "bugs": {
     "url": "https://github.com/kimdhoe/tech-blog/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

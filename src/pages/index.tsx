@@ -6,6 +6,8 @@ import usePosts from '../hooks/use-posts'
 import PostPreview from '../components/post-preview'
 import { PageHeader } from '../components/page-header'
 
+const x: string = 1
+
 const IndexPage = () => {
   const { posts, featured, report } = usePosts()
 

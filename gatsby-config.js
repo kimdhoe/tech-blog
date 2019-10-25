@@ -17,6 +17,7 @@ module.exports = {
     githubBranch: process.env.GITHUB_BRANCH,
   },
   plugins: [
+    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-sentry',
       options: {
