@@ -36,7 +36,7 @@ const Posts = ({ posts }) => (
   </div>
 )
 
-const FeaturedPosts = ({ posts, report }) => (
+const FeaturedPosts = ({ posts }) => (
   <div css={styles.featured}>
     <h2 css={styles.featuredHeading}>Featured Posts</h2>
     <ul css={styles.featuredList}>
@@ -44,18 +44,6 @@ const FeaturedPosts = ({ posts, report }) => (
         <FeaturedPost key={post.slug} slug={post.slug} title={post.title} />
       ))}
     </ul>
-    {!!report && (
-      <>
-        <h2 css={styles.featuredHeading}>Signs of Progress</h2>
-        <ul css={styles.featuredList}>
-          <FeaturedPost
-            key={report.slug}
-            slug={report.slug}
-            title={report.dateFormatted}
-          />
-        </ul>
-      </>
-    )}
   </div>
 )
 
@@ -102,8 +90,6 @@ const styles = {
   featured: css`
     position: sticky;
     top: 80px;
-    overflow-y: auto;
-    height: calc(100vh - 5rem);
   `,
   featuredHeading: css`
     margin-bottom: 1.5rem;
@@ -116,8 +102,8 @@ const styles = {
     list-style: none;
   `,
   featuredListItem: css`
-    margin-bottom: 0.7rem;
-    padding-bottom: 0.7rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
     border-bottom: 1px solid var(--hr);
     white-space: nowrap;
     overflow: hidden;
