@@ -122,10 +122,12 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'josephk.io',
+        /* eslint-disable @typescript-eslint/camelcase */
         short_name: 'josephk',
         start_url: '/',
         background_color: '#29C785',
         theme_color: '#29C785',
+        /* eslint-enable @typescript-eslint/camelcase */
         display: 'minimal-ui',
         icon: 'static/images/profile-black.svg', // This path is relative to the root of the site.
       },

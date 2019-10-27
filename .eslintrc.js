@@ -33,7 +33,8 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'error',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-use-before-define': 'off'
   },
   overrides: [],
 }
