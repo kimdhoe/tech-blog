@@ -525,7 +525,7 @@ const styles = {
     h4,
     h5 {
       margin: 2.75rem 0 1.602rem 0;
-      line-height: 1.15;
+      line-height: 1.6;
       font-weight: 400;
     }
 
