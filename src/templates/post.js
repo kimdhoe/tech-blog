@@ -375,7 +375,7 @@ const styles = {
   deck: css`
     margin: 0.95rem 0 0;
     padding: 0 0.1rem;
-    line-height: 1.75;
+    line-height: 1.9;
     font-size: 1.2rem;
 
     @media only screen and (max-width: 600px) {

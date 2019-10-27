@@ -67,7 +67,7 @@ const styles = {
   `,
   deck: css`
     margin: 0;
-    line-height: 1.9;
+    line-height: 2;
     font-size: 0.9rem;
   `,
   meta: css`
