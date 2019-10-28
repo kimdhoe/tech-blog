@@ -31,6 +31,7 @@ fields:
 pages:
 - devlogs/2019-10-26/josephk-io-with-typescript.mdx
 - devlogs/2019-10-25/configured-sentry.mdx
+- devlogs/2019-10-28/convert-js-to-ts.mdx
 - devlogs/2019-10-10/forestry-cms.mdx
 - devlogs/2019-10-16/facebook-login.mdx
 - devlogs/2019-10-17/facebook-login.mdx
