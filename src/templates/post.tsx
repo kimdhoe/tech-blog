@@ -6,20 +6,93 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { css, keyframes } from '@emotion/core'
 import Image from 'gatsby-image'
 
+import { GatsbyImageSharpFluidWithWebp } from '../types'
 import useSiteMetadata from '../hooks/use-sitemetadata'
 import usePost from '../hooks/use-post'
 import Thread from '../components/thread'
 import { SEO } from '../components/seo'
 import Share from '../components/share'
 
-const PostTemplate = ({
+interface Props {
   data: {
     post: {
-      childMdx: { frontmatter, body },
-    },
-    comments: { edges },
-  },
+      childMdx: {
+        frontmatter: {
+          title: string
+          slug: string
+          category: string
+          author: string
+          date: string
+          dateFormatted: string
+          updateDate: string
+          image: {
+            childImageSharp: {
+              fluid: GatsbyImageSharpFluidWithWebp
+            }
+          }
+          deck?: string
+          abstract?: string
+          epigraph?: string
+          epigraphAuthor?: string
+          imageAlt?: string
+          hideHeroImage?: boolean
+        }
+        body: string
+      }
+    }
+    comments: {
+      edges: Array<{
+        node: {
+          id: string
+          name: string
+          email: string
+          message: string
+          slug: string
+          date: string
+          dateFormatted: string
+        }
+      }>
+    }
+  }
+}
+
+interface SeoProps {
+  slug: string
+  siteUrl: string
+  author: string
+  title: string
+  date: string
+  updateDate: string
+  imageSrc?: string
+  deck?: string
+  abstract?: string
+}
+
+interface ArticleProps {
+  siteUrl: string
+  slug: string
+  category: string
+  headline: string
+  body: string
+  date: string
+  dateFormatted: string
+  image: {
+    childImageSharp: {
+      fluid: GatsbyImageSharpFluidWithWebp
+    }
+  }
+  deck?: string
+  abstract?: string
+  epigraph?: string
+  epigraphAuthor?: string
+  imageAlt?: string
+  hideHeroImage?: boolean
+}
+
+const PostTemplate: React.FunctionComponent<Props> = ({
+  data: { post, comments },
 }) => {
+  const { frontmatter, body } = post.childMdx
   const { author, siteUrl } = useSiteMetadata()
   const { noCommentsImage } = usePost()
   const imageSrc = frontmatter.image
@@ -57,13 +130,13 @@ const PostTemplate = ({
       <Thread
         noCommentsImage={noCommentsImage}
         slug={frontmatter.slug}
-        messages={edges.map(edge => edge.node)}
+        messages={comments.edges.map(edge => edge.node)}
       />
     </div>
   )
 }
 
-const Seo = ({
+const Seo: React.FunctionComponent<SeoProps> = ({
   imageSrc,
   siteUrl,
   author,
@@ -77,9 +150,9 @@ const Seo = ({
   <SEO
     title={title}
     description={deck || abstract}
-    meta={[
-      !!imageSrc && { property: 'og:image', content: siteUrl + imageSrc },
-    ].filter(Boolean)}
+    meta={
+      imageSrc ? [{ property: 'og:image', content: siteUrl + imageSrc }] : []
+    }
   >
     <script type="application/ld+json">{`
       {
@@ -111,10 +184,36 @@ const Seo = ({
   </SEO>
 )
 
-const Newsletter = () => {
+const Newsletter: React.FunctionComponent = () => {
   const [status, setStatus] = useState('default')
   const [email, setEmail] = useState('')
-  const inputRef = useRef()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault()
+
+    if (!inputRef.current) return
+
+    const email = inputRef.current.value
+    if (!validator.isEmail(email.trim())) {
+      setStatus('error')
+      inputRef.current.focus()
+      return
+    }
+    try {
+      await addToMailchimp(email)
+      setStatus('success')
+    } catch (err) {
+      setStatus('error')
+      inputRef.current.focus()
+    }
+  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setEmail(e.target.value)
+    setStatus('default')
+  }
+
   return (
     <div css={styles.newsletterContainer}>
       <div
@@ -126,43 +225,20 @@ const Newsletter = () => {
         {status === 'success' ? (
           <p css={styles.successMessage}>Thanks. TTYS.</p>
         ) : (
-          <form
-            onSubmit={async e => {
-              e.preventDefault()
-              const email = inputRef.current.value
-              if (!validator.isEmail(email.trim())) {
-                setStatus('error')
-                inputRef.current.focus()
-                return
-              }
-              try {
-                await addToMailchimp(email)
-                setStatus('success')
-              } catch (err) {
-                setStatus('error')
-                inputRef.current.focus()
-              }
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <p css={styles.newsletterHeader}>Join the Newsletter</p>
             <p>I will send you only good things.</p>
             <label css={styles.hidden} htmlFor="newsletter-email">
               Email
             </label>
             <input
-              css={[
-                styles.newsletterInput,
-                status === 'error' && styles.newsletterInputError,
-              ]}
+              css={[styles.newsletterInput]}
+              ref={inputRef}
               id="newsletter-email"
               placeholder="jane@example.com"
-              ref={inputRef}
               type="email"
               value={email}
-              onChange={e => {
-                setEmail(e.target.value)
-                setStatus('default')
-              }}
+              onChange={handleChange}
             />
             <button css={styles.newsletterButton} type="submit">
               Subscribe
@@ -174,7 +250,7 @@ const Newsletter = () => {
   )
 }
 
-const Article = ({
+const Article: React.FunctionComponent<ArticleProps> = ({
   siteUrl,
   slug,
   category,
@@ -190,14 +266,13 @@ const Article = ({
   date,
   dateFormatted,
 }) => (
-  <article css={styles.article}>
+  <article>
     <div css={styles.hero}>
       <Header category={category} headline={headline} deck={deck} />
 
       {image && !hideHeroImage && (
         <div css={styles.heroImageWrapper}>
           <Image
-            css={styles.heroImage}
             loading="eager"
             alt={imageAlt}
             fluid={image.childImageSharp.fluid}
@@ -208,7 +283,9 @@ const Article = ({
       {abstract && <Abstract text={abstract} />}
     </div>
 
-    {epigraph && <Epigraph text={epigraph} author={epigraphAuthor} />}
+    {epigraph && epigraphAuthor && (
+      <Epigraph text={epigraph} author={epigraphAuthor} />
+    )}
 
     <Meta
       siteUrl={siteUrl}
@@ -225,16 +302,16 @@ const Article = ({
   </article>
 )
 
-const Header = ({ category, headline, deck }) => {
+const Header: React.FunctionComponent<{
+  category: string
+  headline: string
+  deck?: string
+}> = ({ category, headline, deck }) => {
   return (
     <header css={styles.header}>
       {category && <p css={styles.category}>{category}</p>}
       <h2 css={styles.headline}>{headline}</h2>
-      {deck && (
-        <section css={styles.deck}>
-          <span css={[styles.deckText, styles.mozHack]}>{deck}</span>
-        </section>
-      )}
+      {deck && <section css={styles.deck}>{deck}</section>}
       <div css={styles.titleWrapper}>
         <p css={styles.title}>{headline}</p>
       </div>
@@ -242,20 +319,30 @@ const Header = ({ category, headline, deck }) => {
   )
 }
 
-const Abstract = ({ text }) => (
+const Abstract: React.FunctionComponent<{ text: string }> = ({ text }) => (
   <section css={styles.abstract}>
     <p css={styles.abstractText}>{text}</p>
   </section>
 )
 
-const Epigraph = ({ text, author }) => (
+const Epigraph: React.FunctionComponent<{ text: string; author: string }> = ({
+  text,
+  author,
+}) => (
   <section css={styles.epigraph}>
     <p css={styles.epigraphText}>{text}</p>
     {author && <p css={styles.epigraphAuthor}>{author}</p>}
   </section>
 )
 
-const Meta = ({ siteUrl, headline, deck, date, dateFormatted, slug }) => {
+const Meta: React.FunctionComponent<{
+  siteUrl: string
+  headline: string
+  date: string
+  dateFormatted: string
+  slug: string
+  deck?: string
+}> = ({ siteUrl, headline, deck, date, dateFormatted, slug }) => {
   const url = `${siteUrl}/${slug}/`
   const body = headline + '%0A%0A' + deck + '%0A%0A' + url
 
@@ -269,13 +356,13 @@ const Meta = ({ siteUrl, headline, deck, date, dateFormatted, slug }) => {
   )
 }
 
-const Body = ({ body }) => (
+const Body: React.FunctionComponent<{ body: string }> = ({ body }) => (
   <div css={styles.body}>
     <MDXRenderer>{body}</MDXRenderer>
   </div>
 )
 
-const Footer = () => (
+const Footer: React.FunctionComponent = () => (
   <footer css={styles.footer}>{/* TODO: Move all posts link here? */}</footer>
 )
 
@@ -306,7 +393,6 @@ const styles = {
     padding: 0 1rem;
     max-width: 800px;
   `,
-  heroImage: css``,
   header: css`
     margin: 0 auto;
     padding: 0 1rem;
@@ -382,7 +468,6 @@ const styles = {
       font-size: 1.05rem;
     }
   `,
-  deckText: css``,
   abstract: css`
     margin: 3.5rem auto 0;
     padding: 0 1rem;
@@ -598,7 +683,6 @@ const styles = {
       display: 'block',
     },
   },
-  wrapper: {},
   newsletterContainer: css`
     margin: 7rem auto 0;
     padding: 0 1rem;

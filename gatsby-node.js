@@ -7,10 +7,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   postEdges.forEach(edge => {
     actions.createPage({
       path: edge.node.childMdx.frontmatter.slug + '/',
-      component: `${__dirname}/src/templates/post.js`,
+      component: `${__dirname}/src/templates/post.tsx`,
       context: {
-        slug: `${edge.node.childMdx.frontmatter.slug}`
-      }
+        slug: `${edge.node.childMdx.frontmatter.slug}`,
+      },
     })
   })
   journalSlugs.forEach(slug => {
@@ -24,7 +24,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 }
 
-async function getPostData (graphql, reporter) {
+async function getPostData(graphql, reporter) {
   const postsResult = await graphql(`
     query {
       allFile(
@@ -53,7 +53,7 @@ async function getPostData (graphql, reporter) {
   return postsResult.data.allFile.edges
 }
 
-async function getJournalData (graphql, reporter) {
+async function getJournalData(graphql, reporter) {
   const journalResult = await graphql(`
     query {
       allContentfulJournal {
