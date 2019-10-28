@@ -44,10 +44,10 @@ const variants = {
 
 const variants2 = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0 }
+    transition: { staggerChildren: 0.07, delayChildren: 0 },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 }
 
@@ -56,17 +56,17 @@ const variants3 = {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 }
-    }
+      y: { stiffness: 1000, velocity: -100 },
+    },
   },
   closed: {
     y: 20,
     opacity: 0,
     transition: {
-      y: { stiffness: 1000 }
-    }
+      y: { stiffness: 1000 },
+    },
   },
-};
+}
 
 const MobileMenu = ({ visible, close }) => {
   return (
@@ -82,7 +82,12 @@ const MobileMenu = ({ visible, close }) => {
           <div style={{ overflow: 'scroll' }}>
             <motion.div css={styles.list} key="a" variants={variants2}>
               {NAV_ITEMS.map(item => (
-                <MenuItem key={item.to} to={item.to} label={item.label} close={close} />
+                <MenuItem
+                  key={item.to}
+                  to={item.to}
+                  label={item.label}
+                  close={close}
+                />
               ))}
             </motion.div>
           </div>
@@ -99,7 +104,7 @@ const MenuItem = ({ to, label, close }) => {
       key={to + label}
       variants={variants3}
       // whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
+      // whileTap={{ scale: 0.95 }}
       exit={{ opacity: 0 }}
     >
       <Link
@@ -111,8 +116,8 @@ const MenuItem = ({ to, label, close }) => {
         {label}
       </Link>
     </motion.div>
-  );
-};
+  )
+}
 
 const styles = {
   container: css`
