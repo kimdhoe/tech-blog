@@ -1,7 +1,8 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const [postEdges, journalSlugs] = await Promise.all([
+  const [postEdges, journalSlugs, topicLogSlugs] = await Promise.all([
     getPostData(graphql, reporter),
     getJournalData(graphql, reporter),
+    getTopicLog(graphql, reporter),
   ])
 
   postEdges.forEach(edge => {
@@ -17,6 +18,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     actions.createPage({
       path: `/journal/${slug}/`,
       component: `${__dirname}/src/templates/journal.js`,
+      context: {
+        slug,
+      },
+    })
+  })
+  topicLogSlugs.forEach(slug => {
+    actions.createPage({
+      path: `/topiclog/${slug}/`,
+      component: `${__dirname}/src/templates/topiclog.tsx`,
       context: {
         slug,
       },
@@ -69,4 +79,22 @@ async function getJournalData(graphql, reporter) {
   }
 
   return journalResult.data.allContentfulJournal.nodes.map(node => node.slug)
+}
+
+async function getTopicLog(graphql, reporter) {
+  const topicLogResult = await graphql(`
+    query {
+      allContentfulTopicLog {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  if (topicLogResult.errors) {
+    reporter.panic('failed to create topic log', topicLogResult.errors)
+  }
+
+  return topicLogResult.data.allContentfulTopicLog.nodes.map(node => node.slug)
 }

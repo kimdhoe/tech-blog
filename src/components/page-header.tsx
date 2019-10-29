@@ -2,7 +2,26 @@ import React from 'react'
 import GatsbyImage from 'gatsby-image'
 import { css } from '@emotion/core'
 
-const PageHeader = ({ headline, lede, image, center = true }) => (
+import { GatsbyImageSharpFluidWithWebp } from '../types'
+
+interface Props {
+  headline: string
+  image?: GatsbyImageSharpFluidWithWebp
+  lede?: string
+  center?: boolean
+}
+
+interface ImageProps {
+  imageFluid: GatsbyImageSharpFluidWithWebp
+  alt?: string
+}
+
+const PageHeader: React.FunctionComponent<Props> = ({
+  headline,
+  lede,
+  image,
+  center = true,
+}) => (
   <header css={styles.header}>
     <h1 css={[styles.heading, center && styles.center]}>{headline}</h1>
     <h2 css={[styles.subheading, center && styles.center]}>{lede}</h2>
@@ -10,7 +29,7 @@ const PageHeader = ({ headline, lede, image, center = true }) => (
   </header>
 )
 
-const Image = ({ imageFluid, alt }) => (
+const Image: React.FunctionComponent<ImageProps> = ({ imageFluid, alt }) => (
   <div
     css={css`
       position: relative;

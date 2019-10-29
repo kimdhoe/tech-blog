@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const SIDEBAR_WIDTH = 220
 const NAV_ITEMS = [
-  { to: '/', label: 'Blog' },
-  { to: '/devlog/', label: 'Devlog' },
+  { to: '/', label: 'Articles' },
+  { to: '/devlog/', label: 'Dev Log' },
+  { to: '/topiclog/', label: 'Topic Log' },
   { to: '/journal/', label: 'Journal' },
   { to: '/crafts/', label: 'Crafts' },
   { to: '/now/', label: 'Now' },
