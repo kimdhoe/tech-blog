@@ -6,15 +6,13 @@ import usePosts from '../hooks/use-posts'
 import PostPreview from '../components/post-preview'
 import { PageHeader } from '../components/page-header'
 
-const x: string = 1
-
 const IndexPage = () => {
   const { posts, featured, report } = usePosts()
 
   return (
     <div css={styles.container}>
       <div css={styles.header}>
-        <PageHeader headline="Blog" center={false} />
+        <PageHeader headline="Articles" center={false} />
       </div>
 
       <div css={styles.wrapper}>
@@ -40,7 +38,7 @@ const Posts = ({ posts }) => (
 
 const FeaturedPosts = ({ posts, report }) => (
   <div css={styles.featured}>
-    <h2 css={styles.featuredHeading}>Featured Posts</h2>
+    <h2 css={styles.featuredHeading}>Featured</h2>
     <ul css={styles.featuredList}>
       {posts.map(post => (
         <FeaturedPost key={post.slug} slug={post.slug} title={post.title} />

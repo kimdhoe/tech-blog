@@ -54,6 +54,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "@types/react-helmet": "^5.0.13",
     "@types/validator": "^10.11.3",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",

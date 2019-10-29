@@ -39,16 +39,16 @@ const MobileHeader = ({ title, theme, onToggle }) => {
         <div css={styles.buttonWrapper}>
           <nav css={styles.nav}>
             <Link css={styles.navLink} to="/" activeClassName="active">
-              Blog
+              Articles
             </Link>
             <Link css={styles.navLink} to="/devlog/" activeClassName="active">
-              Devlog
+              Dev
+            </Link>
+            <Link css={styles.navLink} to="/topiclog/" activeClassName="active">
+              Topic
             </Link>
             <Link css={styles.navLink} to="/about/" activeClassName="active">
               About
-            </Link>
-            <Link css={styles.navLink} to="/contact/" activeClassName="active">
-              Contact
             </Link>
           </nav>
           <DarkModeButton {...{ theme, onToggle }} />
