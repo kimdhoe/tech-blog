@@ -35,7 +35,7 @@ const useTopicLog = (): {
       }
       image: file(
         sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "eastwood-downloading.png" }
+        relativePath: { eq: "eastwood-waiting.png" }
       ) {
         childImageSharp {
           fluid(maxWidth: 1500) {
