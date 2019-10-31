@@ -30,7 +30,8 @@ const Footer = ({ author }) => {
           <LinkList
             items={[
               { label: 'Blog', url: '/' },
-              { label: 'Devlog', url: '/devlog/' },
+              { label: 'Dev Log', url: '/devlog/' },
+              { label: 'Topic Log', url: '/topiclog/' },
               { label: 'Journal', url: '/journal/' },
             ]}
           />
