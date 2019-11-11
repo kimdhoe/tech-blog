@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import useColophon from '../hooks/use-colophon'
 import { Page } from '../components/page'
 
-export default () => {
+const ColophonPage: React.FunctionComponent = () => {
   const { image } = useColophon()
 
   return (
@@ -107,3 +107,5 @@ const styles = {
     color: #888;
   `,
 }
+
+export default ColophonPage
