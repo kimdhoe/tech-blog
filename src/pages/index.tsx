@@ -2,11 +2,24 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 
+import { PostPreview } from '../types'
 import usePosts from '../hooks/use-posts'
-import PostPreview from '../components/post-preview'
+import PostPreviewComp from '../components/post-preview'
 import { PageHeader } from '../components/page-header'
 
-const IndexPage = () => {
+interface PostsProps {
+  posts: PostPreview[]
+}
+
+interface FeaturedPostsProps {
+  posts: PostPreview[]
+  report: {
+    slug: string
+    dateFormatted: string
+  }
+}
+
+const IndexPage: React.FunctionComponent = () => {
   const { posts, featured, report } = usePosts()
 
   return (
@@ -28,15 +41,18 @@ const IndexPage = () => {
   )
 }
 
-const Posts = ({ posts }) => (
+const Posts: React.FunctionComponent<PostsProps> = ({ posts }) => (
   <div css={styles.postPreviews}>
     {posts.map(post => (
-      <PostPreview key={post.slug} post={post} />
+      <PostPreviewComp key={post.slug} post={post} />
     ))}
   </div>
 )
 
-const FeaturedPosts = ({ posts, report }) => (
+const FeaturedPosts: React.FunctionComponent<FeaturedPostsProps> = ({
+  posts,
+  report,
+}) => (
   <div css={styles.featured}>
     <h2 css={styles.featuredHeading}>Featured</h2>
     <ul css={styles.featuredList}>
@@ -59,7 +75,9 @@ const FeaturedPosts = ({ posts, report }) => (
   </div>
 )
 
-const FeaturedPost = ({ slug, title }) => (
+const FeaturedPost: React.FunctionComponent<
+  Pick<PostPreview, 'slug' | 'title'>
+> = ({ slug, title }) => (
   <li key={slug} css={styles.featuredListItem}>
     <Link css={styles.featuredListItemLink} to={`/${slug}/`}>
       {title}

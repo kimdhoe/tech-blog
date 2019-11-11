@@ -7,3 +7,12 @@ export interface GatsbyImageSharpFluidWithWebp {
   srcSetWebp: string
   srcWebp: string
 }
+
+export interface PostPreview {
+  slug: string
+  title: string
+  category: string
+  date: string
+  dateFormatted: string
+  deck?: string
+}

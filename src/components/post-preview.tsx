@@ -3,40 +3,44 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-const PostPreview = ({ post }) => (
+import { PostPreview } from '../types'
+
+interface PostPreviewProps {
+  post: PostPreview
+}
+
+const PostPreviewComp: React.FunctionComponent<PostPreviewProps> = ({
+  post,
+}) => (
   <div css={styles.container}>
-    <StyledLink css={styles.link} to={`/${post.slug}/`}>
+    <PostPreviewLink to={`/${post.slug}/`}>
       <Meta
         category={post.category}
         date={post.date}
         dateFormatted={post.dateFormatted}
       />
-      <Title title={post.title} />
-      <Deck deck={post.deck} />
-    </StyledLink>
+      <h3 css={styles.title}>{post.title}</h3>
+      {post.deck ? <p css={styles.deck}>{post.deck}</p> : null}
+    </PostPreviewLink>
   </div>
 )
 
-const Meta = ({ category, date, dateFormatted }) => (
-  <p css={styles.meta}>
-    {category}
-    <DotSeparator />
-    <time dateTime={date}>{dateFormatted}</time>
-  </p>
-)
-
-const Title = ({ title }) => <h3 css={styles.title}>{title}</h3>
-
-const Deck = ({ deck }) => (!deck ? null : <p css={styles.deck}>{deck}</p>)
-
-const DotSeparator = () => <span css={styles.separator} />
-
-const StyledLink = styled(Link)`
+const PostPreviewLink = styled(Link)`
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem 0;
 `
+
+const Meta: React.FunctionComponent<
+  Pick<PostPreview, 'category' | 'date' | 'dateFormatted'>
+> = ({ category, date, dateFormatted }) => (
+  <p css={styles.meta}>
+    {category}
+    <span css={styles.separator} />
+    <time dateTime={date}>{dateFormatted}</time>
+  </p>
+)
 
 const styles = {
   container: css`
@@ -58,7 +62,7 @@ const styles = {
     text-decoration: none;
     transition: color 100ms ease-out;
 
-    ${StyledLink}:hover & {
+    ${PostPreviewLink}:hover & {
       text-decoration: underline;
     }
   `,
@@ -84,4 +88,4 @@ const styles = {
   `,
 }
 
-export default PostPreview
+export default PostPreviewComp
