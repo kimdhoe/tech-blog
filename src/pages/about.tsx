@@ -5,7 +5,12 @@ import { ExternalLink } from 'react-feather'
 import useAbout from '../hooks/use-about'
 import { Page } from '../components/page'
 
-export default () => {
+interface StackItemProps {
+  name: string
+  url: string
+}
+
+const AboutPage: React.FunctionComponent = () => {
   const { image } = useAbout()
 
   return (
@@ -32,7 +37,7 @@ export default () => {
           <h3>Why this site exists</h3>
           <p>
             I am, so to speak, a <em>self-taught</em> software engineer. Having
-            said that, I'm hesitant to describe myself as self-taught. The
+            said that, I&apos;m hesitant to describe myself as self-taught. The
             community around the art of building software is so supportive that
             I have always been able to learn from something or someone.
           </p>
@@ -45,7 +50,7 @@ export default () => {
           </p>
           <p>
             I open up my <em>thoughts</em>, my <em>findings</em>, or just{' '}
-            <em>what I'm doing</em>, by simply publishing them here, on the
+            <em>what I&apos;m doing</em>, by simply publishing them here, on the
             internet.
           </p>
         </section>
@@ -59,14 +64,14 @@ export default () => {
             become my major means of craftsmanship.
           </p>
           <p>
-            I have lived in <strong>Seoul, Korea</strong> since university. I'm
-            currently residing in Songpa District with my lovely wife{' '}
+            I have lived in <strong>Seoul, Korea</strong> since university.
+            I&apos;m currently residing in Songpa District with my lovely wife{' '}
             <i>Summer</i>.
           </p>
           <p>
-            When I'm away from the computer, I like to spend time with my wife
-            or read a book in a quiet place. I love <strong>coffee</strong> and
-            seldom drink liquor.
+            When I&apos;m away from the computer, I like to spend time with my
+            wife or read a book in a quiet place. I love <strong>coffee</strong>{' '}
+            and seldom drink liquor.
           </p>
         </section>
       </Page>
@@ -96,7 +101,7 @@ export default () => {
   )
 }
 
-const StackItem = ({ name, url }) => (
+const StackItem: React.FunctionComponent<StackItemProps> = ({ name, url }) => (
   <li css={[styles.stackListItem]}>
     <a
       css={styles.stackListItemLink}
@@ -167,3 +172,5 @@ const styles = {
     margin-left: 0.7rem;
   `,
 }
+
+export default AboutPage
