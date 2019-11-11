@@ -5,7 +5,7 @@ import use404 from '../hooks/use-404'
 import { SEO } from '../components/seo'
 import { Page } from '../components/page'
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FunctionComponent = () => {
   const { image } = use404()
 
   return (

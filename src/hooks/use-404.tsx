@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImageSharpFluidWithWebp } from '../types'
 
-const use404 = () => {
+const use404 = (): { image: GatsbyImageSharpFluidWithWebp | null } => {
   const data = useStaticQuery(graphql`
     query {
       image: file(

@@ -6,7 +6,7 @@ import { GatsbyImageSharpFluidWithWebp } from '../types'
 
 interface Props {
   headline: string
-  image?: GatsbyImageSharpFluidWithWebp
+  image?: GatsbyImageSharpFluidWithWebp | null
   lede?: string
   center?: boolean
 }

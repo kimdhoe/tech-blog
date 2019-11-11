@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { css } from '@emotion/core'
 
+import { GatsbyImageSharpFluidWithWebp } from '../../types'
 import { SEO } from '../seo'
 import { PageHeader } from '../page-header'
 
-const Page = ({ title, description, headline, lede, children, image }) => {
+interface Props {
+  title: string
+  description: string
+  headline: string
+  lede: string
+  image: GatsbyImageSharpFluidWithWebp | null
+  children?: ReactNode
+}
+
+const Page: React.FunctionComponent<Props> = ({
+  title,
+  description,
+  headline,
+  lede,
+  children,
+  image,
+}) => {
   return (
     <article css={styles.container}>
       <SEO title={title} description={description} />
       <PageHeader image={image} headline={headline} lede={lede} />
-      <div css={[styles.body, !!image && styles.noMarginTop]}>{children}</div>
+      {children && (
+        <div css={[styles.body, !!image && styles.noMarginTop]}>{children}</div>
+      )}
     </article>
   )
 }
