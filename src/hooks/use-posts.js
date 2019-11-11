@@ -19,7 +19,6 @@ const usePosts = () => {
                 category
                 date
                 dateFormatted: date(formatString: "MMM D, YYYY")
-                fromNow: date(fromNow: true)
                 slug
                 author
                 deck
@@ -52,7 +51,6 @@ const usePosts = () => {
       slug: frontmatter.slug,
       date: frontmatter.date,
       dateFormatted: frontmatter.dateFormatted,
-      fromNow: frontmatter.fromNow,
       image: frontmatter.image ? frontmatter.image.childImageSharp.fluid : null,
     })
   )

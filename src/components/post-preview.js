@@ -3,14 +3,13 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-const PostPreview = ({ post, i }) => (
+const PostPreview = ({ post }) => (
   <div css={styles.container}>
     <StyledLink css={styles.link} to={`/${post.slug}/`}>
       <Meta
         category={post.category}
         date={post.date}
         dateFormatted={post.dateFormatted}
-        fromNow={post.fromNow}
       />
       <Title title={post.title} />
       <Deck deck={post.deck} />
@@ -18,13 +17,11 @@ const PostPreview = ({ post, i }) => (
   </div>
 )
 
-const Meta = ({ category, date, dateFormatted, fromNow }) => (
+const Meta = ({ category, date, dateFormatted }) => (
   <p css={styles.meta}>
     {category}
     <DotSeparator />
     <time dateTime={date}>{dateFormatted}</time>
-    <DotSeparator />
-    {fromNow}
   </p>
 )
 
