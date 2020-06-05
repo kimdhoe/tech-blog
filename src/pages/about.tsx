@@ -19,12 +19,12 @@ const AboutPage: React.FunctionComponent = () => {
         headline="About"
         lede="josephk.io"
         title="About"
-        description="I am Joseph, web frontend developer. This website is a personal blog where I share my thoughts and life."
+        description="I am Donghee, web frontend developer. This website is a personal blog where I share my thoughts and life."
         image={image}
       >
         <section>
           <p>
-            I am Joseph, web front-end developer.{' '}
+            I am Donghee, web front-end developer.{' '}
             <span role="img" aria-label="waving hand">
               👋
             </span>
