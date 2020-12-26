@@ -22,6 +22,15 @@ const IndexPage: React.FunctionComponent = () => {
         </div>
 
         <aside css={styles.aside}>
+          <Link
+            css={css`
+              margin-bottom: 32px;
+            `}
+            to="https://www.notion.so/Lawfully-is-hiring-fdfa0bdaf6674de4bf81c480e6cc621e"
+          >
+            <span aria-hidden>✨</span> Lawfully is hiring{' '}
+            <span aria-hidden>✨</span>
+          </Link>
           <FeaturedPosts posts={featured} />
         </aside>
       </div>
