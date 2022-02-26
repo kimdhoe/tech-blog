@@ -41,7 +41,7 @@
     "gatsby-transformer-yaml": "^2.2.4",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
